@@ -118,8 +118,8 @@ header {
 .logo {
   font-family:"Inter",sans-serif;
   font-weight:900;
-  letter-spacing:1px;
-  font-size:21px;
+  letter-spacing:.5px;
+  font-size:clamp(13px,2vw,21px);
   direction:ltr;
   white-space:nowrap;
 }
@@ -248,7 +248,10 @@ body.dark .theme-switch .switch-knob {
 
 .menu-top strong {
   font-family:"Inter",sans-serif;
-  letter-spacing:1px;
+  letter-spacing:.5px;
+  font-size:17px;
+  white-space:nowrap;
+  direction:ltr;
 }
 
 .menu-links {
@@ -413,7 +416,7 @@ section {padding:75px 0;}
   font-size:15px;
 }
 
-/* Profile photo: 500 x 500 */
+/* Profile photo */
 
 .profile-photo {
   width:500px;
@@ -522,19 +525,7 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-.project-visual {
-  height:175px;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),
-    var(--surface2);
-  font-size:55px;
-  position:relative;
-  overflow:hidden;
-}
-
-/* Clickable project images */
+/* Both project images use exactly the same display area */
 
 .project-image-button {
   width:100%;
@@ -628,7 +619,7 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 12px 28px rgba(112,85,237,.32);
 }
 
-/* Already inside this project: disabled white pressed button */
+/* Already inside this project */
 
 .already-inside {
   display:flex;
@@ -846,8 +837,28 @@ footer strong {
 }
 
 @media(max-width:560px) {
-  .header-inner {height:67px;}
-  .logo {font-size:17px;}
+  .header-inner {
+    height:67px;
+    gap:8px;
+  }
+
+  .logo {
+    font-size:13px;
+    letter-spacing:0;
+  }
+
+  .header-actions {gap:6px;}
+
+  .icon-btn {
+    width:38px;
+    height:38px;
+  }
+
+  .lang-btn {
+    padding:8px 9px;
+    font-size:11px;
+  }
+
   .hero {min-height:auto;padding:85px 0 65px;}
   .hero h1 {font-size:43px;}
   .hero p {font-size:14px;}
@@ -899,7 +910,7 @@ footer strong {
 
 <header>
   <div class="container header-inner">
-    <a href="#home" class="logo">ANTONYOS<span>.</span></a>
+    <a href="#home" class="logo">ANTONYOS BOTROS<span>.</span></a>
 
     <div class="header-actions">
       <button class="lang-btn" id="languageBtn" type="button">English</button>
@@ -919,7 +930,7 @@ footer strong {
 
 <nav class="side-menu" id="sideMenu">
   <div class="menu-top">
-    <strong>ANTONYOS<span style="color:var(--primary)">.</span></strong>
+    <strong>ANTONYOS BOTROS<span style="color:var(--primary)">.</span></strong>
     <button class="icon-btn" id="closeMenu" type="button">✕</button>
   </div>
 
@@ -1104,9 +1115,9 @@ footer strong {
             type="button"
             disabled
             aria-disabled="true"
-            data-ar="انت انت داخل المشروع بالفعل"
+            data-ar="انت داخل المشروع بالفعل"
             data-en="You're already inside this project"
-          >انت انت داخل المشروع بالفعل</button>
+          >انت داخل المشروع بالفعل</button>
         </div>
       </article>
 
