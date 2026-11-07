@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -122,15 +123,28 @@ header {
   font-size:clamp(19px,2.5vw,29px);
   direction:ltr;
   white-space:nowrap;
+  transition:.3s;
+}
+
+.logo .logo-primary {
   background:linear-gradient(100deg,#7055ed,#08aeca,#7055ed);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
-  text-shadow:0 5px 25px rgba(112,85,237,.13);
-  transition:.3s;
+  -webkit-text-fill-color:transparent;
 }
 
-.logo span {
+.logo .logo-black {
+  color:#111111;
+  -webkit-text-fill-color:#111111;
+}
+
+body.dark .logo .logo-black {
+  color:#111111;
+  -webkit-text-fill-color:#111111;
+}
+
+.logo .logo-dot {
   color:#08aeca;
   -webkit-text-fill-color:#08aeca;
 }
@@ -492,8 +506,6 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-/* تكبير شعارات لغات البرمجة */
-
 .skill .symbol {
   width:76px;
   height:76px;
@@ -540,7 +552,7 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-/* صور المشروعين بنفس المقاس مع الحفاظ على الصورة كاملة */
+/* صور المشروعين */
 
 .project-image-button {
   width:100%;
@@ -557,8 +569,6 @@ body.english .profile-photo {
   position:relative;
   isolation:isolate;
 }
-
-/* خلفية ضبابية مأخوذة من نفس الصورة */
 
 .project-image-button::before {
   content:"";
@@ -710,6 +720,16 @@ body.english .project-body h3 {text-align:left;}
   object-fit:contain;
   border-radius:12px;
   box-shadow:0 15px 60px rgba(0,0,0,.5);
+}
+
+/* تكبير صورة الموقع بنفس حدود عرض صورة البوت */
+
+.image-viewer img.portfolio-view {
+  max-width:95vw;
+  max-height:90vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
 }
 
 .viewer-close {
@@ -934,6 +954,13 @@ footer strong {
     max-width:96vw;
     max-height:85vh;
   }
+
+  .image-viewer img.portfolio-view {
+    max-width:96vw;
+    max-height:85vh;
+    width:auto;
+    height:auto;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -952,7 +979,7 @@ footer strong {
 
 <header>
   <div class="container header-inner">
-    <a href="#home" class="logo">ANTONYOS BOTROS<span>.</span></a>
+    <a href="#home" class="logo"><span class="logo-primary">ANTONYOS</span> <span class="logo-black">BOTROS</span><span class="logo-dot">.</span></a>
 
     <div class="header-actions">
       <button class="lang-btn" id="languageBtn" type="button">English</button>
@@ -988,8 +1015,6 @@ footer strong {
 
 <main>
 
-<!-- Home -->
-
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
@@ -1020,8 +1045,6 @@ footer strong {
   </div>
 </section>
 
-<!-- About -->
-
 <section id="about">
   <div class="container">
 
@@ -1035,11 +1058,7 @@ footer strong {
 
     <div class="about-card reveal">
       <div>
-        <img
-          src="profile.jpg"
-          alt="ANTONYOS BOTROS"
-          class="profile-photo"
-        >
+        <img src="profile.jpg" alt="ANTONYOS BOTROS" class="profile-photo">
 
         <h3 style="margin-bottom:15px" data-ar="أهلًا، أنا انطونيوس بطرس" data-en="Hello, I'm Antonyos Botros">
           أهلًا، أنا انطونيوس بطرس
@@ -1080,8 +1099,6 @@ footer strong {
   </div>
 </section>
 
-<!-- Skills -->
-
 <section id="skills">
   <div class="container">
 
@@ -1095,7 +1112,6 @@ footer strong {
 
     <div class="skills-grid">
 
-      <!-- HTML5 -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="HTML5" role="img">
@@ -1108,7 +1124,6 @@ footer strong {
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
-      <!-- CSS3 -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="CSS3" role="img">
@@ -1121,7 +1136,6 @@ footer strong {
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
-      <!-- JavaScript -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="JavaScript" role="img">
@@ -1133,7 +1147,6 @@ footer strong {
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
-      <!-- Python -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="Python" role="img">
@@ -1149,8 +1162,6 @@ footer strong {
   </div>
 </section>
 
-<!-- Projects -->
-
 <section id="projects">
   <div class="container">
 
@@ -1164,15 +1175,13 @@ footer strong {
 
     <div class="projects-grid">
 
-      <!-- Personal website project -->
-
       <article class="project-card reveal">
 
         <button
           class="project-image-button"
           style="--project-image:url('portfolio.jpg')"
           type="button"
-          onclick="openImageViewer('portfolio.jpg')"
+          onclick="openImageViewer('portfolio.jpg', true)"
           aria-label="عرض صورة موقعي الشخصي بحجم الشاشة"
         >
           <img src="portfolio.jpg" alt="ANTONYOS PORTFOLIO Website">
@@ -1200,8 +1209,6 @@ footer strong {
           >انت داخل المشروع بالفعل</button>
         </div>
       </article>
-
-      <!-- AccountX project -->
 
       <article class="project-card reveal">
 
@@ -1242,8 +1249,6 @@ footer strong {
   </div>
 </section>
 
-<!-- Education -->
-
 <section id="education">
   <div class="container">
 
@@ -1269,8 +1274,6 @@ footer strong {
   </div>
 </section>
 
-<!-- Contact -->
-
 <section id="contact">
   <div class="container">
 
@@ -1293,8 +1296,6 @@ footer strong {
 
       <div class="contact-links">
 
-        <!-- WhatsApp -->
-
         <a
           class="contact-link whatsapp-link"
           href="https://wa.me/201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
@@ -1307,8 +1308,6 @@ footer strong {
 
           <span data-ar="تواصل معنا عبر واتساب" data-en="Contact Us via WhatsApp">تواصل معنا عبر واتساب</span>
         </a>
-
-        <!-- Telegram -->
 
         <a
           class="contact-link telegram-link"
@@ -1339,8 +1338,6 @@ footer strong {
     </p>
   </div>
 </footer>
-
-<!-- Full-screen project image viewer -->
 
 <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)" aria-hidden="true">
   <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
@@ -1413,8 +1410,12 @@ document.querySelectorAll(".menu-links a").forEach(link => {
 const imageViewer = document.getElementById("imageViewer");
 const viewerImage = document.getElementById("viewerImage");
 
-function openImageViewer(imageSource) {
+function openImageViewer(imageSource, isPortfolio = false) {
   viewerImage.src = imageSource;
+
+  /* تطبيق إعدادات صورة الموقع فقط */
+  viewerImage.classList.toggle("portfolio-view", isPortfolio);
+
   imageViewer.classList.add("show");
   imageViewer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -1428,6 +1429,7 @@ function closeImageViewer(event) {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
+    viewerImage.classList.remove("portfolio-view");
     document.body.style.overflow = "";
   }
 }
@@ -1439,6 +1441,7 @@ document.addEventListener("keydown", event => {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
+    viewerImage.classList.remove("portfolio-view");
     document.body.style.overflow = "";
   }
 });
@@ -1465,4 +1468,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
-  </html>
+</html>
