@@ -7,7 +7,10 @@
 <meta name="theme-color" content="#f6f7fb">
 <meta name="description" content="ANTONYOS BOTROS — Personal Portfolio. مهتم بالتكنولوجيا والبرمجة وتطوير المشروعات الرقمية.">
 <meta name="author" content="ANTONYOS BOTROS">
+
+<!-- Google Search Console Verification: KEEP THIS TAG -->
 <meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g">
+
 <title>ANTONYOS BOTROS | Personal Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -635,6 +638,47 @@ body.english .timeline-item {
   color:var(--muted);
 }
 
+/* WhatsApp contact button */
+.whatsapp-card {
+  text-align:center;
+  padding:35px 25px;
+}
+
+.whatsapp-link {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  width:100%;
+  max-width:440px;
+  margin:25px auto 0;
+  padding:17px 22px;
+  border-radius:16px;
+  color:#fff;
+  background:linear-gradient(120deg,#128c4a,#20bd68);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 10px 30px rgba(32,189,104,.20);
+  font-weight:800;
+  transition:.25s;
+}
+
+.whatsapp-link:hover {
+  transform:translateY(-4px);
+  box-shadow:0 14px 35px rgba(32,189,104,.30);
+}
+
+.whatsapp-icon {
+  width:32px;
+  height:32px;
+  flex-shrink:0;
+}
+
+.whatsapp-icon svg {
+  width:100%;
+  height:100%;
+  display:block;
+}
+
 footer {
   border-top:1px solid var(--border);
   padding:25px 0;
@@ -685,9 +729,11 @@ footer strong {
   .about-grid {
     grid-template-columns:1fr;
   }
+
   .skills-grid {
     grid-template-columns:repeat(2,1fr);
   }
+
   .hero {
     min-height:570px;
   }
@@ -697,45 +743,58 @@ footer strong {
   .container {
     width:91%;
   }
+
   .navbar {
     height:68px;
   }
+
   .logo {
     font-size:17px;
   }
+
   .nav-actions {
     gap:7px;
   }
+
   .icon-btn {
     width:39px;
     height:39px;
   }
+
   .theme-control {
     gap:5px;
   }
+
   .theme-label {
     display:none;
   }
+
   .hero {
     min-height:560px;
     padding:65px 0;
   }
+
   .hero h1 {
     font-size:39px;
   }
+
   .hero-description {
     font-size:15px;
   }
+
   section {
     padding:65px 0;
   }
+
   .projects-grid,
   .contact-grid {
     grid-template-columns:1fr;
   }
+
   .skills-grid {
     gap:11px;
   }
+
   .card {
     padding:21px;
   }
@@ -746,6 +805,45 @@ footer strong {
     scroll-behavior:auto!important;
     animation-duration:.01ms!important;
     transition-duration:.01ms!important;
+  }
+}
+
+@media print {
+  header,
+  .back-top,
+  .hero-buttons,
+  .theme-control,
+  .language-btn,
+  .menu-btn,
+  footer {
+    display:none!important;
+  }
+
+  body,
+  html[data-theme="dark"] {
+    background:#fff!important;
+    color:#111!important;
+  }
+
+  .card,
+  .timeline-item {
+    box-shadow:none!important;
+    break-inside:avoid;
+    border:1px solid #ddd!important;
+  }
+
+  section {
+    padding:20px 0!important;
+  }
+
+  .hero {
+    min-height:auto!important;
+    padding:30px 0!important;
+  }
+
+  .reveal {
+    opacity:1!important;
+    transform:none!important;
   }
 }
 </style>
@@ -907,6 +1005,7 @@ footer strong {
     </div>
 
     <div class="projects-grid">
+
       <article class="card project-card reveal">
         <div class="project-top">
           <div class="project-symbol">V</div>
@@ -927,7 +1026,7 @@ footer strong {
       <article class="card project-card reveal">
         <div class="project-top">
           <div class="project-symbol">A</div>
-          <span class="project-label" data-ar="الموقع الحالي" data-en="Current Project">الموقع الحالي</span>
+          <span class="project-label" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</span>
         </div>
         <h3>ANTONYOS PORTFOLIO</h3>
         <p data-ar="موقعي الشخصي الذي أستخدمه للتعريف باهتماماتي ومشروعاتي ورحلتي التعليمية في التكنولوجيا والبرمجة."
@@ -940,6 +1039,24 @@ footer strong {
           <span>JavaScript</span>
         </div>
       </article>
+
+      <article class="card project-card reveal">
+        <div class="project-top">
+          <div class="project-symbol">X</div>
+          <span class="project-label" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</span>
+        </div>
+        <h3>AccountX</h3>
+        <p data-ar="مشروع بوت AccountX، أعمل على تطويره وإضافة مميزاته."
+           data-en="AccountX bot project, currently being developed with new features.">
+          مشروع بوت AccountX، أعمل على تطويره وإضافة مميزاته.
+        </p>
+        <div class="project-tags">
+          <span>AccountX</span>
+          <span>Bot</span>
+          <span>Digital Project</span>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -997,29 +1114,42 @@ footer strong {
   <div class="container">
     <div class="section-heading reveal">
       <small data-ar="ابقَ على تواصل" data-en="GET IN TOUCH">ابقَ على تواصل</small>
-      <h2 data-ar="التواصل" data-en="Contact">التواصل</h2>
-      <p data-ar="هذه الصفحة قيد التطوير، وسيتم إضافة وسائل التواصل الرسمية هنا لاحقًا."
-         data-en="This section is being developed. Official contact details will be added here later.">
-        هذه الصفحة قيد التطوير، وسيتم إضافة وسائل التواصل الرسمية هنا لاحقًا.
+      <h2 data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
+      <p data-ar="يسعدني استقبال رسالتك عبر واتساب."
+         data-en="Feel free to contact me through WhatsApp.">
+        يسعدني استقبال رسالتك عبر واتساب.
       </p>
     </div>
 
-    <div class="contact-grid">
-      <div class="card contact-card reveal">
-        <div class="contact-icon">✦</div>
-        <div>
-          <h3 data-ar="التكنولوجيا" data-en="Technology">التكنولوجيا</h3>
-          <p data-ar="اهتمام بالتقنيات والأفكار الرقمية." data-en="Interested in technology and digital ideas.">اهتمام بالتقنيات والأفكار الرقمية.</p>
-        </div>
-      </div>
+    <div class="card whatsapp-card reveal">
+      <h3 data-ar="لديك استفسار أو فكرة؟" data-en="Have a question or an idea?">
+        لديك استفسار أو فكرة؟
+      </h3>
 
-      <div class="card contact-card reveal">
-        <div class="contact-icon">⌘</div>
-        <div>
-          <h3 data-ar="البرمجة" data-en="Programming">البرمجة</h3>
-          <p data-ar="تعلم البرمجة وتطوير المشروعات." data-en="Learning programming and building projects.">تعلم البرمجة وتطوير المشروعات.</p>
-        </div>
-      </div>
+      <p data-ar="اضغط على الزر لفتح محادثة واتساب وإرسال رسالتك."
+         data-en="Click the button to open WhatsApp and send your message.">
+        اضغط على الزر لفتح محادثة واتساب وإرسال رسالتك.
+      </p>
+
+      <a class="whatsapp-link"
+         href="https://wa.me/20122234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="whatsapp-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2.5C8.55 2.5 2.5 8.45 2.5 15.8c0 2.35.62 4.65 1.8 6.65L2.5 29.5l7.25-1.9c1.95 1.05 4.1 1.6 6.25 1.6 7.45 0 13.5-5.95 13.5-13.3S23.45 2.5 16 2.5Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M11.2 9.7c-.35-.8-.7-.8-1-.8h-.85c-.3 0-.8.1-1.2.6-.4.45-1.55 1.5-1.55 3.65s1.6 4.2 1.8 4.5c.2.3 3.1 4.9 7.65 6.65 3.8 1.45 4.6 1.15 5.4 1.05.8-.1 2.55-1.05 2.9-2.05.35-1 .35-1.85.25-2.05-.1-.2-.4-.3-.85-.55-.45-.2-2.55-1.25-2.95-1.4-.4-.15-.7-.2-1 .25-.3.45-1.15 1.4-1.4 1.7-.25.3-.5.35-.95.1-.45-.2-1.85-.7-3.5-2.2-1.3-1.15-2.15-2.55-2.4-3-.25-.45-.05-.7.2-.9.2-.2.45-.5.65-.75.2-.25.3-.45.45-.75.15-.3.05-.55-.05-.75-.1-.2-.95-2.35-1.3-3.25Z" fill="white"/>
+          </svg>
+        </span>
+
+        <span data-ar="تواصل معنا عبر واتساب"
+              data-en="Contact Me on WhatsApp">
+          تواصل معنا عبر واتساب
+        </span>
+
+        <span>↗</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1049,6 +1179,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Light mode is the default.
 function setTheme(theme) {
   html.setAttribute('data-theme', theme);
+
   const metaTheme = document.querySelector('meta[name="theme-color"]');
   metaTheme.setAttribute(
     'content',
@@ -1062,6 +1193,7 @@ function setTheme(theme) {
 
 try {
   const savedTheme = localStorage.getItem('antonyos-theme');
+
   if (savedTheme === 'dark' || savedTheme === 'light') {
     setTheme(savedTheme);
   } else {
@@ -1154,47 +1286,6 @@ document.querySelectorAll('.reveal').forEach(element => {
   revealObserver.observe(element);
 });
 </script>
-
-<style>
-@media print {
-  header,
-  .back-top,
-  .hero-buttons,
-  .theme-control,
-  .language-btn,
-  .menu-btn,
-  footer {
-    display:none!important;
-  }
-
-  body,
-  html[data-theme="dark"] {
-    background:#fff!important;
-    color:#111!important;
-  }
-
-  .card,
-  .timeline-item {
-    box-shadow:none!important;
-    break-inside:avoid;
-    border:1px solid #ddd!important;
-  }
-
-  section {
-    padding:20px 0!important;
-  }
-
-  .hero {
-    min-height:auto!important;
-    padding:30px 0!important;
-  }
-
-  .reveal {
-    opacity:1!important;
-    transform:none!important;
-  }
-}
-</style>
 
 </body>
 </html>
