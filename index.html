@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080812">
-  <meta name="description" content="الموقع الشخصي الرسمي لـ Antonyos Botros. اكتشف مشاريعي واهتماماتي وأعمالي.">
-  <meta name="keywords" content="Antonyos Botros, Antonyos, الموقع الشخصي, VOLTRIX, Technology, Electronics">
+  <meta name="theme-color" content="#070711">
+  <meta name="description" content="ANTONYOS BOTROS — Official Personal Portfolio. Explore projects, interests and digital creativity.">
   <meta name="author" content="Antonyos Botros">
-  <meta property="og:title" content="ANTONYOS BOTROS | Official Website">
-  <meta property="og:description" content="الموقع الشخصي الرسمي - Antonyos Botros">
+  <meta name="keywords" content="Antonyos Botros, Antonyos, VOLTRIX, Technology, Electronics, Portfolio">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="ANTONYOS BOTROS | Digital Portfolio">
+  <meta property="og:description" content="Explore my digital world, projects and ideas.">
   <meta property="og:url" content="https://antonyos2010.github.io/">
-  <title>ANTONYOS BOTROS | Official Website</title>
+  <link rel="canonical" href="https://antonyos2010.github.io/">
+  <title>ANTONYOS BOTROS | Digital Portfolio</title>
 
   <script type="application/ld+json">
   {
@@ -24,433 +25,1002 @@
   </script>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:85px}
-    body{
-      background:#080812;color:#f5f4ff;
-      font-family:Arial,Tahoma,sans-serif;
-      line-height:1.8;overflow-x:hidden
-    }
-    :root{
-      --purple:#9b5cff;
-      --cyan:#27e5f2;
-      --muted:#aaa8bd;
-      --panel:#151424;
-    }
-    a{color:inherit;text-decoration:none}
-    button{font:inherit;cursor:pointer}
-    .container{width:min(1100px,90%);margin:auto}
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-    header{
-      position:sticky;top:0;z-index:100;
-      background:#080812ed;
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid #ffffff12
-    }
-    nav{
-      min-height:76px;display:flex;
-      align-items:center;justify-content:space-between;
-      gap:15px
-    }
-    .logo{font-size:21px;font-weight:900;letter-spacing:1px}
-    .logo span{color:var(--cyan)}
-    .navlinks{display:flex;gap:19px;align-items:center}
-    .navlinks a{
-      font-size:13px;color:#d0cde0;
-      transition:.2s
-    }
-    .navlinks a:hover{color:var(--cyan)}
-    .actions{display:flex;gap:10px;align-items:center}
-    .lang,.menu{
-      background:#171526;border:1px solid #ffffff20;
-      color:white;border-radius:10px;padding:8px 13px
-    }
-    .menu{display:none}
-
-    .hero{
-      min-height:650px;display:flex;align-items:center;
-      position:relative;overflow:hidden
-    }
-    .glow{
-      position:absolute;width:420px;height:420px;
-      border-radius:50%;filter:blur(110px);opacity:.24;
-      background:var(--purple);left:-100px;top:80px
-    }
-    .glow.two{
-      background:var(--cyan);left:auto;
-      right:-180px;top:300px
-    }
-    .hero-content{position:relative;z-index:1;max-width:760px}
-    .eyebrow{
-      color:var(--cyan);font-size:13px;
-      letter-spacing:3px;font-weight:bold
-    }
-    h1{font-size:clamp(42px,8vw,78px);line-height:1.2;margin:18px 0}
-    h1 span{
-      background:linear-gradient(90deg,var(--cyan),var(--purple));
-      -webkit-background-clip:text;
-      background-clip:text;color:transparent
-    }
-    .hero p{color:var(--muted);font-size:18px;max-width:600px}
-    .buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
-    .btn{
-      display:inline-block;padding:12px 23px;
-      border-radius:12px;font-weight:bold;
-      border:1px solid #ffffff25;transition:.25s
-    }
-    .primary{
-      background:linear-gradient(110deg,#7c42e8,#19cbdc);
-      color:#080812;border:0
-    }
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 8px 30px #8e55ff35
+    :root {
+      --bg: #070711;
+      --surface: #101020;
+      --surface2: #151529;
+      --purple: #9b5cff;
+      --purple2: #702cff;
+      --cyan: #29e8f2;
+      --white: #f7f5ff;
+      --muted: #9998b2;
+      --border: rgba(255,255,255,.09);
+      --glow: rgba(155,92,255,.22);
     }
 
-    section{padding:85px 0}
-    .section-title{text-align:center;margin-bottom:42px}
-    .section-title small{color:var(--cyan);letter-spacing:2px}
-    .section-title h2{font-size:34px;margin-top:8px}
-    .section-title p{color:var(--muted);margin-top:7px}
-
-    .about-grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:25px
-    }
-    .panel,.card{
-      background:linear-gradient(145deg,#171528,#10101b);
-      border:1px solid #ffffff13;
-      border-radius:20px;padding:28px
-    }
-    .panel h3,.card h3{margin-bottom:12px}
-    .panel p,.card p{color:var(--muted)}
-    .cards{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:18px
-    }
-    .card{transition:.25s}
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:#9b5cff80
-    }
-    .card .symbol{font-size:30px;margin-bottom:12px}
-    .card a{
-      color:var(--cyan);display:inline-block;margin-top:14px
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .achievement-number{
-      font-size:30px;color:var(--cyan);
-      font-weight:bold;margin-bottom:10px
-    }
-    .gallery-item{
-      min-height:190px;display:flex;
-      flex-direction:column;align-items:center;
-      justify-content:center;text-align:center;
-      background:linear-gradient(145deg,#19172b,#10101b);
-      border:1px dashed #9b5cff70;
-      border-radius:18px;padding:20px;
-      transition:.25s
-    }
-    .gallery-item:hover{
-      border-color:var(--cyan);
-      transform:translateY(-5px)
-    }
-    .gallery-item .symbol{font-size:42px;margin-bottom:10px}
-    .gallery-item p{color:var(--muted);font-size:13px}
-
-    .contact{text-align:center}
-    .contact .panel{max-width:700px;margin:auto}
-    footer{
-      border-top:1px solid #ffffff15;
-      padding:25px 0;text-align:center;
-      color:var(--muted);font-size:13px
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
-    .reveal{animation:appear .9s ease both}
-    @keyframes appear{
-      from{opacity:0;transform:translateY(22px)}
-      to{opacity:1;transform:translateY(0)}
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Cairo', Arial, sans-serif;
+      line-height: 1.8;
+      overflow-x: hidden;
     }
 
-    @media(max-width:850px){
-      .navlinks{gap:10px}
-      .navlinks a{font-size:12px}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(155,92,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(155,92,255,.035) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
-    @media(max-width:760px){
-      .navlinks{
-        display:none;position:absolute;
-        top:76px;right:0;left:0;
-        background:#11101f;padding:20px;
-        flex-direction:column;
-        border-bottom:1px solid #ffffff20
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .english {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7,7,17,.78);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .navlinks a {
+      color: #c1bfd3;
+      font-size: 13px;
+      transition: .25s;
+    }
+
+    .navlinks a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-btn, .menu-btn {
+      background: #151426;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: white;
+      padding: 8px 13px;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* GENERAL */
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-heading {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .section-heading small {
+      color: var(--cyan);
+      letter-spacing: 3px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 43px);
+      margin-top: 9px;
+      font-weight: 900;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 9px;
+      font-size: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--cyan), #b78aff, var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 780px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 130px 0 80px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: var(--purple);
+      filter: blur(160px);
+      opacity: .19;
+      top: 50px;
+      right: -250px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: var(--cyan);
+      filter: blur(170px);
+      opacity: .10;
+      bottom: -200px;
+      left: -200px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 65px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(41,232,242,.25);
+      background: rgba(41,232,242,.06);
+      padding: 7px 15px;
+      border-radius: 50px;
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 1px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(47px, 7vw, 82px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin: 26px 0 20px;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 560px;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 23px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(110deg, var(--purple2), var(--cyan));
+      color: #080812;
+      box-shadow: 0 0 30px rgba(155,92,255,.20);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.025);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(155,92,255,.25);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 430px;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 370px;
+      height: 370px;
+      border: 1px solid rgba(155,92,255,.27);
+      border-radius: 50%;
+      animation: spin 25s linear infinite;
+    }
+
+    .orbit.two {
+      width: 300px;
+      height: 300px;
+      border-color: rgba(41,232,242,.22);
+      animation-direction: reverse;
+      animation-duration: 18s;
+    }
+
+    .orbit::before {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 20px var(--cyan);
+      top: 45px;
+      left: 55px;
+    }
+
+    .orbit.two::before {
+      background: var(--purple);
+      box-shadow: 0 0 20px var(--purple);
+      top: 25px;
+      left: 190px;
+    }
+
+    .portrait-placeholder {
+      width: 230px;
+      height: 290px;
+      border-radius: 115px 115px 30px 30px;
+      border: 1px solid rgba(155,92,255,.65);
+      background: linear-gradient(145deg, #21183c, #0b1422);
+      box-shadow: 0 0 70px rgba(155,92,255,.18),
+                  inset 0 0 40px rgba(41,232,242,.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .portrait-icon {
+      font-size: 55px;
+      color: var(--cyan);
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 15px rgba(41,232,242,.6));
+    }
+
+    .portrait-placeholder strong {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+    }
+
+    .portrait-placeholder small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .glass {
+      background: linear-gradient(145deg, rgba(25,23,48,.88), rgba(12,12,26,.95));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .glass:hover {
+      border-color: rgba(155,92,255,.5);
+      transform: translateY(-5px);
+    }
+
+    .glass h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .glass p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .glass-icon {
+      font-size: 29px;
+      margin-bottom: 13px;
+    }
+
+    /* INTERESTS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .interest-card {
+      min-height: 225px;
+    }
+
+    .card-number {
+      color: var(--cyan);
+      font: 700 12px 'Space Grotesk', sans-serif;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* PROJECTS */
+
+    .project-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .project-art {
+      height: 175px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 900 37px 'Space Grotesk', sans-serif;
+      letter-spacing: 2px;
+      background:
+        radial-gradient(circle at center, rgba(155,92,255,.32), transparent 65%),
+        linear-gradient(140deg, #1b1534, #0c1723);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-art.cyan-art {
+      background:
+        radial-gradient(circle at center, rgba(41,232,242,.22), transparent 65%),
+        linear-gradient(140deg, #101b2c, #101020);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .project-label {
+      display: inline-block;
+      font-size: 10px;
+      color: var(--cyan);
+      border: 1px solid rgba(41,232,242,.2);
+      padding: 4px 10px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+    }
+
+    /* ACHIEVEMENTS */
+
+    .achievement-card {
+      text-align: center;
+    }
+
+    .achievement-icon {
+      font-size: 33px;
+      margin-bottom: 13px;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-box {
+      min-height: 210px;
+      border-radius: 20px;
+      border: 1px dashed rgba(155,92,255,.55);
+      background:
+        radial-gradient(circle at center, rgba(155,92,255,.13), transparent 70%),
+        #111020;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      transition: .3s;
+    }
+
+    .gallery-box:hover {
+      border-color: var(--cyan);
+      transform: translateY(-5px);
+    }
+
+    .gallery-box span {
+      font-size: 39px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-box p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      max-width: 780px;
+      margin: auto;
+      text-align: center;
+      padding: 50px 30px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(155,92,255,.2), transparent 65%),
+        #111020;
+      border: 1px solid rgba(155,92,255,.28);
+      border-radius: 26px;
+    }
+
+    .contact-box h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    footer strong {
+      color: var(--cyan);
+    }
+
+    /* REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width: 900px) {
+      .navlinks { gap: 12px; }
+      .navlinks a { font-size: 11px; }
+      .hero-grid { gap: 20px; }
+      .orbit { width: 300px; height: 300px; }
+      .orbit.two { width: 245px; height: 245px; }
+      .portrait-placeholder { width: 195px; height: 260px; }
+    }
+
+    @media(max-width: 700px) {
+      nav { height: 70px; }
+      .menu-btn { display: block; }
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(12,12,27,.98);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        padding: 25px;
+        flex-direction: column;
+        gap: 15px;
       }
-      .navlinks.open{display:flex}
-      .menu{display:block}
-      .about-grid,.cards{grid-template-columns:1fr}
-      .hero{min-height:570px}
-      section{padding:65px 0}
-      .section-title h2{font-size:28px}
+      .navlinks.open { display: flex; }
+      .navlinks a { font-size: 14px; }
+      .hero {
+        min-height: auto;
+        padding: 135px 0 70px;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-description { margin: auto; }
+      .hero-buttons { justify-content: center; }
+      .hero-visual {
+        min-height: 370px;
+        grid-row: 1;
+      }
+      .orbit { width: 310px; height: 310px; }
+      .orbit.two { width: 255px; height: 255px; }
+      .portrait-placeholder { width: 190px; height: 250px; }
+      .hero h1 { letter-spacing: -2px; }
+      .about-grid, .cards, .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .section { padding: 75px 0; }
+      .section-heading { margin-bottom: 32px; }
+      .contact-box h2 { font-size: 25px; }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="container">
     <nav>
-      <a class="logo" href="#home">ANTONYOS<span>.</span></a>
+      <a href="#home" class="logo english">ANTONYOS<span>.</span></a>
 
       <div class="navlinks" id="navlinks">
         <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
         <a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
-        <a href="#skills" data-ar="اهتماماتي" data-en="Interests">اهتماماتي</a>
+        <a href="#interests" data-ar="اهتماماتي" data-en="Interests">اهتماماتي</a>
         <a href="#projects" data-ar="مشاريعي" data-en="Projects">مشاريعي</a>
-        <a href="#achievements" data-ar="إنجازاتي" data-en="Achievements">إنجازاتي</a>
+        <a href="#achievements" data-ar="إنجازاتي" data-en="Journey">إنجازاتي</a>
         <a href="#gallery" data-ar="المعرض" data-en="Gallery">المعرض</a>
         <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
       </div>
 
-      <div class="actions">
-        <button class="lang" id="langBtn">English</button>
-        <button class="menu" id="menuBtn" aria-label="القائمة">☰</button>
+      <div class="nav-actions">
+        <button class="lang-btn" id="langBtn">English</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       </div>
     </nav>
   </div>
 </header>
 
 <main>
+
+  <!-- HERO -->
   <section class="hero" id="home">
-    <div class="glow"></div>
-    <div class="glow two"></div>
     <div class="container">
-      <div class="hero-content reveal">
-        <div class="eyebrow" data-ar="الموقع الشخصي الرسمي" data-en="OFFICIAL PERSONAL WEBSITE">الموقع الشخصي الرسمي</div>
-        <h1>ANTONYOS<br><span>BOTROS</span></h1>
-        <p data-ar="مرحباً بك في عالمي الرقمي. هنا أشارك مشاريعي واهتماماتي وأفكاري، وأوثّق رحلتي في التعلم والإبداع." data-en="Welcome to my digital world. Explore my projects, interests and ideas as I document my journey of learning and creativity.">
-          مرحباً بك في عالمي الرقمي. هنا أشارك مشاريعي واهتماماتي وأفكاري، وأوثّق رحلتي في التعلم والإبداع.
-        </p>
-        <div class="buttons">
-          <a class="btn primary" href="#projects" data-ar="استكشف مشاريعي ←" data-en="Explore My Projects →">استكشف مشاريعي ←</a>
-          <a class="btn" href="#about" data-ar="اعرف المزيد" data-en="Discover More">اعرف المزيد</a>
+      <div class="hero-grid">
+
+        <div class="hero-content reveal">
+          <div class="status">
+            <span class="status-dot"></span>
+            <span data-ar="الموقع الشخصي الرسمي" data-en="OFFICIAL DIGITAL PORTFOLIO">الموقع الشخصي الرسمي</span>
+          </div>
+
+          <h1 class="english">
+            ANTONYOS
+            <span class="gradient-text">BOTROS.</span>
+          </h1>
+
+          <p class="hero-description"
+             data-ar="مرحباً بك في عالمي الرقمي. مساحة تجمع مشاريعي واهتماماتي وأفكاري، وتوثّق رحلتي في التعلم واستكشاف التكنولوجيا وصناعة الأفكار."
+             data-en="Welcome to my digital world. A space for my projects, interests and ideas, documenting my journey of learning, exploring technology and building ideas.">
+            مرحباً بك في عالمي الرقمي. مساحة تجمع مشاريعي واهتماماتي وأفكاري، وتوثّق رحلتي في التعلم واستكشاف التكنولوجيا وصناعة الأفكار.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <span data-ar="اكتشف مشاريعي" data-en="Explore Projects">اكتشف مشاريعي</span>
+              <span>↗</span>
+            </a>
+            <a href="#about" class="btn btn-outline"
+               data-ar="اكتشف المزيد" data-en="Discover More">
+              اكتشف المزيد
+            </a>
+          </div>
         </div>
+
+        <div class="hero-visual reveal">
+          <div class="orbit"></div>
+          <div class="orbit two"></div>
+          <div class="portrait-placeholder">
+            <div class="portrait-icon">✦</div>
+            <strong class="english">YOUR PHOTO</strong>
+            <small data-ar="ستتم إضافة الصورة الشخصية هنا" data-en="Personal photo coming soon">ستتم إضافة الصورة الشخصية هنا</small>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section id="about">
+  <!-- ABOUT -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="section-title">
-        <small data-ar="نبذة شخصية" data-en="ABOUT ME">نبذة شخصية</small>
-        <h2 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h2>
-        <p data-ar="مساحة للتعريف بنفسي وبطموحاتي" data-en="A space to introduce myself and my ambitions">مساحة للتعريف بنفسي وبطموحاتي</p>
+      <div class="section-heading reveal">
+        <small>01 / ABOUT</small>
+        <h2 data-ar="خلف الاسم، توجد رحلة." data-en="Behind the name, a journey.">خلف الاسم، توجد رحلة.</h2>
+        <p data-ar="تعرف على عالمي وما أطمح إلى استكشافه." data-en="Discover my world and what I aim to explore.">تعرف على عالمي وما أطمح إلى استكشافه.</p>
       </div>
 
       <div class="about-grid">
-        <div class="panel">
-          <h3 data-ar="أهلاً بك!" data-en="Welcome!">أهلاً بك!</h3>
-          <p data-ar="أنا Antonyos Botros. أستخدم هذا الموقع لمشاركة رحلتي ومشاريعي وما أتعلمه. سيتم تحديث هذه النبذة بمعلوماتي الشخصية لاحقاً." data-en="I'm Antonyos Botros. I use this website to share my journey, projects and what I'm learning. I'll update this introduction with more details later.">
-            أنا Antonyos Botros. أستخدم هذا الموقع لمشاركة رحلتي ومشاريعي وما أتعلمه. سيتم تحديث هذه النبذة بمعلوماتي الشخصية لاحقاً.
+        <div class="glass reveal">
+          <div class="glass-icon">◈</div>
+          <h3 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h3>
+          <p data-ar="أنا Antonyos Botros. أستخدم هذا الموقع لمشاركة رحلتي ومشاريعي وما أتعلمه، وسأضيف تفاصيل أكثر عن نفسي مع تطور هذه الرحلة."
+             data-en="I'm Antonyos Botros. I use this website to share my journey, projects and what I learn. More personal details will be added as this journey grows.">
+            أنا Antonyos Botros. أستخدم هذا الموقع لمشاركة رحلتي ومشاريعي وما أتعلمه، وسأضيف تفاصيل أكثر عن نفسي مع تطور هذه الرحلة.
           </p>
         </div>
 
-        <div class="panel">
+        <div class="glass reveal">
+          <div class="glass-icon">✧</div>
           <h3 data-ar="رؤيتي" data-en="My Vision">رؤيتي</h3>
-          <p data-ar="التعلم المستمر، تجربة الأفكار الجديدة، وتحويل الأفكار إلى مشاريع حقيقية." data-en="Continuous learning, exploring new ideas, and turning ideas into real projects.">
-            التعلم المستمر، تجربة الأفكار الجديدة، وتحويل الأفكار إلى مشاريع حقيقية.
+          <p data-ar="التعلم المستمر، استكشاف الأفكار الجديدة، وتحويل الإلهام إلى تجارب ومشاريع يمكن تطويرها."
+             data-en="Continuous learning, exploring new ideas and turning inspiration into experiences and projects that can grow.">
+            التعلم المستمر، استكشاف الأفكار الجديدة، وتحويل الإلهام إلى تجارب ومشاريع يمكن تطويرها.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills">
+  <!-- INTERESTS -->
+  <section class="section" id="interests">
     <div class="container">
-      <div class="section-title">
-        <small data-ar="ما يهمني" data-en="MY INTERESTS">ما يهمني</small>
-        <h2 data-ar="اهتماماتي ومجالاتي" data-en="Interests & Fields">اهتماماتي ومجالاتي</h2>
-        <p data-ar="مجالات أستمتع باستكشافها والتعلم عنها" data-en="Fields I enjoy exploring and learning about">مجالات أستمتع باستكشافها والتعلم عنها</p>
+      <div class="section-heading reveal">
+        <small>02 / INTERESTS</small>
+        <h2 data-ar="عوالم تثير فضولي." data-en="Worlds that spark curiosity.">عوالم تثير فضولي.</h2>
+        <p data-ar="مجالات أحب استكشافها والتعلم عنها." data-en="Fields I enjoy exploring and learning about.">مجالات أحب استكشافها والتعلم عنها.</p>
       </div>
 
       <div class="cards">
-        <div class="card">
-          <div class="symbol">💻</div>
+        <div class="glass interest-card reveal">
+          <div class="card-number">FIELD / 01</div>
+          <div class="glass-icon">⌘</div>
           <h3 data-ar="التكنولوجيا" data-en="Technology">التكنولوجيا</h3>
-          <p data-ar="استكشاف التقنيات والأدوات الرقمية." data-en="Exploring digital technologies and tools.">استكشاف التقنيات والأدوات الرقمية.</p>
+          <p data-ar="استكشاف التقنيات والأدوات والحلول الرقمية."
+             data-en="Exploring technologies, tools and digital solutions.">
+            استكشاف التقنيات والأدوات والحلول الرقمية.
+          </p>
         </div>
 
-        <div class="card">
-          <div class="symbol">⚡</div>
+        <div class="glass interest-card reveal">
+          <div class="card-number">FIELD / 02</div>
+          <div class="glass-icon">ϟ</div>
           <h3 data-ar="الإلكترونيات" data-en="Electronics">الإلكترونيات</h3>
-          <p data-ar="الاهتمام بالمكونات والأجهزة الإلكترونية." data-en="Interest in electronic components and devices.">الاهتمام بالمكونات والأجهزة الإلكترونية.</p>
-        </div>
-
-        <div class="card">
-          <div class="symbol">🚀</div>
-          <h3 data-ar="إنشاء المشاريع" data-en="Building Projects">إنشاء المشاريع</h3>
-          <p data-ar="تحويل الأفكار إلى تجارب ومشاريع عملية." data-en="Turning ideas into practical projects and experiments.">تحويل الأفكار إلى تجارب ومشاريع عملية.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <div class="section-title">
-        <small data-ar="أعمالي" data-en="MY WORK">أعمالي</small>
-        <h2 data-ar="مشاريعي" data-en="My Projects">مشاريعي</h2>
-        <p data-ar="نماذج من الأفكار التي أعمل عليها" data-en="A look at projects I'm working on">نماذج من الأفكار التي أعمل عليها</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="symbol">⚡</div>
-          <h3>VOLTRIX</h3>
-          <p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها." data-en="An e-commerce project focused on electronics and related accessories.">
-            مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها.
-          </p>
-          <a href="#contact" data-ar="اعرف المزيد ←" data-en="Learn More →">اعرف المزيد ←</a>
-        </div>
-
-        <div class="card">
-          <div class="symbol">🌐</div>
-          <h3 data-ar="الموقع الشخصي" data-en="Personal Website">الموقع الشخصي</h3>
-          <p data-ar="هذه المنصة التي تجمع أعمالي واهتماماتي في مكان واحد." data-en="This platform brings my work and interests together in one place.">
-            هذه المنصة التي تجمع أعمالي واهتماماتي في مكان واحد.
+          <p data-ar="الاهتمام بالمكونات والدوائر والأجهزة الإلكترونية."
+             data-en="An interest in electronic components, circuits and devices.">
+            الاهتمام بالمكونات والدوائر والأجهزة الإلكترونية.
           </p>
         </div>
 
-        <div class="card">
-          <div class="symbol">✨</div>
-          <h3 data-ar="مشاريع قادمة" data-en="Coming Soon">مشاريع قادمة</h3>
-          <p data-ar="سيتم إضافة المزيد من الأعمال والتجارب مستقبلاً." data-en="More projects and experiments will be added in the future.">
-            سيتم إضافة المزيد من الأعمال والتجارب مستقبلاً.
+        <div class="glass interest-card reveal">
+          <div class="card-number">FIELD / 03</div>
+          <div class="glass-icon">◇</div>
+          <h3 data-ar="بناء المشاريع" data-en="Building Projects">بناء المشاريع</h3>
+          <p data-ar="تجربة الأفكار وتحويلها إلى مشاريع رقمية وعملية."
+             data-en="Experimenting with ideas and turning them into digital and practical projects.">
+            تجربة الأفكار وتحويلها إلى مشاريع رقمية وعملية.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="achievements">
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
     <div class="container">
-      <div class="section-title">
-        <small data-ar="رحلتي" data-en="MY JOURNEY">رحلتي</small>
-        <h2 data-ar="إنجازاتي ومحطاتي" data-en="Achievements & Milestones">إنجازاتي ومحطاتي</h2>
-        <p data-ar="مساحة لتوثيق الإنجازات والتجارب المهمة مع مرور الوقت." data-en="A space to document important achievements and experiences over time.">
-          مساحة لتوثيق الإنجازات والتجارب المهمة مع مرور الوقت.
+      <div class="section-heading reveal">
+        <small>03 / SELECTED WORK</small>
+        <h2 data-ar="أفكار تتحول إلى مشاريع." data-en="Ideas become projects.">أفكار تتحول إلى مشاريع.</h2>
+        <p data-ar="مساحة لعرض الأعمال والتجارب التي أعمل عليها."
+           data-en="A space for projects and experiments I'm working on.">
+          مساحة لعرض الأعمال والتجارب التي أعمل عليها.
         </p>
       </div>
 
       <div class="cards">
-        <div class="card">
-          <div class="achievement-number">01</div>
-          <h3 data-ar="بداية رحلتي الرقمية" data-en="My Digital Journey">بداية رحلتي الرقمية</h3>
-          <p data-ar="هنا سأضيف تفاصيل عن بداياتي وتجربتي في التعلم." data-en="Details about my beginnings and learning journey will be added here.">
-            هنا سأضيف تفاصيل عن بداياتي وتجربتي في التعلم.
+        <div class="glass project-card reveal">
+          <div class="project-art">VOLTRIX<span style="color:#29e8f2">.</span></div>
+          <div class="project-content">
+            <span class="project-label">E-COMMERCE PROJECT</span>
+            <h3>VOLTRIX</h3>
+            <p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات والمكونات ومستلزمات الطاقة."
+               data-en="An e-commerce project focused on electronics, components and power accessories.">
+              مشروع متجر إلكتروني متخصص في الإلكترونيات والمكونات ومستلزمات الطاقة.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass project-card reveal">
+          <div class="project-art cyan-art">DIGITAL<br>IDENTITY</div>
+          <div class="project-content">
+            <span class="project-label">PERSONAL PROJECT</span>
+            <h3 data-ar="الموقع الشخصي" data-en="Personal Website">الموقع الشخصي</h3>
+            <p data-ar="هذه المنصة الرقمية التي تجمع أعمالي واهتماماتي في مكان واحد."
+               data-en="This digital platform brings my projects and interests together in one place.">
+              هذه المنصة الرقمية التي تجمع أعمالي واهتماماتي في مكان واحد.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass project-card reveal">
+          <div class="project-art">COMING<br><span class="gradient-text">SOON</span></div>
+          <div class="project-content">
+            <span class="project-label">FUTURE PROJECT</span>
+            <h3 data-ar="مشاريع قادمة" data-en="Upcoming Projects">مشاريع قادمة</h3>
+            <p data-ar="سيتم إضافة المزيد من المشاريع والتجارب المستقبلية هنا."
+               data-en="More projects and future experiments will be showcased here.">
+              سيتم إضافة المزيد من المشاريع والتجارب المستقبلية هنا.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="section" id="achievements">
+    <div class="container">
+      <div class="section-heading reveal">
+        <small>04 / MILESTONES</small>
+        <h2 data-ar="كل رحلة لها محطاتها." data-en="Every journey has its milestones.">كل رحلة لها محطاتها.</h2>
+        <p data-ar="مساحة لتوثيق الإنجازات الحقيقية والتطورات القادمة."
+           data-en="A space to document real achievements and future milestones.">
+          مساحة لتوثيق الإنجازات الحقيقية والتطورات القادمة.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="glass achievement-card reveal">
+          <div class="achievement-icon">✧</div>
+          <h3 data-ar="بداية الرحلة" data-en="The Beginning">بداية الرحلة</h3>
+          <p data-ar="سيتم إضافة تفاصيل هذه المحطة لاحقاً."
+             data-en="Details about this milestone will be added later.">
+            سيتم إضافة تفاصيل هذه المحطة لاحقاً.
           </p>
         </div>
 
-        <div class="card">
-          <div class="achievement-number">02</div>
+        <div class="glass achievement-card reveal">
+          <div class="achievement-icon">◈</div>
           <h3 data-ar="تطوير المشاريع" data-en="Project Development">تطوير المشاريع</h3>
-          <p data-ar="هنا سأوثّق مراحل العمل والتقدم في مشاريعي." data-en="I will document the progress and development of my projects here.">
-            هنا سأوثّق مراحل العمل والتقدم في مشاريعي.
+          <p data-ar="سيتم توثيق مراحل العمل والتقدم هنا."
+             data-en="Project progress and development stages will be documented here.">
+            سيتم توثيق مراحل العمل والتقدم هنا.
           </p>
         </div>
 
-        <div class="card">
-          <div class="achievement-number">03</div>
-          <h3 data-ar="المحطات القادمة" data-en="Upcoming Milestones">المحطات القادمة</h3>
-          <p data-ar="سيتم تحديث هذا القسم بالإنجازات الجديدة عند تحقيقها." data-en="This section will be updated with new milestones as they happen.">
-            سيتم تحديث هذا القسم بالإنجازات الجديدة عند تحقيقها.
+        <div class="glass achievement-card reveal">
+          <div class="achievement-icon">ϟ</div>
+          <h3 data-ar="المستقبل" data-en="What's Next">المستقبل</h3>
+          <p data-ar="مكان لإضافة الإنجازات الجديدة عند تحقيقها."
+             data-en="A place for new achievements as they happen.">
+            مكان لإضافة الإنجازات الجديدة عند تحقيقها.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery">
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
     <div class="container">
-      <div class="section-title">
-        <small data-ar="معرض الصور" data-en="PHOTO GALLERY">معرض الصور</small>
-        <h2 data-ar="معرض أعمالي" data-en="My Gallery">معرض أعمالي</h2>
-        <p data-ar="مساحة لعرض صور المشاريع والتجارب والتصميمات." data-en="A place to showcase project photos, experiments and designs.">
-          مساحة لعرض صور المشاريع والتجارب والتصميمات.
+      <div class="section-heading reveal">
+        <small>05 / GALLERY</small>
+        <h2 data-ar="لحظات من عالم الإبداع." data-en="Moments of creativity.">لحظات من عالم الإبداع.</h2>
+        <p data-ar="سيتم إضافة الصور الحقيقية للمشاريع والتجارب لاحقاً."
+           data-en="Real photos of projects and experiments will be added later.">
+          سيتم إضافة الصور الحقيقية للمشاريع والتجارب لاحقاً.
         </p>
       </div>
 
-      <div class="cards">
-        <div class="gallery-item">
-          <div class="symbol">📷</div>
-          <h3 data-ar="صور شخصية" data-en="Personal Photos">صور شخصية</h3>
-          <p data-ar="سيتم إضافة الصور لاحقاً." data-en="Photos will be added later.">سيتم إضافة الصور لاحقاً.</p>
+      <div class="gallery-grid">
+        <div class="gallery-box reveal">
+          <span>▧</span>
+          <h3 data-ar="الصورة الشخصية" data-en="Portrait">الصورة الشخصية</h3>
+          <p data-ar="مكان الصورة الشخصية لاحقاً" data-en="Personal photo placeholder">مكان الصورة الشخصية لاحقاً</p>
         </div>
 
-        <div class="gallery-item">
-          <div class="symbol">⚡</div>
-          <h3 data-ar="مشاريع إلكترونية" data-en="Electronics Projects">مشاريع إلكترونية</h3>
-          <p data-ar="سيتم إضافة صور المشاريع هنا." data-en="Project photos will appear here.">سيتم إضافة صور المشاريع هنا.</p>
+        <div class="gallery-box reveal">
+          <span>ϟ</span>
+          <h3 data-ar="الإلكترونيات" data-en="Electronics">الإلكترونيات</h3>
+          <p data-ar="صور التجارب والمشاريع" data-en="Experiments and project photos">صور التجارب والمشاريع</p>
         </div>
 
-        <div class="gallery-item">
-          <div class="symbol">🎨</div>
-          <h3 data-ar="تصميمات وأفكار" data-en="Designs & Ideas">تصميمات وأفكار</h3>
-          <p data-ar="سيتم إضافة التصميمات والأفكار لاحقاً." data-en="Designs and ideas will be added later.">سيتم إضافة التصميمات والأفكار لاحقاً.</p>
+        <div class="gallery-box reveal">
+          <span>✧</span>
+          <h3 data-ar="التصميمات" data-en="Designs">التصميمات</h3>
+          <p data-ar="صور الأفكار والتصميمات" data-en="Ideas and design images">صور الأفكار والتصميمات</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <!-- CONTACT -->
+  <section class="section" id="contact">
     <div class="container">
-      <div class="section-title">
-        <small data-ar="ابقَ على تواصل" data-en="GET IN TOUCH">ابقَ على تواصل</small>
-        <h2 data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
-      </div>
-
-      <div class="panel">
-        <p data-ar="سيتم إضافة روابط التواصل العامة هنا بعد اختيار الروابط التي تريد مشاركتها." data-en="Public contact and social links will be added here once you choose which ones to share.">
+      <div class="contact-box reveal">
+        <small class="gradient-text english">LET'S CONNECT</small>
+        <h2 data-ar="لكل فكرة بداية." data-en="Every idea has a beginning.">لكل فكرة بداية.</h2>
+        <p data-ar="سيتم إضافة روابط التواصل العامة هنا بعد اختيار الروابط التي تريد مشاركتها."
+           data-en="Public contact and social links will be added here once you choose which ones to share.">
           سيتم إضافة روابط التواصل العامة هنا بعد اختيار الروابط التي تريد مشاركتها.
         </p>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
   <div class="container">
-    © <span id="year"></span> ANTONYOS BOTROS —
-    <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
+    <span class="english">© <span id="year"></span> ANTONYOS BOTROS</span>
+    — <strong data-ar="جميع الحقوق محفوظة" data-en="ALL RIGHTS RESERVED">جميع الحقوق محفوظة</strong>
   </div>
 </footer>
 
 <script>
   const langBtn = document.getElementById('langBtn');
   const nav = document.getElementById('navlinks');
-  let language = 'ar';
+  const menuBtn = document.getElementById('menuBtn');
+
+  let currentLanguage = 'ar';
 
   function setLanguage(lang) {
-    language = lang;
+    currentLanguage = lang;
+
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-    document.querySelectorAll('[data-ar]').forEach(el => {
-      el.textContent = el.dataset[lang];
+    document.querySelectorAll('[data-ar][data-en]').forEach(element => {
+      element.textContent = element.getAttribute('data-' + lang);
     });
 
     langBtn.textContent = lang === 'ar' ? 'English' : 'العربية';
   }
 
   langBtn.addEventListener('click', () => {
-    setLanguage(language === 'ar' ? 'en' : 'ar');
+    setLanguage(currentLanguage === 'ar' ? 'en' : 'ar');
   });
 
-  document.getElementById('menuBtn').addEventListener('click', () => {
+  menuBtn.addEventListener('click', () => {
     nav.classList.toggle('open');
   });
 
   nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => nav.classList.remove('open'));
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+    });
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+  });
 </script>
+
 </body>
 </html>
