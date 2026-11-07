@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -10,7 +9,6 @@
 <meta name="description" content="الموقع الشخصي لانطونيوس بطرس. مهتم بالتكنولوجيا والبرمجة والمشروعات الرقمية.">
 <meta name="keywords" content="ANTONYOS BOTROS, Antonyos, Technology, Programming, AccountX">
 <meta name="author" content="ANTONYOS BOTROS">
-
 <meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g" />
 
 <meta property="og:title" content="ANTONYOS BOTROS">
@@ -115,16 +113,31 @@ header {
   gap:15px;
 }
 
+/* اسم الموقع */
+
 .logo {
   font-family:"Inter",sans-serif;
   font-weight:900;
-  letter-spacing:.5px;
-  font-size:clamp(13px,2vw,21px);
+  letter-spacing:1px;
+  font-size:clamp(19px,2.5vw,29px);
   direction:ltr;
   white-space:nowrap;
+  background:linear-gradient(100deg,#7055ed,#08aeca,#7055ed);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 5px 25px rgba(112,85,237,.13);
+  transition:.3s;
 }
 
-.logo span {color:var(--primary);}
+.logo span {
+  color:#08aeca;
+  -webkit-text-fill-color:#08aeca;
+}
+
+.logo:hover {
+  filter:drop-shadow(0 0 10px rgba(112,85,237,.45));
+}
 
 .header-actions {
   display:flex;
@@ -479,17 +492,19 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
+/* تكبير شعارات لغات البرمجة */
+
 .skill .symbol {
-  width:54px;
-  height:54px;
-  margin:0 auto 12px;
+  width:76px;
+  height:76px;
+  margin:0 auto 15px;
   display:grid;
   place-items:center;
 }
 
 .skill .symbol svg {
-  width:48px;
-  height:48px;
+  width:68px;
+  height:68px;
   display:block;
 }
 
@@ -525,7 +540,7 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-/* Both project images use exactly the same display area */
+/* صور المشروعين بنفس المقاس مع الحفاظ على الصورة كاملة */
 
 .project-image-button {
   width:100%;
@@ -540,6 +555,21 @@ body.english .profile-photo {
     var(--surface2);
   overflow:hidden;
   position:relative;
+  isolation:isolate;
+}
+
+/* خلفية ضبابية مأخوذة من نفس الصورة */
+
+.project-image-button::before {
+  content:"";
+  position:absolute;
+  inset:-18px;
+  background-image:var(--project-image);
+  background-size:cover;
+  background-position:center;
+  filter:blur(18px) brightness(.62);
+  transform:scale(1.08);
+  z-index:-1;
 }
 
 .project-image-button::after {
@@ -843,7 +873,7 @@ footer strong {
   }
 
   .logo {
-    font-size:13px;
+    font-size:15px;
     letter-spacing:0;
   }
 
@@ -870,7 +900,10 @@ footer strong {
   .theme-switch {width:66px;height:36px;}
   .theme-switch .switch-icon {width:28px;height:28px;}
   .theme-switch .switch-knob {width:28px;height:28px;}
-  body.dark .theme-switch .switch-knob {transform:translateX(-28px);}
+
+  body.dark .theme-switch .switch-knob {
+    transform:translateX(-28px);
+  }
 
   .profile-photo {
     width:500px;
@@ -885,9 +918,17 @@ footer strong {
     height:280px;
   }
 
-  .image-viewer {
-    padding:12px;
+  .skill .symbol {
+    width:70px;
+    height:70px;
   }
+
+  .skill .symbol svg {
+    width:62px;
+    height:62px;
+  }
+
+  .image-viewer {padding:12px;}
 
   .image-viewer img {
     max-width:96vw;
@@ -905,6 +946,7 @@ footer strong {
 </head>
 
 <body>
+
 <div class="ambient one"></div>
 <div class="ambient two"></div>
 
@@ -946,9 +988,12 @@ footer strong {
 
 <main>
 
+<!-- Home -->
+
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
+
       <div class="eyebrow">
         <span class="status-dot"></span>
         <span data-ar="مرحبًا بك في مساحتي الرقمية" data-en="Welcome to my digital space">مرحبًا بك في مساحتي الرقمية</span>
@@ -959,7 +1004,10 @@ footer strong {
         BOTROS<span class="gradient-text">.</span>
       </h1>
 
-      <p data-ar="أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية." data-en="I'm Antonyos Botros, interested in technology, programming, and digital ideas. I'm learning and building digital projects that bring creativity and technology together.">
+      <p
+        data-ar="أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية."
+        data-en="I'm Antonyos Botros, interested in technology, programming, and digital ideas. I'm learning and building digital projects that bring creativity and technology together."
+      >
         أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية.
       </p>
 
@@ -967,16 +1015,22 @@ footer strong {
         <a href="#projects" class="btn btn-primary" data-ar="اكتشف مشروعاتي ←" data-en="Explore My Projects →">اكتشف مشروعاتي ←</a>
         <a href="#contact" class="btn btn-outline" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</a>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- About -->
+
 <section id="about">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">ABOUT ME</div>
       <h2 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h2>
-      <p data-ar="تعرف أكثر على اهتماماتي ورحلتي في عالم التكنولوجيا." data-en="Learn more about my interests and my journey in technology.">تعرف أكثر على اهتماماتي ورحلتي في عالم التكنولوجيا.</p>
+      <p data-ar="تعرف أكثر على اهتماماتي ورحلتي في عالم التكنولوجيا." data-en="Learn more about my interests and my journey in technology.">
+        تعرف أكثر على اهتماماتي ورحلتي في عالم التكنولوجيا.
+      </p>
     </div>
 
     <div class="about-card reveal">
@@ -987,40 +1041,56 @@ footer strong {
           class="profile-photo"
         >
 
-        <h3 style="margin-bottom:15px" data-ar="أهلًا، أنا انطونيوس بطرس" data-en="Hello, I'm Antonyos Botros">أهلًا، أنا انطونيوس بطرس</h3>
-        <p data-ar="أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل." data-en="I'm interested in exploring technology and programming. I work on improving my skills through learning, experimentation, and practical projects. I believe every new project is an opportunity to gain experience and develop better ideas.">
+        <h3 style="margin-bottom:15px" data-ar="أهلًا، أنا انطونيوس بطرس" data-en="Hello, I'm Antonyos Botros">
+          أهلًا، أنا انطونيوس بطرس
+        </h3>
+
+        <p
+          data-ar="أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل."
+          data-en="I'm interested in exploring technology and programming. I work on improving my skills through learning, experimentation, and practical projects. I believe every new project is an opportunity to gain experience and develop better ideas."
+        >
           أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل.
         </p>
       </div>
 
       <div class="info-grid">
+
         <div class="info-item">
           <small data-ar="الاسم" data-en="Name">الاسم</small>
           <strong>ANTONYOS BOTROS</strong>
         </div>
+
         <div class="info-item">
           <small data-ar="المجال" data-en="Field">المجال</small>
           <strong data-ar="التكنولوجيا والبرمجة" data-en="Technology & Programming">التكنولوجيا والبرمجة</strong>
         </div>
+
         <div class="info-item">
           <small data-ar="المرحلة الدراسية" data-en="Education">المرحلة الدراسية</small>
           <strong data-ar="الصف الثاني الثانوي" data-en="Second Year of High School">الصف الثاني الثانوي</strong>
         </div>
+
         <div class="info-item">
           <small data-ar="الاهتمامات" data-en="Interests">الاهتمامات</small>
           <strong data-ar="التعلم والمشروعات الرقمية" data-en="Learning & Digital Projects">التعلم والمشروعات الرقمية</strong>
         </div>
+
       </div>
     </div>
   </div>
 </section>
 
+<!-- Skills -->
+
 <section id="skills">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">MY SKILLS</div>
       <h2 data-ar="ما أتعلمه" data-en="What I'm Learning">ما أتعلمه</h2>
-      <p data-ar="مجالات أعمل على تطوير معرفتي ومهاراتي فيها." data-en="Areas in which I'm developing my knowledge and skills.">مجالات أعمل على تطوير معرفتي ومهاراتي فيها.</p>
+      <p data-ar="مجالات أعمل على تطوير معرفتي ومهاراتي فيها." data-en="Areas in which I'm developing my knowledge and skills.">
+        مجالات أعمل على تطوير معرفتي ومهاراتي فيها.
+      </p>
     </div>
 
     <div class="skills-grid">
@@ -1079,21 +1149,28 @@ footer strong {
   </div>
 </section>
 
+<!-- Projects -->
+
 <section id="projects">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">MY PROJECTS</div>
       <h2 data-ar="مشروعاتي" data-en="My Projects">مشروعاتي</h2>
-      <p data-ar="بعض الأفكار والمشروعات الرقمية التي أعمل عليها." data-en="Some of the digital ideas and projects I'm working on.">بعض الأفكار والمشروعات الرقمية التي أعمل عليها.</p>
+      <p data-ar="بعض الأفكار والمشروعات الرقمية التي أعمل عليها." data-en="Some of the digital ideas and projects I'm working on.">
+        بعض الأفكار والمشروعات الرقمية التي أعمل عليها.
+      </p>
     </div>
 
     <div class="projects-grid">
 
       <!-- Personal website project -->
+
       <article class="project-card reveal">
 
         <button
           class="project-image-button"
+          style="--project-image:url('portfolio.jpg')"
           type="button"
           onclick="openImageViewer('portfolio.jpg')"
           aria-label="عرض صورة موقعي الشخصي بحجم الشاشة"
@@ -1104,7 +1181,10 @@ footer strong {
         <div class="project-body">
           <h3>ANTONYOS PORTFOLIO</h3>
 
-          <p data-ar="موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها." data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing.">
+          <p
+            data-ar="موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها."
+            data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing."
+          >
             موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها.
           </p>
 
@@ -1122,10 +1202,12 @@ footer strong {
       </article>
 
       <!-- AccountX project -->
+
       <article class="project-card reveal">
 
         <button
           class="project-image-button"
+          style="--project-image:url('accountx.png')"
           type="button"
           onclick="openImageViewer('accountx.png')"
           aria-label="عرض صورة AccountX بحجم الشاشة"
@@ -1136,7 +1218,10 @@ footer strong {
         <div class="project-body">
           <h3>AccountX</h3>
 
-          <p data-ar="مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية." data-en="A bot project named AccountX. I'm developing its concept and exploring its features as part of my interest in digital and software tools.">
+          <p
+            data-ar="مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية."
+            data-en="A bot project named AccountX. I'm developing its concept and exploring its features as part of my interest in digital and software tools."
+          >
             مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية.
           </p>
 
@@ -1157,8 +1242,11 @@ footer strong {
   </div>
 </section>
 
+<!-- Education -->
+
 <section id="education">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">EDUCATION</div>
       <h2 data-ar="التعليم" data-en="Education">التعليم</h2>
@@ -1166,32 +1254,47 @@ footer strong {
 
     <div class="education-card reveal">
       <div class="education-icon">🎓</div>
+
       <div>
         <h3 data-ar="المرحلة الثانوية" data-en="High School">المرحلة الثانوية</h3>
-        <p data-ar="الصف الثاني الثانوي — أواصل دراستي بالتوازي مع تعلم البرمجة والتكنولوجيا." data-en="Second year of high school — continuing my studies alongside learning programming and technology.">
+        <p
+          data-ar="الصف الثاني الثانوي — أواصل دراستي بالتوازي مع تعلم البرمجة والتكنولوجيا."
+          data-en="Second year of high school — continuing my studies alongside learning programming and technology."
+        >
           الصف الثاني الثانوي — أواصل دراستي بالتوازي مع تعلم البرمجة والتكنولوجيا.
         </p>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- Contact -->
+
 <section id="contact">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">GET IN TOUCH</div>
       <h2 data-ar="لنتواصل معًا" data-en="Let's Connect">لنتواصل معًا</h2>
     </div>
 
     <div class="contact-card reveal">
-      <h3 data-ar="هل ترغب في التواصل معي؟" data-en="Would you like to contact me?">هل ترغب في التواصل معي؟</h3>
-      <p data-ar="يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك." data-en="I'd be glad to receive your messages and questions. Choose your preferred way to contact me.">
+      <h3 data-ar="هل ترغب في التواصل معي؟" data-en="Would you like to contact me?">
+        هل ترغب في التواصل معي؟
+      </h3>
+
+      <p
+        data-ar="يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك."
+        data-en="I'd be glad to receive your messages and questions. Choose your preferred way to contact me."
+      >
         يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك.
       </p>
 
       <div class="contact-links">
 
         <!-- WhatsApp -->
+
         <a
           class="contact-link whatsapp-link"
           href="https://wa.me/201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
@@ -1201,10 +1304,12 @@ footer strong {
           <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
             <path d="M16 .8A15.1 15.1 0 0 0 3.1 23.7L1 31l7.5-2A15.1 15.1 0 1 0 16 .8zm0 27.5a12.3 12.3 0 0 1-6.3-1.7l-.5-.3-4.5 1.2 1.2-4.4-.3-.5A12.3 12.3 0 1 1 16 28.3zm6.8-9.2c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.3-2.9-.3-.7-.7-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.7 5.9.9.4 1.7.6 2.2.7.9.3 1.8.2 2.4.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
           </svg>
+
           <span data-ar="تواصل معنا عبر واتساب" data-en="Contact Us via WhatsApp">تواصل معنا عبر واتساب</span>
         </a>
 
         <!-- Telegram -->
+
         <a
           class="contact-link telegram-link"
           href="https://t.me/+201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
@@ -1214,6 +1319,7 @@ footer strong {
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.8 3.2c.3-1.1-.8-2-1.8-1.6L2.4 8.4c-1.2.5-1.2 2.2.1 2.6l4.5 1.4 1.7 5.3c.4 1.2 1.9 1.5 2.7.5l2.5-3.1 4.6 3.4c1 .7 2.4.2 2.6-1l.7-14.3zM8.1 12l9.9-6.2-7.8 7.4-.3 3.2L8.1 12z"/>
           </svg>
+
           <span data-ar="تواصل معنا عبر تليجرام" data-en="Contact Us via Telegram">تواصل معنا عبر تليجرام</span>
         </a>
 
@@ -1226,18 +1332,25 @@ footer strong {
 
 <footer>
   <div class="container">
-    <p>© <span id="year"></span> <strong>ANTONYOS BOTROS</strong> — <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span></p>
+    <p>
+      © <span id="year"></span>
+      <strong>ANTONYOS BOTROS</strong> —
+      <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
+    </p>
   </div>
 </footer>
 
 <!-- Full-screen project image viewer -->
+
 <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)" aria-hidden="true">
   <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
   <img id="viewerImage" src="" alt="Project image enlarged">
 </div>
 
 <script>
-// Day and night switch
+
+/* Day and night switch */
+
 const themeBtn = document.getElementById("themeBtn");
 
 themeBtn.addEventListener("click", () => {
@@ -1249,7 +1362,8 @@ themeBtn.addEventListener("click", () => {
     isDark ? "#090b16" : "#f5f7ff";
 });
 
-// Language switch
+/* Language switch */
+
 const languageBtn = document.getElementById("languageBtn");
 let currentLanguage = "ar";
 
@@ -1258,6 +1372,7 @@ languageBtn.addEventListener("click", () => {
 
   document.documentElement.lang = currentLanguage;
   document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+
   document.body.classList.toggle("english", currentLanguage === "en");
 
   document.querySelectorAll("[data-ar][data-en]").forEach(element => {
@@ -1268,7 +1383,8 @@ languageBtn.addEventListener("click", () => {
     currentLanguage === "ar" ? "English" : "العربية";
 });
 
-// Side menu
+/* Side menu */
+
 const menuBtn = document.getElementById("menuBtn");
 const closeMenu = document.getElementById("closeMenu");
 const sideMenu = document.getElementById("sideMenu");
@@ -1292,7 +1408,8 @@ document.querySelectorAll(".menu-links a").forEach(link => {
   link.addEventListener("click", hideMenu);
 });
 
-// Full-screen project image viewer
+/* Full-screen project image viewer */
+
 const imageViewer = document.getElementById("imageViewer");
 const viewerImage = document.getElementById("viewerImage");
 
@@ -1315,7 +1432,8 @@ function closeImageViewer(event) {
   }
 }
 
-// Close image viewer with Escape key
+/* Close image viewer with Escape key */
+
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && imageViewer.classList.contains("show")) {
     imageViewer.classList.remove("show");
@@ -1325,7 +1443,8 @@ document.addEventListener("keydown", event => {
   }
 });
 
-// Reveal animation
+/* Reveal animation */
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1339,9 +1458,11 @@ document.querySelectorAll(".reveal").forEach(element => {
   observer.observe(element);
 });
 
-// Current year
+/* Current year */
+
 document.getElementById("year").textContent = new Date().getFullYear();
+
 </script>
 
 </body>
-</html>
+        </html>
