@@ -9,7 +9,7 @@
 <meta name="description" content="الموقع الشخصي لانطونيوس بطرس. مهتم بالتكنولوجيا والبرمجة والمشروعات الرقمية.">
 <meta name="keywords" content="ANTONYOS BOTROS, Antonyos, Technology, Programming, AccountX">
 <meta name="author" content="ANTONYOS BOTROS">
-<meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g" />
+<meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g">
 
 <meta property="og:title" content="ANTONYOS BOTROS">
 <meta property="og:description" content="مرحبًا بك في مساحتي الرقمية">
@@ -31,7 +31,7 @@
   --secondary:#08aeca;
   --border:rgba(35,38,75,.10);
   --shadow:0 15px 45px rgba(42,44,90,.08);
-  --nav-bg:rgba(255,255,255,.82);
+  --nav-bg:rgba(255,255,255,.86);
 }
 
 body.dark {
@@ -44,7 +44,7 @@ body.dark {
   --secondary:#25d2ee;
   --border:rgba(255,255,255,.09);
   --shadow:0 15px 45px rgba(0,0,0,.25);
-  --nav-bg:rgba(15,18,34,.85);
+  --nav-bg:rgba(15,18,34,.88);
 }
 
 * {
@@ -62,9 +62,19 @@ body {
   overflow-x:hidden;
 }
 
-body.english {font-family:"Inter",sans-serif;}
-a {text-decoration:none;color:inherit;}
-button {font:inherit;cursor:pointer;}
+body.english {
+  font-family:"Inter",sans-serif;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+button {
+  font:inherit;
+  cursor:pointer;
+}
 
 .container {
   width:min(1120px,90%);
@@ -113,21 +123,21 @@ header {
   gap:15px;
 }
 
-/* اسم الموقع */
-
 .logo {
   font-family:"Inter",sans-serif;
   font-weight:900;
-  letter-spacing:1px;
-  font-size:clamp(19px,2.5vw,29px);
+  letter-spacing:.7px;
+  font-size:clamp(17px,2.5vw,27px);
   direction:ltr;
   white-space:nowrap;
-  background:linear-gradient(100deg,#7055ed,#08aeca,#7055ed);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  text-shadow:0 5px 25px rgba(112,85,237,.13);
+  color:#17182b;
+  -webkit-text-fill-color:#17182b;
   transition:.3s;
+}
+
+body.dark .logo {
+  color:#fff;
+  -webkit-text-fill-color:#fff;
 }
 
 .logo span {
@@ -136,7 +146,7 @@ header {
 }
 
 .logo:hover {
-  filter:drop-shadow(0 0 10px rgba(112,85,237,.45));
+  filter:drop-shadow(0 0 9px rgba(112,85,237,.35));
 }
 
 .header-actions {
@@ -163,60 +173,89 @@ header {
   transform:translateY(-2px);
 }
 
-.lang-btn {
-  border:1px solid var(--border);
-  background:var(--surface);
-  color:var(--text);
-  border-radius:12px;
-  padding:9px 14px;
-  font-weight:700;
-  font-size:12px;
+.menu-btn {
+  font-size:22px;
 }
 
-.menu-btn {font-size:22px;}
+/* Language control */
 
-/* Day and night switch */
+.lang-btn {
+  min-width:76px;
+  height:38px;
+  padding:0 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
+  color:var(--text);
+  font-family:Inter,"Cairo",sans-serif;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.5px;
+  transition:.25s;
+  box-shadow:inset 0 0 12px rgba(112,85,237,.04);
+}
+
+.lang-btn:hover {
+  border-color:var(--primary);
+  color:var(--primary);
+  box-shadow:0 0 15px rgba(112,85,237,.12);
+  transform:translateY(-2px);
+}
+
+/* Futuristic theme switch */
 
 .theme-switch {
-  width:72px;
+  width:78px;
   height:38px;
   border:1px solid var(--border);
-  border-radius:30px;
+  border-radius:12px;
   background:var(--surface2);
   position:relative;
-  padding:3px;
+  padding:4px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  flex-shrink:0;
+  cursor:pointer;
+  overflow:hidden;
+  box-shadow:inset 0 0 12px rgba(112,85,237,.08);
   transition:.3s;
 }
 
 .theme-switch .switch-icon {
   width:30px;
-  height:30px;
+  height:29px;
   display:grid;
   place-items:center;
-  z-index:1;
-  font-size:15px;
+  z-index:2;
+  font-family:Inter,sans-serif;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.3px;
+  color:var(--muted);
   pointer-events:none;
+  transition:color .3s;
 }
 
 .theme-switch .switch-knob {
   position:absolute;
-  top:3px;
-  right:3px;
+  top:4px;
+  right:4px;
   width:30px;
-  height:30px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#7055ed,#9b7cff);
-  box-shadow:0 3px 10px rgba(112,85,237,.3);
+  height:29px;
+  border-radius:9px;
+  background:linear-gradient(135deg,#7055ed,#08aeca);
+  box-shadow:0 0 15px rgba(112,85,237,.35);
   transition:transform .3s ease;
 }
 
 body.dark .theme-switch .switch-knob {
-  transform:translateX(-34px);
+  transform:translateX(-40px);
   background:linear-gradient(135deg,#17b9d4,#397cff);
+}
+
+body:not(.dark) .theme-switch .switch-icon:first-child,
+body.dark .theme-switch .switch-icon:last-child {
+  color:#fff;
 }
 
 /* Menu */
@@ -250,7 +289,9 @@ body.dark .theme-switch .switch-knob {
   box-shadow:var(--shadow);
 }
 
-.side-menu.show {transform:translateX(0);}
+.side-menu.show {
+  transform:translateX(0);
+}
 
 .menu-top {
   display:flex;
@@ -262,7 +303,7 @@ body.dark .theme-switch .switch-knob {
 .menu-top strong {
   font-family:"Inter",sans-serif;
   letter-spacing:.5px;
-  font-size:17px;
+  font-size:15px;
   white-space:nowrap;
   direction:ltr;
 }
@@ -299,7 +340,9 @@ body.english .menu-links a:hover {
   padding:75px 0;
 }
 
-.hero-content {max-width:850px;}
+.hero-content {
+  max-width:850px;
+}
 
 .eyebrow {
   display:inline-flex;
@@ -323,24 +366,36 @@ body.english .menu-links a:hover {
   box-shadow:0 0 12px #22c987;
 }
 
-.hero h1 {
-  font-family:"Inter",sans-serif;
+/* Name on one line */
+
+.hero-name {
   direction:ltr;
   text-align:right;
-  font-size:clamp(38px,7vw,76px);
-  line-height:1.12;
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  gap:12px;
+  font-family:"Inter",sans-serif;
+  font-size:clamp(30px,6vw,68px);
   font-weight:900;
   letter-spacing:-2px;
+  line-height:1.2;
+  white-space:nowrap;
+  color:#17182b;
   margin-bottom:22px;
 }
 
-body.english .hero h1 {text-align:left;}
+body.dark .hero-name {
+  color:#fff;
+}
 
-.gradient-text {
-  background:linear-gradient(100deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+body.english .hero-name {
+  text-align:left;
+}
+
+.hero-name .gradient-text {
+  color:var(--secondary);
+  -webkit-text-fill-color:var(--secondary);
 }
 
 .hero p {
@@ -369,7 +424,9 @@ body.english .hero h1 {text-align:left;}
   border:1px solid transparent;
 }
 
-.btn:hover {transform:translateY(-4px);}
+.btn:hover {
+  transform:translateY(-4px);
+}
 
 .btn-primary {
   color:white;
@@ -385,9 +442,13 @@ body.english .hero h1 {text-align:left;}
 
 /* Sections */
 
-section {padding:75px 0;}
+section {
+  padding:75px 0;
+}
 
-.section-heading {margin-bottom:35px;}
+.section-heading {
+  margin-bottom:35px;
+}
 
 .section-label {
   color:var(--primary);
@@ -429,8 +490,6 @@ section {padding:75px 0;}
   font-size:15px;
 }
 
-/* Profile photo */
-
 .profile-photo {
   width:500px;
   height:500px;
@@ -468,7 +527,9 @@ body.english .profile-photo {
   font-size:12px;
 }
 
-.info-item strong {font-size:14px;}
+.info-item strong {
+  font-size:14px;
+}
 
 /* Skills */
 
@@ -491,8 +552,6 @@ body.english .profile-photo {
   transform:translateY(-5px);
   border-color:var(--primary);
 }
-
-/* تكبير شعارات لغات البرمجة */
 
 .skill .symbol {
   width:76px;
@@ -540,30 +599,27 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-/* صور المشروعين بنفس المقاس مع الحفاظ على الصورة كاملة */
+/* Same tall frame for both project images */
 
 .project-image-button {
   width:100%;
-  height:320px;
+  aspect-ratio:2 / 3;
+  height:auto;
   border:0;
   display:grid;
   place-items:center;
-  padding:12px;
+  padding:10px;
   cursor:zoom-in;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),
-    var(--surface2);
+  background:var(--surface2);
   overflow:hidden;
   position:relative;
   isolation:isolate;
 }
 
-/* خلفية ضبابية مأخوذة من نفس الصورة */
-
 .project-image-button::before {
   content:"";
   position:absolute;
-  inset:-18px;
+  inset:-15px;
   background-image:var(--project-image);
   background-size:cover;
   background-position:center;
@@ -572,30 +628,25 @@ body.english .profile-photo {
   z-index:-1;
 }
 
-.project-image-button::after {
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border:1px solid rgba(112,85,237,.18);
-  border-radius:50%;
-  pointer-events:none;
-}
-
 .project-image-button img {
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
+  object-position:center;
+  display:block;
   position:relative;
   z-index:1;
+  border-radius:8px;
   transition:transform .3s ease;
 }
 
 .project-image-button:hover img {
-  transform:scale(1.04);
+  transform:scale(1.035);
 }
 
-.project-body {padding:22px;}
+.project-body {
+  padding:22px;
+}
 
 .project-body h3 {
   font-family:"Inter",sans-serif;
@@ -605,7 +656,9 @@ body.english .profile-photo {
   text-align:right;
 }
 
-body.english .project-body h3 {text-align:left;}
+body.english .project-body h3 {
+  text-align:left;
+}
 
 .project-body p {
   color:var(--muted);
@@ -624,8 +677,6 @@ body.english .project-body h3 {text-align:left;}
   font-size:11px;
   font-weight:800;
 }
-
-/* AccountX visit button */
 
 .project-visit {
   display:flex;
@@ -649,8 +700,6 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 12px 28px rgba(112,85,237,.32);
 }
 
-/* Already inside this project */
-
 .already-inside {
   display:flex;
   align-items:center;
@@ -659,18 +708,14 @@ body.english .project-body h3 {text-align:left;}
   gap:10px;
   margin-top:20px;
   padding:15px 20px;
-  border:2px solid #ffffff;
+  border:2px solid var(--border);
   border-radius:14px;
   color:var(--text);
   background:var(--surface2);
   font-weight:900;
   font-size:14px;
-  box-shadow:
-    inset 0 3px 7px rgba(0,0,0,.16),
-    0 2px 4px rgba(0,0,0,.08);
   cursor:default;
   opacity:1;
-  transform:translateY(2px);
 }
 
 .already-inside:disabled {
@@ -680,7 +725,7 @@ body.english .project-body h3 {text-align:left;}
   cursor:default;
 }
 
-/* Full-screen image viewer */
+/* Image viewer */
 
 .image-viewer {
   position:fixed;
@@ -810,7 +855,9 @@ body.english .project-body h3 {text-align:left;}
   flex-shrink:0;
 }
 
-.contact-link span {font-size:15px;}
+.contact-link span {
+  font-size:15px;
+}
 
 .whatsapp-link {
   background:linear-gradient(110deg,#16b968,#0a9e59);
@@ -861,48 +908,101 @@ footer strong {
 /* Responsive */
 
 @media(max-width:850px) {
-  .projects-grid {grid-template-columns:repeat(2,1fr);}
-  .skills-grid {grid-template-columns:repeat(2,1fr);}
-  .about-card {grid-template-columns:1fr;}
+  .projects-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .about-card {
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:560px) {
   .header-inner {
     height:67px;
-    gap:8px;
+    gap:7px;
   }
 
   .logo {
-    font-size:15px;
-    letter-spacing:0;
+    font-size:14px;
+    letter-spacing:-.3px;
   }
 
-  .header-actions {gap:6px;}
+  .header-actions {
+    gap:5px;
+  }
 
   .icon-btn {
-    width:38px;
-    height:38px;
+    width:36px;
+    height:36px;
   }
 
   .lang-btn {
-    padding:8px 9px;
-    font-size:11px;
+    min-width:57px;
+    height:36px;
+    padding:0 7px;
+    font-size:10px;
   }
 
-  .hero {min-height:auto;padding:85px 0 65px;}
-  .hero h1 {font-size:43px;}
-  .hero p {font-size:14px;}
-  section {padding:55px 0;}
-  .projects-grid {grid-template-columns:1fr;}
-  .about-card,.contact-card {padding:23px;}
-  .info-grid {grid-template-columns:1fr 1fr;}
-  .education-card {align-items:flex-start;}
-  .theme-switch {width:66px;height:36px;}
-  .theme-switch .switch-icon {width:28px;height:28px;}
-  .theme-switch .switch-knob {width:28px;height:28px;}
+  .theme-switch {
+    width:70px;
+    height:36px;
+  }
+
+  .theme-switch .switch-icon {
+    width:27px;
+    height:27px;
+    font-size:8px;
+  }
+
+  .theme-switch .switch-knob {
+    width:27px;
+    height:27px;
+  }
 
   body.dark .theme-switch .switch-knob {
-    transform:translateX(-28px);
+    transform:translateX(-34px);
+  }
+
+  .hero {
+    min-height:auto;
+    padding:85px 0 65px;
+  }
+
+  .hero-name {
+    font-size:clamp(23px,7vw,36px);
+    letter-spacing:-1.5px;
+    gap:7px;
+    margin-bottom:20px;
+  }
+
+  .hero p {
+    font-size:14px;
+  }
+
+  section {
+    padding:55px 0;
+  }
+
+  .projects-grid {
+    grid-template-columns:1fr;
+  }
+
+  .about-card,
+  .contact-card {
+    padding:23px;
+  }
+
+  .info-grid {
+    grid-template-columns:1fr 1fr;
+  }
+
+  .education-card {
+    align-items:flex-start;
   }
 
   .profile-photo {
@@ -915,7 +1015,7 @@ footer strong {
   }
 
   .project-image-button {
-    height:280px;
+    aspect-ratio:2 / 3;
   }
 
   .skill .symbol {
@@ -928,7 +1028,9 @@ footer strong {
     height:62px;
   }
 
-  .image-viewer {padding:12px;}
+  .image-viewer {
+    padding:12px;
+  }
 
   .image-viewer img {
     max-width:96vw;
@@ -936,8 +1038,33 @@ footer strong {
   }
 }
 
+@media(max-width:360px) {
+  .logo {
+    font-size:12px;
+  }
+
+  .header-actions {
+    gap:4px;
+  }
+
+  .theme-switch {
+    width:64px;
+  }
+
+  body.dark .theme-switch .switch-knob {
+    transform:translateX(-28px);
+  }
+
+  .hero-name {
+    font-size:22px;
+    gap:5px;
+  }
+}
+
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
+  *,
+  *::before,
+  *::after {
     scroll-behavior:auto!important;
     transition-duration:.01ms!important;
   }
@@ -952,18 +1079,21 @@ footer strong {
 
 <header>
   <div class="container header-inner">
+
     <a href="#home" class="logo">ANTONYOS BOTROS<span>.</span></a>
 
     <div class="header-actions">
-      <button class="lang-btn" id="languageBtn" type="button">English</button>
+
+      <button class="lang-btn" id="languageBtn" type="button">EN</button>
 
       <button class="theme-switch" id="themeBtn" type="button" aria-label="تغيير الوضع">
-        <span class="switch-icon">☀️</span>
-        <span class="switch-icon">🌙</span>
+        <span class="switch-icon">DAY</span>
+        <span class="switch-icon">NIGHT</span>
         <span class="switch-knob"></span>
       </button>
 
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة">☰</button>
+
     </div>
   </div>
 </header>
@@ -971,6 +1101,7 @@ footer strong {
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <nav class="side-menu" id="sideMenu">
+
   <div class="menu-top">
     <strong>ANTONYOS BOTROS<span style="color:var(--primary)">.</span></strong>
     <button class="icon-btn" id="closeMenu" type="button">✕</button>
@@ -984,6 +1115,7 @@ footer strong {
     <a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
     <a href="#contact" data-ar="تواصل معي" data-en="Contact">تواصل معي</a>
   </div>
+
 </nav>
 
 <main>
@@ -992,6 +1124,7 @@ footer strong {
 
 <section class="hero" id="home">
   <div class="container">
+
     <div class="hero-content reveal">
 
       <div class="eyebrow">
@@ -999,9 +1132,9 @@ footer strong {
         <span data-ar="مرحبًا بك في مساحتي الرقمية" data-en="Welcome to my digital space">مرحبًا بك في مساحتي الرقمية</span>
       </div>
 
-      <h1>
-        <span class="gradient-text">ANTONYOS</span><br>
-        BOTROS<span class="gradient-text">.</span>
+      <h1 class="hero-name">
+        <span>ANTONYOS</span>
+        <span>BOTROS</span><span class="gradient-text">.</span>
       </h1>
 
       <p
@@ -1034,12 +1167,9 @@ footer strong {
     </div>
 
     <div class="about-card reveal">
+
       <div>
-        <img
-          src="profile.jpg"
-          alt="ANTONYOS BOTROS"
-          class="profile-photo"
-        >
+        <img src="profile.jpg" alt="ANTONYOS BOTROS" class="profile-photo">
 
         <h3 style="margin-bottom:15px" data-ar="أهلًا، أنا انطونيوس بطرس" data-en="Hello, I'm Antonyos Botros">
           أهلًا، أنا انطونيوس بطرس
@@ -1095,7 +1225,6 @@ footer strong {
 
     <div class="skills-grid">
 
-      <!-- HTML5 -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="HTML5" role="img">
@@ -1108,7 +1237,6 @@ footer strong {
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
-      <!-- CSS3 -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="CSS3" role="img">
@@ -1121,7 +1249,6 @@ footer strong {
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
-      <!-- JavaScript -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="JavaScript" role="img">
@@ -1133,7 +1260,6 @@ footer strong {
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
-      <!-- Python -->
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="Python" role="img">
@@ -1163,8 +1289,6 @@ footer strong {
     </div>
 
     <div class="projects-grid">
-
-      <!-- Personal website project -->
 
       <article class="project-card reveal">
 
@@ -1200,8 +1324,6 @@ footer strong {
           >انت داخل المشروع بالفعل</button>
         </div>
       </article>
-
-      <!-- AccountX project -->
 
       <article class="project-card reveal">
 
@@ -1280,6 +1402,7 @@ footer strong {
     </div>
 
     <div class="contact-card reveal">
+
       <h3 data-ar="هل ترغب في التواصل معي؟" data-en="Would you like to contact me?">
         هل ترغب في التواصل معي؟
       </h3>
@@ -1293,8 +1416,6 @@ footer strong {
 
       <div class="contact-links">
 
-        <!-- WhatsApp -->
-
         <a
           class="contact-link whatsapp-link"
           href="https://wa.me/201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
@@ -1304,11 +1425,8 @@ footer strong {
           <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
             <path d="M16 .8A15.1 15.1 0 0 0 3.1 23.7L1 31l7.5-2A15.1 15.1 0 1 0 16 .8zm0 27.5a12.3 12.3 0 0 1-6.3-1.7l-.5-.3-4.5 1.2 1.2-4.4-.3-.5A12.3 12.3 0 1 1 16 28.3zm6.8-9.2c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.3-2.9-.3-.7-.7-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.7 5.9.9.4 1.7.6 2.2.7.9.3 1.8.2 2.4.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
           </svg>
-
           <span data-ar="تواصل معنا عبر واتساب" data-en="Contact Us via WhatsApp">تواصل معنا عبر واتساب</span>
         </a>
-
-        <!-- Telegram -->
 
         <a
           class="contact-link telegram-link"
@@ -1319,7 +1437,6 @@ footer strong {
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.8 3.2c.3-1.1-.8-2-1.8-1.6L2.4 8.4c-1.2.5-1.2 2.2.1 2.6l4.5 1.4 1.7 5.3c.4 1.2 1.9 1.5 2.7.5l2.5-3.1 4.6 3.4c1 .7 2.4.2 2.6-1l.7-14.3zM8.1 12l9.9-6.2-7.8 7.4-.3 3.2L8.1 12z"/>
           </svg>
-
           <span data-ar="تواصل معنا عبر تليجرام" data-en="Contact Us via Telegram">تواصل معنا عبر تليجرام</span>
         </a>
 
@@ -1340,7 +1457,7 @@ footer strong {
   </div>
 </footer>
 
-<!-- Full-screen project image viewer -->
+<!-- Full-screen image viewer -->
 
 <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)" aria-hidden="true">
   <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
@@ -1349,7 +1466,7 @@ footer strong {
 
 <script>
 
-/* Day and night switch */
+/* Theme switch */
 
 const themeBtn = document.getElementById("themeBtn");
 
@@ -1380,7 +1497,7 @@ languageBtn.addEventListener("click", () => {
   });
 
   languageBtn.textContent =
-    currentLanguage === "ar" ? "English" : "العربية";
+    currentLanguage === "ar" ? "EN" : "عربي";
 });
 
 /* Side menu */
@@ -1408,7 +1525,7 @@ document.querySelectorAll(".menu-links a").forEach(link => {
   link.addEventListener("click", hideMenu);
 });
 
-/* Full-screen project image viewer */
+/* Full-screen image viewer */
 
 const imageViewer = document.getElementById("imageViewer");
 const viewerImage = document.getElementById("viewerImage");
@@ -1432,7 +1549,7 @@ function closeImageViewer(event) {
   }
 }
 
-/* Close image viewer with Escape key */
+/* Escape key */
 
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && imageViewer.classList.contains("show")) {
@@ -1440,6 +1557,10 @@ document.addEventListener("keydown", event => {
     imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
     document.body.style.overflow = "";
+  }
+
+  if (event.key === "Escape") {
+    hideMenu();
   }
 });
 
@@ -1465,4 +1586,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
-        </html>
+  </html>
