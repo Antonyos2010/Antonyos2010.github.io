@@ -11,7 +11,7 @@
 <meta name="keywords" content="ANTONYOS BOTROS, Antonyos, Technology, Programming, AccountX">
 <meta name="author" content="ANTONYOS BOTROS">
 
-<meta name="google-site-verification" content="fxfr-B-gnBizaAetAdBEV72rjixynicxPFNtJfJIZ-g" />
+<meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g" />
 
 <meta property="og:title" content="ANTONYOS BOTROS">
 <meta property="og:description" content="مرحبًا بك في مساحتي الرقمية">
@@ -162,7 +162,7 @@ header {
 
 .menu-btn {font-size:22px;}
 
-/* Sliding day/night switch */
+/* Day and night switch */
 
 .theme-switch {
   width:72px;
@@ -413,17 +413,17 @@ section {padding:75px 0;}
   font-size:15px;
 }
 
-/* Profile photo - enlarged */
+/* Very large profile photo */
 
 .profile-photo {
-  width:200px;
-  height:200px;
+  width:320px;
+  height:320px;
   max-width:100%;
   object-fit:cover;
   border-radius:50%;
-  border:5px solid var(--primary);
-  box-shadow:0 10px 35px rgba(112,85,237,.28);
-  margin:0 0 24px auto;
+  border:6px solid var(--primary);
+  box-shadow:0 12px 40px rgba(112,85,237,.30);
+  margin:0 0 28px auto;
   display:block;
 }
 
@@ -524,15 +524,23 @@ body.english .profile-photo {
   overflow:hidden;
 }
 
-/* AccountX image area - enlarged */
+/* Clickable project image */
 
-.project-visual:has(img) {
-  height:280px;
-  min-height:280px;
+.project-image-button {
+  width:100%;
+  height:320px;
+  border:0;
+  display:grid;
+  place-items:center;
   padding:12px;
+  cursor:zoom-in;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),
+    var(--surface2);
+  overflow:hidden;
 }
 
-.project-visual::after {
+.project-image-button::after {
   content:"";
   position:absolute;
   width:180px;
@@ -542,19 +550,16 @@ body.english .profile-photo {
   pointer-events:none;
 }
 
-.project-visual img {
+.project-image-button img {
   width:100%;
   height:100%;
-  max-width:100%;
-  max-height:100%;
   object-fit:contain;
-  padding:0;
   position:relative;
   z-index:1;
   transition:transform .3s ease;
 }
 
-.project-card:hover .project-visual img {
+.project-image-button:hover img {
   transform:scale(1.04);
 }
 
@@ -586,6 +591,83 @@ body.english .project-body h3 {text-align:left;}
   color:var(--primary);
   font-size:11px;
   font-weight:800;
+}
+
+/* Project visit button */
+
+.project-visit {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  gap:10px;
+  margin-top:20px;
+  padding:15px 20px;
+  border-radius:14px;
+  color:#fff;
+  background:linear-gradient(110deg,#7055ed,#08aeca);
+  font-weight:900;
+  font-size:14px;
+  box-shadow:0 8px 22px rgba(112,85,237,.22);
+  transition:.25s;
+}
+
+.project-visit:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(112,85,237,.32);
+}
+
+/* Full-screen image viewer */
+
+.image-viewer {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  background:rgba(3,5,15,.96);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease,visibility .25s ease;
+}
+
+.image-viewer.show {
+  opacity:1;
+  visibility:visible;
+}
+
+.image-viewer img {
+  display:block;
+  max-width:95vw;
+  max-height:90vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:12px;
+  box-shadow:0 15px 60px rgba(0,0,0,.5);
+}
+
+.viewer-close {
+  position:absolute;
+  top:18px;
+  right:20px;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+  color:white;
+  font-size:27px;
+  cursor:pointer;
+  z-index:2;
+}
+
+.viewer-close:hover {
+  background:rgba(255,255,255,.25);
 }
 
 /* Education */
@@ -738,13 +820,21 @@ footer strong {
   body.dark .theme-switch .switch-knob {transform:translateX(-28px);}
 
   .profile-photo {
-    width:200px;
-    height:200px;
+    width:280px;
+    height:280px;
   }
 
-  .project-visual:has(img) {
-    height:260px;
-    min-height:260px;
+  .project-image-button {
+    height:280px;
+  }
+
+  .image-viewer {
+    padding:12px;
+  }
+
+  .image-viewer img {
+    max-width:96vw;
+    max-height:85vh;
   }
 }
 
@@ -895,6 +985,7 @@ footer strong {
 
     <div class="projects-grid">
 
+      <!-- Personal website project: no visit button -->
       <article class="project-card reveal">
         <div class="project-visual">◈</div>
         <div class="project-body">
@@ -906,23 +997,35 @@ footer strong {
         </div>
       </article>
 
+      <!-- AccountX project -->
       <article class="project-card reveal">
-        <a
-          class="project-visual"
-          href="https://t.me/accountx2026bot"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open AccountX Telegram Bot"
+
+        <button
+          class="project-image-button"
+          type="button"
+          onclick="openImageViewer('accountx.png')"
+          aria-label="عرض صورة AccountX بحجم الشاشة"
         >
           <img src="accountx.png" alt="AccountX Bot">
-        </a>
+        </button>
 
         <div class="project-body">
           <h3>AccountX</h3>
+
           <p data-ar="مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية." data-en="A bot project named AccountX. I'm developing its concept and exploring its features as part of my interest in digital and software tools.">
             مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية.
           </p>
+
           <span class="project-tag" data-ar="مشروع رقمي" data-en="Digital Project">مشروع رقمي</span>
+
+          <a
+            class="project-visit"
+            href="https://t.me/accountx2026bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ar="↗ اذهب لرؤية المشروع"
+            data-en="↗ Visit the Project"
+          >↗ اذهب لرؤية المشروع</a>
         </div>
       </article>
 
@@ -1003,6 +1106,12 @@ footer strong {
   </div>
 </footer>
 
+<!-- Full-screen project image viewer -->
+<div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
+  <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
+  <img id="viewerImage" src="" alt="Project image enlarged">
+</div>
+
 <script>
 // Day and night switch
 const themeBtn = document.getElementById("themeBtn");
@@ -1057,6 +1166,36 @@ menuOverlay.addEventListener("click", hideMenu);
 
 document.querySelectorAll(".menu-links a").forEach(link => {
   link.addEventListener("click", hideMenu);
+});
+
+// Full-screen project image viewer
+const imageViewer = document.getElementById("imageViewer");
+const viewerImage = document.getElementById("viewerImage");
+
+function openImageViewer(imageSource) {
+  viewerImage.src = imageSource;
+  imageViewer.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeImageViewer(event) {
+  if (
+    event.target === imageViewer ||
+    event.target.classList.contains("viewer-close")
+  ) {
+    imageViewer.classList.remove("show");
+    viewerImage.src = "";
+    document.body.style.overflow = "";
+  }
+}
+
+// Close image viewer with Escape key
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && imageViewer.classList.contains("show")) {
+    imageViewer.classList.remove("show");
+    viewerImage.src = "";
+    document.body.style.overflow = "";
+  }
 });
 
 // Reveal animation
