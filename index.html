@@ -413,12 +413,13 @@ section {padding:75px 0;}
   font-size:15px;
 }
 
-/* Very large profile photo */
+/* Profile photo: 500 x 500 */
 
 .profile-photo {
-  width:320px;
-  height:320px;
+  width:500px;
+  height:500px;
   max-width:100%;
+  aspect-ratio:1 / 1;
   object-fit:cover;
   border-radius:50%;
   border:6px solid var(--primary);
@@ -476,8 +477,17 @@ body.english .profile-photo {
 }
 
 .skill .symbol {
-  font-size:29px;
-  margin-bottom:9px;
+  width:54px;
+  height:54px;
+  margin:0 auto 12px;
+  display:grid;
+  place-items:center;
+}
+
+.skill .symbol svg {
+  width:48px;
+  height:48px;
+  display:block;
 }
 
 .skill strong {
@@ -524,7 +534,7 @@ body.english .profile-photo {
   overflow:hidden;
 }
 
-/* Clickable project image */
+/* Clickable project images */
 
 .project-image-button {
   width:100%;
@@ -538,6 +548,7 @@ body.english .profile-photo {
     radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),
     var(--surface2);
   overflow:hidden;
+  position:relative;
 }
 
 .project-image-button::after {
@@ -593,7 +604,7 @@ body.english .project-body h3 {text-align:left;}
   font-weight:800;
 }
 
-/* Project visit button */
+/* AccountX visit button */
 
 .project-visit {
   display:flex;
@@ -615,6 +626,37 @@ body.english .project-body h3 {text-align:left;}
 .project-visit:hover {
   transform:translateY(-3px);
   box-shadow:0 12px 28px rgba(112,85,237,.32);
+}
+
+/* Already inside this project: disabled white pressed button */
+
+.already-inside {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  gap:10px;
+  margin-top:20px;
+  padding:15px 20px;
+  border:2px solid #ffffff;
+  border-radius:14px;
+  color:var(--text);
+  background:var(--surface2);
+  font-weight:900;
+  font-size:14px;
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.16),
+    0 2px 4px rgba(0,0,0,.08);
+  cursor:default;
+  opacity:1;
+  transform:translateY(2px);
+}
+
+.already-inside:disabled {
+  color:var(--text);
+  -webkit-text-fill-color:var(--text);
+  opacity:1;
+  cursor:default;
 }
 
 /* Full-screen image viewer */
@@ -820,8 +862,12 @@ footer strong {
   body.dark .theme-switch .switch-knob {transform:translateX(-28px);}
 
   .profile-photo {
-    width:280px;
-    height:280px;
+    width:500px;
+    max-width:100%;
+    height:auto;
+    aspect-ratio:1 / 1;
+    margin-left:auto;
+    margin-right:auto;
   }
 
   .project-image-button {
@@ -967,10 +1013,57 @@ footer strong {
     </div>
 
     <div class="skills-grid">
-      <div class="skill reveal"><div class="symbol">🌐</div><strong>HTML</strong><small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small></div>
-      <div class="skill reveal"><div class="symbol">🎨</div><strong>CSS</strong><small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small></div>
-      <div class="skill reveal"><div class="symbol">⚡</div><strong>JavaScript</strong><small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small></div>
-      <div class="skill reveal"><div class="symbol">🐍</div><strong>Python</strong><small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small></div>
+
+      <!-- HTML5 -->
+      <div class="skill reveal">
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="HTML5" role="img">
+            <path fill="#E44D26" d="M9 4h46l-4.2 47L32 60 13.2 51 9 4z"/>
+            <path fill="#F16529" d="M32 8h18.2l-3.5 40L32 54V8z"/>
+            <path fill="#fff" d="M19 16h27l-.7 6H25l.5 6h20l-2 17-11.5 4-11.5-4-.8-9h6.2l.4 4.5 5.7 1.8 5.7-1.8.7-7H20.5L19 16z"/>
+          </svg>
+        </div>
+        <strong>HTML</strong>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
+      </div>
+
+      <!-- CSS3 -->
+      <div class="skill reveal">
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="CSS3" role="img">
+            <path fill="#1572B6" d="M9 4h46l-4.2 47L32 60 13.2 51 9 4z"/>
+            <path fill="#33A9DC" d="M32 8h18.2l-3.5 40L32 54V8z"/>
+            <path fill="#fff" d="M19 16h27l-.6 6H25l.4 6h19.5l-1.7 17L32 49l-11.2-4-.7-8h6.2l.4 4 5.3 1.8 5.4-1.8.6-7H20.3L19 16z"/>
+          </svg>
+        </div>
+        <strong>CSS</strong>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="skill reveal">
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="JavaScript" role="img">
+            <rect x="5" y="5" width="54" height="54" rx="5" fill="#F7DF1E"/>
+            <path fill="#222" d="M28 45c.8 1.4 1.8 2.4 3.8 2.4 1.7 0 2.7-.8 2.7-2 0-1.4-1.1-1.9-3-2.8l-1-.4c-2.9-1.2-4.8-2.7-4.8-5.9 0-2.9 2.2-5.1 5.7-5.1 2.5 0 4.3.9 5.6 3.2l-3.1 2c-.7-1.2-1.4-1.7-2.5-1.7s-1.8.7-1.8 1.6c0 1.1.7 1.6 2.4 2.3l1 .4c3.4 1.5 5.3 2.9 5.3 6.2 0 3.6-2.8 5.6-6.6 5.6-3.7 0-6-1.8-7.1-4.1L28 45zm-13 .3c.6 1 1.1 1.8 2.4 1.8 1.2 0 1.9-.5 1.9-2.3V32h4.2v17.9c0 4.1-2.4 6-5.9 6-3.2 0-5.1-1.7-6.1-3.7l3.5-1.9z"/>
+          </svg>
+        </div>
+        <strong>JavaScript</strong>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
+      </div>
+
+      <!-- Python -->
+      <div class="skill reveal">
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="Python" role="img">
+            <path fill="#3776AB" d="M31 5c-13 0-12 5.7-12 5.7V20h13v3H14S5 22 5 35s8 12 8 12h5v-7s-.3-8 8-8h14s8 .1 8-8V14s1.2-9-17-9zm-7 6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/>
+            <path fill="#FFD43B" d="M33 59c13 0 12-5.7 12-5.7V44H32v-3h18s9 1 9-12-8-12-8-12h-5v7s.3 8-8 8H24s-8-.1-8 8v10s-1.2 9 17 9zm7-6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+          </svg>
+        </div>
+        <strong>Python</strong>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
+      </div>
+
     </div>
   </div>
 </section>
@@ -985,15 +1078,35 @@ footer strong {
 
     <div class="projects-grid">
 
-      <!-- Personal website project: no visit button -->
+      <!-- Personal website project -->
       <article class="project-card reveal">
-        <div class="project-visual">◈</div>
+
+        <button
+          class="project-image-button"
+          type="button"
+          onclick="openImageViewer('portfolio.jpg')"
+          aria-label="عرض صورة موقعي الشخصي بحجم الشاشة"
+        >
+          <img src="portfolio.jpg" alt="ANTONYOS PORTFOLIO Website">
+        </button>
+
         <div class="project-body">
           <h3>ANTONYOS PORTFOLIO</h3>
+
           <p data-ar="موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها." data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing.">
             موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها.
           </p>
+
           <span class="project-tag" data-ar="موقعي الشخصي" data-en="Personal Website">موقعي الشخصي</span>
+
+          <button
+            class="already-inside"
+            type="button"
+            disabled
+            aria-disabled="true"
+            data-ar="انت انت داخل المشروع بالفعل"
+            data-en="You're already inside this project"
+          >انت انت داخل المشروع بالفعل</button>
         </div>
       </article>
 
@@ -1107,7 +1220,7 @@ footer strong {
 </footer>
 
 <!-- Full-screen project image viewer -->
-<div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
+<div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)" aria-hidden="true">
   <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
   <img id="viewerImage" src="" alt="Project image enlarged">
 </div>
@@ -1175,6 +1288,7 @@ const viewerImage = document.getElementById("viewerImage");
 function openImageViewer(imageSource) {
   viewerImage.src = imageSource;
   imageViewer.classList.add("show");
+  imageViewer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
@@ -1184,6 +1298,7 @@ function closeImageViewer(event) {
     event.target.classList.contains("viewer-close")
   ) {
     imageViewer.classList.remove("show");
+    imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
     document.body.style.overflow = "";
   }
@@ -1193,6 +1308,7 @@ function closeImageViewer(event) {
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && imageViewer.classList.contains("show")) {
     imageViewer.classList.remove("show");
+    imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
     document.body.style.overflow = "";
   }
