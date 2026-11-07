@@ -7,530 +7,1194 @@
 <meta name="theme-color" content="#f6f7fb">
 <meta name="description" content="ANTONYOS BOTROS — Personal Portfolio. مهتم بالتكنولوجيا والبرمجة وتطوير المشروعات الرقمية.">
 <meta name="author" content="ANTONYOS BOTROS">
-<meta name="google-site-verification" content="fxfr-B-gnBizaAetAdBEV72rjixynicxPFNtJfJIZ-g">
+<meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g">
 <title>ANTONYOS BOTROS | Personal Portfolio</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#f6f7fb;
---surface:#ffffff;
---surface-soft:#f0effa;
---text:#171827;
---muted:#73788c;
---line:#e6e6ef;
---primary:#7257e8;
---secondary:#17a9c7;
---shadow:0 15px 45px rgba(40,35,90,.08);
---header:rgba(255,255,255,.85);
+:root {
+  --bg:#f6f7fb;
+  --surface:#ffffff;
+  --surface2:#eef0f7;
+  --text:#17172b;
+  --muted:#70758b;
+  --primary:#7047e8;
+  --secondary:#08a9c7;
+  --border:rgba(30,35,65,.10);
+  --shadow:0 15px 45px rgba(34,30,75,.08);
+  --header:rgba(246,247,251,.86);
 }
-html[data-theme="dark"]{
---bg:#0b0c14;
---surface:#171927;
---surface-soft:#222139;
---text:#f5f4ff;
---muted:#a5a8bc;
---line:#2b2d40;
---primary:#a08aff;
---secondary:#4bd4e9;
---shadow:0 15px 45px rgba(0,0,0,.25);
---header:rgba(11,12,20,.88);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
-body{
-margin:0;background:var(--bg);color:var(--text);
-font-family:"Cairo",sans-serif;line-height:1.8;
-transition:background .3s,color .3s;overflow-x:hidden
-}
-a{text-decoration:none;color:inherit}
-button{font:inherit}
-.container{width:min(1120px,calc(100% - 40px));margin:auto}
-.topbar{
-position:fixed;top:0;left:0;right:0;z-index:100;
-background:var(--header);backdrop-filter:blur(18px);
-border-bottom:1px solid var(--line)
-}
-.topbar-inner{
-height:76px;display:flex;align-items:center;
-justify-content:space-between;gap:15px
-}
-.brand{
-font-family:"DM Sans",sans-serif;font-size:20px;
-font-weight:800;letter-spacing:1px;direction:ltr;
-white-space:nowrap
-}
-.brand span{color:var(--primary)}
-.navlinks{display:flex;gap:23px;font-size:13px;color:var(--muted)}
-.navlinks a:hover{color:var(--primary)}
-.tools{display:flex;align-items:center;gap:9px}
-.tool-btn{
-height:40px;padding:0 12px;border:1px solid var(--line);
-background:var(--surface);color:var(--text);
-border-radius:12px;cursor:pointer;font-size:12px;font-weight:700
-}
-.theme-switch{
-height:42px;min-width:112px;border:1px solid var(--line);
-background:var(--surface);border-radius:30px;
-display:flex;align-items:center;justify-content:space-between;
-gap:9px;padding:5px 9px;cursor:pointer;color:var(--muted);
-font-size:11px;font-weight:800
-}
-.switch-track{
-width:43px;height:25px;border-radius:30px;
-background:#d9d5ee;padding:3px;
-display:flex;align-items:center;justify-content:flex-start;
-transition:.25s
-}
-.switch-knob{
-width:19px;height:19px;background:white;
-border-radius:50%;box-shadow:0 2px 6px #0002;transition:.25s
-}
-html[data-theme="dark"] .switch-track{
-background:#7257e8;justify-content:flex-end
-}
-.menu-btn{
-display:none;width:42px;height:42px;border:1px solid var(--line);
-background:var(--surface);color:var(--text);
-border-radius:12px;font-size:21px;cursor:pointer
-}
-.mobile-menu{
-display:none;position:absolute;top:84px;left:15px;
-width:250px;padding:12px;background:var(--surface);
-border:1px solid var(--line);border-radius:17px;
-box-shadow:var(--shadow)
-}
-.mobile-menu.open{display:grid}
-.mobile-menu a{padding:10px 12px;border-radius:10px;color:var(--muted)}
-.mobile-menu a:hover{background:var(--surface-soft);color:var(--primary)}
 
-.hero{padding:155px 0 95px;min-height:690px;display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
-.eyebrow{
-font-family:"DM Sans",sans-serif;font-size:12px;
-font-weight:700;letter-spacing:2px;color:var(--primary);
-direction:ltr;text-align:right
+html[data-theme="dark"] {
+  --bg:#090914;
+  --surface:#121222;
+  --surface2:#1b1b30;
+  --text:#f5f4ff;
+  --muted:#a2a2bc;
+  --primary:#a58aff;
+  --secondary:#42d9ee;
+  --border:rgba(255,255,255,.10);
+  --shadow:0 15px 45px rgba(0,0,0,.25);
+  --header:rgba(9,9,20,.86);
 }
-.hero h1{font-size:clamp(43px,7vw,80px);line-height:1.15;margin:18px 0}
-.hero h1 .hello{display:block;font-size:.42em;color:var(--muted);margin-bottom:12px}
-.hero h1 .name{
-display:block;font-family:"DM Sans",sans-serif;
-font-weight:800;direction:ltr;text-align:right;
-letter-spacing:-2px;white-space:nowrap;
-background:linear-gradient(100deg,var(--primary),var(--secondary));
--webkit-background-clip:text;background-clip:text;color:transparent
-}
-.hero-copy{max-width:620px;color:var(--muted);font-size:16px;margin-bottom:27px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-display:inline-flex;align-items:center;justify-content:center;
-padding:12px 20px;border-radius:13px;font-weight:800;
-font-size:13px;border:1px solid var(--line);cursor:pointer;transition:.2s
-}
-.btn-primary{background:linear-gradient(110deg,var(--primary),#8975ef);color:white;border:0;box-shadow:0 10px 28px #7257e833}
-.btn-ghost{background:var(--surface);color:var(--text)}
-.btn:hover{transform:translateY(-3px)}
-.hero-art{min-height:360px;display:grid;place-items:center;position:relative}
-.orb{
-width:min(330px,75vw);aspect-ratio:1;border-radius:50%;
-background:radial-gradient(circle at 35% 30%,white,rgba(180,166,255,.6) 25%,rgba(108,85,232,.18) 60%,transparent 72%);
-border:1px solid #8b79e455;
-box-shadow:inset 0 0 55px #7257e822,0 0 90px #7257e822;
-display:grid;place-items:center;position:relative
-}
-.orb:before,.orb:after{
-content:"";position:absolute;inset:-24px;border:1px solid #7257e855;
-border-radius:50%;transform:rotate(-25deg) scaleY(.48)
-}
-.orb:after{inset:-48px;transform:rotate(35deg) scaleY(.38);border-color:#17a9c755}
-.monogram{
-font-family:"DM Sans",sans-serif;font-size:105px;
-font-weight:800;letter-spacing:-9px;color:var(--primary);direction:ltr
-}
-.float-tag{
-position:absolute;background:var(--surface);border:1px solid var(--line);
-box-shadow:var(--shadow);padding:9px 13px;border-radius:12px;
-font-family:"DM Sans",sans-serif;font-size:10px;direction:ltr
-}
-.tag-one{top:10%;right:0}
-.tag-two{bottom:12%;left:0}
-.tag-three{bottom:2%;right:13%}
 
-.section{padding:85px 0}
-.section-head{margin-bottom:32px}
-.section-kicker{
-font:700 11px "DM Sans",sans-serif;letter-spacing:2px;
-color:var(--primary);direction:ltr;text-align:right
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-.section-title{font-size:clamp(29px,4vw,42px);margin:8px 0 5px}
-.section-sub{color:var(--muted);margin:0}
-.panel,.card{
-background:var(--surface);border:1px solid var(--line);
-border-radius:21px;padding:25px;box-shadow:var(--shadow);
-transition:.25s
-}
-.panel p,.card p{color:var(--muted);margin:0;font-size:14px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.fact-list{display:grid;gap:13px}
-.fact{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
-.fact:last-child{border:0;padding:0}
-.fact span{color:var(--muted);font-size:13px}
-.fact strong{font-size:13px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card:hover{transform:translateY(-5px);border-color:var(--primary)}
-.card-icon{
-width:45px;height:45px;border-radius:14px;
-background:var(--surface-soft);display:grid;place-items:center;
-color:var(--primary);font-size:21px;margin-bottom:16px
-}
-.card h3{margin:0 0 7px;font-size:18px}
-.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.skill{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
-.skill-top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px}
-.skill b{font:800 17px "DM Sans",sans-serif;direction:ltr}
-.status{font-size:10px;color:var(--primary);background:var(--surface-soft);padding:3px 8px;border-radius:20px}
-.skill small{color:var(--muted);font-size:11px}
-.project-type{font:700 10px "DM Sans",sans-serif;color:var(--primary);letter-spacing:1px;direction:ltr}
-.project-card{min-height:220px;position:relative;overflow:hidden}
-.project-card h3{font:800 26px "DM Sans",sans-serif;direction:ltr;text-align:right;margin:12px 0}
-.project-mark{
-position:absolute;left:15px;bottom:-30px;font:800 85px "DM Sans",sans-serif;
-color:var(--primary);opacity:.08;direction:ltr
-}
-.timeline{border-right:2px solid var(--line);padding-right:22px;display:grid;gap:17px}
-.timeline-item{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
-.timeline-item:before{
-content:"";position:absolute;right:-29px;top:23px;width:11px;height:11px;
-border-radius:50%;background:var(--primary);box-shadow:0 0 0 5px var(--surface-soft)
-}
-.timeline-item h3{margin:0 0 5px;font-size:16px}
-.timeline-item p{margin:0;color:var(--muted);font-size:13px}
-.cv-box{
-display:flex;align-items:center;justify-content:space-between;gap:20px;
-background:linear-gradient(115deg,#7257e81c,#17a9c71a);
-border:1px solid var(--line);border-radius:22px;padding:27px
-}
-.cv-box h3{margin:0 0 5px;font-size:21px}
-.cv-box p{margin:0;color:var(--muted);font-size:13px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.contact-item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
-.contact-item p{color:var(--muted);font-size:13px;margin:5px 0 0}
-footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:12px}
-.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.backtop{color:var(--primary);font-weight:800}
-.reveal{opacity:0;transform:translateY(18px);transition:.6s}
-.reveal.visible{opacity:1;transform:none}
 
-html[dir="ltr"] .eyebrow,html[dir="ltr"] .section-kicker{text-align:left}
-html[dir="ltr"] .hero h1 .name{text-align:left}
-html[dir="ltr"] .timeline{border-right:0;border-left:2px solid var(--line);padding-right:0;padding-left:22px}
-html[dir="ltr"] .timeline-item:before{right:auto;left:-29px}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
 
-@media(max-width:850px){
-.navlinks{display:none}
-.menu-btn{display:block;order:0}
-.brand{margin-inline-start:auto}
-.hero{padding-top:125px;min-height:auto}
-.hero-grid{grid-template-columns:1fr;gap:25px}
-.hero-art{min-height:280px;grid-row:1}
-.orb{width:250px}
-.monogram{font-size:80px}
-.cards{grid-template-columns:1fr 1fr}
-.skill-grid{grid-template-columns:1fr 1fr}
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cairo',sans-serif;
+  line-height:1.8;
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
 }
-@media(max-width:560px){
-.container{width:calc(100% - 30px)}
-.topbar-inner{height:68px;gap:7px}
-.brand{font-size:14px;letter-spacing:.5px}
-.tool-btn{height:37px;padding:0 8px}
-.theme-switch{min-width:94px;height:38px;font-size:10px}
-.hero{padding:110px 0 55px}
-.hero-art{min-height:245px}
-.orb{width:200px}
-.monogram{font-size:65px}
-.float-tag{font-size:9px;padding:7px 9px}
-.hero h1 .name{font-size:.76em;letter-spacing:-1.5px}
-.section{padding:60px 0}
-.about-grid,.cards,.contact-grid{grid-template-columns:1fr}
-.skill-grid{grid-template-columns:1fr 1fr}
-.panel,.card{padding:19px}
-.cv-box{align-items:flex-start;flex-direction:column}
+
+body.english {
+  font-family:'DM Sans',sans-serif;
 }
-@media print{
-.topbar,.actions,.theme-switch,.tool-btn,.menu-btn{display:none!important}
-body{background:white!important;color:#111!important}
-.hero{min-height:auto;padding:25px 0}
-.hero-art{display:none}
-.section{padding:22px 0}
-.panel,.card,.skill,.timeline-item{box-shadow:none;background:white!important;border:1px solid #ddd;break-inside:avoid}
-.reveal{opacity:1;transform:none}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+button {
+  font:inherit;
+}
+
+.container {
+  width:min(1120px,90%);
+  margin:auto;
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--header);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.navbar {
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo {
+  font-family:'DM Sans',sans-serif;
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:1px;
+  direction:ltr;
+  white-space:nowrap;
+}
+
+.logo span {
+  color:var(--primary);
+}
+
+.nav-actions {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.icon-btn {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:13px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.icon-btn:hover {
+  border-color:var(--primary);
+  transform:translateY(-2px);
+}
+
+.menu-btn {
+  font-size:22px;
+}
+
+.language-btn {
+  width:auto;
+  padding:0 13px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.theme-control {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.switch {
+  width:54px;
+  height:29px;
+  border-radius:30px;
+  background:#d8d9e4;
+  border:1px solid var(--border);
+  position:relative;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.switch::after {
+  content:"☀";
+  position:absolute;
+  top:2px;
+  right:2px;
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:white;
+  color:#7650dc;
+  font-size:14px;
+  transition:.3s;
+  box-shadow:0 2px 6px #0002;
+}
+
+html[data-theme="dark"] .switch {
+  background:#6045ad;
+}
+
+html[data-theme="dark"] .switch::after {
+  right:27px;
+  content:"☾";
+  background:#17152a;
+  color:#fff;
+}
+
+.menu-panel {
+  position:absolute;
+  top:85px;
+  left:5%;
+  width:min(280px,90%);
+  padding:14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  animation:menuIn .2s ease;
+}
+
+.menu-panel.open {
+  display:flex;
+}
+
+@keyframes menuIn {
+  from {opacity:0;transform:translateY(-8px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.menu-panel a {
+  padding:10px 13px;
+  border-radius:12px;
+  color:var(--muted);
+  font-size:14px;
+  transition:.2s;
+}
+
+.menu-panel a:hover {
+  background:var(--surface2);
+  color:var(--primary);
+}
+
+.hero {
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  padding:90px 0;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:var(--primary);
+  opacity:.10;
+  filter:blur(100px);
+  top:0;
+  left:-130px;
+  pointer-events:none;
+}
+
+.hero-content {
+  position:relative;
+  z-index:1;
+  max-width:850px;
+}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 15px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:30px;
+  color:var(--primary);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.status-dot {
+  width:8px;
+  height:8px;
+  background:#22b88a;
+  border-radius:50%;
+  box-shadow:0 0 12px #22b88a;
+}
+
+.hero h1 {
+  font-size:clamp(38px,7vw,76px);
+  line-height:1.2;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.hero h1 .name {
+  display:block;
+  direction:ltr;
+  text-align:right;
+  font-family:'DM Sans',sans-serif;
+  letter-spacing:-2px;
+  background:linear-gradient(100deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+body.english .hero h1 .name {
+  text-align:left;
+}
+
+.hero-description {
+  color:var(--muted);
+  font-size:17px;
+  max-width:650px;
+  margin-bottom:30px;
+}
+
+.hero-buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+}
+
+.btn {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:9px;
+  padding:12px 23px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+  border:1px solid transparent;
+  transition:.25s;
+  cursor:pointer;
+}
+
+.btn:hover {
+  transform:translateY(-3px);
+}
+
+.btn-primary {
+  color:white;
+  background:linear-gradient(110deg,#7047e8,#477be8);
+  box-shadow:0 8px 25px rgba(112,71,232,.22);
+}
+
+.btn-outline {
+  color:var(--text);
+  background:var(--surface);
+  border-color:var(--border);
+}
+
+.btn-outline:hover {
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+.hero-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:45px;
+}
+
+.tag {
+  padding:7px 14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+section {
+  padding:85px 0;
+}
+
+.section-heading {
+  margin-bottom:35px;
+}
+
+.section-heading small {
+  color:var(--primary);
+  font-weight:800;
+  letter-spacing:1px;
+  font-size:12px;
+}
+
+.section-heading h2 {
+  font-size:clamp(27px,4vw,39px);
+  line-height:1.4;
+  margin-top:5px;
+}
+
+.section-heading p {
+  color:var(--muted);
+  font-size:14px;
+  margin-top:8px;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:22px;
+}
+
+.card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:27px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(112,71,232,.35);
+}
+
+.card h3 {
+  font-size:19px;
+  margin-bottom:12px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.info-list {
+  display:grid;
+  gap:15px;
+}
+
+.info-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+
+.info-item:last-child {
+  border:0;
+  padding-bottom:0;
+}
+
+.info-item span:first-child {
+  color:var(--muted);
+}
+
+.info-item strong {
+  text-align:left;
+}
+
+body.english .info-item strong {
+  text-align:right;
+}
+
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.skill-card {
+  text-align:center;
+  padding:24px 14px;
+}
+
+.skill-icon {
+  width:55px;
+  height:55px;
+  margin:0 auto 13px;
+  display:grid;
+  place-items:center;
+  border-radius:17px;
+  background:var(--surface2);
+  color:var(--primary);
+  font-family:'DM Sans',sans-serif;
+  font-size:20px;
+  font-weight:800;
+}
+
+.skill-card h3 {
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.skill-card p {
+  color:var(--muted);
+  font-size:12px;
+}
+
+.learning-note {
+  margin-top:20px;
+  padding:17px 20px;
+  background:var(--surface2);
+  border-radius:15px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.project-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.project-symbol {
+  width:53px;
+  height:53px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  font-family:'DM Sans',sans-serif;
+  font-size:22px;
+  font-weight:900;
+}
+
+.project-label {
+  font-size:11px;
+  color:var(--primary);
+  background:var(--surface2);
+  border-radius:30px;
+  padding:5px 11px;
+}
+
+.project-card h3 {
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.project-card p {
+  margin-bottom:16px;
+}
+
+.project-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.project-tags span {
+  background:var(--surface2);
+  padding:5px 10px;
+  border-radius:8px;
+  font-size:11px;
+  color:var(--muted);
+}
+
+.timeline {
+  position:relative;
+  display:grid;
+  gap:18px;
+}
+
+.timeline-item {
+  position:relative;
+  padding:22px 25px;
+  border-right:3px solid var(--primary);
+  background:var(--surface);
+  border-radius:15px;
+  border-top:1px solid var(--border);
+  border-left:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+body.english .timeline-item {
+  border-right:1px solid var(--border);
+  border-left:3px solid var(--primary);
+}
+
+.timeline-item h3 {
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.timeline-item p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.cv-card {
+  text-align:center;
+  padding:40px 25px;
+  background:linear-gradient(135deg,var(--surface),var(--surface2));
+}
+
+.cv-card h3 {
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.cv-card p {
+  max-width:600px;
+  margin:0 auto 22px;
+}
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.contact-card {
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.contact-icon {
+  width:48px;
+  height:48px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:var(--surface2);
+  color:var(--primary);
+  font-size:21px;
+}
+
+.contact-card p {
+  font-size:12px;
+  color:var(--muted);
+}
+
+footer {
+  border-top:1px solid var(--border);
+  padding:25px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
+footer strong {
+  color:var(--primary);
+  font-family:'DM Sans',sans-serif;
+}
+
+.back-top {
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  width:43px;
+  height:43px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--primary);
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  display:none;
+  z-index:500;
+}
+
+.back-top.show {
+  display:grid;
+  place-items:center;
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .7s,transform .7s;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:800px) {
+  .about-grid {
+    grid-template-columns:1fr;
+  }
+  .skills-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .hero {
+    min-height:570px;
+  }
+}
+
+@media(max-width:560px) {
+  .container {
+    width:91%;
+  }
+  .navbar {
+    height:68px;
+  }
+  .logo {
+    font-size:17px;
+  }
+  .nav-actions {
+    gap:7px;
+  }
+  .icon-btn {
+    width:39px;
+    height:39px;
+  }
+  .theme-control {
+    gap:5px;
+  }
+  .theme-label {
+    display:none;
+  }
+  .hero {
+    min-height:560px;
+    padding:65px 0;
+  }
+  .hero h1 {
+    font-size:39px;
+  }
+  .hero-description {
+    font-size:15px;
+  }
+  section {
+    padding:65px 0;
+  }
+  .projects-grid,
+  .contact-grid {
+    grid-template-columns:1fr;
+  }
+  .skills-grid {
+    gap:11px;
+  }
+  .card {
+    padding:21px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
 }
 </style>
 </head>
 
 <body>
-<header class="topbar">
-<div class="container topbar-inner">
-<button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
-<a class="brand" href="#home">ANTONYOS<span>.</span></a>
 
-<nav class="navlinks">
-<a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
-<a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a>
-<a href="#projects" data-ar="المشروعات" data-en="Projects">المشروعات</a>
-<a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
-<a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
-</nav>
+<header>
+  <div class="container navbar">
+    <a href="#home" class="logo">ANTONYOS <span>BOTROS.</span></a>
 
-<div class="tools">
-<button class="theme-switch" id="themeToggle">
-<span id="themeLabel">نهاري</span>
-<span class="switch-track"><span class="switch-knob"></span></span>
-</button>
-<button class="tool-btn" id="langToggle">English</button>
-</div>
+    <div class="nav-actions">
+      <div class="theme-control">
+        <span class="theme-label" data-ar="الوضع" data-en="Theme">الوضع</span>
+        <button class="switch" id="themeSwitch" aria-label="Toggle theme"></button>
+      </div>
 
-<nav class="mobile-menu" id="mobileMenu">
-<a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
-<a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a>
-<a href="#projects" data-ar="المشروعات" data-en="Projects">المشروعات</a>
-<a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
-<a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
-</nav>
-</div>
+      <button class="icon-btn language-btn" id="languageBtn">EN</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+
+  <nav class="menu-panel" id="menuPanel">
+    <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="#about" data-ar="نبذة عني" data-en="About Me">نبذة عني</a>
+    <a href="#skills" data-ar="المهارات والتعلم" data-en="Skills & Learning">المهارات والتعلم</a>
+    <a href="#projects" data-ar="المشروعات" data-en="Projects">المشروعات</a>
+    <a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
+    <a href="#cv" data-ar="السيرة الذاتية" data-en="My CV">السيرة الذاتية</a>
+    <a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
+  </nav>
 </header>
 
 <main>
+
 <section class="hero" id="home">
-<div class="container hero-grid">
-<div class="hero-content reveal">
-<div class="eyebrow">PERSONAL PORTFOLIO / 2026</div>
-<h1>
-<span class="hello" data-ar="مرحبًا، أنا" data-en="HELLO, I'M">مرحبًا، أنا</span>
-<span class="name">ANTONYOS BOTROS</span>
-</h1>
-<p class="hero-copy" data-ar="مهتم بالتكنولوجيا والبرمجة وبناء الأفكار الرقمية. أتعلم HTML وCSS وJavaScript وPython، وأعمل على تطوير مشروعات شخصية لاكتساب الخبرة وتحويل الأفكار إلى تطبيقات عملية." data-en="A technology and programming enthusiast learning HTML, CSS, JavaScript, and Python. I build personal projects to gain experience and turn ideas into practical digital products.">
-مهتم بالتكنولوجيا والبرمجة وبناء الأفكار الرقمية. أتعلم HTML وCSS وJavaScript وPython، وأعمل على تطوير مشروعات شخصية لاكتساب الخبرة وتحويل الأفكار إلى تطبيقات عملية.
-</p>
-<div class="actions">
-<a class="btn btn-primary" href="#projects" data-ar="استكشف مشروعاتي ↗" data-en="Explore Projects ↗">استكشف مشروعاتي ↗</a>
-<a class="btn btn-ghost" href="#about" data-ar="اكتشف المزيد" data-en="Discover More">اكتشف المزيد</a>
-</div>
-</div>
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="eyebrow">
+        <span class="status-dot"></span>
+        <span data-ar="مرحبًا بك في مساحتي الرقمية" data-en="WELCOME TO MY DIGITAL SPACE">مرحبًا بك في مساحتي الرقمية</span>
+      </div>
 
-<div class="hero-art reveal">
-<div class="orb"><div class="monogram">AB</div></div>
-<div class="float-tag" style="top:10%;right:0">CREATIVE MIND / 01</div>
-<div class="float-tag" style="bottom:12%;left:0">LEARN · BUILD · GROW</div>
-<div class="float-tag" style="bottom:2%;right:13%">TECH & CODE</div>
-</div>
-</div>
+      <h1>
+        <span data-ar="أنا" data-en="I'm">أنا</span>
+        <span class="name">ANTONYOS BOTROS</span>
+      </h1>
+
+      <p class="hero-description"
+         data-ar="مهتم بالتكنولوجيا والبرمجة وتطوير المشروعات الرقمية. أتعلم وأستكشف عالم التقنية وأسعى إلى تحويل الأفكار إلى مشروعات عملية."
+         data-en="I'm interested in technology, programming, and digital projects. I'm learning and exploring the world of tech, aiming to turn ideas into practical projects.">
+        مهتم بالتكنولوجيا والبرمجة وتطوير المشروعات الرقمية. أتعلم وأستكشف عالم التقنية وأسعى إلى تحويل الأفكار إلى مشروعات عملية.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary" data-ar="استكشف مشروعاتي ↗" data-en="Explore My Projects ↗">استكشف مشروعاتي ↗</a>
+        <a href="#about" class="btn btn-outline" data-ar="اعرف المزيد عني" data-en="More About Me">اعرف المزيد عني</a>
+      </div>
+
+      <div class="hero-tags">
+        <span class="tag">Technology</span>
+        <span class="tag">Programming</span>
+        <span class="tag">Digital Projects</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="about">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">01 / ABOUT</div>
-<h2 class="section-title" data-ar="من أنا؟" data-en="About Me">من أنا؟</h2>
-<p class="section-sub" data-ar="بداية رحلة في عالم التكنولوجيا والبرمجة" data-en="The beginning of a journey into technology and programming">بداية رحلة في عالم التكنولوجيا والبرمجة</p>
-</div>
+<section id="about">
+  <div class="container">
+    <div class="section-heading reveal">
+      <small data-ar="تعرف عليّ" data-en="GET TO KNOW ME">تعرف عليّ</small>
+      <h2 data-ar="نبذة عني" data-en="About Me">نبذة عني</h2>
+      <p data-ar="بداية رحلتي في عالم التكنولوجيا والتطوير." data-en="The beginning of my journey into technology and development.">بداية رحلتي في عالم التكنولوجيا والتطوير.</p>
+    </div>
 
-<div class="about-grid">
-<div class="panel reveal">
-<p data-ar="أنا أنطونيوس بطرس، طالب في الصف الثاني الثانوي ومهتم بالتكنولوجيا والبرمجة. أتعلم حاليًا أساسيات تطوير الويب والبرمجة، وأستخدم هذا الموقع لعرض رحلتي التعليمية ومشروعاتي وما أعمل على تطويره. أؤمن أن التعلم المستمر والتطبيق العملي هما أساس بناء مهارات قوية."
-data-en="I’m Antonyos Botros, a second-year secondary school student interested in technology and programming. I’m currently learning the fundamentals of web development and programming. This website documents my learning journey, projects, and progress. I believe consistent learning and hands-on practice are the foundation of strong skills.">
-أنا أنطونيوس بطرس، طالب في الصف الثاني الثانوي ومهتم بالتكنولوجيا والبرمجة. أتعلم حاليًا أساسيات تطوير الويب والبرمجة، وأستخدم هذا الموقع لعرض رحلتي التعليمية ومشروعاتي وما أعمل على تطويره. أؤمن أن التعلم المستمر والتطبيق العملي هما أساس بناء مهارات قوية.
-</p>
-</div>
+    <div class="about-grid">
+      <div class="card reveal">
+        <h3 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h3>
+        <p data-ar="أنا أنطونيوس بطرس، طالب في المرحلة الثانوية، مهتم بمجالات التكنولوجيا والبرمجة والابتكار الرقمي. أحب استكشاف التقنيات الجديدة والعمل على أفكار ومشروعات تساعدني على اكتساب الخبرة وتطوير مهاراتي."
+           data-en="I'm Antonyos Botros, a high school student interested in technology, programming, and digital innovation. I enjoy exploring new technologies and working on ideas and projects that help me gain experience and develop my skills.">
+          أنا أنطونيوس بطرس، طالب في المرحلة الثانوية، مهتم بمجالات التكنولوجيا والبرمجة والابتكار الرقمي. أحب استكشاف التقنيات الجديدة والعمل على أفكار ومشروعات تساعدني على اكتساب الخبرة وتطوير مهاراتي.
+        </p>
+      </div>
 
-<div class="panel fact-list reveal">
-<div class="fact"><span data-ar="الاسم" data-en="Name">الاسم</span><strong>ANTONYOS BOTROS</strong></div>
-<div class="fact"><span data-ar="المجال" data-en="Focus">المجال</span><strong data-ar="التكنولوجيا والبرمجة" data-en="Technology & Programming">التكنولوجيا والبرمجة</strong></div>
-<div class="fact"><span data-ar="التعليم" data-en="Education">التعليم</span><strong data-ar="الثاني الثانوي" data-en="Second Year of Secondary School">الثاني الثانوي</strong></div>
-<div class="fact"><span data-ar="الحالة الحالية" data-en="Current Status">الحالة الحالية</span><strong data-ar="طالب — في مرحلة التعلم" data-en="Student — Currently Learning">طالب — في مرحلة التعلم</strong></div>
-</div>
-</div>
-</div>
+      <div class="card reveal">
+        <h3 data-ar="معلومات عامة" data-en="Quick Information">معلومات عامة</h3>
+        <div class="info-list">
+          <div class="info-item">
+            <span data-ar="الاسم" data-en="Name">الاسم</span>
+            <strong>ANTONYOS BOTROS</strong>
+          </div>
+          <div class="info-item">
+            <span data-ar="المرحلة الدراسية" data-en="Education">المرحلة الدراسية</span>
+            <strong data-ar="الصف الثاني الثانوي" data-en="Second Year of High School">الصف الثاني الثانوي</strong>
+          </div>
+          <div class="info-item">
+            <span data-ar="مجال الاهتمام" data-en="Interest">مجال الاهتمام</span>
+            <strong data-ar="التكنولوجيا والبرمجة" data-en="Technology & Programming">التكنولوجيا والبرمجة</strong>
+          </div>
+          <div class="info-item">
+            <span data-ar="الموقع" data-en="Location">الموقع</span>
+            <strong data-ar="مصر" data-en="Egypt">مصر</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="skills">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">02 / SKILLS</div>
-<h2 class="section-title" data-ar="المهارات التقنية" data-en="Technical Skills">المهارات التقنية</h2>
-<p class="section-sub" data-ar="تقنيات أتعلمها وأطور معرفتي بها باستمرار" data-en="Technologies I’m currently learning and exploring">تقنيات أتعلمها وأطور معرفتي بها باستمرار</p>
-</div>
+<section id="skills">
+  <div class="container">
+    <div class="section-heading reveal">
+      <small data-ar="رحلة التعلم" data-en="LEARNING JOURNEY">رحلة التعلم</small>
+      <h2 data-ar="مجالات أتعلمها" data-en="What I'm Learning">مجالات أتعلمها</h2>
+      <p data-ar="مجالات أعمل على تعلمها وتطوير معرفتي بها." data-en="Technologies I'm currently studying and exploring.">مجالات أعمل على تعلمها وتطوير معرفتي بها.</p>
+    </div>
 
-<div class="skill-grid">
-<div class="skill reveal"><div class="skill-top"><b>HTML</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="أساسيات بناء صفحات الويب" data-en="Web page structure fundamentals">أساسيات بناء صفحات الويب</small></div>
-<div class="skill reveal"><div class="skill-top"><b>CSS</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="تنسيق الصفحات والتصميم المتجاوب" data-en="Styling and responsive layouts">تنسيق الصفحات والتصميم المتجاوب</small></div>
-<div class="skill reveal"><div class="skill-top"><b>JavaScript</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="مبادئ البرمجة والتفاعل" data-en="Programming and interactivity basics">مبادئ البرمجة والتفاعل</small></div>
-<div class="skill reveal"><div class="skill-top"><b>Python</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="مبادئ البرمجة وحل المشكلات" data-en="Programming and problem-solving basics">مبادئ البرمجة وحل المشكلات</small></div>
-</div>
-</div>
+    <div class="skills-grid">
+      <div class="card skill-card reveal">
+        <div class="skill-icon">HTML</div>
+        <h3>HTML</h3>
+        <p data-ar="تعلم بناء صفحات الويب" data-en="Learning web page structure">تعلم بناء صفحات الويب</p>
+      </div>
+
+      <div class="card skill-card reveal">
+        <div class="skill-icon">CSS</div>
+        <h3>CSS</h3>
+        <p data-ar="تعلم تنسيق وتصميم المواقع" data-en="Learning web styling and design">تعلم تنسيق وتصميم المواقع</p>
+      </div>
+
+      <div class="card skill-card reveal">
+        <div class="skill-icon">JS</div>
+        <h3>JavaScript</h3>
+        <p data-ar="تعلم أساسيات البرمجة التفاعلية" data-en="Learning interactive programming basics">تعلم أساسيات البرمجة التفاعلية</p>
+      </div>
+
+      <div class="card skill-card reveal">
+        <div class="skill-icon">Py</div>
+        <h3>Python</h3>
+        <p data-ar="تعلم أساسيات لغة بايثون" data-en="Learning Python fundamentals">تعلم أساسيات لغة بايثون</p>
+      </div>
+    </div>
+
+    <div class="learning-note reveal"
+         data-ar="ملاحظة: هذه لغات وتقنيات أتعلمها حاليًا، وليست قائمة بشهادات احترافية أو خبرات وظيفية."
+         data-en="Note: These are technologies I'm currently learning, not a list of professional certifications or work experience.">
+      ملاحظة: هذه لغات وتقنيات أتعلمها حاليًا، وليست قائمة بشهادات احترافية أو خبرات وظيفية.
+    </div>
+  </div>
 </section>
 
-<section class="section" id="projects">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">03 / PROJECTS</div>
-<h2 class="section-title" data-ar="المشروعات" data-en="Selected Projects">المشروعات</h2>
-<p class="section-sub" data-ar="تجارب ومشروعات شخصية أعمل على تطويرها" data-en="Personal experiments and projects in progress">تجارب ومشروعات شخصية أعمل على تطويرها</p>
-</div>
+<section id="projects">
+  <div class="container">
+    <div class="section-heading reveal">
+      <small data-ar="ما أعمل عليه" data-en="WHAT I'M BUILDING">ما أعمل عليه</small>
+      <h2 data-ar="مشروعاتي" data-en="My Projects">مشروعاتي</h2>
+      <p data-ar="أفكار ومشروعات أعمل على تطويرها واكتساب الخبرة من خلالها." data-en="Ideas and projects I'm developing to gain practical experience.">أفكار ومشروعات أعمل على تطويرها واكتساب الخبرة من خلالها.</p>
+    </div>
 
-<div class="cards">
-<article class="card project-card reveal">
-<div class="project-type">E-COMMERCE / IN DEVELOPMENT</div>
-<h3>VOLTRIX ⚡</h3>
-<p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها. أعمل على تطوير تجربة المتجر وواجهته وتنظيم منتجاته." data-en="An e-commerce project focused on electronics and accessories. I’m working on its storefront experience, interface, and product organization.">مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها. أعمل على تطوير تجربة المتجر وواجهته وتنظيم منتجاته.</p>
-<div class="project-mark">V</div>
-</article>
+    <div class="projects-grid">
+      <article class="card project-card reveal">
+        <div class="project-top">
+          <div class="project-symbol">V</div>
+          <span class="project-label" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</span>
+        </div>
+        <h3>VOLTRIX</h3>
+        <p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات والمكونات الإلكترونية والبطاريات وأدوات الصيانة. أعمل على تطوير فكرته وتجربة التسوق الخاصة به."
+           data-en="An e-commerce project focused on electronics, electronic components, batteries, and repair tools. I'm working on developing its concept and shopping experience.">
+          مشروع متجر إلكتروني متخصص في الإلكترونيات والمكونات الإلكترونية والبطاريات وأدوات الصيانة. أعمل على تطوير فكرته وتجربة التسوق الخاصة به.
+        </p>
+        <div class="project-tags">
+          <span>E-Commerce</span>
+          <span>Electronics</span>
+          <span>Web Development</span>
+        </div>
+      </article>
 
-<article class="card project-card reveal">
-<div class="project-type">PERSONAL / LIVE</div>
-<h3>ANTONYOS WEBSITE</h3>
-<p data-ar="موقعي الشخصي لعرض رحلتي التعليمية واهتماماتي ومشروعاتي ومعلوماتي المهنية." data-en="My personal website for presenting my learning journey, interests, projects, and professional profile.">موقعي الشخصي لعرض رحلتي التعليمية واهتماماتي ومشروعاتي ومعلوماتي المهنية.</p>
-<div class="project-mark">AB</div>
-</article>
-
-<article class="card project-card reveal">
-<div class="project-type">MORE PROJECTS / COMING SOON</div>
-<h3 data-ar="مشروعات قادمة" data-en="Coming Next">مشروعات قادمة</h3>
-<p data-ar="سيتم إضافة تجارب برمجية ومشروعات جديدة مع تطور مهاراتي." data-en="More coding experiments and projects will be added as my skills develop.">سيتم إضافة تجارب برمجية ومشروعات جديدة مع تطور مهاراتي.</p>
-<div class="project-mark">+</div>
-</article>
-</div>
-</div>
+      <article class="card project-card reveal">
+        <div class="project-top">
+          <div class="project-symbol">A</div>
+          <span class="project-label" data-ar="الموقع الحالي" data-en="Current Project">الموقع الحالي</span>
+        </div>
+        <h3>ANTONYOS PORTFOLIO</h3>
+        <p data-ar="موقعي الشخصي الذي أستخدمه للتعريف باهتماماتي ومشروعاتي ورحلتي التعليمية في التكنولوجيا والبرمجة."
+           data-en="My personal website, where I introduce my interests, projects, and learning journey in technology and programming.">
+          موقعي الشخصي الذي أستخدمه للتعريف باهتماماتي ومشروعاتي ورحلتي التعليمية في التكنولوجيا والبرمجة.
+        </p>
+        <div class="project-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="education">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">04 / EDUCATION</div>
-<h2 class="section-title" data-ar="التعليم والتطوير" data-en="Education & Learning">التعليم والتطوير</h2>
-<p class="section-sub" data-ar="المسار الدراسي والتعلم الذاتي" data-en="Academic path and self-learning">المسار الدراسي والتعلم الذاتي</p>
-</div>
+<section id="education">
+  <div class="container">
+    <div class="section-heading reveal">
+      <small data-ar="التعليم والتطوير" data-en="EDUCATION & DEVELOPMENT">التعليم والتطوير</small>
+      <h2 data-ar="رحلتي التعليمية" data-en="My Education">رحلتي التعليمية</h2>
+    </div>
 
-<div class="timeline">
-<div class="timeline-item reveal">
-<h3 data-ar="المرحلة الثانوية — الصف الثاني الثانوي" data-en="Secondary School — Second Year">المرحلة الثانوية — الصف الثاني الثانوي</h3>
-<p data-ar="الدراسة الحالية." data-en="Currently studying.">الدراسة الحالية.</p>
-</div>
-<div class="timeline-item reveal">
-<h3 data-ar="التعلم الذاتي في التكنولوجيا والبرمجة" data-en="Self-learning: Technology & Programming">التعلم الذاتي في التكنولوجيا والبرمجة</h3>
-<p data-ar="التعرف على HTML وCSS وJavaScript وPython من خلال التعلم والتجربة العملية." data-en="Exploring HTML, CSS, JavaScript, and Python through learning and hands-on practice.">التعرف على HTML وCSS وJavaScript وPython من خلال التعلم والتجربة العملية.</p>
-</div>
-</div>
-</div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <h3 data-ar="المرحلة الثانوية" data-en="High School">المرحلة الثانوية</h3>
+        <p data-ar="الصف الثاني الثانوي — أواصل دراستي بالتوازي مع تعلم التكنولوجيا والبرمجة."
+           data-en="Second year of high school — continuing my studies alongside learning technology and programming.">
+          الصف الثاني الثانوي — أواصل دراستي بالتوازي مع تعلم التكنولوجيا والبرمجة.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <h3 data-ar="التعلم الذاتي" data-en="Self-Learning">التعلم الذاتي</h3>
+        <p data-ar="أعمل على تطوير معرفتي بأساسيات تطوير الويب والبرمجة من خلال التعلم والتجربة العملية."
+           data-en="Developing my knowledge of web development and programming fundamentals through learning and practical experimentation.">
+          أعمل على تطوير معرفتي بأساسيات تطوير الويب والبرمجة من خلال التعلم والتجربة العملية.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="cv">
-<div class="container">
-<div class="cv-box reveal">
-<div>
-<h3 data-ar="السيرة الذاتية" data-en="Curriculum Vitae">السيرة الذاتية</h3>
-<p data-ar="يمكنك حفظ هذه الصفحة كملف PDF من خيار الطباعة في المتصفح. سأضيف نسخة CV مستقلة بعد استكمال بيانات التواصل والدورات." data-en="You can save this page as a PDF using your browser’s print option. A dedicated CV file can be prepared once contact details and courses are added.">يمكنك حفظ هذه الصفحة كملف PDF من خيار الطباعة في المتصفح. سأضيف نسخة CV مستقلة بعد استكمال بيانات التواصل والدورات.</p>
-</div>
-<button class="btn btn-primary" onclick="window.print()" data-ar="طباعة / حفظ PDF ↗" data-en="Print / Save PDF ↗">طباعة / حفظ PDF ↗</button>
-</div>
-</div>
+<section id="cv">
+  <div class="container">
+    <div class="card cv-card reveal">
+      <div class="section-heading">
+        <small data-ar="ملفي الشخصي" data-en="MY PROFILE">ملفي الشخصي</small>
+        <h2 data-ar="السيرة الذاتية" data-en="Curriculum Vitae">السيرة الذاتية</h2>
+      </div>
+
+      <h3>ANTONYOS BOTROS</h3>
+      <p data-ar="يمكنك طباعة هذه الصفحة أو حفظها بصيغة PDF من المتصفح. هذه نسخة أولية من ملفي التعريفي، وسيتم تطويرها بإضافة بيانات التواصل والدورات والإنجازات عند توفرها."
+         data-en="You can print this page or save it as a PDF using your browser. This is an initial profile and will be expanded with contact details, courses, and achievements when available.">
+        يمكنك طباعة هذه الصفحة أو حفظها بصيغة PDF من المتصفح. هذه نسخة أولية من ملفي التعريفي، وسيتم تطويرها بإضافة بيانات التواصل والدورات والإنجازات عند توفرها.
+      </p>
+
+      <button class="btn btn-primary" onclick="window.print()">
+        <span data-ar="طباعة / حفظ PDF" data-en="Print / Save PDF">طباعة / حفظ PDF</span>
+        ↗
+      </button>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="contact">
-<div class="container">
-<div class="section-head reveal">
-<div class="section-kicker">05 / CONTACT</div>
-<h2 class="section-title" data-ar="التواصل" data-en="Get in Touch">التواصل</h2>
-<p class="section-sub" data-ar="مساحة لإضافة وسائل التواصل المهني لاحقًا" data-en="A place for professional contact details">مساحة لإضافة وسائل التواصل المهني لاحقًا</p>
-</div>
+<section id="contact">
+  <div class="container">
+    <div class="section-heading reveal">
+      <small data-ar="ابقَ على تواصل" data-en="GET IN TOUCH">ابقَ على تواصل</small>
+      <h2 data-ar="التواصل" data-en="Contact">التواصل</h2>
+      <p data-ar="هذه الصفحة قيد التطوير، وسيتم إضافة وسائل التواصل الرسمية هنا لاحقًا."
+         data-en="This section is being developed. Official contact details will be added here later.">
+        هذه الصفحة قيد التطوير، وسيتم إضافة وسائل التواصل الرسمية هنا لاحقًا.
+      </p>
+    </div>
 
-<div class="contact-grid">
-<div class="contact-item reveal">
-<strong data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</strong>
-<p data-ar="سيتم إضافته بعد تحديد البريد المخصص للتواصل المهني." data-en="To be added once a professional contact email is selected.">سيتم إضافته بعد تحديد البريد المخصص للتواصل المهني.</p>
-</div>
-<div class="contact-item reveal">
-<strong data-ar="روابط مهنية" data-en="Professional Links">روابط مهنية</strong>
-<p data-ar="يمكن إضافة GitHub وLinkedIn وروابط المشروعات هنا." data-en="GitHub, LinkedIn, and project links can be added here.">يمكن إضافة GitHub وLinkedIn وروابط المشروعات هنا.</p>
-</div>
-</div>
-</div>
+    <div class="contact-grid">
+      <div class="card contact-card reveal">
+        <div class="contact-icon">✦</div>
+        <div>
+          <h3 data-ar="التكنولوجيا" data-en="Technology">التكنولوجيا</h3>
+          <p data-ar="اهتمام بالتقنيات والأفكار الرقمية." data-en="Interested in technology and digital ideas.">اهتمام بالتقنيات والأفكار الرقمية.</p>
+        </div>
+      </div>
+
+      <div class="card contact-card reveal">
+        <div class="contact-icon">⌘</div>
+        <div>
+          <h3 data-ar="البرمجة" data-en="Programming">البرمجة</h3>
+          <p data-ar="تعلم البرمجة وتطوير المشروعات." data-en="Learning programming and building projects.">تعلم البرمجة وتطوير المشروعات.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 </main>
 
 <footer>
-<div class="container footer-inner">
-<span>© 2026 ANTONYOS BOTROS — <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved">جميع الحقوق محفوظة</span></span>
-<a class="backtop" href="#home" data-ar="العودة إلى الأعلى ↑" data-en="Back to top ↑">العودة إلى الأعلى ↑</a>
-</div>
+  <div class="container">
+    <p>© <span id="year"></span> <strong>ANTONYOS BOTROS</strong> — <span data-ar="جميع الحقوق محفوظة." data-en="All Rights Reserved.">جميع الحقوق محفوظة.</span></p>
+  </div>
 </footer>
 
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
 <script>
-const root=document.documentElement;
-const themeBtn=document.getElementById("themeToggle");
-const themeLabel=document.getElementById("themeLabel");
-const langBtn=document.getElementById("langToggle");
-const menuBtn=document.getElementById("menuBtn");
-const mobileMenu=document.getElementById("mobileMenu");
-let lang="ar";
+const html = document.documentElement;
+const body = document.body;
 
-function setTheme(theme){
-root.dataset.theme=theme;
-themeLabel.textContent=theme==="light"?(lang==="ar"?"نهاري":"Light"):(lang==="ar"?"ليلي":"Dark");
-document.querySelector('meta[name="theme-color"]').content=theme==="light"?"#f6f7fb":"#0b0c14";
-try{localStorage.setItem("antonyos-theme",theme)}catch(e){}
+const themeSwitch = document.getElementById('themeSwitch');
+const languageBtn = document.getElementById('languageBtn');
+const menuBtn = document.getElementById('menuBtn');
+const menuPanel = document.getElementById('menuPanel');
+const backTop = document.getElementById('backTop');
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Light mode is the default.
+function setTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  metaTheme.setAttribute(
+    'content',
+    theme === 'dark' ? '#090914' : '#f6f7fb'
+  );
+
+  try {
+    localStorage.setItem('antonyos-theme', theme);
+  } catch (error) {}
 }
 
-let savedTheme="light";
-try{savedTheme=localStorage.getItem("antonyos-theme")||"light"}catch(e){}
-setTheme(savedTheme);
-
-themeBtn.addEventListener("click",()=>{
-setTheme(root.dataset.theme==="light"?"dark":"light");
-});
-
-function setLanguage(next){
-lang=next;
-root.lang=next;
-root.dir=next==="ar"?"rtl":"ltr";
-document.querySelectorAll("[data-ar][data-en]").forEach(el=>{
-el.textContent=el.dataset[next];
-});
-langBtn.textContent=next==="ar"?"English":"العربية";
-themeLabel.textContent=root.dataset.theme==="light"?(next==="ar"?"نهاري":"Light"):(next==="ar"?"ليلي":"Dark");
-document.title=next==="ar"?"ANTONYOS BOTROS | الموقع الشخصي":"ANTONYOS BOTROS | Personal Portfolio";
+try {
+  const savedTheme = localStorage.getItem('antonyos-theme');
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    setTheme(savedTheme);
+  } else {
+    setTheme('light');
+  }
+} catch (error) {
+  setTheme('light');
 }
 
-langBtn.addEventListener("click",()=>{
-setLanguage(lang==="ar"?"en":"ar");
+themeSwitch.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
 });
 
-menuBtn.addEventListener("click",()=>{
-mobileMenu.classList.toggle("open");
-});
+// Language switching.
+function setLanguage(language) {
+  const isEnglish = language === 'en';
 
-mobileMenu.querySelectorAll("a").forEach(link=>{
-link.addEventListener("click",()=>mobileMenu.classList.remove("open"));
-});
+  html.lang = isEnglish ? 'en' : 'ar';
+  html.dir = isEnglish ? 'ltr' : 'rtl';
+  body.classList.toggle('english', isEnglish);
+  languageBtn.textContent = isEnglish ? 'AR' : 'EN';
 
-document.addEventListener("click",event=>{
-if(!mobileMenu.contains(event.target)&&!menuBtn.contains(event.target)){
-mobileMenu.classList.remove("open");
+  document.querySelectorAll('[data-ar][data-en]').forEach(element => {
+    element.textContent = isEnglish
+      ? element.getAttribute('data-en')
+      : element.getAttribute('data-ar');
+  });
+
+  try {
+    localStorage.setItem('antonyos-language', language);
+  } catch (error) {}
 }
+
+let initialLanguage = 'ar';
+
+try {
+  if (localStorage.getItem('antonyos-language') === 'en') {
+    initialLanguage = 'en';
+  }
+} catch (error) {}
+
+setLanguage(initialLanguage);
+
+languageBtn.addEventListener('click', () => {
+  const nextLanguage = html.lang === 'ar' ? 'en' : 'ar';
+  setLanguage(nextLanguage);
 });
 
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("visible");
-observer.unobserve(entry.target);
-}
+// Menu.
+menuBtn.addEventListener('click', () => {
+  menuPanel.classList.toggle('open');
+  menuBtn.textContent = menuPanel.classList.contains('open') ? '✕' : '☰';
 });
-},{threshold:.12});
 
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+menuPanel.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuPanel.classList.remove('open');
+    menuBtn.textContent = '☰';
+  });
+});
+
+document.addEventListener('click', event => {
+  if (!menuPanel.contains(event.target) && !menuBtn.contains(event.target)) {
+    menuPanel.classList.remove('open');
+    menuBtn.textContent = '☰';
+  }
+});
+
+// Back to top.
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('show', window.scrollY > 400);
+});
+
+backTop.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Reveal animations.
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(element => {
+  revealObserver.observe(element);
+});
 </script>
+
+<style>
+@media print {
+  header,
+  .back-top,
+  .hero-buttons,
+  .theme-control,
+  .language-btn,
+  .menu-btn,
+  footer {
+    display:none!important;
+  }
+
+  body,
+  html[data-theme="dark"] {
+    background:#fff!important;
+    color:#111!important;
+  }
+
+  .card,
+  .timeline-item {
+    box-shadow:none!important;
+    break-inside:avoid;
+    border:1px solid #ddd!important;
+  }
+
+  section {
+    padding:20px 0!important;
+  }
+
+  .hero {
+    min-height:auto!important;
+    padding:30px 0!important;
+  }
+
+  .reveal {
+    opacity:1!important;
+    transform:none!important;
+  }
+}
+</style>
+
 </body>
 </html>
