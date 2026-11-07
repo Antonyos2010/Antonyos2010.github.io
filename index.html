@@ -4,1137 +4,533 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANTONYOS BOTROS | Official Website</title>
-<meta name="description" content="الموقع الشخصي الرسمي لأنطونيوس بطرس. اكتشف اهتماماته ومشروعاته وأفكاره في عالم التكنولوجيا والإبداع.">
-<meta name="author" content="Antonyos Botros">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://antonyos2010.github.io/">
+<meta name="theme-color" content="#f6f7fb">
+<meta name="description" content="ANTONYOS BOTROS — Personal Portfolio. مهتم بالتكنولوجيا والبرمجة وتطوير المشروعات الرقمية.">
+<meta name="author" content="ANTONYOS BOTROS">
 <meta name="google-site-verification" content="fxfr-B-gnBizaAetAdBEV72rjixynicxPFNtJfJIZ-g">
-<meta name="theme-color" content="#f5f6fc">
-<meta property="og:title" content="ANTONYOS BOTROS | Official Website">
-<meta property="og:description" content="The personal digital space of Antonyos Botros.">
-<meta property="og:url" content="https://antonyos2010.github.io/">
-<meta property="og:type" content="website">
+<title>ANTONYOS BOTROS | Personal Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Person",
-  "name":"Antonyos Botros",
-  "url":"https://antonyos2010.github.io/"
-}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  color-scheme: light;
-  --bg:#f5f6fc;
-  --surface:rgba(255,255,255,.82);
-  --surface2:#ffffff;
-  --text:#17152a;
-  --muted:#66677d;
-  --line:rgba(44,37,78,.12);
-  --purple:#7541d8;
-  --cyan:#009dbb;
-  --shadow:0 18px 55px rgba(44,35,90,.09);
-  --header:rgba(248,249,255,.88);
-}
-
-html[data-theme="dark"] {
-  color-scheme:dark;
-  --bg:#090812;
-  --surface:rgba(22,19,38,.88);
-  --surface2:#151225;
-  --text:#f8f7ff;
-  --muted:#aaa5bd;
-  --line:rgba(255,255,255,.1);
-  --purple:#a875ff;
-  --cyan:#42dff5;
-  --shadow:0 18px 55px rgba(0,0,0,.28);
-  --header:rgba(9,8,18,.88);
-}
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  scroll-behavior:smooth;
-}
-
-body {
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Cairo',sans-serif;
-  overflow-x:hidden;
-  transition:background .3s,color .3s;
-}
-
-body:before {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(117,65,216,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(117,65,216,.055) 1px,transparent 1px);
-  background-size:44px 44px;
-  mask-image:linear-gradient(#000,transparent 88%);
-}
-
-body:after {
-  content:"";
-  position:fixed;
-  z-index:-1;
-  pointer-events:none;
-  width:430px;
-  height:430px;
-  top:8%;
-  left:-220px;
-  border-radius:50%;
-  background:rgba(0,157,187,.12);
-  filter:blur(100px);
-}
-
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-button {
-  font:inherit;
-}
-
-.container {
-  width:min(1160px,91%);
-  margin:auto;
-}
-
-.english {
-  font-family:'Space Grotesk',sans-serif;
-}
-
-/* HEADER */
-
-header {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  background:var(--header);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line);
-}
-
-.navbar {
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-
-.logo {
-  font:700 21px 'Space Grotesk',sans-serif;
-  letter-spacing:1px;
-  white-space:nowrap;
-  direction:ltr;
-}
-
-.logo span {
-  color:var(--cyan);
-}
-
-.nav-links {
-  display:flex;
-  align-items:center;
-  gap:24px;
-}
-
-.nav-links a {
-  font-size:13px;
-  color:var(--muted);
-  transition:.25s;
-}
-
-.nav-links a:hover {
-  color:var(--purple);
-}
-
-.nav-actions {
-  display:flex;
-  gap:9px;
-  align-items:center;
-}
-
-.nav-btn {
-  border:1px solid var(--line);
-  background:var(--surface2);
-  color:var(--text);
-  border-radius:12px;
-  padding:9px 13px;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.nav-btn:hover {
-  border-color:var(--purple);
-  transform:translateY(-2px);
-}
-
-/* MENU AT TOP LEFT */
-
-.menu-btn {
-  display:none;
-  position:fixed;
-  top:14px;
-  left:4.5%;
-  z-index:1003;
-  font-size:20px;
-  line-height:1;
-  padding:10px 13px;
-  box-shadow:var(--shadow);
-}
-
-.theme-btn {
-  min-width:43px;
-}
-
-/* HERO */
-
-.hero {
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:145px 0 80px;
-  position:relative;
-}
-
-.hero-grid {
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  align-items:center;
-  gap:50px;
-}
-
-.hero-copy {
-  position:relative;
-  z-index:2;
-}
-
-.eyebrow {
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:9px 15px;
-  border:1px solid rgba(0,157,187,.23);
-  background:rgba(0,157,187,.07);
-  border-radius:40px;
-  color:var(--cyan);
-  font-size:12px;
-  margin-bottom:25px;
-}
-
-.live-dot {
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#20bd83;
-  box-shadow:0 0 12px #20bd83;
-}
-
-.hero h1 {
-  font-size:clamp(42px,6.5vw,76px);
-  line-height:1.12;
-  font-weight:900;
-  margin-bottom:22px;
-}
-
-.hero h1 .name {
-  display:block;
-  direction:ltr;
-  text-align:left;
-  font:700 clamp(43px,7vw,82px)/1.08 'Space Grotesk',sans-serif;
-  letter-spacing:-3px;
-  background:linear-gradient(100deg,var(--purple),var(--cyan));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  white-space:nowrap;
-}
-
-.hero-subtitle {
-  color:var(--muted);
-  font-size:16px;
-  line-height:2.1;
-  max-width:580px;
-  margin-bottom:28px;
-}
-
-.hero-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 22px;
-  border-radius:13px;
-  font-size:13px;
-  font-weight:800;
-  transition:.25s;
-}
-
-.btn:hover {
-  transform:translateY(-4px);
-}
-
-.btn-main {
-  color:#fff;
-  background:linear-gradient(105deg,var(--purple),var(--cyan));
-  box-shadow:0 9px 28px rgba(117,65,216,.2);
-}
-
-.btn-secondary {
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-}
-
-.hero-meta {
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:32px;
-  color:var(--muted);
-  font:11px 'Space Grotesk',sans-serif;
-}
-
-/* ANIMATED VISUAL */
-
-.visual-stage {
-  min-height:460px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.core {
-  width:min(330px,72vw);
-  aspect-ratio:1;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.ring {
-  position:absolute;
-  inset:0;
-  border:1px solid rgba(117,65,216,.35);
-  border-radius:50%;
-  box-shadow:0 0 45px rgba(117,65,216,.1);
-  animation:spin 24s linear infinite;
-}
-
-.ring:before,
-.ring:after {
-  content:"";
-  position:absolute;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 18px var(--cyan);
-}
-
-.ring:before {
-  top:14%;
-  left:15%;
-}
-
-.ring:after {
-  bottom:12%;
-  right:18%;
-  background:var(--purple);
-  box-shadow:0 0 18px var(--purple);
-}
-
-.ring.two {
-  inset:27px;
-  border-color:rgba(0,157,187,.3);
-  animation:spinback 18s linear infinite;
-}
-
-.ring.three {
-  inset:60px;
-  border-style:dashed;
-  border-color:var(--line);
-  animation:spin 35s linear infinite;
-}
-
-.core-center {
-  width:160px;
-  height:160px;
-  border-radius:40px;
-  transform:rotate(-8deg);
-  background:linear-gradient(145deg,rgba(117,65,216,.18),rgba(0,157,187,.12));
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.monogram {
-  font:700 54px 'Space Grotesk',sans-serif;
-  letter-spacing:-5px;
-  background:linear-gradient(120deg,var(--purple),var(--cyan));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  transform:rotate(8deg);
-}
-
-.float-card {
-  position:absolute;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:12px 16px;
-  backdrop-filter:blur(15px);
-  box-shadow:var(--shadow);
-  animation:float 5s ease-in-out infinite;
-}
-
-.float-card small {
-  display:block;
-  color:var(--muted);
-  font:10px 'Space Grotesk',sans-serif;
-}
-
-.float-card strong {
-  font:700 14px 'Space Grotesk',sans-serif;
-}
-
-.float-card.one {
-  top:45px;
-  right:0;
-}
-
-.float-card.two {
-  bottom:70px;
-  left:-5px;
-  animation-delay:-2s;
-}
-
-.float-card.three {
-  bottom:5px;
-  right:25px;
-  animation-delay:-3s;
-}
-
-@keyframes spin {
-  to {transform:rotate(360deg);}
-}
-
-@keyframes spinback {
-  to {transform:rotate(-360deg);}
-}
-
-@keyframes float {
-  0%,100% {translate:0 0;}
-  50% {translate:0 -12px;}
-}
-
-/* SECTIONS */
-
-section:not(.hero) {
-  padding:82px 0;
-}
-
-.section-head {
-  text-align:center;
-  margin-bottom:38px;
-}
-
-.section-label {
-  font:11px 'Space Grotesk',sans-serif;
-  letter-spacing:3px;
-  color:var(--cyan);
-}
-
-.section-head h2 {
-  font-size:clamp(27px,4vw,39px);
-  margin-top:9px;
-}
-
-.section-head p {
-  color:var(--muted);
-  font-size:13px;
-  margin-top:8px;
-}
-
-.glass {
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:20px;
-  backdrop-filter:blur(15px);
-  box-shadow:var(--shadow);
-  transition:.3s;
-}
-
-.glass:hover {
-  transform:translateY(-5px);
-  border-color:rgba(117,65,216,.4);
-}
-
-.about-card {
-  max-width:850px;
-  margin:auto;
-  padding:34px;
-  text-align:center;
-}
-
-.about-card p {
-  color:var(--muted);
-  line-height:2.2;
-  font-size:15px;
-}
-
-.cards {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.info-card,
-.project-card {
-  padding:27px;
-  min-height:185px;
-}
-
-.card-icon {
-  font-size:28px;
-  margin-bottom:14px;
-}
-
-.info-card h3,
-.project-card h3 {
-  font-size:17px;
-  margin-bottom:9px;
-}
-
-.info-card p,
-.project-card p {
-  color:var(--muted);
-  font-size:13px;
-  line-height:2;
-}
-
-.project-tag {
-  display:inline-block;
-  color:var(--cyan);
-  font:10px 'Space Grotesk',sans-serif;
-  letter-spacing:1px;
-  padding:7px 11px;
-  border-radius:30px;
-  border:1px solid rgba(0,157,187,.22);
-  background:rgba(0,157,187,.06);
-  margin-bottom:16px;
-}
-
-.gallery-card {
-  min-height:170px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  color:var(--muted);
-}
-
-.gallery-card span {
-  display:block;
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-.contact-card {
-  max-width:720px;
-  margin:auto;
-  text-align:center;
-  padding:38px 25px;
-}
-
-.contact-card p {
-  color:var(--muted);
-  line-height:2;
-  margin:12px 0 23px;
-}
-
-footer {
-  border-top:1px solid var(--line);
-  padding:24px 0;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-}
-
-.reveal {
-  opacity:0;
-  transform:translateY(22px);
-  transition:opacity .75s ease,transform .75s ease;
-}
-
-.reveal.visible {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ENGLISH MODE */
-
-body.ltr {
-  direction:ltr;
-  font-family:'Space Grotesk','Cairo',sans-serif;
-}
-
-body.ltr .hero-copy {
-  text-align:left;
-}
-
-body.ltr .hero-subtitle,
-body.ltr .about-card p {
-  line-height:1.9;
-}
-
-/* TABLET AND MOBILE */
-
-@media(max-width:900px) {
-  .navbar {
-    justify-content:flex-end;
-    padding-left:58px;
-  }
-
-  .logo {
-    margin-right:auto;
-  }
-
-  .menu-btn {
-    display:block;
-  }
-
-  .nav-links {
-    position:fixed;
-    top:0;
-    left:0;
-    right:auto;
-    width:min(310px,82vw);
-    height:100dvh;
-    padding:90px 28px 30px;
-    display:flex;
-    align-items:flex-start;
-    flex-direction:column;
-    gap:22px;
-    background:var(--surface2);
-    border-right:1px solid var(--line);
-    box-shadow:var(--shadow);
-    transform:translateX(-110%);
-    transition:transform .3s;
-    z-index:1002;
-  }
-
-  .nav-links.open {
-    transform:translateX(0);
-  }
-
-  .hero-grid {
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:25px;
-  }
-
-  .hero-subtitle {
-    margin-inline:auto;
-  }
-
-  .hero-actions,
-  .hero-meta {
-    justify-content:center;
-  }
-
-  .visual-stage {
-    min-height:400px;
-  }
-
-  .cards {
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .hero-copy {
-    text-align:center!important;
-  }
-}
-
-@media(max-width:560px) {
-  .navbar {
-    min-height:68px;
-  }
-
-  .logo {
-    font-size:17px;
-  }
-
-  .hero {
-    padding-top:120px;
-  }
-
-  .hero h1 {
-    font-size:42px;
-  }
-
-  .hero h1 .name {
-    font-size:clamp(37px,10vw,54px);
-    letter-spacing:-2px;
-  }
-
-  .hero-subtitle {
-    font-size:14px;
-  }
-
-  .visual-stage {
-    min-height:340px;
-  }
-
-  .core {
-    width:260px;
-  }
-
-  .core-center {
-    width:125px;
-    height:125px;
-  }
-
-  .monogram {
-    font-size:43px;
-  }
-
-  .float-card {
-    padding:9px 11px;
-  }
-
-  .float-card.one {
-    right:-5px;
-    top:15px;
-  }
-
-  .float-card.two {
-    left:-5px;
-    bottom:48px;
-  }
-
-  .float-card.three {
-    right:0;
-    bottom:0;
-  }
-
-  .cards {
-    grid-template-columns:1fr;
-  }
-
-  section:not(.hero) {
-    padding:62px 0;
-  }
-
-  .about-card {
-    padding:24px 18px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,
-  *:before,
-  *:after {
-    animation-duration:.01ms!important;
-    transition-duration:.01ms!important;
-    scroll-behavior:auto!important;
-  }
+:root{
+--bg:#f6f7fb;
+--surface:#ffffff;
+--surface-soft:#f0effa;
+--text:#171827;
+--muted:#73788c;
+--line:#e6e6ef;
+--primary:#7257e8;
+--secondary:#17a9c7;
+--shadow:0 15px 45px rgba(40,35,90,.08);
+--header:rgba(255,255,255,.85);
+}
+html[data-theme="dark"]{
+--bg:#0b0c14;
+--surface:#171927;
+--surface-soft:#222139;
+--text:#f5f4ff;
+--muted:#a5a8bc;
+--line:#2b2d40;
+--primary:#a08aff;
+--secondary:#4bd4e9;
+--shadow:0 15px 45px rgba(0,0,0,.25);
+--header:rgba(11,12,20,.88);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{
+margin:0;background:var(--bg);color:var(--text);
+font-family:"Cairo",sans-serif;line-height:1.8;
+transition:background .3s,color .3s;overflow-x:hidden
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.topbar{
+position:fixed;top:0;left:0;right:0;z-index:100;
+background:var(--header);backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line)
+}
+.topbar-inner{
+height:76px;display:flex;align-items:center;
+justify-content:space-between;gap:15px
+}
+.brand{
+font-family:"DM Sans",sans-serif;font-size:20px;
+font-weight:800;letter-spacing:1px;direction:ltr;
+white-space:nowrap
+}
+.brand span{color:var(--primary)}
+.navlinks{display:flex;gap:23px;font-size:13px;color:var(--muted)}
+.navlinks a:hover{color:var(--primary)}
+.tools{display:flex;align-items:center;gap:9px}
+.tool-btn{
+height:40px;padding:0 12px;border:1px solid var(--line);
+background:var(--surface);color:var(--text);
+border-radius:12px;cursor:pointer;font-size:12px;font-weight:700
+}
+.theme-switch{
+height:42px;min-width:112px;border:1px solid var(--line);
+background:var(--surface);border-radius:30px;
+display:flex;align-items:center;justify-content:space-between;
+gap:9px;padding:5px 9px;cursor:pointer;color:var(--muted);
+font-size:11px;font-weight:800
+}
+.switch-track{
+width:43px;height:25px;border-radius:30px;
+background:#d9d5ee;padding:3px;
+display:flex;align-items:center;justify-content:flex-start;
+transition:.25s
+}
+.switch-knob{
+width:19px;height:19px;background:white;
+border-radius:50%;box-shadow:0 2px 6px #0002;transition:.25s
+}
+html[data-theme="dark"] .switch-track{
+background:#7257e8;justify-content:flex-end
+}
+.menu-btn{
+display:none;width:42px;height:42px;border:1px solid var(--line);
+background:var(--surface);color:var(--text);
+border-radius:12px;font-size:21px;cursor:pointer
+}
+.mobile-menu{
+display:none;position:absolute;top:84px;left:15px;
+width:250px;padding:12px;background:var(--surface);
+border:1px solid var(--line);border-radius:17px;
+box-shadow:var(--shadow)
+}
+.mobile-menu.open{display:grid}
+.mobile-menu a{padding:10px 12px;border-radius:10px;color:var(--muted)}
+.mobile-menu a:hover{background:var(--surface-soft);color:var(--primary)}
+
+.hero{padding:155px 0 95px;min-height:690px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
+.eyebrow{
+font-family:"DM Sans",sans-serif;font-size:12px;
+font-weight:700;letter-spacing:2px;color:var(--primary);
+direction:ltr;text-align:right
+}
+.hero h1{font-size:clamp(43px,7vw,80px);line-height:1.15;margin:18px 0}
+.hero h1 .hello{display:block;font-size:.42em;color:var(--muted);margin-bottom:12px}
+.hero h1 .name{
+display:block;font-family:"DM Sans",sans-serif;
+font-weight:800;direction:ltr;text-align:right;
+letter-spacing:-2px;white-space:nowrap;
+background:linear-gradient(100deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero-copy{max-width:620px;color:var(--muted);font-size:16px;margin-bottom:27px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;
+padding:12px 20px;border-radius:13px;font-weight:800;
+font-size:13px;border:1px solid var(--line);cursor:pointer;transition:.2s
+}
+.btn-primary{background:linear-gradient(110deg,var(--primary),#8975ef);color:white;border:0;box-shadow:0 10px 28px #7257e833}
+.btn-ghost{background:var(--surface);color:var(--text)}
+.btn:hover{transform:translateY(-3px)}
+.hero-art{min-height:360px;display:grid;place-items:center;position:relative}
+.orb{
+width:min(330px,75vw);aspect-ratio:1;border-radius:50%;
+background:radial-gradient(circle at 35% 30%,white,rgba(180,166,255,.6) 25%,rgba(108,85,232,.18) 60%,transparent 72%);
+border:1px solid #8b79e455;
+box-shadow:inset 0 0 55px #7257e822,0 0 90px #7257e822;
+display:grid;place-items:center;position:relative
+}
+.orb:before,.orb:after{
+content:"";position:absolute;inset:-24px;border:1px solid #7257e855;
+border-radius:50%;transform:rotate(-25deg) scaleY(.48)
+}
+.orb:after{inset:-48px;transform:rotate(35deg) scaleY(.38);border-color:#17a9c755}
+.monogram{
+font-family:"DM Sans",sans-serif;font-size:105px;
+font-weight:800;letter-spacing:-9px;color:var(--primary);direction:ltr
+}
+.float-tag{
+position:absolute;background:var(--surface);border:1px solid var(--line);
+box-shadow:var(--shadow);padding:9px 13px;border-radius:12px;
+font-family:"DM Sans",sans-serif;font-size:10px;direction:ltr
+}
+.tag-one{top:10%;right:0}
+.tag-two{bottom:12%;left:0}
+.tag-three{bottom:2%;right:13%}
+
+.section{padding:85px 0}
+.section-head{margin-bottom:32px}
+.section-kicker{
+font:700 11px "DM Sans",sans-serif;letter-spacing:2px;
+color:var(--primary);direction:ltr;text-align:right
+}
+.section-title{font-size:clamp(29px,4vw,42px);margin:8px 0 5px}
+.section-sub{color:var(--muted);margin:0}
+.panel,.card{
+background:var(--surface);border:1px solid var(--line);
+border-radius:21px;padding:25px;box-shadow:var(--shadow);
+transition:.25s
+}
+.panel p,.card p{color:var(--muted);margin:0;font-size:14px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fact-list{display:grid;gap:13px}
+.fact{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.fact:last-child{border:0;padding:0}
+.fact span{color:var(--muted);font-size:13px}
+.fact strong{font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card:hover{transform:translateY(-5px);border-color:var(--primary)}
+.card-icon{
+width:45px;height:45px;border-radius:14px;
+background:var(--surface-soft);display:grid;place-items:center;
+color:var(--primary);font-size:21px;margin-bottom:16px
+}
+.card h3{margin:0 0 7px;font-size:18px}
+.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.skill-top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px}
+.skill b{font:800 17px "DM Sans",sans-serif;direction:ltr}
+.status{font-size:10px;color:var(--primary);background:var(--surface-soft);padding:3px 8px;border-radius:20px}
+.skill small{color:var(--muted);font-size:11px}
+.project-type{font:700 10px "DM Sans",sans-serif;color:var(--primary);letter-spacing:1px;direction:ltr}
+.project-card{min-height:220px;position:relative;overflow:hidden}
+.project-card h3{font:800 26px "DM Sans",sans-serif;direction:ltr;text-align:right;margin:12px 0}
+.project-mark{
+position:absolute;left:15px;bottom:-30px;font:800 85px "DM Sans",sans-serif;
+color:var(--primary);opacity:.08;direction:ltr
+}
+.timeline{border-right:2px solid var(--line);padding-right:22px;display:grid;gap:17px}
+.timeline-item{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.timeline-item:before{
+content:"";position:absolute;right:-29px;top:23px;width:11px;height:11px;
+border-radius:50%;background:var(--primary);box-shadow:0 0 0 5px var(--surface-soft)
+}
+.timeline-item h3{margin:0 0 5px;font-size:16px}
+.timeline-item p{margin:0;color:var(--muted);font-size:13px}
+.cv-box{
+display:flex;align-items:center;justify-content:space-between;gap:20px;
+background:linear-gradient(115deg,#7257e81c,#17a9c71a);
+border:1px solid var(--line);border-radius:22px;padding:27px
+}
+.cv-box h3{margin:0 0 5px;font-size:21px}
+.cv-box p{margin:0;color:var(--muted);font-size:13px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.contact-item p{color:var(--muted);font-size:13px;margin:5px 0 0}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.backtop{color:var(--primary);font-weight:800}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s}
+.reveal.visible{opacity:1;transform:none}
+
+html[dir="ltr"] .eyebrow,html[dir="ltr"] .section-kicker{text-align:left}
+html[dir="ltr"] .hero h1 .name{text-align:left}
+html[dir="ltr"] .timeline{border-right:0;border-left:2px solid var(--line);padding-right:0;padding-left:22px}
+html[dir="ltr"] .timeline-item:before{right:auto;left:-29px}
+
+@media(max-width:850px){
+.navlinks{display:none}
+.menu-btn{display:block;order:0}
+.brand{margin-inline-start:auto}
+.hero{padding-top:125px;min-height:auto}
+.hero-grid{grid-template-columns:1fr;gap:25px}
+.hero-art{min-height:280px;grid-row:1}
+.orb{width:250px}
+.monogram{font-size:80px}
+.cards{grid-template-columns:1fr 1fr}
+.skill-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+.container{width:calc(100% - 30px)}
+.topbar-inner{height:68px;gap:7px}
+.brand{font-size:14px;letter-spacing:.5px}
+.tool-btn{height:37px;padding:0 8px}
+.theme-switch{min-width:94px;height:38px;font-size:10px}
+.hero{padding:110px 0 55px}
+.hero-art{min-height:245px}
+.orb{width:200px}
+.monogram{font-size:65px}
+.float-tag{font-size:9px;padding:7px 9px}
+.hero h1 .name{font-size:.76em;letter-spacing:-1.5px}
+.section{padding:60px 0}
+.about-grid,.cards,.contact-grid{grid-template-columns:1fr}
+.skill-grid{grid-template-columns:1fr 1fr}
+.panel,.card{padding:19px}
+.cv-box{align-items:flex-start;flex-direction:column}
+}
+@media print{
+.topbar,.actions,.theme-switch,.tool-btn,.menu-btn{display:none!important}
+body{background:white!important;color:#111!important}
+.hero{min-height:auto;padding:25px 0}
+.hero-art{display:none}
+.section{padding:22px 0}
+.panel,.card,.skill,.timeline-item{box-shadow:none;background:white!important;border:1px solid #ddd;break-inside:avoid}
+.reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 
 <body>
+<header class="topbar">
+<div class="container topbar-inner">
+<button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+<a class="brand" href="#home">ANTONYOS<span>.</span></a>
 
-<header>
-  <div class="container navbar">
+<nav class="navlinks">
+<a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
+<a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a>
+<a href="#projects" data-ar="المشروعات" data-en="Projects">المشروعات</a>
+<a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
+<a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
+</nav>
 
-    <a class="logo" href="#home">ANTONYOS<span>.</span></a>
+<div class="tools">
+<button class="theme-switch" id="themeToggle">
+<span id="themeLabel">نهاري</span>
+<span class="switch-track"><span class="switch-knob"></span></span>
+</button>
+<button class="tool-btn" id="langToggle">English</button>
+</div>
 
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-      <a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
-      <a href="#interests" data-ar="اهتماماتي" data-en="Interests">اهتماماتي</a>
-      <a href="#projects" data-ar="مشاريعي" data-en="Projects">مشاريعي</a>
-      <a href="#gallery" data-ar="المعرض" data-en="Gallery">المعرض</a>
-      <a href="#contact" data-ar="تواصل معي" data-en="Contact">تواصل معي</a>
-    </nav>
-
-    <div class="nav-actions">
-      <button class="nav-btn" id="langBtn" type="button">English</button>
-      <button class="nav-btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode">☾</button>
-    </div>
-
-  </div>
-
-  <button class="nav-btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+<nav class="mobile-menu" id="mobileMenu">
+<a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
+<a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a>
+<a href="#projects" data-ar="المشروعات" data-en="Projects">المشروعات</a>
+<a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
+<a href="#contact" data-ar="التواصل" data-en="Contact">التواصل</a>
+</nav>
+</div>
 </header>
 
 <main>
-
 <section class="hero" id="home">
-  <div class="container hero-grid">
+<div class="container hero-grid">
+<div class="hero-content reveal">
+<div class="eyebrow">PERSONAL PORTFOLIO / 2026</div>
+<h1>
+<span class="hello" data-ar="مرحبًا، أنا" data-en="HELLO, I'M">مرحبًا، أنا</span>
+<span class="name">ANTONYOS BOTROS</span>
+</h1>
+<p class="hero-copy" data-ar="مهتم بالتكنولوجيا والبرمجة وبناء الأفكار الرقمية. أتعلم HTML وCSS وJavaScript وPython، وأعمل على تطوير مشروعات شخصية لاكتساب الخبرة وتحويل الأفكار إلى تطبيقات عملية." data-en="A technology and programming enthusiast learning HTML, CSS, JavaScript, and Python. I build personal projects to gain experience and turn ideas into practical digital products.">
+مهتم بالتكنولوجيا والبرمجة وبناء الأفكار الرقمية. أتعلم HTML وCSS وJavaScript وPython، وأعمل على تطوير مشروعات شخصية لاكتساب الخبرة وتحويل الأفكار إلى تطبيقات عملية.
+</p>
+<div class="actions">
+<a class="btn btn-primary" href="#projects" data-ar="استكشف مشروعاتي ↗" data-en="Explore Projects ↗">استكشف مشروعاتي ↗</a>
+<a class="btn btn-ghost" href="#about" data-ar="اكتشف المزيد" data-en="Discover More">اكتشف المزيد</a>
+</div>
+</div>
 
-    <div class="hero-copy reveal">
-
-      <div class="eyebrow">
-        <span class="live-dot"></span>
-        <span data-ar="مرحبًا بك في مساحتي الرقمية" data-en="WELCOME TO MY DIGITAL SPACE">مرحبًا بك في مساحتي الرقمية</span>
-      </div>
-
-      <h1>
-        <span data-ar="أنا" data-en="I AM">أنا</span>
-        <span class="name">ANTONYOS BOTROS</span>
-      </h1>
-
-      <p class="hero-subtitle"
-      data-ar="أهتم بالتكنولوجيا والأفكار الرقمية والمشروعات الإبداعية. هنا أشارك رحلتي وما أتعلمه وما أعمل على تطويره."
-      data-en="I'm interested in technology, digital ideas, and creative projects. This is where I share my journey, what I learn, and what I'm building.">
-        أهتم بالتكنولوجيا والأفكار الرقمية والمشروعات الإبداعية. هنا أشارك رحلتي وما أتعلمه وما أعمل على تطويره.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-main"
-        data-ar="استكشف مشاريعي ↗" data-en="Explore Projects ↗">استكشف مشاريعي ↗</a>
-
-        <a href="#about" class="btn btn-secondary"
-        data-ar="اكتشف المزيد" data-en="Discover More">اكتشف المزيد</a>
-      </div>
-
-      <div class="hero-meta">
-        <span data-ar="الموقع الشخصي الرسمي" data-en="OFFICIAL PERSONAL WEBSITE">الموقع الشخصي الرسمي</span>
-        <span>2026</span>
-      </div>
-
-    </div>
-
-    <div class="visual-stage reveal">
-
-      <div class="core">
-        <div class="ring"></div>
-        <div class="ring two"></div>
-        <div class="ring three"></div>
-
-        <div class="core-center">
-          <div class="monogram">AB.</div>
-        </div>
-      </div>
-
-      <div class="float-card one">
-        <small>IDENTITY</small>
-        <strong>ANTONYOS BOTROS</strong>
-      </div>
-
-      <div class="float-card two">
-        <small>PROJECT</small>
-        <strong>VOLTRIX ⚡</strong>
-      </div>
-
-      <div class="float-card three">
-        <small>CREATIVE SPACE</small>
-        <strong>01 / 2026</strong>
-      </div>
-
-    </div>
-
-  </div>
+<div class="hero-art reveal">
+<div class="orb"><div class="monogram">AB</div></div>
+<div class="float-tag" style="top:10%;right:0">CREATIVE MIND / 01</div>
+<div class="float-tag" style="bottom:12%;left:0">LEARN · BUILD · GROW</div>
+<div class="float-tag" style="bottom:2%;right:13%">TECH & CODE</div>
+</div>
+</div>
 </section>
 
-<section id="about">
-  <div class="container">
+<section class="section" id="about">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">01 / ABOUT</div>
+<h2 class="section-title" data-ar="من أنا؟" data-en="About Me">من أنا؟</h2>
+<p class="section-sub" data-ar="بداية رحلة في عالم التكنولوجيا والبرمجة" data-en="The beginning of a journey into technology and programming">بداية رحلة في عالم التكنولوجيا والبرمجة</p>
+</div>
 
-    <div class="section-head reveal">
-      <span class="section-label">01 / ABOUT</span>
-      <h2 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h2>
-      <p data-ar="تعرف على صاحب هذا الموقع" data-en="Get to know the person behind this website">تعرف على صاحب هذا الموقع</p>
-    </div>
+<div class="about-grid">
+<div class="panel reveal">
+<p data-ar="أنا أنطونيوس بطرس، طالب في الصف الثاني الثانوي ومهتم بالتكنولوجيا والبرمجة. أتعلم حاليًا أساسيات تطوير الويب والبرمجة، وأستخدم هذا الموقع لعرض رحلتي التعليمية ومشروعاتي وما أعمل على تطويره. أؤمن أن التعلم المستمر والتطبيق العملي هما أساس بناء مهارات قوية."
+data-en="I’m Antonyos Botros, a second-year secondary school student interested in technology and programming. I’m currently learning the fundamentals of web development and programming. This website documents my learning journey, projects, and progress. I believe consistent learning and hands-on practice are the foundation of strong skills.">
+أنا أنطونيوس بطرس، طالب في الصف الثاني الثانوي ومهتم بالتكنولوجيا والبرمجة. أتعلم حاليًا أساسيات تطوير الويب والبرمجة، وأستخدم هذا الموقع لعرض رحلتي التعليمية ومشروعاتي وما أعمل على تطويره. أؤمن أن التعلم المستمر والتطبيق العملي هما أساس بناء مهارات قوية.
+</p>
+</div>
 
-    <div class="glass about-card reveal">
-      <p
-      data-ar="أنا أنطونيوس بطرس. هذا الموقع هو مساحتي الشخصية على الإنترنت، أشارك فيه اهتماماتي ومشاريعي والأشياء التي أعمل على تطويرها. أؤمن بأن التعلم المستمر والتجربة هما بداية كل فكرة جديدة."
-      data-en="I am Antonyos Botros. This website is my personal space on the internet, where I share my interests, projects, and things I am working on. I believe continuous learning and experimentation are the beginning of every new idea.">
-        أنا أنطونيوس بطرس. هذا الموقع هو مساحتي الشخصية على الإنترنت، أشارك فيه اهتماماتي ومشاريعي والأشياء التي أعمل على تطويرها. أؤمن بأن التعلم المستمر والتجربة هما بداية كل فكرة جديدة.
-      </p>
-    </div>
-
-  </div>
+<div class="panel fact-list reveal">
+<div class="fact"><span data-ar="الاسم" data-en="Name">الاسم</span><strong>ANTONYOS BOTROS</strong></div>
+<div class="fact"><span data-ar="المجال" data-en="Focus">المجال</span><strong data-ar="التكنولوجيا والبرمجة" data-en="Technology & Programming">التكنولوجيا والبرمجة</strong></div>
+<div class="fact"><span data-ar="التعليم" data-en="Education">التعليم</span><strong data-ar="الثاني الثانوي" data-en="Second Year of Secondary School">الثاني الثانوي</strong></div>
+<div class="fact"><span data-ar="الحالة الحالية" data-en="Current Status">الحالة الحالية</span><strong data-ar="طالب — في مرحلة التعلم" data-en="Student — Currently Learning">طالب — في مرحلة التعلم</strong></div>
+</div>
+</div>
+</div>
 </section>
 
-<section id="interests">
-  <div class="container">
+<section class="section" id="skills">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">02 / SKILLS</div>
+<h2 class="section-title" data-ar="المهارات التقنية" data-en="Technical Skills">المهارات التقنية</h2>
+<p class="section-sub" data-ar="تقنيات أتعلمها وأطور معرفتي بها باستمرار" data-en="Technologies I’m currently learning and exploring">تقنيات أتعلمها وأطور معرفتي بها باستمرار</p>
+</div>
 
-    <div class="section-head reveal">
-      <span class="section-label">02 / INTERESTS</span>
-      <h2 data-ar="اهتماماتي" data-en="My Interests">اهتماماتي</h2>
-      <p data-ar="مجالات أحب استكشافها والتعلم عنها" data-en="Fields I enjoy exploring and learning about">مجالات أحب استكشافها والتعلم عنها</p>
-    </div>
-
-    <div class="cards">
-
-      <article class="glass info-card reveal">
-        <div class="card-icon">⚡</div>
-        <h3 data-ar="التكنولوجيا" data-en="Technology">التكنولوجيا</h3>
-        <p data-ar="استكشاف التقنيات والأفكار الرقمية الحديثة." data-en="Exploring modern technologies and digital ideas.">استكشاف التقنيات والأفكار الرقمية الحديثة.</p>
-      </article>
-
-      <article class="glass info-card reveal">
-        <div class="card-icon">⌘</div>
-        <h3 data-ar="البرمجة" data-en="Programming">البرمجة</h3>
-        <p data-ar="التعرف على البرمجة وبناء تجارب ومشروعات رقمية." data-en="Learning programming and building digital experiences.">التعرف على البرمجة وبناء تجارب ومشروعات رقمية.</p>
-      </article>
-
-      <article class="glass info-card reveal">
-        <div class="card-icon">✧</div>
-        <h3 data-ar="الإبداع والابتكار" data-en="Creative Thinking">الإبداع والابتكار</h3>
-        <p data-ar="تحويل الأفكار إلى مشروعات وتجارب قابلة للتطوير." data-en="Turning ideas into projects and experiments.">تحويل الأفكار إلى مشروعات وتجارب قابلة للتطوير.</p>
-      </article>
-
-    </div>
-  </div>
+<div class="skill-grid">
+<div class="skill reveal"><div class="skill-top"><b>HTML</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="أساسيات بناء صفحات الويب" data-en="Web page structure fundamentals">أساسيات بناء صفحات الويب</small></div>
+<div class="skill reveal"><div class="skill-top"><b>CSS</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="تنسيق الصفحات والتصميم المتجاوب" data-en="Styling and responsive layouts">تنسيق الصفحات والتصميم المتجاوب</small></div>
+<div class="skill reveal"><div class="skill-top"><b>JavaScript</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="مبادئ البرمجة والتفاعل" data-en="Programming and interactivity basics">مبادئ البرمجة والتفاعل</small></div>
+<div class="skill reveal"><div class="skill-top"><b>Python</b><span class="status" data-ar="قيد التعلم" data-en="Learning">قيد التعلم</span></div><small data-ar="مبادئ البرمجة وحل المشكلات" data-en="Programming and problem-solving basics">مبادئ البرمجة وحل المشكلات</small></div>
+</div>
+</div>
 </section>
 
-<section id="projects">
-  <div class="container">
+<section class="section" id="projects">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">03 / PROJECTS</div>
+<h2 class="section-title" data-ar="المشروعات" data-en="Selected Projects">المشروعات</h2>
+<p class="section-sub" data-ar="تجارب ومشروعات شخصية أعمل على تطويرها" data-en="Personal experiments and projects in progress">تجارب ومشروعات شخصية أعمل على تطويرها</p>
+</div>
 
-    <div class="section-head reveal">
-      <span class="section-label">03 / PROJECTS</span>
-      <h2 data-ar="مشاريعي" data-en="Selected Projects">مشاريعي</h2>
-      <p data-ar="أفكار ومشروعات أعمل عليها" data-en="Ideas and projects I'm working on">أفكار ومشروعات أعمل عليها</p>
-    </div>
+<div class="cards">
+<article class="card project-card reveal">
+<div class="project-type">E-COMMERCE / IN DEVELOPMENT</div>
+<h3>VOLTRIX ⚡</h3>
+<p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها. أعمل على تطوير تجربة المتجر وواجهته وتنظيم منتجاته." data-en="An e-commerce project focused on electronics and accessories. I’m working on its storefront experience, interface, and product organization.">مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها. أعمل على تطوير تجربة المتجر وواجهته وتنظيم منتجاته.</p>
+<div class="project-mark">V</div>
+</article>
 
-    <div class="cards">
+<article class="card project-card reveal">
+<div class="project-type">PERSONAL / LIVE</div>
+<h3>ANTONYOS WEBSITE</h3>
+<p data-ar="موقعي الشخصي لعرض رحلتي التعليمية واهتماماتي ومشروعاتي ومعلوماتي المهنية." data-en="My personal website for presenting my learning journey, interests, projects, and professional profile.">موقعي الشخصي لعرض رحلتي التعليمية واهتماماتي ومشروعاتي ومعلوماتي المهنية.</p>
+<div class="project-mark">AB</div>
+</article>
 
-      <article class="glass project-card reveal">
-        <span class="project-tag">E-COMMERCE</span>
-        <h3>VOLTRIX ⚡</h3>
-        <p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها، قيد التطوير."
-        data-en="An electronics e-commerce store project, currently in development.">
-          مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها، قيد التطوير.
-        </p>
-      </article>
-
-      <article class="glass project-card reveal">
-        <span class="project-tag">PERSONAL WEBSITE</span>
-        <h3>ANTONYOS WEBSITE</h3>
-        <p data-ar="الموقع الشخصي الرسمي لعرض الاهتمامات والمشروعات والتحديثات."
-        data-en="My official personal website for sharing interests, projects, and updates.">
-          الموقع الشخصي الرسمي لعرض الاهتمامات والمشروعات والتحديثات.
-        </p>
-      </article>
-
-      <article class="glass project-card reveal">
-        <span class="project-tag">COMING NEXT</span>
-        <h3 data-ar="مشروع قادم" data-en="Upcoming Project">مشروع قادم</h3>
-        <p data-ar="سيتم الإعلان عن مشروعات وأفكار جديدة هنا لاحقًا."
-        data-en="New projects and ideas will be announced here later.">
-          سيتم الإعلان عن مشروعات وأفكار جديدة هنا لاحقًا.
-        </p>
-      </article>
-
-    </div>
-  </div>
+<article class="card project-card reveal">
+<div class="project-type">MORE PROJECTS / COMING SOON</div>
+<h3 data-ar="مشروعات قادمة" data-en="Coming Next">مشروعات قادمة</h3>
+<p data-ar="سيتم إضافة تجارب برمجية ومشروعات جديدة مع تطور مهاراتي." data-en="More coding experiments and projects will be added as my skills develop.">سيتم إضافة تجارب برمجية ومشروعات جديدة مع تطور مهاراتي.</p>
+<div class="project-mark">+</div>
+</article>
+</div>
+</div>
 </section>
 
-<section id="gallery">
-  <div class="container">
+<section class="section" id="education">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">04 / EDUCATION</div>
+<h2 class="section-title" data-ar="التعليم والتطوير" data-en="Education & Learning">التعليم والتطوير</h2>
+<p class="section-sub" data-ar="المسار الدراسي والتعلم الذاتي" data-en="Academic path and self-learning">المسار الدراسي والتعلم الذاتي</p>
+</div>
 
-    <div class="section-head reveal">
-      <span class="section-label">04 / GALLERY</span>
-      <h2 data-ar="معرض الأعمال" data-en="Gallery">معرض الأعمال</h2>
-      <p data-ar="مساحة لإضافة الصور والتحديثات لاحقًا" data-en="A space for photos and updates">مساحة لإضافة الصور والتحديثات لاحقًا</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="glass gallery-card reveal">
-        <div>
-          <span>▧</span>
-          <p data-ar="صورة قادمة" data-en="Photo coming soon">صورة قادمة</p>
-        </div>
-      </div>
-
-      <div class="glass gallery-card reveal">
-        <div>
-          <span>✧</span>
-          <p data-ar="صورة قادمة" data-en="Photo coming soon">صورة قادمة</p>
-        </div>
-      </div>
-
-      <div class="glass gallery-card reveal">
-        <div>
-          <span>⌘</span>
-          <p data-ar="صورة قادمة" data-en="Photo coming soon">صورة قادمة</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="timeline">
+<div class="timeline-item reveal">
+<h3 data-ar="المرحلة الثانوية — الصف الثاني الثانوي" data-en="Secondary School — Second Year">المرحلة الثانوية — الصف الثاني الثانوي</h3>
+<p data-ar="الدراسة الحالية." data-en="Currently studying.">الدراسة الحالية.</p>
+</div>
+<div class="timeline-item reveal">
+<h3 data-ar="التعلم الذاتي في التكنولوجيا والبرمجة" data-en="Self-learning: Technology & Programming">التعلم الذاتي في التكنولوجيا والبرمجة</h3>
+<p data-ar="التعرف على HTML وCSS وJavaScript وPython من خلال التعلم والتجربة العملية." data-en="Exploring HTML, CSS, JavaScript, and Python through learning and hands-on practice.">التعرف على HTML وCSS وJavaScript وPython من خلال التعلم والتجربة العملية.</p>
+</div>
+</div>
+</div>
 </section>
 
-<section id="contact">
-  <div class="container">
-
-    <div class="section-head reveal">
-      <span class="section-label">05 / CONTACT</span>
-      <h2 data-ar="تواصل معي" data-en="Get In Touch">تواصل معي</h2>
-      <p data-ar="يسعدني التواصل ومشاركة الأفكار" data-en="Feel free to connect and share ideas">يسعدني التواصل ومشاركة الأفكار</p>
-    </div>
-
-    <div class="glass contact-card reveal">
-      <div class="card-icon">✉</div>
-      <h3 data-ar="لنتواصل!" data-en="Let's Connect!">لنتواصل!</h3>
-      <p data-ar="سيتم إضافة وسائل التواصل والبريد الإلكتروني هنا قريبًا."
-      data-en="Contact links and email will be added here soon.">
-        سيتم إضافة وسائل التواصل والبريد الإلكتروني هنا قريبًا.
-      </p>
-      <a href="#home" class="btn btn-secondary"
-      data-ar="العودة إلى الأعلى ↑" data-en="Back To Top ↑">العودة إلى الأعلى ↑</a>
-    </div>
-
-  </div>
+<section class="section" id="cv">
+<div class="container">
+<div class="cv-box reveal">
+<div>
+<h3 data-ar="السيرة الذاتية" data-en="Curriculum Vitae">السيرة الذاتية</h3>
+<p data-ar="يمكنك حفظ هذه الصفحة كملف PDF من خيار الطباعة في المتصفح. سأضيف نسخة CV مستقلة بعد استكمال بيانات التواصل والدورات." data-en="You can save this page as a PDF using your browser’s print option. A dedicated CV file can be prepared once contact details and courses are added.">يمكنك حفظ هذه الصفحة كملف PDF من خيار الطباعة في المتصفح. سأضيف نسخة CV مستقلة بعد استكمال بيانات التواصل والدورات.</p>
+</div>
+<button class="btn btn-primary" onclick="window.print()" data-ar="طباعة / حفظ PDF ↗" data-en="Print / Save PDF ↗">طباعة / حفظ PDF ↗</button>
+</div>
+</div>
 </section>
 
+<section class="section" id="contact">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-kicker">05 / CONTACT</div>
+<h2 class="section-title" data-ar="التواصل" data-en="Get in Touch">التواصل</h2>
+<p class="section-sub" data-ar="مساحة لإضافة وسائل التواصل المهني لاحقًا" data-en="A place for professional contact details">مساحة لإضافة وسائل التواصل المهني لاحقًا</p>
+</div>
+
+<div class="contact-grid">
+<div class="contact-item reveal">
+<strong data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</strong>
+<p data-ar="سيتم إضافته بعد تحديد البريد المخصص للتواصل المهني." data-en="To be added once a professional contact email is selected.">سيتم إضافته بعد تحديد البريد المخصص للتواصل المهني.</p>
+</div>
+<div class="contact-item reveal">
+<strong data-ar="روابط مهنية" data-en="Professional Links">روابط مهنية</strong>
+<p data-ar="يمكن إضافة GitHub وLinkedIn وروابط المشروعات هنا." data-en="GitHub, LinkedIn, and project links can be added here.">يمكن إضافة GitHub وLinkedIn وروابط المشروعات هنا.</p>
+</div>
+</div>
+</div>
+</section>
 </main>
 
 <footer>
-  <div class="container">
-    © <span id="year"></span> ANTONYOS BOTROS —
-    <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
-  </div>
+<div class="container footer-inner">
+<span>© 2026 ANTONYOS BOTROS — <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved">جميع الحقوق محفوظة</span></span>
+<a class="backtop" href="#home" data-ar="العودة إلى الأعلى ↑" data-en="Back to top ↑">العودة إلى الأعلى ↑</a>
+</div>
 </footer>
 
 <script>
-const root = document.documentElement;
-const langBtn = document.getElementById('langBtn');
-const themeBtn = document.getElementById('themeBtn');
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
+const root=document.documentElement;
+const themeBtn=document.getElementById("themeToggle");
+const themeLabel=document.getElementById("themeLabel");
+const langBtn=document.getElementById("langToggle");
+const menuBtn=document.getElementById("menuBtn");
+const mobileMenu=document.getElementById("mobileMenu");
+let lang="ar";
 
-let currentLang = 'ar';
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* Default theme is light. Save the visitor's choice for future visits. */
-let savedTheme = null;
-
-try {
-  savedTheme = localStorage.getItem('antonyos-theme');
-} catch(e) {}
-
-function setTheme(theme, save = true) {
-  root.dataset.theme = theme;
-
-  themeBtn.textContent = theme === 'dark' ? '☀' : '☾';
-
-  themeBtn.setAttribute(
-    'aria-label',
-    theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-  );
-
-  document.querySelector('meta[name="theme-color"]').content =
-    theme === 'dark' ? '#090812' : '#f5f6fc';
-
-  if(save) {
-    try {
-      localStorage.setItem('antonyos-theme', theme);
-    } catch(e) {}
-  }
+function setTheme(theme){
+root.dataset.theme=theme;
+themeLabel.textContent=theme==="light"?(lang==="ar"?"نهاري":"Light"):(lang==="ar"?"ليلي":"Dark");
+document.querySelector('meta[name="theme-color"]').content=theme==="light"?"#f6f7fb":"#0b0c14";
+try{localStorage.setItem("antonyos-theme",theme)}catch(e){}
 }
 
-setTheme(savedTheme === 'dark' ? 'dark' : 'light', false);
+let savedTheme="light";
+try{savedTheme=localStorage.getItem("antonyos-theme")||"light"}catch(e){}
+setTheme(savedTheme);
 
-themeBtn.addEventListener('click', () => {
-  setTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+themeBtn.addEventListener("click",()=>{
+setTheme(root.dataset.theme==="light"?"dark":"light");
 });
 
-/* Language switch */
-
-langBtn.addEventListener('click', () => {
-  currentLang = currentLang === 'ar' ? 'en' : 'ar';
-
-  root.lang = currentLang;
-  root.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-
-  document.body.classList.toggle('ltr', currentLang === 'en');
-
-  document.querySelectorAll('[data-ar][data-en]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + currentLang);
-  });
-
-  langBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+function setLanguage(next){
+lang=next;
+root.lang=next;
+root.dir=next==="ar"?"rtl":"ltr";
+document.querySelectorAll("[data-ar][data-en]").forEach(el=>{
+el.textContent=el.dataset[next];
 });
-
-/* Mobile menu */
-
-function closeMenu() {
-  navLinks.classList.remove('open');
-  menuBtn.textContent = '☰';
-  menuBtn.setAttribute('aria-expanded', 'false');
+langBtn.textContent=next==="ar"?"English":"العربية";
+themeLabel.textContent=root.dataset.theme==="light"?(next==="ar"?"نهاري":"Light"):(next==="ar"?"ليلي":"Dark");
+document.title=next==="ar"?"ANTONYOS BOTROS | الموقع الشخصي":"ANTONYOS BOTROS | Personal Portfolio";
 }
 
-menuBtn.addEventListener('click', () => {
-  const opened = navLinks.classList.toggle('open');
-
-  menuBtn.textContent = opened ? '✕' : '☰';
-  menuBtn.setAttribute('aria-expanded', String(opened));
+langBtn.addEventListener("click",()=>{
+setLanguage(lang==="ar"?"en":"ar");
 });
 
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', closeMenu);
+menuBtn.addEventListener("click",()=>{
+mobileMenu.classList.toggle("open");
 });
 
-document.addEventListener('click', e => {
-  if(
-    navLinks.classList.contains('open') &&
-    !navLinks.contains(e.target) &&
-    !menuBtn.contains(e.target)
-  ) {
-    closeMenu();
-  }
+mobileMenu.querySelectorAll("a").forEach(link=>{
+link.addEventListener("click",()=>mobileMenu.classList.remove("open"));
 });
 
-/* Scroll animations */
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold:0.12});
-
-document.querySelectorAll('.reveal').forEach(el => {
-  observer.observe(el);
+document.addEventListener("click",event=>{
+if(!mobileMenu.contains(event.target)&&!menuBtn.contains(event.target)){
+mobileMenu.classList.remove("open");
+}
 });
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
