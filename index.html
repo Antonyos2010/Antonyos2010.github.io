@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080812">
+  <meta name="description" content="الموقع الشخصي الرسمي لـ Antonyos Botros. اكتشف المشاريع والاهتمامات والأعمال.">
+  <meta property="og:title" content="ANTONYOS BOTROS | Official Website">
+  <meta property="og:description" content="الموقع الشخصي الرسمي - Antonyos Botros">
+  <title>ANTONYOS BOTROS | Official Website</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:#080812;color:#f5f4ff;
+      font-family:Arial,Tahoma,sans-serif;
+      line-height:1.8;overflow-x:hidden
+    }
+    :root{--purple:#9b5cff;--cyan:#27e5f2;--muted:#aaa8bd}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer}
+    .container{width:min(1100px,90%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:10;
+      background:#080812eF;backdrop-filter:blur(16px);
+      border-bottom:1px solid #ffffff12
+    }
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:21px;font-weight:900;letter-spacing:1px}
+    .logo span{color:var(--cyan)}
+    .navlinks{display:flex;gap:25px;align-items:center}
+    .navlinks a{font-size:14px;color:#d0cde0}
+    .navlinks a:hover{color:var(--cyan)}
+    .actions{display:flex;gap:10px;align-items:center}
+    .lang,.menu{
+      background:#171526;border:1px solid #ffffff20;
+      color:white;border-radius:10px;padding:8px 13px
+    }
+    .menu{display:none}
+    .hero{
+      min-height:650px;display:flex;align-items:center;
+      position:relative;overflow:hidden
+    }
+    .glow{
+      position:absolute;width:420px;height:420px;
+      border-radius:50%;filter:blur(110px);opacity:.24;
+      background:var(--purple);left:-100px;top:80px
+    }
+    .glow.two{background:var(--cyan);left:auto;right:-180px;top:300px}
+    .hero-content{position:relative;z-index:1;max-width:760px}
+    .eyebrow{color:var(--cyan);font-size:13px;letter-spacing:3px;font-weight:bold}
+    h1{font-size:clamp(42px,8vw,78px);line-height:1.2;margin:18px 0}
+    h1 span{
+      background:linear-gradient(90deg,var(--cyan),var(--purple));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .hero p{color:var(--muted);font-size:18px;max-width:600px}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-block;padding:12px 23px;border-radius:12px;
+      font-weight:bold;border:1px solid #ffffff25;transition:.25s
+    }
+    .primary{background:linear-gradient(110deg,#7c42e8,#19cbdc);color:#080812;border:0}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px #8e55ff35}
+    section{padding:85px 0}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title small{color:var(--cyan);letter-spacing:2px}
+    .section-title h2{font-size:34px;margin-top:8px}
+    .section-title p{color:var(--muted);margin-top:7px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .panel,.card{
+      background:linear-gradient(145deg,#171528,#10101b);
+      border:1px solid #ffffff13;border-radius:20px;padding:28px
+    }
+    .panel h3,.card h3{margin-bottom:12px}
+    .panel p,.card p{color:var(--muted)}
+    .tag-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .tag{background:#8e55ff18;border:1px solid #9b5cff40;color:#d9c8ff;
+      padding:6px 13px;border-radius:30px;font-size:13px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{transition:.25s}
+    .card:hover{transform:translateY(-6px);border-color:#9b5cff80}
+    .card .symbol{font-size:30px;margin-bottom:12px}
+    .card a{color:var(--cyan);display:inline-block;margin-top:14px}
+    .contact{text-align:center}
+    .contact .panel{max-width:700px;margin:auto}
+    footer{border-top:1px solid #ffffff15;padding:25px 0;text-align:center;color:var(--muted);font-size:13px}
+    .reveal{animation:appear .9s ease both}
+    @keyframes appear{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:760px){
+      .navlinks{display:none;position:absolute;top:76px;right:0;left:0;
+        background:#11101f;padding:20px;flex-direction:column;border-bottom:1px solid #ffffff20}
+      .navlinks.open{display:flex}
+      .menu{display:block}
+      .about-grid,.cards{grid-template-columns:1fr}
+      .hero{min-height:570px}
+      section{padding:65px 0}
+      .section-title h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#">ANTONYOS<span>.</span></a>
+      <div class="navlinks" id="navlinks">
+        <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+        <a href="#about" data-ar="من أنا" data-en="About">من أنا</a>
+        <a href="#skills" data-ar="اهتماماتي" data-en="Interests">اهتماماتي</a>
+        <a href="#projects" data-ar="مشاريعي" data-en="Projects">مشاريعي</a>
+        <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
+      </div>
+      <div class="actions">
+        <button class="lang" id="langBtn">English</button>
+        <button class="menu" id="menuBtn" aria-label="القائمة">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="glow"></div><div class="glow two"></div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="eyebrow" data-ar="الموقع الشخصي الرسمي" data-en="OFFICIAL PERSONAL WEBSITE">الموقع الشخصي الرسمي</div>
+        <h1>ANTONYOS<br><span>BOTROS</span></h1>
+        <p data-ar="مرحباً بك في عالمي الرقمي. هنا أشارك مشاريعي واهتماماتي وأفكاري، وأوثّق رحلتي في التعلم والإبداع." data-en="Welcome to my digital world. Explore my projects, interests and ideas as I document my journey of learning and creativity.">مرحباً بك في عالمي الرقمي. هنا أشارك مشاريعي واهتماماتي وأفكاري، وأوثّق رحلتي في التعلم والإبداع.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#projects" data-ar="استكشف مشاريعي ←" data-en="Explore My Projects →">استكشف مشاريعي ←</a>
+          <a class="btn" href="#about" data-ar="اعرف المزيد" data-en="Discover More">اعرف المزيد</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <small data-ar="نبذة شخصية" data-en="ABOUT ME">نبذة شخصية</small>
+        <h2 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h2>
+        <p data-ar="مساحة للتعريف بنفسي وبطموحاتي" data-en="A space to introduce myself and my ambitions">مساحة للتعريف بنفسي وبطموحاتي</p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3 data-ar="أهلاً بك!" data-en="Welcome!">أهلاً بك!</h3>
+          <p data-ar="أنا Antonyos Botros. أستخدم هذا الموقع لمشاركة رحلتي ومشاريعي وما أتعلمه. سيتم تحديث هذه النبذة بمعلوماتي الشخصية لاحقاً." data-en="I'm Antonyos Botros. I use this website to share my journey, projects and what I'm learning. I'll update this introduction with more details later.">أنا Antonyos Botros. أستخدم هذا الموقع لمشاركة رحلتي ومشاريعي وما أتعلمه. سيتم تحديث هذه النبذة بمعلوماتي الشخصية لاحقاً.</p>
+        </div>
+        <div class="panel">
+          <h3 data-ar="رؤيتي" data-en="My Vision">رؤيتي</h3>
+          <p data-ar="التعلم المستمر، تجربة الأفكار الجديدة، وتحويل الأفكار إلى مشاريع حقيقية." data-en="Continuous learning, exploring new ideas, and turning ideas into real projects.">التعلم المستمر، تجربة الأفكار الجديدة، وتحويل الأفكار إلى مشاريع حقيقية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <small data-ar="ما يهمني" data-en="MY INTERESTS">ما يهمني</small>
+        <h2 data-ar="اهتماماتي ومجالاتي" data-en="Interests & Fields">اهتماماتي ومجالاتي</h2>
+        <p data-ar="يمكن تعديل هذه الأقسام وإضافة مهاراتك لاحقاً" data-en="These sections can be updated with your skills later">يمكن تعديل هذه الأقسام وإضافة مهاراتك لاحقاً</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="symbol">💻</div><h3 data-ar="التكنولوجيا" data-en="Technology">التكنولوجيا</h3><p data-ar="استكشاف التقنيات والأدوات الرقمية." data-en="Exploring digital technologies and tools.">استكشاف التقنيات والأدوات الرقمية.</p></div>
+        <div class="card"><div class="symbol">⚡</div><h3 data-ar="الإلكترونيات" data-en="Electronics">الإلكترونيات</h3><p data-ar="الاهتمام بالمكونات والأجهزة الإلكترونية." data-en="Interest in electronic components and devices.">الاهتمام بالمكونات والأجهزة الإلكترونية.</p></div>
+        <div class="card"><div class="symbol">🚀</div><h3 data-ar="إنشاء المشاريع" data-en="Building Projects">إنشاء المشاريع</h3><p data-ar="تحويل الأفكار إلى تجارب ومشاريع عملية." data-en="Turning ideas into practical projects and experiments.">تحويل الأفكار إلى تجارب ومشاريع عملية.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <small data-ar="أعمالي" data-en="MY WORK">أعمالي</small>
+        <h2 data-ar="مشاريعي" data-en="My Projects">مشاريعي</h2>
+        <p data-ar="نماذج من الأفكار التي أعمل عليها" data-en="A look at projects I'm working on">نماذج من الأفكار التي أعمل عليها</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="symbol">⚡</div>
+          <h3>VOLTRIX</h3>
+          <p data-ar="مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها." data-en="An e-commerce project focused on electronics and related accessories.">مشروع متجر إلكتروني متخصص في الإلكترونيات ومستلزماتها.</p>
+          <a href="#contact" data-ar="اعرف المزيد ←" data-en="Learn More →">اعرف المزيد ←</a>
+        </div>
+        <div class="card">
+          <div class="symbol">🌐</div>
+          <h3 data-ar="الموقع الشخصي" data-en="Personal Website">الموقع الشخصي</h3>
+          <p data-ar="هذه المنصة التي تجمع أعمالي واهتماماتي في مكان واحد." data-en="This platform brings my work and interests together in one place.">هذه المنصة التي تجمع أعمالي واهتماماتي في مكان واحد.</p>
+        </div>
+        <div class="card">
+          <div class="symbol">✨</div>
+          <h3 data-ar="مشاريع قادمة" data-en="Coming Soon">مشاريع قادمة</h3>
+          <p data-ar="سيتم إضافة المزيد من الأعمال والتجارب مستقبلاً." data-en="More projects and experiments will be added in the future.">سيتم إضافة المزيد من الأعمال والتجارب مستقبلاً.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <small data-ar="ابقَ على تواصل" data-en="GET IN TOUCH">ابقَ على تواصل</small>
+        <h2 data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
+      </div>
+      <div class="panel">
+        <p data-ar="سيتم إضافة روابط التواصل العامة هنا بعد اختيار الروابط التي تريد مشاركتها." data-en="Public contact and social links will be added here once you choose which ones to share.">سيتم إضافة روابط التواصل العامة هنا بعد اختيار الروابط التي تريد مشاركتها.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> ANTONYOS BOTROS — <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
+  </div>
+</footer>
+
+<script>
+  const langBtn=document.getElementById('langBtn');
+  const nav=document.getElementById('navlinks');
+  let language='ar';
+
+  function setLanguage(lang){
+    language=lang;
+    document.documentElement.lang=lang;
+    document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+    document.querySelectorAll('[data-ar]').forEach(el=>{
+      el.textContent=el.dataset[lang];
+    });
+    langBtn.textContent=lang==='ar'?'English':'العربية';
+  }
+
+  langBtn.addEventListener('click',()=>{
+    setLanguage(language==='ar'?'en':'ar');
+  });
+
+  document.getElementById('menuBtn').addEventListener('click',()=>{
+    nav.classList.toggle('open');
+  });
+
+  nav.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click',()=>nav.classList.remove('open'));
+  });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
