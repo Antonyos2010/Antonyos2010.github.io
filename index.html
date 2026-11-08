@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -20,7 +21,6 @@
 
 <link rel="canonical" href="https://antonyos2010.github.io/">
 
-<!-- تحميل صور المشاريع المهمة مبكرًا -->
 <link rel="preload" as="image" href="portfolio.jpg">
 <link rel="preload" as="image" href="accountx.png">
 
@@ -361,6 +361,14 @@ body.english .menu-links a:hover {
   margin-bottom:24px;
 }
 
+/* لون خانة الترحيب في الوضع الليلي */
+
+body.dark .eyebrow {
+  background:#7055ed;
+  border-color:#7055ed;
+  color:#ffffff;
+}
+
 .status-dot {
   width:8px;
   height:8px;
@@ -426,6 +434,14 @@ body.english .hero h1 {text-align:left;}
   color:var(--text);
   background:var(--surface);
   border-color:var(--border);
+}
+
+/* لون زر تواصل معي في الوضع الليلي */
+
+body.dark .hero-buttons .btn-outline {
+  background:#bfefff;
+  border-color:#bfefff;
+  color:#17182b;
 }
 
 /* Sections */
@@ -1189,6 +1205,7 @@ body.english .project-body h3 {text-align:left;}
   font-size:13px;
   margin-top:5px;
   line-height:1.9;
+  white-space:pre-line;
 }
 
 /* Contact */
@@ -1381,8 +1398,6 @@ footer strong {
     height:62px;
   }
 
-  /* المشروعان يظلان في صف واحد */
-
   .projects-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:8px;
@@ -1556,7 +1571,7 @@ footer strong {
   z-index:3;
 }
 
-/* التعديل الأول: إظهار صور المشاريع كاملة في الصفحة الرئيسية */
+/* إظهار صور المشاريع كاملة في الصفحة الرئيسية */
 
 .project-image-button {
   height:auto !important;
@@ -1592,7 +1607,7 @@ footer strong {
   object-position:center top !important;
 }
 
-/* التعديل الثاني: إزالة الحواف السوداء في العارض الرأسي فقط */
+/* إزالة الحواف السوداء في العارض الرأسي فقط */
 
 @media (orientation: portrait) {
   .image-viewer img {
@@ -1601,6 +1616,19 @@ footer strong {
     max-width:100% !important;
     max-height:100% !important;
     object-fit:fill !important;
+    object-position:center !important;
+  }
+}
+
+/* ملء الشاشة بالصور في الوضع الأفقي */
+
+@media (orientation: landscape) {
+  .image-viewer img {
+    width:100vw !important;
+    height:100dvh !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:cover !important;
     object-position:center !important;
   }
 }
@@ -1891,7 +1919,7 @@ footer strong {
             مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية.
           </p>
 
-          <span class="project-tag" data-ar="مشروع رقمي" data-en="Digital Project">مشروع رقمي</span>
+          <span class="project-tag" data-ar="أمن 100%" data-en="100% Secure">أمن 100%</span>
 
           <a class="project-visit" href="https://t.me/accountx2026bot" target="_blank" rel="noopener noreferrer" data-ar="↗ اذهب لرؤية المشروع" data-en="↗ Visit the Project">↗ اذهب لرؤية المشروع</a>
         </div>
@@ -1945,10 +1973,11 @@ footer strong {
       <div>
         <h3 data-ar="المرحلة الثانوية" data-en="High School">المرحلة الثانوية</h3>
         <p
-          data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية) — أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني."
-          data-en="Second year of high school (Egyptian Baccalaureate System) — continuing my studies alongside learning programming and cybersecurity."
+          data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية)&#10;أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني."
+          data-en="Second year of high school (Egyptian Baccalaureate System)&#10;Continuing my studies alongside learning programming and cybersecurity."
         >
-          الصف الثاني الثانوي (نظام البكالوريا المصرية) — أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني.
+          الصف الثاني الثانوي (نظام البكالوريا المصرية)
+          أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني.
         </p>
       </div>
     </div>
@@ -2240,17 +2269,6 @@ function pushSiteHistoryState(layer) {
     window.location.href
   );
 }
-
-/*
-  نضيف سجلًا داخليًا للموقع حتى لا يؤدي زر الرجوع
-  إلى الخروج من الموقع مباشرة عند الوصول إلى الصفحة الرئيسية.
-*/
-
-history.pushState(
-  { siteRootGuard: true },
-  "",
-  window.location.href
-);
 
 /* Side menu */
 
@@ -2951,18 +2969,6 @@ window.addEventListener("popstate", () => {
     return;
   }
 
-  /*
-    عند الرجوع إلى الصفحة الرئيسية دون قسم محدد،
-    نضيف نقطة داخلية جديدة حتى لا يخرج المستخدم من الموقع.
-  */
-
-  if (!window.location.hash) {
-    history.pushState(
-      { siteRootGuard: true },
-      "",
-      window.location.href
-    );
-  }
 });
 
 /* Close windows with Escape */
@@ -3013,4 +3019,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-  </html>
+</html>
