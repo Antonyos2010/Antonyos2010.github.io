@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -1576,6 +1575,23 @@ footer strong {
   object-position:center !important;
 }
 
+/* توحيد ارتفاع صورة الموقع مع صورة AccountX في الصفحة الرئيسية فقط */
+
+.project-image-button.portfolio-image-button {
+  height:var(--accountx-image-height, auto) !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+.project-image-button.portfolio-image-button img {
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+}
+
 /* التعديل الثاني: إزالة الحواف السوداء في العارض الرأسي فقط */
 
 @media (orientation: portrait) {
@@ -1826,7 +1842,7 @@ footer strong {
 
       <article class="project-card reveal">
 
-        <button class="project-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
+        <button class="project-image-button portfolio-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
           <img
             src="portfolio.jpg"
             alt="ANTONYOS PORTFOLIO Website"
@@ -2215,6 +2231,27 @@ languageBtn.addEventListener("click", () => {
   }
 });
 
+/* Browser back button support */
+
+function pushSiteHistoryState(layer) {
+  history.pushState(
+    { siteLayer: layer },
+    "",
+    window.location.href
+  );
+}
+
+/*
+  نضيف سجلًا داخليًا للموقع حتى لا يؤدي زر الرجوع
+  إلى الخروج من الموقع مباشرة عند الوصول إلى الصفحة الرئيسية.
+*/
+
+history.pushState(
+  { siteRootGuard: true },
+  "",
+  window.location.href
+);
+
 /* Side menu */
 
 const menuBtn = document.getElementById("menuBtn");
@@ -2222,22 +2259,36 @@ const closeMenu = document.getElementById("closeMenu");
 const sideMenu = document.getElementById("sideMenu");
 const menuOverlay = document.getElementById("menuOverlay");
 
+let menuHistoryOpen = false;
+
 function openMenu() {
+  if (sideMenu.classList.contains("show")) return;
+
+  pushSiteHistoryState("menu");
+  menuHistoryOpen = true;
+
   sideMenu.classList.add("show");
   menuOverlay.classList.add("show");
 }
 
-function hideMenu() {
+function hideMenu(fromPopState = false) {
   sideMenu.classList.remove("show");
   menuOverlay.classList.remove("show");
+
+  const shouldGoBack = menuHistoryOpen && !fromPopState;
+  menuHistoryOpen = false;
+
+  if (shouldGoBack) {
+    history.back();
+  }
 }
 
 menuBtn.addEventListener("click", openMenu);
-closeMenu.addEventListener("click", hideMenu);
-menuOverlay.addEventListener("click", hideMenu);
+closeMenu.addEventListener("click", () => hideMenu());
+menuOverlay.addEventListener("click", () => hideMenu());
 
 document.querySelectorAll(".menu-links a").forEach(link => {
-  link.addEventListener("click", hideMenu);
+  link.addEventListener("click", () => hideMenu());
 });
 
 /* Full-screen project image viewer */
@@ -2258,10 +2309,63 @@ const projectViewerImages = {
   }
 };
 
+/* مزامنة ارتفاع صورة الموقع مع صورة AccountX */
+
+const portfolioImageButton = document.querySelector(
+  ".portfolio-image-button"
+);
+
+const accountxImage = document.querySelector(
+  ".accountx-image"
+);
+
+function syncPortfolioImageHeight() {
+  if (!portfolioImageButton || !accountxImage) return;
+
+  const accountxHeight = accountxImage.getBoundingClientRect().height;
+
+  if (accountxHeight > 0) {
+    portfolioImageButton.style.setProperty(
+      "--accountx-image-height",
+      accountxHeight + "px"
+    );
+  }
+}
+
+if (accountxImage) {
+  if (accountxImage.complete && accountxImage.naturalWidth > 0) {
+    requestAnimationFrame(syncPortfolioImageHeight);
+  } else {
+    accountxImage.addEventListener(
+      "load",
+      syncPortfolioImageHeight
+    );
+  }
+
+  window.addEventListener("resize", () => {
+    requestAnimationFrame(syncPortfolioImageHeight);
+  });
+
+  if ("ResizeObserver" in window) {
+    const projectImageResizeObserver = new ResizeObserver(() => {
+      requestAnimationFrame(syncPortfolioImageHeight);
+    });
+
+    projectImageResizeObserver.observe(accountxImage);
+  }
+}
+
+let imageViewerHistoryOpen = false;
+
 function openImageViewer(projectName) {
   const images = projectViewerImages[projectName];
 
   if (!images) return;
+
+  if (!imageViewer.classList.contains("show")) {
+    pushSiteHistoryState("imageViewer");
+    imageViewerHistoryOpen = true;
+  }
 
   viewerPortraitSource.srcset = images.portrait;
   viewerLandscapeSource.srcset = images.landscape;
@@ -2276,10 +2380,16 @@ function openImageViewer(projectName) {
   document.body.style.overflow = "hidden";
 }
 
-function closeImageViewer(event) {
+function closeImageViewer(event, fromPopState = false) {
   if (
-    event.target === imageViewer ||
-    event.target.classList.contains("viewer-close")
+    fromPopState ||
+    (
+      event &&
+      (
+        event.target === imageViewer ||
+        event.target.classList.contains("viewer-close")
+      )
+    )
   ) {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
@@ -2289,6 +2399,13 @@ function closeImageViewer(event) {
     viewerLandscapeSource.srcset = "";
 
     document.body.style.overflow = "";
+
+    const shouldGoBack = imageViewerHistoryOpen && !fromPopState;
+    imageViewerHistoryOpen = false;
+
+    if (shouldGoBack) {
+      history.back();
+    }
   }
 }
 
@@ -2323,6 +2440,9 @@ const cvActionButtons = document.querySelectorAll(
 let cvPasswordValue = "";
 let cvIsBusy = false;
 
+let cvGateHistoryOpen = false;
+let cvPageHistoryOpen = false;
+
 /*
   يحتفظ الموقع برابط التحقق الأول للنسخة العربية
   لمدة أقل قليلًا من صلاحية الرابط التي يحددها الخادم.
@@ -2349,6 +2469,11 @@ function setPageStatus(message, type = "") {
 }
 
 function openCvGate() {
+  if (cvGateOverlay.classList.contains("show")) return;
+
+  pushSiteHistoryState("cvGate");
+  cvGateHistoryOpen = true;
+
   cvGateOverlay.classList.add("show");
   cvGateOverlay.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -2361,7 +2486,7 @@ function openCvGate() {
   );
 }
 
-function closeCvGate() {
+function closeCvGate(fromPopState = false) {
   if (cvIsBusy) return;
 
   cvGateOverlay.classList.remove("show");
@@ -2372,11 +2497,37 @@ function closeCvGate() {
   }
 
   cvPassword.value = "";
+
+  const shouldGoBack = cvGateHistoryOpen && !fromPopState;
+  cvGateHistoryOpen = false;
+
+  if (shouldGoBack) {
+    history.back();
+  }
 }
 
 function openCvPage() {
   cvGateOverlay.classList.remove("show");
   cvGateOverlay.setAttribute("aria-hidden", "true");
+
+  /*
+    نستبدل حالة نافذة كلمة المرور بحالة صفحة السيرة الذاتية،
+    حتى يرجع زر الجهاز من صفحة السيرة إلى الموقع مباشرة.
+  */
+
+  if (cvGateHistoryOpen) {
+    history.replaceState(
+      { siteLayer: "cvPage" },
+      "",
+      window.location.href
+    );
+
+    cvGateHistoryOpen = false;
+    cvPageHistoryOpen = true;
+  } else {
+    pushSiteHistoryState("cvPage");
+    cvPageHistoryOpen = true;
+  }
 
   cvFullscreen.classList.add("show");
   cvFullscreen.setAttribute("aria-hidden", "false");
@@ -2393,7 +2544,7 @@ function openCvPage() {
   );
 }
 
-function closeCvPage() {
+function closeCvPage(fromPopState = false) {
   if (cvIsBusy) return;
 
   cvFullscreen.classList.remove("show");
@@ -2404,13 +2555,20 @@ function closeCvPage() {
   cvPassword.value = "";
 
   document.body.style.overflow = "";
+
+  const shouldGoBack = cvPageHistoryOpen && !fromPopState;
+  cvPageHistoryOpen = false;
+
+  if (shouldGoBack) {
+    history.back();
+  }
 }
 
 /* أزرار نافذة السيرة الذاتية */
 
 openCvGateButton.addEventListener("click", openCvGate);
-closeCvGateButton.addEventListener("click", closeCvGate);
-closeCvPageButton.addEventListener("click", closeCvPage);
+closeCvGateButton.addEventListener("click", () => closeCvGate());
+closeCvPageButton.addEventListener("click", () => closeCvPage());
 
 /* Send password to Supabase */
 
@@ -2761,20 +2919,59 @@ cvActionButtons.forEach(button => {
   });
 });
 
+/* التعامل مع زر الرجوع الفعلي في الموبايل */
+
+window.addEventListener("popstate", () => {
+
+  /* إغلاق عارض الصور أولًا */
+
+  if (imageViewer.classList.contains("show")) {
+    closeImageViewer(null, true);
+    return;
+  }
+
+  /* إغلاق صفحة السيرة الذاتية */
+
+  if (cvFullscreen.classList.contains("show")) {
+    closeCvPage(true);
+    return;
+  }
+
+  /* إغلاق نافذة كلمة مرور السيرة الذاتية */
+
+  if (cvGateOverlay.classList.contains("show")) {
+    closeCvGate(true);
+    return;
+  }
+
+  /* إغلاق القائمة الجانبية */
+
+  if (sideMenu.classList.contains("show")) {
+    hideMenu(true);
+    return;
+  }
+
+  /*
+    عند الرجوع إلى الصفحة الرئيسية دون قسم محدد،
+    نضيف نقطة داخلية جديدة حتى لا يخرج المستخدم من الموقع.
+  */
+
+  if (!window.location.hash) {
+    history.pushState(
+      { siteRootGuard: true },
+      "",
+      window.location.href
+    );
+  }
+});
+
 /* Close windows with Escape */
 
 document.addEventListener("keydown", event => {
   if (event.key !== "Escape") return;
 
   if (imageViewer.classList.contains("show")) {
-    imageViewer.classList.remove("show");
-    imageViewer.setAttribute("aria-hidden", "true");
-
-    viewerImage.src = "";
-    viewerPortraitSource.srcset = "";
-    viewerLandscapeSource.srcset = "";
-
-    document.body.style.overflow = "";
+    closeImageViewer({ target: imageViewer });
     return;
   }
 
@@ -2785,6 +2982,11 @@ document.addEventListener("keydown", event => {
 
   if (cvGateOverlay.classList.contains("show")) {
     closeCvGate();
+    return;
+  }
+
+  if (sideMenu.classList.contains("show")) {
+    hideMenu();
   }
 });
 
@@ -2811,4 +3013,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-</html>
+  </html>
