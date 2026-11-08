@@ -526,7 +526,7 @@ body.english .profile-photo {
 
 .info-item strong {
   display:block;
-  font-size:clamp(10px,1.5vw,14px);
+  font-size:clamp(12px,1.7vw,15px);
   line-height:1.7;
   overflow-wrap:anywhere;
 }
@@ -656,6 +656,13 @@ body.english .profile-photo {
   transition:transform .3s ease;
 }
 
+/* صورة AccountX تظهر كاملة دون قص */
+
+.project-image-button img.accountx-image {
+  object-fit:contain;
+  object-position:center;
+}
+
 .project-image-button:hover img {transform:scale(1.04);}
 
 .project-body {padding:22px;}
@@ -768,6 +775,13 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 15px 60px rgba(0,0,0,.5);
 }
 
+/* إظهار صورة AccountX كاملة داخل عارض الصور */
+
+#viewerImage.accountx-view {
+  object-fit:contain;
+  object-position:center;
+}
+
 .viewer-close {
   position:absolute;
   top:18px;
@@ -795,7 +809,7 @@ body.english .project-body h3 {text-align:left;}
   padding:30px;
   text-align:center;
   background:var(--surface);
-  border:1px solid var(--border);
+  border:1px solid var(--secondary);
   border-radius:23px;
   box-shadow:var(--shadow);
 }
@@ -811,7 +825,7 @@ body.english .project-body h3 {text-align:left;}
   width:100%;
   min-height:62px;
   padding:15px 22px;
-  border:2px solid var(--primary);
+  border:2px solid var(--secondary);
   color:var(--primary);
   background:var(--surface);
   font-size:17px;
@@ -1312,7 +1326,7 @@ footer strong {
   }
 
   .info-item strong {
-    font-size:10px;
+    font-size:12px;
     line-height:1.7;
   }
 
@@ -1667,7 +1681,7 @@ footer strong {
       <article class="project-card reveal">
 
         <button class="project-image-button" style="--project-image:url('accountx.png')" type="button" onclick="openImageViewer('accountx.png')" aria-label="عرض صورة AccountX بحجم الشاشة">
-          <img src="accountx.png" alt="AccountX Bot">
+          <img src="accountx.png" alt="AccountX Bot" class="accountx-image">
         </button>
 
         <div class="project-body">
@@ -1697,7 +1711,7 @@ footer strong {
 
     <div class="section-heading reveal">
       <div class="section-label">MY RESUME</div>
-      <h2 data-ar="السيرة الذاتية الرئيسية (CV)" data-en="Main Resume (CV)">السيرة الذاتية الرئيسية (CV)</h2>
+      <h2 data-ar="السيرة الذاتية (CV)" data-en="Resume (CV)">السيرة الذاتية (CV)</h2>
       <p data-ar="يمكنك الاطلاع على سيرتي الذاتية (CV) باللغتين العربية والإنجليزية." data-en="You can view my resume (CV) in both Arabic and English.">
         يمكنك الاطلاع على سيرتي الذاتية (CV) باللغتين العربية والإنجليزية.
       </p>
@@ -2053,6 +2067,12 @@ const viewerImage = document.getElementById("viewerImage");
 
 function openImageViewer(imageSource) {
   viewerImage.src = imageSource;
+
+  viewerImage.classList.toggle(
+    "accountx-view",
+    imageSource.includes("accountx.png")
+  );
+
   imageViewer.classList.add("show");
   imageViewer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -2066,6 +2086,7 @@ function closeImageViewer(event) {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
+    viewerImage.classList.remove("accountx-view");
     document.body.style.overflow = "";
   }
 }
@@ -2566,6 +2587,7 @@ document.addEventListener("keydown", event => {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
     viewerImage.src = "";
+    viewerImage.classList.remove("accountx-view");
     document.body.style.overflow = "";
     return;
   }
@@ -2603,4 +2625,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-                                   </html>
+  </html>
