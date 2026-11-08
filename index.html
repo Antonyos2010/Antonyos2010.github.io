@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -1620,7 +1619,7 @@ footer strong {
   }
 }
 
-/* ملء الشاشة بالصور في الوضع الأفقي */
+/* عرض الصور كاملة في الوضع الأفقي دون قص */
 
 @media (orientation: landscape) {
   .image-viewer img {
@@ -1628,7 +1627,7 @@ footer strong {
     height:100dvh !important;
     max-width:100% !important;
     max-height:100% !important;
-    object-fit:cover !important;
+    object-fit:contain !important;
     object-position:center !important;
   }
 }
@@ -2258,6 +2257,41 @@ languageBtn.addEventListener("click", () => {
       ""
     );
   }
+});
+
+/*
+  التنقل بين أقسام الموقع دون إضافة خطوات إلى سجل المتصفح.
+
+  نستخدم replaceState بدل التنقل العادي بالـ hash،
+  حتى لا يضطر المستخدم للضغط على زر الرجوع عدة مرات
+  للمرور على كل قسم زاره داخل الموقع.
+*/
+
+document.addEventListener("click", event => {
+  const link = event.target.closest('a[href^="#"]');
+
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+
+  if (!href || href === "#") return;
+
+  const target = document.querySelector(href);
+
+  if (!target) return;
+
+  event.preventDefault();
+
+  history.replaceState(
+    history.state,
+    "",
+    href
+  );
+
+  target.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 });
 
 /* Browser back button support */
@@ -2937,7 +2971,13 @@ cvActionButtons.forEach(button => {
   });
 });
 
-/* التعامل مع زر الرجوع الفعلي في الموبايل */
+/*
+  التعامل مع زر الرجوع الفعلي في الموبايل.
+
+  إذا كانت نافذة أو القائمة مفتوحة، يتم إغلاقها.
+  إذا لم تكن أي نافذة مفتوحة، لا ننشئ أي حالة جديدة
+  ولا نمنع المتصفح من الرجوع إلى الصفحة السابقة.
+*/
 
 window.addEventListener("popstate", () => {
 
@@ -3019,4 +3059,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-</html>
+  </html>
