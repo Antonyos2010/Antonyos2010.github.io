@@ -766,11 +766,12 @@ body.english .project-body h3 {text-align:left;}
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:6px;
-  background:rgba(3,5,15,.96);
+  padding:0;
+  background:#03050f;
   opacity:0;
   visibility:hidden;
   transition:opacity .25s ease,visibility .25s ease;
+  overflow:hidden;
 }
 
 .image-viewer.show {
@@ -778,22 +779,25 @@ body.english .project-body h3 {text-align:left;}
   visibility:visible;
 }
 
-.image-viewer img {
+.image-viewer picture {
   display:block;
-  width:calc(100vw - 12px);
-  height:calc(100vh - 12px);
-  height:calc(100dvh - 12px);
-  max-width:calc(100vw - 12px);
-  max-height:calc(100dvh - 12px);
-  object-fit:contain !important;
-  object-position:center;
-  border-radius:6px;
-  box-shadow:0 15px 60px rgba(0,0,0,.5);
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0;
 }
 
-#viewerImage.accountx-view {
-  object-fit:contain !important;
+.image-viewer img {
+  display:block;
+  width:100vw;
+  height:100vh;
+  height:100dvh;
+  max-width:none;
+  max-height:none;
+  object-fit:cover;
   object-position:center;
+  border-radius:0;
+  box-shadow:none;
 }
 
 .viewer-close {
@@ -1493,25 +1497,33 @@ footer strong {
   }
 }
 
-/* تثبيت عارض الصور على كامل الشاشة في كل المقاسات والاتجاهات */
+/* عارض الصور: ملء الشاشة واختيار الصورة حسب اتجاه الجهاز */
 
 .image-viewer {
-  padding:6px !important;
+  padding:0 !important;
+  overflow:hidden !important;
+}
+
+.image-viewer picture {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
 }
 
 .image-viewer img {
-  width:calc(100vw - 12px) !important;
-  height:calc(100vh - 12px) !important;
-  height:calc(100dvh - 12px) !important;
-  max-width:calc(100vw - 12px) !important;
-  max-height:calc(100dvh - 12px) !important;
-  object-fit:contain !important;
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100vw !important;
+  height:100vh !important;
+  height:100dvh !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:cover !important;
   object-position:center !important;
-  border-radius:6px;
-}
-
-#viewerImage.accountx-view {
-  object-fit:contain !important;
+  border-radius:0 !important;
 }
 
 .viewer-close {
@@ -1522,6 +1534,7 @@ footer strong {
   background:#ffffff !important;
   color:#000000 !important;
   border:2px solid #ffffff !important;
+  z-index:3;
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -1761,7 +1774,7 @@ footer strong {
 
       <article class="project-card reveal">
 
-        <button class="project-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio.jpg')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
+        <button class="project-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
           <img src="portfolio.jpg" alt="ANTONYOS PORTFOLIO Website">
         </button>
 
@@ -1783,7 +1796,7 @@ footer strong {
 
       <article class="project-card reveal">
 
-        <button class="project-image-button" style="--project-image:url('accountx.png')" type="button" onclick="openImageViewer('accountx.png')" aria-label="عرض صورة AccountX بحجم الشاشة">
+        <button class="project-image-button" style="--project-image:url('accountx.png')" type="button" onclick="openImageViewer('accountx')" aria-label="عرض صورة AccountX بحجم الشاشة">
           <img src="accountx.png" alt="AccountX Bot" class="accountx-image">
         </button>
 
@@ -1944,7 +1957,12 @@ footer strong {
 
 <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)" aria-hidden="true">
   <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
-  <img id="viewerImage" src="" alt="Project image enlarged">
+
+  <picture>
+    <source id="viewerPortraitSource" media="(orientation: portrait)" srcset="">
+    <source id="viewerLandscapeSource" media="(orientation: landscape)" srcset="">
+    <img id="viewerImage" src="" alt="Project image enlarged">
+  </picture>
 </div>
 
 <!-- CV password window -->
@@ -2161,14 +2179,32 @@ document.querySelectorAll(".menu-links a").forEach(link => {
 
 const imageViewer = document.getElementById("imageViewer");
 const viewerImage = document.getElementById("viewerImage");
+const viewerPortraitSource = document.getElementById("viewerPortraitSource");
+const viewerLandscapeSource = document.getElementById("viewerLandscapeSource");
 
-function openImageViewer(imageSource) {
-  viewerImage.src = imageSource;
+const projectViewerImages = {
+  portfolio: {
+    portrait: "portfolio-portrait.jpg",
+    landscape: "portfolio-landscape.jpg"
+  },
+  accountx: {
+    portrait: "accountx-portrait.jpg",
+    landscape: "accountx-landscape.jpg"
+  }
+};
 
-  viewerImage.classList.toggle(
-    "accountx-view",
-    imageSource.includes("accountx.png")
-  );
+function openImageViewer(projectName) {
+  const images = projectViewerImages[projectName];
+
+  if (!images) return;
+
+  viewerPortraitSource.srcset = images.portrait;
+  viewerLandscapeSource.srcset = images.landscape;
+
+  viewerImage.src =
+    window.matchMedia("(orientation: portrait)").matches
+      ? images.portrait
+      : images.landscape;
 
   imageViewer.classList.add("show");
   imageViewer.setAttribute("aria-hidden", "false");
@@ -2182,8 +2218,11 @@ function closeImageViewer(event) {
   ) {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
+
     viewerImage.src = "";
-    viewerImage.classList.remove("accountx-view");
+    viewerPortraitSource.srcset = "";
+    viewerLandscapeSource.srcset = "";
+
     document.body.style.overflow = "";
   }
 }
@@ -2663,8 +2702,11 @@ document.addEventListener("keydown", event => {
   if (imageViewer.classList.contains("show")) {
     imageViewer.classList.remove("show");
     imageViewer.setAttribute("aria-hidden", "true");
+
     viewerImage.src = "";
-    viewerImage.classList.remove("accountx-view");
+    viewerPortraitSource.srcset = "";
+    viewerLandscapeSource.srcset = "";
+
     document.body.style.overflow = "";
     return;
   }
@@ -2702,4 +2744,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-        </html>
+  </html>
