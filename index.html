@@ -618,7 +618,7 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-/* صور المشاريع: مساحة أطول مع إظهار الصورة كاملة */
+/* صور المشاريع */
 
 .project-image-button {
   width:100%;
@@ -1382,7 +1382,7 @@ footer strong {
     height:62px;
   }
 
-  /* المشروعان يظلان في صف واحد مع مساحة صور أطول */
+  /* المشروعان يظلان في صف واحد */
 
   .projects-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1513,7 +1513,7 @@ footer strong {
   }
 }
 
-/* عارض الصور: عرض الصورة كاملة دون قص */
+/* عارض الصور: القواعد الأصلية */
 
 .image-viewer {
   padding:0 !important;
@@ -1555,6 +1555,38 @@ footer strong {
   color:#000000 !important;
   border:2px solid #ffffff !important;
   z-index:3;
+}
+
+/* التعديل الأول: إظهار صور المشاريع كاملة في الصفحة الرئيسية */
+
+.project-image-button {
+  height:auto !important;
+  min-height:0 !important;
+  display:block !important;
+  overflow:hidden;
+}
+
+.project-image-button img {
+  display:block;
+  width:100% !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+
+/* التعديل الثاني: إزالة الحواف السوداء في العارض الرأسي فقط */
+
+@media (orientation: portrait) {
+  .image-viewer img {
+    width:100vw !important;
+    height:100dvh !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:fill !important;
+    object-position:center !important;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -2373,6 +2405,8 @@ function closeCvPage() {
 
   document.body.style.overflow = "";
 }
+
+/* أزرار نافذة السيرة الذاتية */
 
 openCvGateButton.addEventListener("click", openCvGate);
 closeCvGateButton.addEventListener("click", closeCvGate);
