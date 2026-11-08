@@ -109,9 +109,11 @@ button {
   border-radius:999px !important;
 }
 
+/* مسافات متوازنة لجميع الشاشات */
+
 .container {
-  width:min(1120px,90%);
-  margin:auto;
+  width:min(1120px,calc(100% - 32px));
+  margin-inline:auto;
 }
 
 .ambient {
@@ -469,7 +471,7 @@ section {padding:75px 0;}
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:24px;
-  padding:35px;
+  padding:clamp(16px,3vw,35px);
   box-shadow:var(--shadow);
 }
 
@@ -479,23 +481,24 @@ section {padding:75px 0;}
   font-size:15px;
 }
 
-/* Profile photo */
+/* Profile photo: larger, wider and taller */
 
 .profile-photo {
-  width:500px;
-  height:500px;
+  display:block;
+  width:100%;
   max-width:100%;
-  aspect-ratio:1 / 1;
+  height:clamp(420px,58vw,650px);
+  aspect-ratio:auto;
   object-fit:cover;
-  border-radius:50%;
+  object-position:center;
+  border-radius:28px;
   border:6px solid var(--primary);
   box-shadow:0 12px 40px rgba(112,85,237,.30);
-  margin:0 0 28px auto;
-  display:block;
+  margin:0 auto 28px;
 }
 
 body.english .profile-photo {
-  margin-left:0;
+  margin-left:auto;
   margin-right:auto;
 }
 
@@ -521,12 +524,12 @@ body.english .profile-photo {
   display:block;
   color:var(--muted);
   margin-bottom:5px;
-  font-size:12px;
+  font-size:13px;
 }
 
 .info-item strong {
   display:block;
-  font-size:clamp(12px,1.7vw,15px);
+  font-size:clamp(13px,1.5vw,16px);
   line-height:1.7;
   overflow-wrap:anywhere;
 }
@@ -825,20 +828,19 @@ body.english .project-body h3 {text-align:left;}
   width:100%;
   min-height:62px;
   padding:15px 22px;
-  border:2px solid var(--secondary);
-  color:var(--primary);
-  background:var(--surface);
+  border:2px solid #7055ed;
+  color:#ffffff;
+  background:linear-gradient(110deg,#7055ed,#9277ff);
   font-size:17px;
   font-weight:900;
   transition:.25s;
-  box-shadow:0 7px 22px rgba(112,85,237,.12);
+  box-shadow:0 7px 22px rgba(112,85,237,.22);
 }
 
 .cv-entry-btn:hover {
-  color:white;
-  background:linear-gradient(110deg,#7055ed,#9277ff);
+  background:linear-gradient(110deg,#6043df,#08aeca);
   transform:translateY(-3px);
-  box-shadow:0 10px 28px rgba(112,85,237,.25);
+  box-shadow:0 10px 28px rgba(112,85,237,.30);
 }
 
 /* CV password window */
@@ -879,7 +881,6 @@ body.english .project-body h3 {text-align:left;}
   flex-direction:column;
   align-items:center;
   text-align:center;
-  box-shadow:0 20px 70px rgba(0,0,0,.25);
 }
 
 .cv-modal-close {
@@ -1087,10 +1088,11 @@ body.english .project-body h3 {text-align:left;}
   justify-content:center;
   align-items:center;
   gap:8px;
-  border:2px solid #7055ed;
+  border:2px solid transparent;
   font-family:inherit;
   font-size:15px;
   font-weight:900;
+  color:#ffffff;
   transition:.2s;
 }
 
@@ -1106,16 +1108,18 @@ body.english .project-body h3 {text-align:left;}
 
 .cv-view-btn {
   background:#7055ed;
+  border-color:#7055ed;
   color:#ffffff;
 }
 
 .cv-download-btn {
-  background:#ffffff;
-  color:#7055ed;
+  background:#08aeca;
+  border-color:#08aeca;
+  color:#ffffff;
 }
 
 .cv-download-btn:hover:not(:disabled) {
-  background:#f4f1ff;
+  background:#078fa8;
 }
 
 .cv-page-status {
@@ -1278,6 +1282,16 @@ footer strong {
   .projects-grid {grid-template-columns:repeat(2,1fr);}
   .skills-grid {grid-template-columns:repeat(2,1fr);}
   .about-card {grid-template-columns:1fr;}
+
+  /* استغلال عرض التابلت بالكامل مع ترك هوامش جانبية */
+
+  .profile-photo {
+    width:100%;
+    max-width:100%;
+    height:clamp(450px,65vw,650px);
+    margin-left:auto;
+    margin-right:auto;
+  }
 }
 
 @media(max-width:560px) {
@@ -1308,7 +1322,7 @@ footer strong {
   .hero p {font-size:14px;}
   section {padding:55px 0;}
   .projects-grid {grid-template-columns:1fr;}
-  .about-card,.contact-card {padding:23px;}
+  .about-card,.contact-card {padding:18px;}
 
   /* تظل الخانات الأربع 2×2 على الموبايل */
 
@@ -1322,11 +1336,11 @@ footer strong {
   }
 
   .info-item small {
-    font-size:10px;
+    font-size:11px;
   }
 
   .info-item strong {
-    font-size:12px;
+    font-size:13px;
     line-height:1.7;
   }
 
@@ -1339,11 +1353,15 @@ footer strong {
     transform:translateX(-28px);
   }
 
+  /* الصورة الشخصية على الموبايل */
+
   .profile-photo {
-    width:500px;
+    width:100%;
     max-width:100%;
-    height:auto;
-    aspect-ratio:1 / 1;
+    height:clamp(360px,110vw,480px);
+    aspect-ratio:auto;
+    object-fit:cover;
+    border-radius:24px;
     margin-left:auto;
     margin-right:auto;
   }
@@ -1424,6 +1442,39 @@ footer strong {
 
   .contact-card {padding:23px 15px;}
   .contact-link {padding:15px 12px;}
+}
+
+/* شاشات الموبايل الصغيرة جدًا */
+
+@media(max-width:360px) {
+  .container {
+    width:calc(100% - 24px);
+  }
+
+  .logo {
+    font-size:13px;
+  }
+
+  .header-actions {
+    gap:4px;
+  }
+
+  .lang-btn {
+    padding:7px 6px;
+    font-size:10px;
+  }
+
+  .info-item {
+    padding:11px 7px;
+  }
+
+  .info-item strong {
+    font-size:12px;
+  }
+
+  .profile-photo {
+    height:360px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -2181,6 +2232,7 @@ function openCvPage() {
   cvFullscreen.setAttribute("aria-hidden", "false");
 
   cvFullscreen.scrollTop = 0;
+
   document.body.style.overflow = "hidden";
 
   setPageStatus(
@@ -2391,12 +2443,6 @@ cvPasswordForm.addEventListener("submit", async event => {
   );
 
   try {
-    /*
-      نستخدم طلبًا حقيقيًا للتحقق من كلمة المرور.
-      الرابط الناتج مؤقت، ونحتفظ به للعرض العربي
-      إذا ضغط المستخدم على زر العرض خلال صلاحيته.
-    */
-
     const result = await requestCvLink(
       "cv-ar.pdf",
       "view",
@@ -2420,8 +2466,8 @@ cvPasswordForm.addEventListener("submit", async event => {
 
     setGateStatus(
       cvText(
-        "تم التحقق بنجاح. جارٍ فتح السيرة الذاتية...",
-        "Password verified. Opening your resume..."
+        "تم التحقق بنجاح.",
+        "Verification successful."
       ),
       "success"
     );
@@ -2465,11 +2511,6 @@ cvActionButtons.forEach(button => {
     const file = button.dataset.file;
     const mode = button.dataset.mode;
 
-    /*
-      فتح النافذة مباشرة عند الضغط حتى لا يمنعها المتصفح
-      بسبب تنفيذ الطلب غير المتزامن.
-    */
-
     const popup = window.open("about:blank", "_blank");
 
     if (!popup) {
@@ -2502,11 +2543,6 @@ cvActionButtons.forEach(button => {
 
     try {
       let signedUrl = null;
-
-      /*
-        نستخدم رابط التحقق الأول للنسخة العربية
-        إذا كان لا يزال صالحًا.
-      */
 
       if (
         file === "cv-ar.pdf" &&
@@ -2546,15 +2582,10 @@ cvActionButtons.forEach(button => {
       popup.location.replace(signedUrl);
 
       setPageStatus(
-        mode === "view"
-          ? cvText(
-              "تم التحقق بنجاح. جارٍ فتح السيرة الذاتية...",
-              "Verified. Opening the resume..."
-            )
-          : cvText(
-              "تم التحقق بنجاح. جارٍ تحميل الملف...",
-              "Verified. Starting the download..."
-            ),
+        cvText(
+          "تم التحقق بنجاح.",
+          "Verification successful."
+        ),
         "success"
       );
 
