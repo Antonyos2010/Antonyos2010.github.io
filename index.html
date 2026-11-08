@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -82,8 +81,33 @@ body {
 }
 
 body.english {font-family:"Inter",sans-serif;}
-a {text-decoration:none;color:inherit;}
-button {font:inherit;cursor:pointer;}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+button {
+  font:inherit;
+  cursor:pointer;
+}
+
+/* جميع الأزرار والإطارات القابلة للضغط بحواف نصف دائرية */
+
+.btn,
+.icon-btn,
+.lang-btn,
+.menu-links a,
+.project-visit,
+.already-inside,
+.contact-link,
+.cv-entry-btn,
+.cv-modal-close,
+.cv-action-btn,
+.cv-page-close,
+.cv-password-input {
+  border-radius:999px !important;
+}
 
 .container {
   width:min(1120px,90%);
@@ -181,7 +205,6 @@ body.dark .logo .logo-black {
   border:1px solid var(--border);
   background:var(--surface);
   color:var(--text);
-  border-radius:13px;
   display:grid;
   place-items:center;
   font-size:18px;
@@ -197,7 +220,6 @@ body.dark .logo .logo-black {
   border:1px solid var(--border);
   background:var(--surface);
   color:var(--text);
-  border-radius:12px;
   padding:9px 14px;
   font-weight:700;
   font-size:12px;
@@ -304,7 +326,6 @@ body.dark .theme-switch .switch-knob {
 
 .menu-links a {
   padding:13px 15px;
-  border-radius:12px;
   color:var(--muted);
   transition:.2s;
   font-weight:700;
@@ -393,7 +414,6 @@ body.english .hero h1 {text-align:left;}
   justify-content:center;
   gap:9px;
   padding:13px 23px;
-  border-radius:13px;
   font-weight:800;
   transition:.25s;
   border:1px solid transparent;
@@ -479,16 +499,22 @@ body.english .profile-photo {
   margin-right:auto;
 }
 
+/* معلوماتي: صفان وعمودان على جميع أحجام الشاشات */
+
 .info-grid {
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:auto auto;
   gap:12px;
+  align-content:start;
 }
 
 .info-item {
+  min-width:0;
   background:var(--surface2);
-  padding:17px;
+  padding:17px 13px;
   border-radius:15px;
+  overflow:hidden;
 }
 
 .info-item small {
@@ -498,16 +524,15 @@ body.english .profile-photo {
   font-size:12px;
 }
 
-.info-item strong {font-size:14px;}
-
-.education-level-item {
-  grid-column:1 / -1;
+.info-item strong {
+  display:block;
+  font-size:clamp(10px,1.5vw,14px);
+  line-height:1.7;
+  overflow-wrap:anywhere;
 }
 
 .education-level {
-  display:block;
-  white-space:nowrap;
-  font-size:clamp(10px,2.8vw,14px) !important;
+  white-space:normal;
 }
 
 /* Skills */
@@ -585,6 +610,7 @@ body.english .profile-photo {
   width:100%;
   height:320px;
   border:0;
+  border-radius:0 !important;
   display:grid;
   place-items:center;
   padding:0;
@@ -670,7 +696,6 @@ body.english .project-body h3 {text-align:left;}
   gap:10px;
   margin-top:20px;
   padding:15px 20px;
-  border-radius:14px;
   color:#fff;
   background:linear-gradient(110deg,#7055ed,#08aeca);
   font-weight:900;
@@ -693,7 +718,6 @@ body.english .project-body h3 {text-align:left;}
   margin-top:20px;
   padding:15px 20px;
   border:2px solid #ffffff;
-  border-radius:14px;
   color:var(--text);
   background:var(--surface2);
   font-weight:900;
@@ -763,110 +787,302 @@ body.english .project-body h3 {text-align:left;}
 
 .viewer-close:hover {background:rgba(255,255,255,.25);}
 
-/* CV Section */
+/* CV section */
 
-.cv-card {
+.cv-entry-card {
+  max-width:760px;
+  margin:auto;
+  padding:30px;
+  text-align:center;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:23px;
-  padding:30px;
   box-shadow:var(--shadow);
-  max-width:760px;
-  margin:auto;
 }
 
-.cv-intro {
+.cv-entry-description {
   color:var(--muted);
   line-height:2;
   margin-bottom:25px;
   text-align:center;
 }
 
-.cv-password-label {
-  display:block;
-  font-size:14px;
+.cv-entry-btn {
+  width:100%;
+  min-height:62px;
+  padding:15px 22px;
+  border:2px solid var(--primary);
+  color:var(--primary);
+  background:var(--surface);
+  font-size:17px;
+  font-weight:900;
+  transition:.25s;
+  box-shadow:0 7px 22px rgba(112,85,237,.12);
+}
+
+.cv-entry-btn:hover {
+  color:white;
+  background:linear-gradient(110deg,#7055ed,#9277ff);
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(112,85,237,.25);
+}
+
+/* CV password window */
+
+.cv-gate-overlay {
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  background:rgba(9,11,22,.66);
+  backdrop-filter:blur(5px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease,visibility .25s ease;
+}
+
+.cv-gate-overlay.show {
+  opacity:1;
+  visibility:visible;
+}
+
+.cv-gate-window {
+  position:relative;
+  width:100%;
+  height:100%;
+  max-width:850px;
+  max-height:900px;
+  overflow-y:auto;
+  background:#ffffff;
+  color:#17182b;
+  border:1px solid rgba(112,85,237,.18);
+  border-radius:26px;
+  padding:75px clamp(20px,5vw,55px) 35px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  box-shadow:0 20px 70px rgba(0,0,0,.25);
+}
+
+.cv-modal-close {
+  position:absolute;
+  top:17px;
+  right:17px;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border:2px solid #7055ed;
+  background:#7055ed;
+  color:#ffffff;
+  font-size:25px;
   font-weight:800;
-  margin-bottom:9px;
+  line-height:1;
+  transition:.2s;
+}
+
+.cv-modal-close:hover {
+  background:#ffffff;
+  color:#7055ed;
+  transform:rotate(90deg);
+}
+
+.cv-gate-message {
+  width:100%;
+  max-width:650px;
+  font-size:clamp(16px,2.2vw,21px);
+  line-height:2.1;
+  font-weight:800;
+  color:#25243a;
+  margin:10px auto 0;
+}
+
+.cv-password-area {
+  width:100%;
+  max-width:460px;
+  margin-top:55px;
+}
+
+.cv-password-title {
+  color:#7055ed;
+  font-size:21px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.cv-down-arrow {
+  display:block;
+  color:#7055ed;
+  font-size:65px;
+  line-height:1.2;
+  font-weight:900;
+  margin:0 auto 12px;
+  animation:cvArrowMove 1.3s ease-in-out infinite;
+}
+
+@keyframes cvArrowMove {
+  0%,100% {transform:translateY(0);}
+  50% {transform:translateY(9px);}
+}
+
+.cv-password-form {
+  width:100%;
 }
 
 .cv-password-input {
   display:block;
   width:100%;
-  height:54px;
-  padding:12px 16px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:var(--surface2);
-  color:var(--text);
-  font:inherit;
-  font-size:15px;
+  height:60px;
+  padding:12px 22px;
+  border:2px solid #7055ed;
+  background:#f7f5ff;
+  color:#17182b;
+  font-family:inherit;
+  font-size:17px;
+  font-weight:700;
   outline:none;
   direction:ltr;
-  text-align:left;
+  text-align:center;
   transition:.2s;
+  box-shadow:0 5px 18px rgba(112,85,237,.10);
+}
+
+.cv-password-input::placeholder {
+  color:#9993b4;
+  font-weight:500;
 }
 
 .cv-password-input:focus {
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(112,85,237,.12);
+  border-color:#08aeca;
+  box-shadow:0 0 0 4px rgba(112,85,237,.13);
+  background:#ffffff;
 }
 
 .cv-password-input:disabled {opacity:.65;}
 
-.cv-files-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin-top:22px;
+.cv-gate-status {
+  min-height:45px;
+  margin-top:17px;
+  color:#77738c;
+  font-size:13px;
+  line-height:1.8;
+  overflow-wrap:anywhere;
 }
 
-.cv-file-card {
-  background:var(--surface2);
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:20px;
+.cv-gate-status.error {color:#d93650;}
+.cv-gate-status.warning {color:#bd8017;}
+.cv-gate-status.success {color:#159b65;}
+
+/* Full-screen CV page */
+
+.cv-fullscreen {
+  position:fixed;
+  inset:0;
+  z-index:10001;
+  display:none;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  background:#ffffff;
+  color:#17182b;
+  padding:35px 18px 45px;
+  direction:rtl;
+}
+
+.cv-fullscreen.show {display:block;}
+
+.cv-page-inner {
+  width:min(850px,100%);
+  margin:0 auto;
+  padding-top:35px;
+}
+
+.cv-page-close {
+  position:fixed;
+  top:17px;
+  right:17px;
+  z-index:3;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border:2px solid #7055ed;
+  background:#7055ed;
+  color:#ffffff;
+  font-size:25px;
+  font-weight:800;
+  line-height:1;
+  box-shadow:0 5px 18px rgba(112,85,237,.2);
+  transition:.2s;
+}
+
+.cv-page-close:hover {
+  color:#7055ed;
+  background:#ffffff;
+  transform:rotate(90deg);
+}
+
+.cv-language-block {
+  width:100%;
+  padding:35px 25px;
   text-align:center;
+  background:#ffffff;
+  border:1px solid #e8e4fa;
+  border-radius:22px;
+  box-shadow:0 8px 30px rgba(30,25,70,.06);
 }
 
-.cv-file-icon {
-  font-size:32px;
-  margin-bottom:8px;
+.cv-language-block + .cv-language-block {
+  margin-top:25px;
 }
 
-.cv-file-card h3 {
-  font-size:17px;
-  margin-bottom:5px;
+.cv-language-block h2 {
+  color:#25243a;
+  font-size:clamp(18px,3vw,24px);
+  line-height:1.8;
+  font-weight:900;
+  margin-bottom:25px;
 }
 
-.cv-file-card p {
-  color:var(--muted);
+.cv-language-block p {
+  color:#858197;
   font-size:12px;
-  margin-bottom:16px;
+  margin-top:17px;
 }
 
-.cv-actions {
-  display:grid;
-  gap:9px;
+.cv-actions-row {
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
 }
 
 .cv-action-btn {
-  width:100%;
-  min-height:44px;
+  flex:1;
+  min-width:0;
+  min-height:53px;
+  padding:12px 15px;
   display:flex;
   justify-content:center;
   align-items:center;
   gap:8px;
-  border:1px solid transparent;
-  border-radius:11px;
-  padding:10px 12px;
-  font:inherit;
-  font-size:13px;
-  font-weight:800;
+  border:2px solid #7055ed;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:900;
   transition:.2s;
 }
 
 .cv-action-btn:hover:not(:disabled) {
-  transform:translateY(-2px);
+  transform:translateY(-3px);
+  box-shadow:0 7px 18px rgba(112,85,237,.18);
 }
 
 .cv-action-btn:disabled {
@@ -875,51 +1091,36 @@ body.english .project-body h3 {text-align:left;}
 }
 
 .cv-view-btn {
-  background:linear-gradient(110deg,#7055ed,#9277ff);
-  color:#fff;
+  background:#7055ed;
+  color:#ffffff;
 }
 
 .cv-download-btn {
-  background:var(--surface);
-  color:var(--text);
-  border-color:var(--border);
+  background:#ffffff;
+  color:#7055ed;
 }
 
-.cv-status {
-  margin-top:20px;
-  padding:13px 15px;
-  border-radius:12px;
-  background:var(--surface2);
-  color:var(--muted);
+.cv-download-btn:hover:not(:disabled) {
+  background:#f4f1ff;
+}
+
+.cv-page-status {
+  width:min(600px,100%);
+  min-height:45px;
+  margin:20px auto 0;
+  padding:10px 15px;
+  color:#77738c;
+  background:#f7f5ff;
+  border-radius:15px;
+  text-align:center;
   font-size:13px;
   line-height:1.8;
-  text-align:center;
-  min-height:48px;
   overflow-wrap:anywhere;
 }
 
-.cv-status.success {
-  color:#159b65;
-  background:rgba(34,201,135,.10);
-}
-
-.cv-status.error {
-  color:#dc4c58;
-  background:rgba(220,76,88,.10);
-}
-
-.cv-status.warning {
-  color:#c18419;
-  background:rgba(220,165,50,.12);
-}
-
-.cv-security-note {
-  margin-top:15px;
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.8;
-  text-align:center;
-}
+.cv-page-status.error {color:#d93650;}
+.cv-page-status.warning {color:#bd8017;}
+.cv-page-status.success {color:#159b65;}
 
 /* Education */
 
@@ -983,7 +1184,6 @@ body.english .project-body h3 {text-align:left;}
   gap:14px;
   width:100%;
   padding:17px 22px;
-  border-radius:16px;
   color:white;
   transition:.25s;
   font-weight:900;
@@ -1012,6 +1212,23 @@ body.english .project-body h3 {text-align:left;}
 }
 
 .telegram-link:hover {box-shadow:0 14px 30px rgba(41,169,235,.3);}
+
+.gmail-link {
+  background:#ffffff;
+  color:#3c4043;
+  border:1px solid #dadce0;
+  box-shadow:0 5px 18px rgba(60,64,67,.10);
+}
+
+.gmail-link:hover {
+  background:#f8faff;
+  box-shadow:0 9px 24px rgba(60,64,67,.16);
+}
+
+.gmail-link svg {
+  width:32px;
+  height:26px;
+}
 
 /* Footer */
 
@@ -1078,7 +1295,27 @@ footer strong {
   section {padding:55px 0;}
   .projects-grid {grid-template-columns:1fr;}
   .about-card,.contact-card {padding:23px;}
-  .info-grid {grid-template-columns:1fr 1fr;}
+
+  /* تظل الخانات الأربع 2×2 على الموبايل */
+
+  .info-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+  }
+
+  .info-item {
+    padding:13px 9px;
+  }
+
+  .info-item small {
+    font-size:10px;
+  }
+
+  .info-item strong {
+    font-size:10px;
+    line-height:1.7;
+  }
+
   .education-card {align-items:flex-start;}
   .theme-switch {width:66px;height:36px;}
   .theme-switch .switch-icon {width:28px;height:28px;}
@@ -1119,16 +1356,67 @@ footer strong {
     object-position:center;
   }
 
-  .education-level {font-size:10px !important;}
+  .cv-entry-card {padding:22px 16px;}
 
-  .cv-card {padding:20px 15px;}
-  .cv-files-grid {grid-template-columns:1fr;}
+  .cv-gate-window {
+    padding:75px 18px 25px;
+    border-radius:23px;
+  }
+
+  .cv-gate-message {
+    font-size:16px;
+    line-height:2;
+  }
+
+  .cv-password-area {
+    margin-top:45px;
+  }
+
+  .cv-password-title {font-size:19px;}
+
+  .cv-down-arrow {font-size:58px;}
+
+  .cv-fullscreen {
+    padding:30px 12px 35px;
+  }
+
+  .cv-page-inner {
+    padding-top:38px;
+  }
+
+  .cv-language-block {
+    padding:28px 15px;
+  }
+
+  .cv-language-block h2 {
+    font-size:18px;
+    margin-bottom:20px;
+  }
+
+  .cv-actions-row {gap:9px;}
+
+  .cv-action-btn {
+    min-height:49px;
+    padding:10px 8px;
+    font-size:14px;
+  }
+
+  .cv-page-close {
+    top:12px;
+    right:12px;
+    width:42px;
+    height:42px;
+  }
+
+  .contact-card {padding:23px 15px;}
+  .contact-link {padding:15px 12px;}
 }
 
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {
     scroll-behavior:auto!important;
     transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
   }
 }
 </style>
@@ -1247,7 +1535,7 @@ footer strong {
           <strong data-ar="البرمجة والأمن السيبراني" data-en="Programming & Cybersecurity">البرمجة والأمن السيبراني</strong>
         </div>
 
-        <div class="info-item education-level-item">
+        <div class="info-item">
           <small data-ar="المرحلة الدراسية" data-en="Education">المرحلة الدراسية</small>
           <strong class="education-level" data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية)" data-en="Second Year of High School (Egyptian Baccalaureate System)">الصف الثاني الثانوي (نظام البكالوريا المصرية)</strong>
         </div>
@@ -1409,84 +1697,26 @@ footer strong {
 
     <div class="section-heading reveal">
       <div class="section-label">MY RESUME</div>
-      <h2 data-ar="السيرة الذاتية (CV)" data-en="My Resume (CV)">السيرة الذاتية (CV)</h2>
-      <p data-ar="يمكنك الوصول إلى نسختي من السيرة الذاتية بعد إدخال كلمة المرور." data-en="Access my resume versions by entering the access password.">
-        يمكنك الوصول إلى نسختي من السيرة الذاتية بعد إدخال كلمة المرور.
+      <h2 data-ar="السيرة الذاتية الرئيسية (CV)" data-en="Main Resume (CV)">السيرة الذاتية الرئيسية (CV)</h2>
+      <p data-ar="يمكنك الاطلاع على سيرتي الذاتية (CV) باللغتين العربية والإنجليزية." data-en="You can view my resume (CV) in both Arabic and English.">
+        يمكنك الاطلاع على سيرتي الذاتية (CV) باللغتين العربية والإنجليزية.
       </p>
     </div>
 
-    <div class="cv-card reveal">
-
-      <p class="cv-intro"
-         data-ar="أدخل كلمة المرور أولًا، ثم اختر عرض أو تحميل النسخة التي تريدها."
-         data-en="Enter the password first, then choose to view or download the version you need.">
-        أدخل كلمة المرور أولًا، ثم اختر عرض أو تحميل النسخة التي تريدها.
+    <div class="cv-entry-card reveal">
+      <p class="cv-entry-description"
+         data-ar="للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي."
+         data-en="To access my resume, press the button below.">
+        للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي.
       </p>
 
-      <label class="cv-password-label" for="cvPassword"
-             data-ar="كلمة المرور" data-en="Access Password">
-        كلمة المرور
-      </label>
-
-      <input
-        class="cv-password-input"
-        id="cvPassword"
-        type="password"
-        maxlength="1024"
-        autocomplete="off"
-        placeholder="أدخل كلمة المرور"
-        aria-label="CV access password"
-      >
-
-      <div class="cv-files-grid">
-
-        <div class="cv-file-card">
-          <div class="cv-file-icon">📄</div>
-          <h3 data-ar="السيرة الذاتية العربية" data-en="Arabic Resume">السيرة الذاتية العربية</h3>
-          <p>PDF · Arabic</p>
-
-          <div class="cv-actions">
-            <button class="cv-action-btn cv-view-btn" type="button" data-file="cv-ar.pdf" data-mode="view">
-              <span data-ar="عرض السيرة الذاتية" data-en="View Resume">عرض السيرة الذاتية</span>
-            </button>
-
-            <button class="cv-action-btn cv-download-btn" type="button" data-file="cv-ar.pdf" data-mode="download">
-              <span data-ar="تحميل PDF" data-en="Download PDF">تحميل PDF</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="cv-file-card">
-          <div class="cv-file-icon">📄</div>
-          <h3 data-ar="السيرة الذاتية الإنجليزية" data-en="English Resume">السيرة الذاتية الإنجليزية</h3>
-          <p>PDF · English</p>
-
-          <div class="cv-actions">
-            <button class="cv-action-btn cv-view-btn" type="button" data-file="cv-en.pdf" data-mode="view">
-              <span data-ar="عرض السيرة الذاتية" data-en="View Resume">عرض السيرة الذاتية</span>
-            </button>
-
-            <button class="cv-action-btn cv-download-btn" type="button" data-file="cv-en.pdf" data-mode="download">
-              <span data-ar="تحميل PDF" data-en="Download PDF">تحميل PDF</span>
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="cv-status" id="cvStatus" role="status" aria-live="polite"
-           data-ar="بانتظار إدخال كلمة المرور."
-           data-en="Waiting for the access password.">
-        بانتظار إدخال كلمة المرور.
-      </div>
-
-      <p class="cv-security-note"
-         data-ar="تتم مراجعة كلمة المرور على الخادم، وتكون روابط الملفات مؤقتة."
-         data-en="The password is verified on the server, and file links are temporary.">
-        تتم مراجعة كلمة المرور على الخادم، وتكون روابط الملفات مؤقتة.
-      </p>
-
+      <button class="cv-entry-btn" id="openCvGate" type="button"
+              data-ar="رؤية السيرة الذاتية (CV)"
+              data-en="View Resume (CV)">
+        رؤية السيرة الذاتية (CV)
+      </button>
     </div>
+
   </div>
 </section>
 
@@ -1561,6 +1791,23 @@ footer strong {
           <span data-ar="تواصل معي عبر تليجرام" data-en="Contact Me via Telegram">تواصل معي عبر تليجرام</span>
         </a>
 
+        <!-- Gmail -->
+
+        <a
+          class="contact-link gmail-link"
+          href="mailto:antonyosbotros030@gmail.com?subject=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D9%86%20%D8%AE%D9%84%D8%A7%D9%84%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A"
+        >
+          <svg viewBox="0 0 48 36" aria-label="Gmail" role="img">
+            <path fill="#4285F4" d="M4 5.5C4 3.6 5.6 2 7.5 2H11v30H7.5C5.6 32 4 30.4 4 28.5v-23z"/>
+            <path fill="#34A853" d="M37 2h3.5C42.4 2 44 3.6 44 5.5v23c0 1.9-1.6 3.5-3.5 3.5H37V2z"/>
+            <path fill="#EA4335" d="M4.8 3.1C6.1 1.5 8.4 1.2 10 2.5L24 13.3 38 2.5c1.6-1.3 3.9-1 5.2.6 1.3 1.6 1 3.9-.6 5.2L24 23 5.4 8.3C3.8 7 3.5 4.7 4.8 3.1z"/>
+            <path fill="#C5221F" d="M4 6.2l7 5.5V32H7.5C5.6 32 4 30.4 4 28.5V6.2z"/>
+            <path fill="#FBBC04" d="M44 6.2l-7 5.5V32h3.5c1.9 0 3.5-1.6 3.5-3.5V6.2z"/>
+            <path fill="#EA4335" d="M11 2.5L24 12.6 37 2.5V11L24 21.2 11 11V2.5z"/>
+          </svg>
+          <span data-ar="تواصل معي عبر البريد الإلكتروني" data-en="Contact Me via Email">تواصل معي عبر البريد الإلكتروني</span>
+        </a>
+
       </div>
     </div>
   </div>
@@ -1578,9 +1825,132 @@ footer strong {
   </div>
 </footer>
 
+<!-- Project image viewer -->
+
 <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)" aria-hidden="true">
   <button class="viewer-close" type="button" onclick="closeImageViewer(event)" aria-label="إغلاق">×</button>
   <img id="viewerImage" src="" alt="Project image enlarged">
+</div>
+
+<!-- CV password window -->
+
+<div class="cv-gate-overlay" id="cvGateOverlay" aria-hidden="true">
+  <div class="cv-gate-window" role="dialog" aria-modal="true" aria-labelledby="cvGateMessage">
+
+    <button class="cv-modal-close" id="closeCvGate" type="button" aria-label="إغلاق">×</button>
+
+    <p class="cv-gate-message" id="cvGateMessage"
+       data-ar="🔒 يرجى التواصل مع المطور Antonyos Botros عبر أي طريقة تواصل من الموجودين في أسفل شاشة الموقع وطلب منه الباسورد المخصص لرؤية السيرة الذاتية (CV) الخاصة به. ✨"
+       data-en="🔒 Please contact the developer Antonyos Botros using any contact method at the bottom of the website and ask him for the password required to view his CV. ✨">
+      🔒 يرجى التواصل مع المطور Antonyos Botros عبر أي طريقة تواصل من الموجودين في أسفل شاشة الموقع وطلب منه الباسورد المخصص لرؤية السيرة الذاتية (CV) الخاصة به. ✨
+    </p>
+
+    <div class="cv-password-area">
+      <div class="cv-password-title"
+           data-ar="اكتب الباسورد 🔐"
+           data-en="Enter the Password 🔐">
+        اكتب الباسورد 🔐
+      </div>
+
+      <span class="cv-down-arrow" aria-hidden="true">⬇</span>
+
+      <form class="cv-password-form" id="cvPasswordForm">
+        <input
+          class="cv-password-input"
+          id="cvPassword"
+          type="password"
+          maxlength="1024"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          enterkeyhint="go"
+          placeholder="اكتب الباسورد هنا"
+          aria-label="كلمة مرور السيرة الذاتية"
+          required
+        >
+      </form>
+
+      <div class="cv-gate-status" id="cvGateStatus" role="status" aria-live="polite"
+           data-ar="أدخل كلمة المرور للمتابعة."
+           data-en="Enter the password to continue.">
+        أدخل كلمة المرور للمتابعة.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Full-screen CV page -->
+
+<div class="cv-fullscreen" id="cvFullscreen" aria-hidden="true">
+
+  <button class="cv-page-close" id="closeCvPage" type="button" aria-label="إغلاق">×</button>
+
+  <div class="cv-page-inner">
+
+    <!-- Arabic CV -->
+
+    <section class="cv-language-block">
+      <h2 data-ar="السيرة الذاتية (CV) باللغة العربية"
+          data-en="Arabic Resume (CV)">
+        السيرة الذاتية (CV) باللغة العربية
+      </h2>
+
+      <div class="cv-actions-row">
+        <button class="cv-action-btn cv-view-btn" type="button"
+                data-file="cv-ar.pdf" data-mode="view">
+          <span data-ar="عرض" data-en="View">عرض</span>
+          <span aria-hidden="true">👁</span>
+        </button>
+
+        <button class="cv-action-btn cv-download-btn" type="button"
+                data-file="cv-ar.pdf" data-mode="download">
+          <span data-ar="تحميل" data-en="Download">تحميل</span>
+          <span aria-hidden="true">⬇</span>
+        </button>
+      </div>
+
+      <p data-ar="اختر عرض الملف أو تحميله على جهازك."
+         data-en="Choose to view the file or download it to your device.">
+        اختر عرض الملف أو تحميله على جهازك.
+      </p>
+    </section>
+
+    <!-- English CV -->
+
+    <section class="cv-language-block">
+      <h2 data-ar="السيرة الذاتية (CV) باللغة الإنجليزية"
+          data-en="English Resume (CV)">
+        السيرة الذاتية (CV) باللغة الإنجليزية
+      </h2>
+
+      <div class="cv-actions-row">
+        <button class="cv-action-btn cv-view-btn" type="button"
+                data-file="cv-en.pdf" data-mode="view">
+          <span data-ar="عرض" data-en="View">عرض</span>
+          <span aria-hidden="true">👁</span>
+        </button>
+
+        <button class="cv-action-btn cv-download-btn" type="button"
+                data-file="cv-en.pdf" data-mode="download">
+          <span data-ar="تحميل" data-en="Download">تحميل</span>
+          <span aria-hidden="true">⬇</span>
+        </button>
+      </div>
+
+      <p data-ar="اختر عرض الملف أو تحميله على جهازك."
+         data-en="Choose to view the file or download it to your device.">
+        اختر عرض الملف أو تحميله على جهازك.
+      </p>
+    </section>
+
+    <div class="cv-page-status" id="cvPageStatus" role="status" aria-live="polite"
+         data-ar="السيرة الذاتية جاهزة."
+         data-en="Your resume is ready.">
+      السيرة الذاتية جاهزة.
+    </div>
+
+  </div>
 </div>
 
 <script>
@@ -1619,19 +1989,33 @@ languageBtn.addEventListener("click", () => {
     currentLanguage === "ar" ? "English" : "العربية";
 
   const passwordInput = document.getElementById("cvPassword");
-  passwordInput.placeholder =
-    currentLanguage === "ar" ? "أدخل كلمة المرور" : "Enter your password";
 
-  document.getElementById("cvPassword").setAttribute(
+  passwordInput.placeholder =
+    currentLanguage === "ar"
+      ? "اكتب الباسورد هنا"
+      : "Enter your password here";
+
+  passwordInput.setAttribute(
     "aria-label",
-    currentLanguage === "ar" ? "كلمة مرور السيرة الذاتية" : "CV access password"
+    currentLanguage === "ar"
+      ? "كلمة مرور السيرة الذاتية"
+      : "CV access password"
   );
 
-  if (!cvStatus.dataset.custom) {
-    setCvStatus(
+  if (!cvGateStatus.dataset.custom) {
+    setGateStatus(
       currentLanguage === "ar"
-        ? "بانتظار إدخال كلمة المرور."
-        : "Waiting for the access password.",
+        ? "أدخل كلمة المرور للمتابعة."
+        : "Enter the password to continue.",
+      ""
+    );
+  }
+
+  if (!cvPageStatus.dataset.custom) {
+    setPageStatus(
+      currentLanguage === "ar"
+        ? "السيرة الذاتية جاهزة."
+        : "Your resume is ready.",
       ""
     );
   }
@@ -1686,18 +2070,7 @@ function closeImageViewer(event) {
   }
 }
 
-/* Close image viewer with Escape key */
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && imageViewer.classList.contains("show")) {
-    imageViewer.classList.remove("show");
-    imageViewer.setAttribute("aria-hidden", "true");
-    viewerImage.src = "";
-    document.body.style.overflow = "";
-  }
-});
-
-/* CV access */
+/* CV access settings */
 
 const CV_FUNCTION_URL =
   "https://wvkqcttgzvpdcpdfwpdm.supabase.co/functions/v1/cv-access";
@@ -1705,184 +2078,381 @@ const CV_FUNCTION_URL =
 const CV_PUBLISHABLE_KEY =
   "sb_publishable_yt9K0Yn7Xfu8QvYJUaShyA_10i7hAx5";
 
+const cvGateOverlay = document.getElementById("cvGateOverlay");
+const cvFullscreen = document.getElementById("cvFullscreen");
 const cvPassword = document.getElementById("cvPassword");
-const cvStatus = document.getElementById("cvStatus");
-const cvButtons = document.querySelectorAll(".cv-action-btn");
+const cvPasswordForm = document.getElementById("cvPasswordForm");
+const cvGateStatus = document.getElementById("cvGateStatus");
+const cvPageStatus = document.getElementById("cvPageStatus");
+
+const openCvGateButton = document.getElementById("openCvGate");
+const closeCvGateButton = document.getElementById("closeCvGate");
+const closeCvPageButton = document.getElementById("closeCvPage");
+
+const cvActionButtons = document.querySelectorAll(
+  "#cvFullscreen .cv-action-btn"
+);
+
+/*
+  كلمة المرور محفوظة مؤقتًا في ذاكرة الصفحة فقط.
+  لا يتم حفظها في localStorage أو sessionStorage.
+*/
+
+let cvPasswordValue = "";
+let cvIsBusy = false;
+
+/*
+  يحتفظ الموقع برابط التحقق الأول للنسخة العربية
+  لمدة أقل قليلًا من صلاحية الرابط التي يحددها الخادم.
+*/
+
+let cachedArabicView = null;
 
 function cvText(ar, en) {
   return currentLanguage === "ar" ? ar : en;
 }
 
-function setCvStatus(message, type = "") {
-  cvStatus.textContent = message;
-  cvStatus.className = "cv-status" + (type ? " " + type : "");
-  cvStatus.dataset.custom = type ? "true" : "";
+function setGateStatus(message, type = "") {
+  cvGateStatus.textContent = message;
+  cvGateStatus.className =
+    "cv-gate-status" + (type ? " " + type : "");
+  cvGateStatus.dataset.custom = type ? "true" : "";
 }
 
-async function requestCvAccess(file, mode, password, popup) {
+function setPageStatus(message, type = "") {
+  cvPageStatus.textContent = message;
+  cvPageStatus.className =
+    "cv-page-status" + (type ? " " + type : "");
+  cvPageStatus.dataset.custom = type ? "true" : "";
+}
+
+function openCvGate() {
+  cvGateOverlay.classList.add("show");
+  cvGateOverlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  setGateStatus(
+    cvText(
+      "أدخل كلمة المرور للمتابعة.",
+      "Enter the password to continue."
+    )
+  );
+}
+
+function closeCvGate() {
+  if (cvIsBusy) return;
+
+  cvGateOverlay.classList.remove("show");
+  cvGateOverlay.setAttribute("aria-hidden", "true");
+
+  if (!cvFullscreen.classList.contains("show")) {
+    document.body.style.overflow = "";
+  }
+
+  cvPassword.value = "";
+}
+
+function openCvPage() {
+  cvGateOverlay.classList.remove("show");
+  cvGateOverlay.setAttribute("aria-hidden", "true");
+
+  cvFullscreen.classList.add("show");
+  cvFullscreen.setAttribute("aria-hidden", "false");
+
+  cvFullscreen.scrollTop = 0;
+  document.body.style.overflow = "hidden";
+
+  setPageStatus(
+    cvText(
+      "السيرة الذاتية جاهزة.",
+      "Your resume is ready."
+    )
+  );
+}
+
+function closeCvPage() {
+  if (cvIsBusy) return;
+
+  cvFullscreen.classList.remove("show");
+  cvFullscreen.setAttribute("aria-hidden", "true");
+
+  cvPasswordValue = "";
+  cachedArabicView = null;
+  cvPassword.value = "";
+
+  document.body.style.overflow = "";
+}
+
+openCvGateButton.addEventListener("click", openCvGate);
+closeCvGateButton.addEventListener("click", closeCvGate);
+closeCvPageButton.addEventListener("click", closeCvPage);
+
+/* Send password to Supabase */
+
+async function requestCvLink(file, mode, password) {
+  const response = await fetch(CV_FUNCTION_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": CV_PUBLISHABLE_KEY
+    },
+    body: JSON.stringify({
+      password: password,
+      file: file,
+      mode: mode
+    }),
+    cache: "no-store",
+    credentials: "omit"
+  });
+
+  let result;
+
   try {
-    const response = await fetch(CV_FUNCTION_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": CV_PUBLISHABLE_KEY,
-        "Authorization": "Bearer " + CV_PUBLISHABLE_KEY
-      },
-      body: JSON.stringify({
-        password: password,
-        file: file,
-        mode: mode
-      }),
-      cache: "no-store",
-      credentials: "omit"
-    });
+    result = await response.json();
+  } catch {
+    throw new Error(
+      cvText(
+        "تعذر قراءة استجابة الخادم.",
+        "Could not read the server response."
+      )
+    );
+  }
 
-    let result;
+  if (!response.ok) {
+    return {
+      success: false,
+      status: response.status,
+      data: result
+    };
+  }
 
-    try {
-      result = await response.json();
-    } catch {
-      throw new Error(
-        cvText(
-          "تعذر قراءة استجابة الخادم.",
-          "Could not read the server response."
-        )
+  if (!result.success || !result.signedUrl) {
+    return {
+      success: false,
+      status: response.status,
+      data: result
+    };
+  }
+
+  return {
+    success: true,
+    signedUrl: result.signedUrl,
+    expiresIn: Number(result.expiresIn) || 60
+  };
+}
+
+/* Format server errors */
+
+function showCvRequestError(result, location) {
+  const data = result.data || {};
+  const status = result.status;
+
+  if (status === 401) {
+    const remaining = Number(data.attemptsRemaining);
+
+    const message = data.message ||
+      (
+        Number.isFinite(remaining)
+          ? cvText(
+              `كلمة المرور غير صحيحة. متبقّي لك ${remaining} محاولات.`,
+              `Incorrect password. ${remaining} attempts remaining.`
+            )
+          : cvText(
+              "كلمة المرور غير صحيحة.",
+              "Incorrect password."
+            )
       );
-    }
 
-    if (!response.ok) {
-      if (popup && !popup.closed) popup.close();
-
-      if (response.status === 401) {
-        const remaining = Number(result.attemptsRemaining);
-
-        setCvStatus(
-          result.message ||
-          (currentLanguage === "ar"
-            ? `كلمة المرور غير صحيحة. متبقّي لك ${remaining} محاولات.`
-            : `Incorrect password. ${remaining} attempts remaining.`),
-          "error"
-        );
-        return;
-      }
-
-      if (response.status === 429 || result.blocked) {
-        const seconds = Math.max(
-          0,
-          Number(result.secondsRemaining) || 0
-        );
-
-        setCvStatus(
-          currentLanguage === "ar"
-            ? `تم حظر المحاولة مؤقتًا. حاول مرة أخرى بعد ${seconds} ثانية.`
-            : `Access temporarily blocked. Try again in ${seconds} seconds.`,
-          "warning"
-        );
-        return;
-      }
-
-      if (response.status === 403) {
-        setCvStatus(
-          cvText(
-            "تم رفض الطلب من الخادم. راجع إعدادات الوصول.",
-            "The server rejected the request. Check the access configuration."
-          ),
-          "error"
-        );
-        return;
-      }
-
-      if (response.status === 500) {
-        setCvStatus(
-          cvText(
-            "حدث خطأ في إعدادات الخادم. حاول لاحقًا.",
-            "A server configuration error occurred. Please try again later."
-          ),
-          "error"
-        );
-        return;
-      }
-
-      setCvStatus(
-        result.message || result.error ||
-        cvText("تعذر تنفيذ الطلب.", "The request could not be completed."),
-        "error"
-      );
-      return;
-    }
-
-    if (!result.success || !result.signedUrl) {
-      if (popup && !popup.closed) popup.close();
-
-      setCvStatus(
-        cvText(
-          "لم يتم استلام رابط الملف. حاول مرة أخرى.",
-          "No file link was returned. Please try again."
-        ),
-        "error"
-      );
-      return;
-    }
-
-    if (popup && !popup.closed) {
-      popup.location.replace(result.signedUrl);
-
-      setCvStatus(
-        mode === "view"
-          ? cvText("تم التحقق بنجاح. جارٍ فتح السيرة الذاتية...", "Verified. Opening the resume...")
-          : cvText("تم التحقق بنجاح. جارٍ تحميل الملف...", "Verified. Starting the download..."),
-        "success"
-      );
+    if (location === "gate") {
+      setGateStatus(message, "error");
     } else {
-      setCvStatus(
-        cvText(
-          "المتصفح منع فتح نافذة جديدة. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى.",
-          "The browser blocked the new window. Allow pop-ups and try again."
-        ),
-        "warning"
-      );
+      setPageStatus(message, "error");
     }
+
+    return;
+  }
+
+  if (status === 429 || data.blocked) {
+    const seconds = Math.max(
+      0,
+      Number(data.secondsRemaining) || 0
+    );
+
+    const message = cvText(
+      `تم حظر المحاولة مؤقتًا. حاول مرة أخرى بعد ${seconds} ثانية.`,
+      `Access temporarily blocked. Try again in ${seconds} seconds.`
+    );
+
+    if (location === "gate") {
+      setGateStatus(message, "warning");
+    } else {
+      setPageStatus(message, "warning");
+    }
+
+    return;
+  }
+
+  if (status === 403) {
+    const message = cvText(
+      "تم رفض الطلب من الخادم. راجع إعدادات الوصول.",
+      "The server rejected the request. Check the access configuration."
+    );
+
+    if (location === "gate") {
+      setGateStatus(message, "error");
+    } else {
+      setPageStatus(message, "error");
+    }
+
+    return;
+  }
+
+  if (status === 500) {
+    const message = cvText(
+      "حدث خطأ في إعدادات الخادم. حاول لاحقًا.",
+      "A server configuration error occurred. Please try again later."
+    );
+
+    if (location === "gate") {
+      setGateStatus(message, "error");
+    } else {
+      setPageStatus(message, "error");
+    }
+
+    return;
+  }
+
+  const message =
+    data.message ||
+    data.error ||
+    cvText(
+      "تعذر تنفيذ الطلب. حاول مرة أخرى.",
+      "The request could not be completed. Please try again."
+    );
+
+  if (location === "gate") {
+    setGateStatus(message, "error");
+  } else {
+    setPageStatus(message, "error");
+  }
+}
+
+/* Verify password when user presses Enter / Go */
+
+cvPasswordForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  if (cvIsBusy) return;
+
+  const password = cvPassword.value;
+
+  if (!password.trim()) {
+    setGateStatus(
+      cvText(
+        "من فضلك اكتب كلمة المرور أولًا.",
+        "Please enter the password first."
+      ),
+      "error"
+    );
+
+    cvPassword.focus();
+    return;
+  }
+
+  cvIsBusy = true;
+  cvPassword.disabled = true;
+
+  setGateStatus(
+    cvText(
+      "🔐 جارٍ التحقق من كلمة المرور...",
+      "🔐 Verifying the password..."
+    )
+  );
+
+  try {
+    /*
+      نستخدم طلبًا حقيقيًا للتحقق من كلمة المرور.
+      الرابط الناتج مؤقت، ونحتفظ به للعرض العربي
+      إذا ضغط المستخدم على زر العرض خلال صلاحيته.
+    */
+
+    const result = await requestCvLink(
+      "cv-ar.pdf",
+      "view",
+      password
+    );
+
+    if (!result.success) {
+      showCvRequestError(result, "gate");
+      return;
+    }
+
+    cvPasswordValue = password;
+
+    cachedArabicView = {
+      url: result.signedUrl,
+      expiresAt: Date.now() + Math.max(
+        0,
+        (result.expiresIn - 5) * 1000
+      )
+    };
+
+    setGateStatus(
+      cvText(
+        "تم التحقق بنجاح. جارٍ فتح السيرة الذاتية...",
+        "Password verified. Opening your resume..."
+      ),
+      "success"
+    );
+
+    openCvPage();
 
   } catch (error) {
-    if (popup && !popup.closed) popup.close();
+    console.error("CV verification failed:", error);
 
-    console.error("CV access request failed:", error);
-
-    setCvStatus(
+    setGateStatus(
       cvText(
         "تعذر الاتصال بالخادم. تأكد من اتصال الإنترنت وحاول مرة أخرى.",
         "Could not connect to the server. Check your internet connection and try again."
       ),
       "error"
     );
+
+  } finally {
+    cvIsBusy = false;
+    cvPassword.disabled = false;
   }
-}
+});
 
-cvButtons.forEach(button => {
+/* CV view and download actions */
+
+cvActionButtons.forEach(button => {
   button.addEventListener("click", async () => {
-    const password = cvPassword.value;
+    if (cvIsBusy) return;
 
-    if (!password.trim()) {
-      setCvStatus(
+    if (!cvPasswordValue) {
+      setPageStatus(
         cvText(
-          "من فضلك أدخل كلمة المرور أولًا.",
-          "Please enter the password first."
+          "انتهت جلسة الوصول. أغلق الصفحة وأدخل كلمة المرور مرة أخرى.",
+          "Your access session has ended. Close this page and enter the password again."
         ),
-        "error"
+        "warning"
       );
-
-      cvPassword.focus();
       return;
     }
 
     const file = button.dataset.file;
     const mode = button.dataset.mode;
 
-    // Open the new tab immediately to avoid popup blocking.
+    /*
+      فتح النافذة مباشرة عند الضغط حتى لا يمنعها المتصفح
+      بسبب تنفيذ الطلب غير المتزامن.
+    */
+
     const popup = window.open("about:blank", "_blank");
 
     if (!popup) {
-      setCvStatus(
+      setPageStatus(
         cvText(
           "اسمح بالنوافذ المنبثقة لهذا الموقع ثم حاول مرة أخرى.",
           "Allow pop-ups for this website and try again."
@@ -1894,21 +2464,120 @@ cvButtons.forEach(button => {
 
     popup.opener = null;
 
-    cvButtons.forEach(item => item.disabled = true);
-    cvPassword.disabled = true;
+    cvIsBusy = true;
+    cvActionButtons.forEach(item => item.disabled = true);
 
-    setCvStatus(
-      cvText(
-        "جارٍ التحقق من كلمة المرور...",
-        "Checking the password..."
-      )
+    setPageStatus(
+      mode === "view"
+        ? cvText(
+            "جارٍ تجهيز ملف السيرة الذاتية للعرض...",
+            "Preparing your resume for viewing..."
+          )
+        : cvText(
+            "جارٍ تجهيز ملف السيرة الذاتية للتحميل...",
+            "Preparing your resume for download..."
+          )
     );
 
-    await requestCvAccess(file, mode, password, popup);
+    try {
+      let signedUrl = null;
 
-    cvButtons.forEach(item => item.disabled = false);
-    cvPassword.disabled = false;
+      /*
+        نستخدم رابط التحقق الأول للنسخة العربية
+        إذا كان لا يزال صالحًا.
+      */
+
+      if (
+        file === "cv-ar.pdf" &&
+        mode === "view" &&
+        cachedArabicView &&
+        Date.now() < cachedArabicView.expiresAt
+      ) {
+        signedUrl = cachedArabicView.url;
+        cachedArabicView = null;
+      } else {
+        const result = await requestCvLink(
+          file,
+          mode,
+          cvPasswordValue
+        );
+
+        if (!result.success) {
+          if (!popup.closed) popup.close();
+          showCvRequestError(result, "page");
+          return;
+        }
+
+        signedUrl = result.signedUrl;
+      }
+
+      if (popup.closed) {
+        setPageStatus(
+          cvText(
+            "تم إغلاق نافذة الملف قبل فتحه.",
+            "The file window was closed before it opened."
+          ),
+          "warning"
+        );
+        return;
+      }
+
+      popup.location.replace(signedUrl);
+
+      setPageStatus(
+        mode === "view"
+          ? cvText(
+              "تم التحقق بنجاح. جارٍ فتح السيرة الذاتية...",
+              "Verified. Opening the resume..."
+            )
+          : cvText(
+              "تم التحقق بنجاح. جارٍ تحميل الملف...",
+              "Verified. Starting the download..."
+            ),
+        "success"
+      );
+
+    } catch (error) {
+      if (!popup.closed) popup.close();
+
+      console.error("CV file request failed:", error);
+
+      setPageStatus(
+        cvText(
+          "تعذر الاتصال بالخادم. تأكد من اتصال الإنترنت وحاول مرة أخرى.",
+          "Could not connect to the server. Check your internet connection and try again."
+        ),
+        "error"
+      );
+
+    } finally {
+      cvIsBusy = false;
+      cvActionButtons.forEach(item => item.disabled = false);
+    }
   });
+});
+
+/* Close windows with Escape */
+
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+
+  if (imageViewer.classList.contains("show")) {
+    imageViewer.classList.remove("show");
+    imageViewer.setAttribute("aria-hidden", "true");
+    viewerImage.src = "";
+    document.body.style.overflow = "";
+    return;
+  }
+
+  if (cvFullscreen.classList.contains("show")) {
+    closeCvPage();
+    return;
+  }
+
+  if (cvGateOverlay.classList.contains("show")) {
+    closeCvGate();
+  }
 });
 
 /* Reveal animation */
@@ -1928,9 +2597,10 @@ document.querySelectorAll(".reveal").forEach(element => {
 
 /* Current year */
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
 </script>
 
 </body>
-</html>
+  </html>
