@@ -83,14 +83,34 @@ body {
 
 body.english {font-family:"Inter",sans-serif;}
 
-a {text-decoration:none;color:inherit;}
-button {font:inherit;cursor:pointer;}
+a {
+  text-decoration:none;
+  color:inherit;
+}
 
-.btn,.icon-btn,.lang-btn,.menu-links a,.project-visit,
-.already-inside,.contact-link,.cv-entry-btn,.cv-modal-close,
-.cv-action-btn,.cv-page-close,.cv-password-input {
+button {
+  font:inherit;
+  cursor:pointer;
+}
+
+/* جميع الأزرار والإطارات القابلة للضغط بحواف نصف دائرية */
+
+.btn,
+.icon-btn,
+.lang-btn,
+.menu-links a,
+.project-visit,
+.already-inside,
+.contact-link,
+.cv-entry-btn,
+.cv-modal-close,
+.cv-action-btn,
+.cv-page-close,
+.cv-password-input {
   border-radius:999px !important;
 }
+
+/* مسافات متوازنة لجميع الشاشات */
 
 .container {
   width:min(1120px,calc(100% - 32px));
@@ -108,8 +128,17 @@ button {font:inherit;cursor:pointer;}
   z-index:-1;
 }
 
-.ambient.one {background:#7055ed;top:80px;right:-180px;}
-.ambient.two {background:#08c4df;bottom:50px;left:-180px;}
+.ambient.one {
+  background:#7055ed;
+  top:80px;
+  right:-180px;
+}
+
+.ambient.two {
+  background:#08c4df;
+  bottom:50px;
+  left:-180px;
+}
 
 /* Header */
 
@@ -148,14 +177,30 @@ header {
   -webkit-text-fill-color:transparent;
 }
 
-.logo .logo-black {color:#111111;-webkit-text-fill-color:#111111;}
+.logo .logo-black {
+  color:#111111;
+  -webkit-text-fill-color:#111111;
+}
 
-body.dark .logo .logo-black {color:#ffffff;-webkit-text-fill-color:#ffffff;}
+body.dark .logo .logo-black {
+  color:#ffffff;
+  -webkit-text-fill-color:#ffffff;
+}
 
-.logo .logo-dot {color:#08aeca;-webkit-text-fill-color:#08aeca;}
-.logo:hover {filter:drop-shadow(0 0 10px rgba(112,85,237,.45));}
+.logo .logo-dot {
+  color:#08aeca;
+  -webkit-text-fill-color:#08aeca;
+}
 
-.header-actions {display:flex;align-items:center;gap:10px;}
+.logo:hover {
+  filter:drop-shadow(0 0 10px rgba(112,85,237,.45));
+}
+
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
 .icon-btn {
   width:42px;
@@ -169,7 +214,10 @@ body.dark .logo .logo-black {color:#ffffff;-webkit-text-fill-color:#ffffff;}
   transition:.25s;
 }
 
-.icon-btn:hover {border-color:var(--primary);transform:translateY(-2px);}
+.icon-btn:hover {
+  border-color:var(--primary);
+  transform:translateY(-2px);
+}
 
 .lang-btn {
   border:1px solid var(--border);
@@ -238,7 +286,10 @@ body.dark .theme-switch .switch-knob {
   transition:.3s;
 }
 
-.menu-overlay.show {opacity:1;visibility:visible;}
+.menu-overlay.show {
+  opacity:1;
+  visibility:visible;
+}
 
 .side-menu {
   position:fixed;
@@ -271,7 +322,10 @@ body.dark .theme-switch .switch-knob {
   direction:ltr;
 }
 
-.menu-links {display:grid;gap:10px;}
+.menu-links {
+  display:grid;
+  gap:10px;
+}
 
 .menu-links a {
   padding:13px 15px;
@@ -286,7 +340,9 @@ body.dark .theme-switch .switch-knob {
   transform:translateX(-4px);
 }
 
-body.english .menu-links a:hover {transform:translateX(4px);}
+body.english .menu-links a:hover {
+  transform:translateX(4px);
+}
 
 /* Hero */
 
@@ -349,7 +405,11 @@ body.english .hero h1 {text-align:left;}
   margin-bottom:30px;
 }
 
-.hero-buttons {display:flex;gap:12px;flex-wrap:wrap;}
+.hero-buttons {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
 .btn {
   display:inline-flex;
@@ -363,16 +423,45 @@ body.english .hero h1 {text-align:left;}
 }
 
 .btn:hover {transform:translateY(-4px);}
-.btn-primary {color:white;background:linear-gradient(110deg,#7055ed,#9277ff);box-shadow:0 8px 25px rgba(112,85,237,.23);}
-.btn-outline {color:var(--text);background:var(--surface);border-color:var(--border);}
+
+.btn-primary {
+  color:white;
+  background:linear-gradient(110deg,#7055ed,#9277ff);
+  box-shadow:0 8px 25px rgba(112,85,237,.23);
+}
+
+.btn-outline {
+  color:var(--text);
+  background:var(--surface);
+  border-color:var(--border);
+}
 
 /* Sections */
 
 section {padding:75px 0;}
+
 .section-heading {margin-bottom:35px;}
-.section-label {color:var(--primary);font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;direction:ltr;}
-.section-heading h2 {font-size:clamp(27px,4vw,39px);font-weight:900;}
-.section-heading p {color:var(--muted);margin-top:9px;line-height:1.9;}
+
+.section-label {
+  color:var(--primary);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  direction:ltr;
+}
+
+.section-heading h2 {
+  font-size:clamp(27px,4vw,39px);
+  font-weight:900;
+}
+
+.section-heading p {
+  color:var(--muted);
+  margin-top:9px;
+  line-height:1.9;
+}
 
 /* About */
 
@@ -387,7 +476,13 @@ section {padding:75px 0;}
   box-shadow:var(--shadow);
 }
 
-.about-card p {color:var(--muted);line-height:2.1;font-size:15px;}
+.about-card p {
+  color:var(--muted);
+  line-height:2.1;
+  font-size:15px;
+}
+
+/* Profile photo: larger, wider and taller */
 
 .profile-photo {
   display:block;
@@ -403,9 +498,12 @@ section {padding:75px 0;}
   margin:0 auto 28px;
 }
 
-body.english .profile-photo {margin-left:auto;margin-right:auto;}
+body.english .profile-photo {
+  margin-left:auto;
+  margin-right:auto;
+}
 
-/* معلوماتي: صفان وعمودان، مع ضبط تلقائي لحجم القيم */
+/* معلوماتي: صفان وعمودان على جميع أحجام الشاشات */
 
 .info-grid {
   display:grid;
@@ -413,7 +511,6 @@ body.english .profile-photo {margin-left:auto;margin-right:auto;}
   grid-template-rows:auto auto;
   gap:12px;
   align-content:start;
-  min-width:0;
 }
 
 .info-item {
@@ -433,21 +530,39 @@ body.english .profile-photo {margin-left:auto;margin-right:auto;}
 
 .info-item strong {
   display:block;
-  width:100%;
-  font-size:16px;
+  font-size:clamp(13px,1.5vw,16px);
   line-height:1.7;
-  white-space:nowrap;
-  overflow:visible;
-  text-overflow:clip;
-  transform:scaleX(var(--info-fit-scale,1));
-  transform-origin:right center;
+  overflow-wrap:anywhere;
 }
 
-body.english .info-item strong {transform-origin:left center;}
+/* ضبط الخانات الأربع فقط */
+
+.info-item strong:not(.education-level) {
+  display:block;
+  white-space:nowrap;
+  overflow-wrap:normal;
+  font-size:clamp(7px,1.8vw,16px);
+  letter-spacing:-0.3px;
+  line-height:1.5;
+}
+
+/* المرحلة الدراسية: سطران بالضبط */
+
+.info-item strong.education-level {
+  display:block;
+  white-space:pre-line;
+  overflow-wrap:normal;
+  font-size:clamp(9px,1.8vw,16px);
+  line-height:1.5;
+}
 
 /* Skills */
 
-.skills-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
 
 .skill {
   background:var(--surface);
@@ -458,16 +573,45 @@ body.english .info-item strong {transform-origin:left center;}
   transition:.25s;
 }
 
-.skill:hover {transform:translateY(-5px);border-color:var(--primary);}
-.skill .symbol {width:76px;height:76px;margin:0 auto 15px;display:grid;place-items:center;}
-.skill .symbol svg,.skill .symbol img {width:68px;height:68px;display:block;}
+.skill:hover {
+  transform:translateY(-5px);
+  border-color:var(--primary);
+}
+
+.skill .symbol {
+  width:76px;
+  height:76px;
+  margin:0 auto 15px;
+  display:grid;
+  place-items:center;
+}
+
+.skill .symbol svg,
+.skill .symbol img {
+  width:68px;
+  height:68px;
+  display:block;
+}
+
 .skill .symbol img {object-fit:contain;}
-.skill strong {display:block;font-size:14px;}
-.skill small {color:var(--muted);font-size:11px;}
+
+.skill strong {
+  display:block;
+  font-size:14px;
+}
+
+.skill small {
+  color:var(--muted);
+  font-size:11px;
+}
 
 /* Projects */
 
-.projects-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
 
 .project-card {
   background:var(--surface);
@@ -478,7 +622,10 @@ body.english .info-item strong {transform-origin:left center;}
   box-shadow:var(--shadow);
 }
 
-.project-card:hover {transform:translateY(-7px);border-color:var(--primary);}
+.project-card:hover {
+  transform:translateY(-7px);
+  border-color:var(--primary);
+}
 
 .project-image-button {
   width:100%;
@@ -489,7 +636,9 @@ body.english .info-item strong {transform-origin:left center;}
   place-items:center;
   padding:0;
   cursor:zoom-in;
-  background:radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),var(--surface2);
+  background:
+    radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),
+    var(--surface2);
   overflow:hidden;
   position:relative;
   isolation:isolate;
@@ -528,8 +677,15 @@ body.english .info-item strong {transform-origin:left center;}
   transition:transform .3s ease;
 }
 
-.project-image-button img.accountx-image {object-fit:contain;object-position:center;}
+/* صورة AccountX تظهر كاملة دون قص */
+
+.project-image-button img.accountx-image {
+  object-fit:contain;
+  object-position:center;
+}
+
 .project-image-button:hover img {transform:scale(1.04);}
+
 .project-body {padding:22px;}
 
 .project-body h3 {
@@ -542,7 +698,12 @@ body.english .info-item strong {transform-origin:left center;}
 
 body.english .project-body h3 {text-align:left;}
 
-.project-body p {color:var(--muted);font-size:13px;line-height:1.9;min-height:75px;}
+.project-body p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  min-height:75px;
+}
 
 .project-tag {
   display:inline-block;
@@ -555,7 +716,7 @@ body.english .project-body h3 {text-align:left;}
   font-weight:800;
 }
 
-.project-visit,.already-inside {
+.project-visit {
   display:flex;
   align-items:center;
   justify-content:center;
@@ -563,30 +724,46 @@ body.english .project-body h3 {text-align:left;}
   gap:10px;
   margin-top:20px;
   padding:15px 20px;
-  font-weight:900;
-  font-size:14px;
-}
-
-.project-visit {
   color:#fff;
   background:linear-gradient(110deg,#7055ed,#08aeca);
+  font-weight:900;
+  font-size:14px;
   box-shadow:0 8px 22px rgba(112,85,237,.22);
   transition:.25s;
 }
 
-.project-visit:hover {transform:translateY(-3px);box-shadow:0 12px 28px rgba(112,85,237,.32);}
+.project-visit:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(112,85,237,.32);
+}
 
 .already-inside {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  gap:10px;
+  margin-top:20px;
+  padding:15px 20px;
   border:2px solid #ffffff;
   color:var(--text);
   background:var(--surface2);
-  box-shadow:inset 0 3px 7px rgba(0,0,0,.16),0 2px 4px rgba(0,0,0,.08);
+  font-weight:900;
+  font-size:14px;
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.16),
+    0 2px 4px rgba(0,0,0,.08);
   cursor:default;
   opacity:1;
   transform:translateY(2px);
 }
 
-.already-inside:disabled {color:var(--text);-webkit-text-fill-color:var(--text);opacity:1;cursor:default;}
+.already-inside:disabled {
+  color:var(--text);
+  -webkit-text-fill-color:var(--text);
+  opacity:1;
+  cursor:default;
+}
 
 /* Full-screen image viewer */
 
@@ -604,7 +781,10 @@ body.english .project-body h3 {text-align:left;}
   transition:opacity .25s ease,visibility .25s ease;
 }
 
-.image-viewer.show {opacity:1;visibility:visible;}
+.image-viewer.show {
+  opacity:1;
+  visibility:visible;
+}
 
 .image-viewer img {
   display:block;
@@ -616,7 +796,12 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 15px 60px rgba(0,0,0,.5);
 }
 
-#viewerImage.accountx-view {object-fit:contain;object-position:center;}
+/* إظهار صورة AccountX كاملة داخل عارض الصور */
+
+#viewerImage.accountx-view {
+  object-fit:contain;
+  object-position:center;
+}
 
 .viewer-close {
   position:absolute;
@@ -650,7 +835,12 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:var(--shadow);
 }
 
-.cv-entry-description {color:var(--muted);line-height:2;margin-bottom:25px;text-align:center;}
+.cv-entry-description {
+  color:var(--muted);
+  line-height:2;
+  margin-bottom:25px;
+  text-align:center;
+}
 
 .cv-entry-btn {
   width:100%;
@@ -665,7 +855,11 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 7px 22px rgba(112,85,237,.22);
 }
 
-.cv-entry-btn:hover {background:linear-gradient(110deg,#6043df,#08aeca);transform:translateY(-3px);box-shadow:0 10px 28px rgba(112,85,237,.30);}
+.cv-entry-btn:hover {
+  background:linear-gradient(110deg,#6043df,#08aeca);
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(112,85,237,.30);
+}
 
 /* CV password window */
 
@@ -684,7 +878,10 @@ body.english .project-body h3 {text-align:left;}
   transition:opacity .25s ease,visibility .25s ease;
 }
 
-.cv-gate-overlay.show {opacity:1;visibility:visible;}
+.cv-gate-overlay.show {
+  opacity:1;
+  visibility:visible;
+}
 
 .cv-gate-window {
   position:relative;
@@ -721,7 +918,11 @@ body.english .project-body h3 {text-align:left;}
   transition:.2s;
 }
 
-.cv-modal-close:hover {background:#ffffff;color:#7055ed;transform:rotate(90deg);}
+.cv-modal-close:hover {
+  background:#ffffff;
+  color:#7055ed;
+  transform:rotate(90deg);
+}
 
 .cv-gate-message {
   width:100%;
@@ -733,8 +934,18 @@ body.english .project-body h3 {text-align:left;}
   margin:10px auto 0;
 }
 
-.cv-password-area {width:100%;max-width:460px;margin-top:55px;}
-.cv-password-title {color:#7055ed;font-size:21px;font-weight:900;margin-bottom:10px;}
+.cv-password-area {
+  width:100%;
+  max-width:460px;
+  margin-top:55px;
+}
+
+.cv-password-title {
+  color:#7055ed;
+  font-size:21px;
+  font-weight:900;
+  margin-bottom:10px;
+}
 
 .cv-down-arrow {
   display:block;
@@ -751,7 +962,9 @@ body.english .project-body h3 {text-align:left;}
   50% {transform:translateY(9px);}
 }
 
-.cv-password-form {width:100%;}
+.cv-password-form {
+  width:100%;
+}
 
 .cv-password-input {
   display:block;
@@ -771,8 +984,17 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 5px 18px rgba(112,85,237,.10);
 }
 
-.cv-password-input::placeholder {color:#9993b4;font-weight:500;}
-.cv-password-input:focus {border-color:#08aeca;box-shadow:0 0 0 4px rgba(112,85,237,.13);background:#ffffff;}
+.cv-password-input::placeholder {
+  color:#9993b4;
+  font-weight:500;
+}
+
+.cv-password-input:focus {
+  border-color:#08aeca;
+  box-shadow:0 0 0 4px rgba(112,85,237,.13);
+  background:#ffffff;
+}
+
 .cv-password-input:disabled {opacity:.65;}
 
 .cv-gate-status {
@@ -805,7 +1027,11 @@ body.english .project-body h3 {text-align:left;}
 
 .cv-fullscreen.show {display:block;}
 
-.cv-page-inner {width:min(850px,100%);margin:0 auto;padding-top:35px;}
+.cv-page-inner {
+  width:min(850px,100%);
+  margin:0 auto;
+  padding-top:35px;
+}
 
 .cv-page-close {
   position:fixed;
@@ -826,7 +1052,11 @@ body.english .project-body h3 {text-align:left;}
   transition:.2s;
 }
 
-.cv-page-close:hover {color:#7055ed;background:#ffffff;transform:rotate(90deg);}
+.cv-page-close:hover {
+  color:#7055ed;
+  background:#ffffff;
+  transform:rotate(90deg);
+}
 
 .cv-language-block {
   width:100%;
@@ -838,7 +1068,9 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:0 8px 30px rgba(30,25,70,.06);
 }
 
-.cv-language-block + .cv-language-block {margin-top:25px;}
+.cv-language-block + .cv-language-block {
+  margin-top:25px;
+}
 
 .cv-language-block h2 {
   color:#25243a;
@@ -848,7 +1080,11 @@ body.english .project-body h3 {text-align:left;}
   margin-bottom:25px;
 }
 
-.cv-language-block p {color:#858197;font-size:12px;margin-top:17px;}
+.cv-language-block p {
+  color:#858197;
+  font-size:12px;
+  margin-top:17px;
+}
 
 .cv-actions-row {
   display:flex;
@@ -878,11 +1114,31 @@ body.english .project-body h3 {text-align:left;}
   transition:.2s;
 }
 
-.cv-action-btn:hover:not(:disabled) {transform:translateY(-3px);box-shadow:0 7px 18px rgba(112,85,237,.18);}
-.cv-action-btn:disabled {opacity:.55;cursor:wait;}
-.cv-view-btn {background:#7055ed;border-color:#7055ed;color:#ffffff;}
-.cv-download-btn {background:#08aeca;border-color:#08aeca;color:#ffffff;}
-.cv-download-btn:hover:not(:disabled) {background:#078fa8;}
+.cv-action-btn:hover:not(:disabled) {
+  transform:translateY(-3px);
+  box-shadow:0 7px 18px rgba(112,85,237,.18);
+}
+
+.cv-action-btn:disabled {
+  opacity:.55;
+  cursor:wait;
+}
+
+.cv-view-btn {
+  background:#7055ed;
+  border-color:#7055ed;
+  color:#ffffff;
+}
+
+.cv-download-btn {
+  background:#08aeca;
+  border-color:#08aeca;
+  color:#ffffff;
+}
+
+.cv-download-btn:hover:not(:disabled) {
+  background:#078fa8;
+}
 
 .cv-page-status {
   width:min(600px,100%);
@@ -901,62 +1157,6 @@ body.english .project-body h3 {text-align:left;}
 .cv-page-status.error {color:#d93650;}
 .cv-page-status.warning {color:#bd8017;}
 .cv-page-status.success {color:#159b65;}
-
-/* PDF viewer داخل الموقع */
-
-.cv-pdf-viewer {
-  position:fixed;
-  inset:0;
-  z-index:10002;
-  display:none;
-  flex-direction:column;
-  background:#17182b;
-  color:#ffffff;
-}
-
-.cv-pdf-viewer.show {display:flex;}
-
-.cv-pdf-toolbar {
-  min-height:62px;
-  padding:9px 14px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  background:#ffffff;
-  color:#17182b;
-  border-bottom:1px solid #e5e5e5;
-}
-
-.cv-pdf-title {
-  font-size:14px;
-  font-weight:900;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.cv-pdf-close {
-  flex-shrink:0;
-  width:42px;
-  height:42px;
-  border:0;
-  background:#7055ed;
-  color:#ffffff;
-  font-size:25px;
-  font-weight:900;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-}
-
-.cv-pdf-frame {
-  display:block;
-  width:100%;
-  height:calc(100% - 62px);
-  border:0;
-  background:#ffffff;
-}
 
 /* Education */
 
@@ -981,7 +1181,12 @@ body.english .project-body h3 {text-align:left;}
   font-size:27px;
 }
 
-.education-card p {color:var(--muted);font-size:13px;margin-top:5px;line-height:1.9;}
+.education-card p {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:5px;
+  line-height:1.9;
+}
 
 /* Contact */
 
@@ -994,9 +1199,19 @@ body.english .project-body h3 {text-align:left;}
   box-shadow:var(--shadow);
 }
 
-.contact-card > p {color:var(--muted);margin:10px auto 25px;line-height:1.9;max-width:550px;}
+.contact-card > p {
+  color:var(--muted);
+  margin:10px auto 25px;
+  line-height:1.9;
+  max-width:550px;
+}
 
-.contact-links {display:grid;gap:14px;width:min(100%,440px);margin:auto;}
+.contact-links {
+  display:grid;
+  gap:14px;
+  width:min(100%,440px);
+  margin:auto;
+}
 
 .contact-link {
   display:flex;
@@ -1011,26 +1226,73 @@ body.english .project-body h3 {text-align:left;}
 }
 
 .contact-link:hover {transform:translateY(-4px);}
-.contact-link svg {width:31px;height:31px;flex-shrink:0;}
+
+.contact-link svg {
+  width:31px;
+  height:31px;
+  flex-shrink:0;
+}
+
 .contact-link span {font-size:15px;}
 
-.whatsapp-link {background:linear-gradient(110deg,#16b968,#0a9e59);box-shadow:0 10px 25px rgba(22,185,104,.2);}
+.whatsapp-link {
+  background:linear-gradient(110deg,#16b968,#0a9e59);
+  box-shadow:0 10px 25px rgba(22,185,104,.2);
+}
+
 .whatsapp-link:hover {box-shadow:0 14px 30px rgba(22,185,104,.3);}
-.telegram-link {background:linear-gradient(110deg,#29a9eb,#168bd0);box-shadow:0 10px 25px rgba(41,169,235,.2);}
+
+.telegram-link {
+  background:linear-gradient(110deg,#29a9eb,#168bd0);
+  box-shadow:0 10px 25px rgba(41,169,235,.2);
+}
+
 .telegram-link:hover {box-shadow:0 14px 30px rgba(41,169,235,.3);}
-.gmail-link {background:#ffffff;color:#3c4043;border:1px solid #dadce0;box-shadow:0 5px 18px rgba(60,64,67,.10);}
-.gmail-link:hover {background:#f8faff;box-shadow:0 9px 24px rgba(60,64,67,.16);}
-.gmail-link svg {width:32px;height:26px;}
+
+.gmail-link {
+  background:#ffffff;
+  color:#3c4043;
+  border:1px solid #dadce0;
+  box-shadow:0 5px 18px rgba(60,64,67,.10);
+}
+
+.gmail-link:hover {
+  background:#f8faff;
+  box-shadow:0 9px 24px rgba(60,64,67,.16);
+}
+
+.gmail-link svg {
+  width:32px;
+  height:26px;
+}
 
 /* Footer */
 
-footer {border-top:1px solid var(--border);padding:25px 0;text-align:center;color:var(--muted);font-size:12px;}
-footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
+footer {
+  border-top:1px solid var(--border);
+  padding:25px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
+footer strong {
+  color:var(--primary);
+  font-family:"Inter",sans-serif;
+}
 
 /* Reveal */
 
-.reveal {opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s;}
-.reveal.visible {opacity:1;transform:translateY(0);}
+.reveal {
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s,transform .7s;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* Responsive */
 
@@ -1038,15 +1300,41 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
   .projects-grid {grid-template-columns:repeat(2,1fr);}
   .skills-grid {grid-template-columns:repeat(2,1fr);}
   .about-card {grid-template-columns:1fr;}
-  .profile-photo {width:100%;max-width:100%;height:clamp(450px,65vw,650px);margin-left:auto;margin-right:auto;}
+
+  /* استغلال عرض التابلت بالكامل مع ترك هوامش جانبية */
+
+  .profile-photo {
+    width:100%;
+    max-width:100%;
+    height:clamp(450px,65vw,650px);
+    margin-left:auto;
+    margin-right:auto;
+  }
 }
 
 @media(max-width:560px) {
-  .header-inner {height:67px;gap:8px;}
-  .logo {font-size:15px;letter-spacing:0;}
+  .header-inner {
+    height:67px;
+    gap:8px;
+  }
+
+  .logo {
+    font-size:15px;
+    letter-spacing:0;
+  }
+
   .header-actions {gap:6px;}
-  .icon-btn {width:38px;height:38px;}
-  .lang-btn {padding:8px 9px;font-size:11px;}
+
+  .icon-btn {
+    width:38px;
+    height:38px;
+  }
+
+  .lang-btn {
+    padding:8px 9px;
+    font-size:11px;
+  }
+
   .hero {min-height:auto;padding:85px 0 65px;}
   .hero h1 {font-size:43px;}
   .hero p {font-size:14px;}
@@ -1054,15 +1342,36 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
   .projects-grid {grid-template-columns:1fr;}
   .about-card,.contact-card {padding:18px;}
 
-  .info-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
-  .info-item {padding:13px 9px;}
-  .info-item small {font-size:11px;}
+  /* تظل الخانات الأربع 2×2 على الموبايل */
+
+  .info-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+  }
+
+  .info-item {
+    padding:13px 9px;
+  }
+
+  .info-item small {
+    font-size:11px;
+  }
+
+  .info-item strong {
+    font-size:13px;
+    line-height:1.7;
+  }
 
   .education-card {align-items:flex-start;}
   .theme-switch {width:66px;height:36px;}
   .theme-switch .switch-icon {width:28px;height:28px;}
   .theme-switch .switch-knob {width:28px;height:28px;}
-  body.dark .theme-switch .switch-knob {transform:translateX(-28px);}
+
+  body.dark .theme-switch .switch-knob {
+    transform:translateX(-28px);
+  }
+
+  /* الصورة الشخصية على الموبايل */
 
   .profile-photo {
     width:100%;
@@ -1076,38 +1385,122 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
   }
 
   .project-image-button {height:280px;}
-  .skill .symbol {width:70px;height:70px;}
-  .skill .symbol svg,.skill .symbol img {width:62px;height:62px;}
+
+  .skill .symbol {
+    width:70px;
+    height:70px;
+  }
+
+  .skill .symbol svg,
+  .skill .symbol img {
+    width:62px;
+    height:62px;
+  }
+
   .image-viewer {padding:12px;}
-  .image-viewer img {width:96vw;height:85vh;object-fit:cover;object-position:center;}
+
+  .image-viewer img {
+    width:96vw;
+    height:85vh;
+    object-fit:cover;
+    object-position:center;
+  }
+
   .cv-entry-card {padding:22px 16px;}
-  .cv-gate-window {padding:75px 18px 25px;border-radius:23px;}
-  .cv-gate-message {font-size:16px;line-height:2;}
-  .cv-password-area {margin-top:45px;}
+
+  .cv-gate-window {
+    padding:75px 18px 25px;
+    border-radius:23px;
+  }
+
+  .cv-gate-message {
+    font-size:16px;
+    line-height:2;
+  }
+
+  .cv-password-area {
+    margin-top:45px;
+  }
+
   .cv-password-title {font-size:19px;}
+
   .cv-down-arrow {font-size:58px;}
-  .cv-fullscreen {padding:30px 12px 35px;}
-  .cv-page-inner {padding-top:38px;}
-  .cv-language-block {padding:28px 15px;}
-  .cv-language-block h2 {font-size:18px;margin-bottom:20px;}
+
+  .cv-fullscreen {
+    padding:30px 12px 35px;
+  }
+
+  .cv-page-inner {
+    padding-top:38px;
+  }
+
+  .cv-language-block {
+    padding:28px 15px;
+  }
+
+  .cv-language-block h2 {
+    font-size:18px;
+    margin-bottom:20px;
+  }
+
   .cv-actions-row {gap:9px;}
-  .cv-action-btn {min-height:49px;padding:10px 8px;font-size:14px;}
-  .cv-page-close {top:12px;right:12px;width:42px;height:42px;}
+
+  .cv-action-btn {
+    min-height:49px;
+    padding:10px 8px;
+    font-size:14px;
+  }
+
+  .cv-page-close {
+    top:12px;
+    right:12px;
+    width:42px;
+    height:42px;
+  }
+
   .contact-card {padding:23px 15px;}
   .contact-link {padding:15px 12px;}
 }
 
+/* شاشات الموبايل الصغيرة جدًا */
+
 @media(max-width:360px) {
-  .container {width:calc(100% - 24px);}
-  .logo {font-size:13px;}
-  .header-actions {gap:4px;}
-  .lang-btn {padding:7px 6px;font-size:10px;}
-  .info-item {padding:11px 7px;}
-  .profile-photo {height:360px;}
+  .container {
+    width:calc(100% - 24px);
+  }
+
+  .logo {
+    font-size:13px;
+  }
+
+  .header-actions {
+    gap:4px;
+  }
+
+  .lang-btn {
+    padding:7px 6px;
+    font-size:10px;
+  }
+
+  .info-item {
+    padding:11px 7px;
+  }
+
+  .info-item strong {
+    font-size:12px;
+  }
+
+  .profile-photo {
+    height:360px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;}
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+  }
 }
 </style>
 </head>
@@ -1159,6 +1552,7 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
+
       <div class="eyebrow">
         <span class="status-dot"></span>
         <span data-ar="مرحبًا بك في مساحتي الرقمية" data-en="Welcome to my digital space">مرحبًا بك في مساحتي الرقمية</span>
@@ -1169,8 +1563,10 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
         BOTROS<span class="gradient-text">.</span>
       </h1>
 
-      <p data-ar="أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية."
-         data-en="I'm Antonyos Botros, interested in technology, programming, and digital ideas. I'm learning and building digital projects that bring creativity and technology together.">
+      <p
+        data-ar="أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية."
+        data-en="I'm Antonyos Botros, interested in technology, programming, and digital ideas. I'm learning and building digital projects that bring creativity and technology together."
+      >
         أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية.
       </p>
 
@@ -1178,12 +1574,14 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
         <a href="#projects" class="btn btn-primary" data-ar="اكتشف مشروعاتي ←" data-en="Explore My Projects →">اكتشف مشروعاتي ←</a>
         <a href="#contact" class="btn btn-outline" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</a>
       </div>
+
     </div>
   </div>
 </section>
 
 <section id="about">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">ABOUT ME</div>
       <h2 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h2>
@@ -1200,13 +1598,16 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
           أهلًا، أنا انطونيوس بطرس
         </h3>
 
-        <p data-ar="أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل."
-           data-en="I'm interested in exploring technology and programming. I work on improving my skills through learning, experimentation, and practical projects. I believe every new project is an opportunity to gain experience and develop better ideas.">
+        <p
+          data-ar="أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل."
+          data-en="I'm interested in exploring technology and programming. I work on improving my skills through learning, experimentation, and practical projects. I believe every new project is an opportunity to gain experience and develop better ideas."
+        >
           أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل.
         </p>
       </div>
 
       <div class="info-grid">
+
         <div class="info-item">
           <small data-ar="الاسم" data-en="Name">الاسم</small>
           <strong>ANTONYOS BOTROS</strong>
@@ -1219,13 +1620,19 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
 
         <div class="info-item">
           <small data-ar="المرحلة الدراسية" data-en="Education">المرحلة الدراسية</small>
-          <strong class="education-level" data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية)" data-en="Second Year of High School (Egyptian Baccalaureate System)">الصف الثاني الثانوي (نظام البكالوريا المصرية)</strong>
+          <strong
+            class="education-level"
+            data-ar="الصف الثاني الثانوي&#10;(نظام البكالوريا المصرية)"
+            data-en="Second Year of High School&#10;(Egyptian Baccalaureate System)"
+          >الصف الثاني الثانوي
+(نظام البكالوريا المصرية)</strong>
         </div>
 
         <div class="info-item">
           <small data-ar="الاهتمامات" data-en="Interests">الاهتمامات</small>
           <strong data-ar="التعلم والمشروعات الرقمية" data-en="Learning & Digital Projects">التعلم والمشروعات الرقمية</strong>
         </div>
+
       </div>
     </div>
   </div>
@@ -1233,6 +1640,7 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
 
 <section id="skills">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">MY SKILLS</div>
       <h2 data-ar="ما أتعلمه" data-en="What I'm Learning">ما أتعلمه</h2>
@@ -1242,6 +1650,7 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
     </div>
 
     <div class="skills-grid">
+
       <div class="skill reveal">
         <div class="symbol">
           <svg viewBox="0 0 64 64" aria-label="HTML5" role="img">
@@ -1289,22 +1698,28 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
       </div>
 
       <div class="skill reveal">
-        <div class="symbol"><img src="cpp.png" alt="C++ Logo"></div>
+        <div class="symbol">
+          <img src="cpp.png" alt="C++ Logo">
+        </div>
         <strong>C++</strong>
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
       <div class="skill reveal">
-        <div class="symbol"><img src="kali.png" alt="Kali Linux Logo"></div>
+        <div class="symbol">
+          <img src="kali.png" alt="Kali Linux Logo">
+        </div>
         <strong data-ar="الأمن السيبراني" data-en="Cybersecurity">الأمن السيبراني</strong>
         <small data-ar="تعلم واستكشاف" data-en="Learning & Exploring">تعلم واستكشاف</small>
       </div>
+
     </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">MY PROJECTS</div>
       <h2 data-ar="مشروعاتي" data-en="My Projects">مشروعاتي</h2>
@@ -1314,37 +1729,51 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
     </div>
 
     <div class="projects-grid">
+
       <article class="project-card reveal">
+
         <button class="project-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio.jpg')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
           <img src="portfolio.jpg" alt="ANTONYOS PORTFOLIO Website">
         </button>
 
         <div class="project-body">
           <h3>ANTONYOS PORTFOLIO</h3>
-          <p data-ar="موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها."
-             data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing.">
+
+          <p
+            data-ar="موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها."
+            data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing."
+          >
             موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها.
           </p>
+
           <span class="project-tag" data-ar="موقعي الشخصي" data-en="Personal Website">موقعي الشخصي</span>
+
           <button class="already-inside" type="button" disabled aria-disabled="true" data-ar="انت داخل المشروع بالفعل" data-en="You're already inside this project">انت داخل المشروع بالفعل</button>
         </div>
       </article>
 
       <article class="project-card reveal">
+
         <button class="project-image-button" style="--project-image:url('accountx.png')" type="button" onclick="openImageViewer('accountx.png')" aria-label="عرض صورة AccountX بحجم الشاشة">
           <img src="accountx.png" alt="AccountX Bot" class="accountx-image">
         </button>
 
         <div class="project-body">
           <h3>AccountX</h3>
-          <p data-ar="مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية."
-             data-en="A bot project named AccountX. I'm developing its concept and exploring its features as part of my interest in digital and software tools.">
+
+          <p
+            data-ar="مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية."
+            data-en="A bot project named AccountX. I'm developing its concept and exploring its features as part of my interest in digital and software tools."
+          >
             مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية.
           </p>
+
           <span class="project-tag" data-ar="مشروع رقمي" data-en="Digital Project">مشروع رقمي</span>
+
           <a class="project-visit" href="https://t.me/accountx2026bot" target="_blank" rel="noopener noreferrer" data-ar="↗ اذهب لرؤية المشروع" data-en="↗ Visit the Project">↗ اذهب لرؤية المشروع</a>
         </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -1353,6 +1782,7 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
 
 <section id="cv">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">MY RESUME</div>
       <h2 data-ar="السيرة الذاتية (CV)" data-en="Resume (CV)">السيرة الذاتية (CV)</h2>
@@ -1362,7 +1792,8 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
     </div>
 
     <div class="cv-entry-card reveal">
-      <p class="cv-entry-description" data-ar="للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي."
+      <p class="cv-entry-description"
+         data-ar="للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي."
          data-en="To access my resume, press the button below.">
         للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي.
       </p>
@@ -1373,11 +1804,13 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
         رؤية السيرة الذاتية (CV)
       </button>
     </div>
+
   </div>
 </section>
 
 <section id="education">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">EDUCATION</div>
       <h2 data-ar="التعليم" data-en="Education">التعليم</h2>
@@ -1385,19 +1818,24 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
 
     <div class="education-card reveal">
       <div class="education-icon">🎓</div>
+
       <div>
         <h3 data-ar="المرحلة الثانوية" data-en="High School">المرحلة الثانوية</h3>
-        <p data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية) — أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني."
-           data-en="Second year of high school (Egyptian Baccalaureate System) — continuing my studies alongside learning programming and cybersecurity.">
+        <p
+          data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية) — أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني."
+          data-en="Second year of high school (Egyptian Baccalaureate System) — continuing my studies alongside learning programming and cybersecurity."
+        >
           الصف الثاني الثانوي (نظام البكالوريا المصرية) — أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني.
         </p>
       </div>
     </div>
+
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
+
     <div class="section-heading reveal">
       <div class="section-label">GET IN TOUCH</div>
       <h2 data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
@@ -1408,32 +1846,45 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
         هل ترغب في التواصل معي؟
       </h3>
 
-      <p data-ar="يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك."
-         data-en="I'd be glad to receive your messages and questions. Choose your preferred way to contact me.">
+      <p
+        data-ar="يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك."
+        data-en="I'd be glad to receive your messages and questions. Choose your preferred way to contact me."
+      >
         يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك.
       </p>
 
       <div class="contact-links">
-        <a class="contact-link whatsapp-link"
-           href="https://wa.me/201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
-           target="_blank" rel="noopener noreferrer">
+
+        <a
+          class="contact-link whatsapp-link"
+          href="https://wa.me/201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
             <path d="M16 .8A15.1 15.1 0 0 0 3.1 23.7L1 31l7.5-2A15.1 15.1 0 1 0 16 .8zm0 27.5a12.3 12.3 0 0 1-6.3-1.7l-.5-.3-4.5 1.2 1.2-4.4-.3-.5A12.3 12.3 0 1 1 16 28.3zm6.8-9.2c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.3-2.9-.3-.7-.7-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.7 5.9.9.4 1.7.6 2.2.7.9.3 1.8.2 2.4.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
           </svg>
           <span data-ar="تواصل معي عبر واتساب" data-en="Contact Me via WhatsApp">تواصل معي عبر واتساب</span>
         </a>
 
-        <a class="contact-link telegram-link"
-           href="https://t.me/+201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
-           target="_blank" rel="noopener noreferrer">
+        <a
+          class="contact-link telegram-link"
+          href="https://t.me/+201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.8 3.2c.3-1.1-.8-2-1.8-1.6L2.4 8.4c-1.2.5-1.2 2.2.1 2.6l4.5 1.4 1.7 5.3c.4 1.2 1.9 1.5 2.7.5l2.5-3.1 4.6 3.4c1 .7 2.4.2 2.6-1l.7-14.3zM8.1 12l9.9-6.2-7.8 7.4-.3 3.2L8.1 12z"/>
           </svg>
           <span data-ar="تواصل معي عبر تليجرام" data-en="Contact Me via Telegram">تواصل معي عبر تليجرام</span>
         </a>
 
-        <a class="contact-link gmail-link"
-           href="mailto:antonyosbotros030@gmail.com?subject=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D9%86%20%D8%AE%D9%84%D8%A7%D9%84%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A">
+        <!-- Gmail -->
+
+        <a
+          class="contact-link gmail-link"
+          href="mailto:antonyosbotros030@gmail.com?subject=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D9%86%20%D8%AE%D9%84%D8%A7%D9%84%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A"
+        >
           <svg viewBox="0 0 48 36" aria-label="Gmail" role="img">
             <path fill="#4285F4" d="M4 5.5C4 3.6 5.6 2 7.5 2H11v30H7.5C5.6 32 4 30.4 4 28.5v-23z"/>
             <path fill="#34A853" d="M37 2h3.5C42.4 2 44 3.6 44 5.5v23c0 1.9-1.6 3.5-3.5 3.5H37V2z"/>
@@ -1444,6 +1895,7 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
           </svg>
           <span data-ar="تواصل معي عبر البريد الإلكتروني" data-en="Contact Me via Email">تواصل معي عبر البريد الإلكتروني</span>
         </a>
+
       </div>
     </div>
   </div>
@@ -1472,6 +1924,7 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
 
 <div class="cv-gate-overlay" id="cvGateOverlay" aria-hidden="true">
   <div class="cv-gate-window" role="dialog" aria-modal="true" aria-labelledby="cvGateMessage">
+
     <button class="cv-modal-close" id="closeCvGate" type="button" aria-label="إغلاق">×</button>
 
     <p class="cv-gate-message" id="cvGateMessage"
@@ -1481,15 +1934,28 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
     </p>
 
     <div class="cv-password-area">
-      <div class="cv-password-title" data-ar="اكتب الباسورد 🔐" data-en="Enter the Password 🔐">اكتب الباسورد 🔐</div>
+      <div class="cv-password-title"
+           data-ar="اكتب الباسورد 🔐"
+           data-en="Enter the Password 🔐">
+        اكتب الباسورد 🔐
+      </div>
+
       <span class="cv-down-arrow" aria-hidden="true">⬇</span>
 
       <form class="cv-password-form" id="cvPasswordForm">
-        <input class="cv-password-input" id="cvPassword" type="password"
-          maxlength="1024" autocomplete="off" autocapitalize="off"
-          spellcheck="false" enterkeyhint="go"
+        <input
+          class="cv-password-input"
+          id="cvPassword"
+          type="password"
+          maxlength="1024"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          enterkeyhint="go"
           placeholder="اكتب الباسورد هنا"
-          aria-label="كلمة مرور السيرة الذاتية" required>
+          aria-label="كلمة مرور السيرة الذاتية"
+          required
+        >
       </form>
 
       <div class="cv-gate-status" id="cvGateStatus" role="status" aria-live="polite"
@@ -1498,68 +1964,81 @@ footer strong {color:var(--primary);font-family:"Inter",sans-serif;}
         أدخل كلمة المرور للمتابعة.
       </div>
     </div>
+
   </div>
 </div>
 
 <!-- Full-screen CV page -->
 
 <div class="cv-fullscreen" id="cvFullscreen" aria-hidden="true">
+
   <button class="cv-page-close" id="closeCvPage" type="button" aria-label="إغلاق">×</button>
 
   <div class="cv-page-inner">
+
+    <!-- Arabic CV -->
+
     <section class="cv-language-block">
-      <h2 data-ar="السيرة الذاتية (CV) باللغة العربية" data-en="Arabic Resume (CV)">
+      <h2 data-ar="السيرة الذاتية (CV) باللغة العربية"
+          data-en="Arabic Resume (CV)">
         السيرة الذاتية (CV) باللغة العربية
       </h2>
 
       <div class="cv-actions-row">
-        <button class="cv-action-btn cv-view-btn" type="button" data-file="cv-ar.pdf" data-mode="view">
-          <span data-ar="عرض" data-en="View">عرض</span><span aria-hidden="true">👁</span>
+        <button class="cv-action-btn cv-view-btn" type="button"
+                data-file="cv-ar.pdf" data-mode="view">
+          <span data-ar="عرض" data-en="View">عرض</span>
+          <span aria-hidden="true">👁</span>
         </button>
-        <button class="cv-action-btn cv-download-btn" type="button" data-file="cv-ar.pdf" data-mode="download">
-          <span data-ar="تحميل" data-en="Download">تحميل</span><span aria-hidden="true">⬇</span>
+
+        <button class="cv-action-btn cv-download-btn" type="button"
+                data-file="cv-ar.pdf" data-mode="download">
+          <span data-ar="تحميل" data-en="Download">تحميل</span>
+          <span aria-hidden="true">⬇</span>
         </button>
       </div>
 
-      <p data-ar="اختر عرض الملف أو تحميله على جهازك." data-en="Choose to view the file or download it to your device.">
+      <p data-ar="اختر عرض الملف أو تحميله على جهازك."
+         data-en="Choose to view the file or download it to your device.">
         اختر عرض الملف أو تحميله على جهازك.
       </p>
     </section>
 
+    <!-- English CV -->
+
     <section class="cv-language-block">
-      <h2 data-ar="السيرة الذاتية (CV) باللغة الإنجليزية" data-en="English Resume (CV)">
+      <h2 data-ar="السيرة الذاتية (CV) باللغة الإنجليزية"
+          data-en="English Resume (CV)">
         السيرة الذاتية (CV) باللغة الإنجليزية
       </h2>
 
       <div class="cv-actions-row">
-        <button class="cv-action-btn cv-view-btn" type="button" data-file="cv-en.pdf" data-mode="view">
-          <span data-ar="عرض" data-en="View">عرض</span><span aria-hidden="true">👁</span>
+        <button class="cv-action-btn cv-view-btn" type="button"
+                data-file="cv-en.pdf" data-mode="view">
+          <span data-ar="عرض" data-en="View">عرض</span>
+          <span aria-hidden="true">👁</span>
         </button>
-        <button class="cv-action-btn cv-download-btn" type="button" data-file="cv-en.pdf" data-mode="download">
-          <span data-ar="تحميل" data-en="Download">تحميل</span><span aria-hidden="true">⬇</span>
+
+        <button class="cv-action-btn cv-download-btn" type="button"
+                data-file="cv-en.pdf" data-mode="download">
+          <span data-ar="تحميل" data-en="Download">تحميل</span>
+          <span aria-hidden="true">⬇</span>
         </button>
       </div>
 
-      <p data-ar="اختر عرض الملف أو تحميله على جهازك." data-en="Choose to view the file or download it to your device.">
+      <p data-ar="اختر عرض الملف أو تحميله على جهازك."
+         data-en="Choose to view the file or download it to your device.">
         اختر عرض الملف أو تحميله على جهازك.
       </p>
     </section>
 
     <div class="cv-page-status" id="cvPageStatus" role="status" aria-live="polite"
-         data-ar="السيرة الذاتية جاهزة." data-en="Your resume is ready.">
+         data-ar="السيرة الذاتية جاهزة."
+         data-en="Your resume is ready.">
       السيرة الذاتية جاهزة.
     </div>
-  </div>
-</div>
 
-<!-- PDF viewer داخل الموقع -->
-
-<div class="cv-pdf-viewer" id="cvPdfViewer" aria-hidden="true">
-  <div class="cv-pdf-toolbar">
-    <span class="cv-pdf-title" id="cvPdfTitle">السيرة الذاتية</span>
-    <button class="cv-pdf-close" id="closeCvPdf" type="button" aria-label="إغلاق عارض PDF">×</button>
   </div>
-  <iframe class="cv-pdf-frame" id="cvPdfFrame" title="Resume PDF Viewer"></iframe>
 </div>
 
 <script>
@@ -1570,7 +2049,9 @@ const themeBtn = document.getElementById("themeBtn");
 
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+
   const isDark = document.body.classList.contains("dark");
+
   document.querySelector('meta[name="theme-color"]').content =
     isDark ? "#090b16" : "#f5f7ff";
 });
@@ -1585,40 +2066,47 @@ languageBtn.addEventListener("click", () => {
 
   document.documentElement.lang = currentLanguage;
   document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+
   document.body.classList.toggle("english", currentLanguage === "en");
 
   document.querySelectorAll("[data-ar][data-en]").forEach(element => {
     element.textContent = element.getAttribute("data-" + currentLanguage);
   });
 
-  languageBtn.textContent = currentLanguage === "ar" ? "English" : "العربية";
+  languageBtn.textContent =
+    currentLanguage === "ar" ? "English" : "العربية";
 
   const passwordInput = document.getElementById("cvPassword");
 
-  passwordInput.placeholder = currentLanguage === "ar"
-    ? "اكتب الباسورد هنا"
-    : "Enter your password here";
+  passwordInput.placeholder =
+    currentLanguage === "ar"
+      ? "اكتب الباسورد هنا"
+      : "Enter your password here";
 
   passwordInput.setAttribute(
     "aria-label",
-    currentLanguage === "ar" ? "كلمة مرور السيرة الذاتية" : "CV access password"
+    currentLanguage === "ar"
+      ? "كلمة مرور السيرة الذاتية"
+      : "CV access password"
   );
 
   if (!cvGateStatus.dataset.custom) {
     setGateStatus(
-      currentLanguage === "ar" ? "أدخل كلمة المرور للمتابعة." : "Enter the password to continue.",
+      currentLanguage === "ar"
+        ? "أدخل كلمة المرور للمتابعة."
+        : "Enter the password to continue.",
       ""
     );
   }
 
   if (!cvPageStatus.dataset.custom) {
     setPageStatus(
-      currentLanguage === "ar" ? "السيرة الذاتية جاهزة." : "Your resume is ready.",
+      currentLanguage === "ar"
+        ? "السيرة الذاتية جاهزة."
+        : "Your resume is ready.",
       ""
     );
   }
-
-  fitInfoValues();
 });
 
 /* Side menu */
@@ -1677,55 +2165,6 @@ function closeImageViewer(event) {
   }
 }
 
-/* ضبط حجم قيم الخانات تلقائيًا حتى تظل في سطر واحد */
-
-function fitInfoValues() {
-  const values = document.querySelectorAll(".info-item strong");
-
-  values.forEach(element => {
-    element.style.fontSize = "";
-    element.style.setProperty("--info-fit-scale", "1");
-
-    const availableWidth = element.clientWidth;
-    if (!availableWidth) return;
-
-    let fontSize = parseFloat(getComputedStyle(element).fontSize);
-    const minimumFontSize = 8;
-
-    while (
-      element.scrollWidth > availableWidth &&
-      fontSize > minimumFontSize
-    ) {
-      fontSize = Math.max(minimumFontSize, fontSize - 0.5);
-      element.style.fontSize = fontSize + "px";
-    }
-
-    const actualWidth = element.scrollWidth;
-
-    if (actualWidth > availableWidth) {
-      const scale = Math.max(0.55, availableWidth / actualWidth);
-      element.style.setProperty("--info-fit-scale", scale.toFixed(3));
-    }
-  });
-}
-
-let infoResizeTimer;
-
-function scheduleInfoFit() {
-  cancelAnimationFrame(infoResizeTimer);
-  infoResizeTimer = requestAnimationFrame(fitInfoValues);
-}
-
-window.addEventListener("resize", scheduleInfoFit);
-window.addEventListener("load", fitInfoValues);
-
-if ("ResizeObserver" in window) {
-  const infoObserver = new ResizeObserver(scheduleInfoFit);
-  document.querySelectorAll(".info-item").forEach(item => {
-    infoObserver.observe(item);
-  });
-}
-
 /* CV access settings */
 
 const CV_FUNCTION_URL =
@@ -1740,11 +2179,6 @@ const cvPassword = document.getElementById("cvPassword");
 const cvPasswordForm = document.getElementById("cvPasswordForm");
 const cvGateStatus = document.getElementById("cvGateStatus");
 const cvPageStatus = document.getElementById("cvPageStatus");
-
-const cvPdfViewer = document.getElementById("cvPdfViewer");
-const cvPdfFrame = document.getElementById("cvPdfFrame");
-const cvPdfTitle = document.getElementById("cvPdfTitle");
-const closeCvPdfButton = document.getElementById("closeCvPdf");
 
 const openCvGateButton = document.getElementById("openCvGate");
 const closeCvGateButton = document.getElementById("closeCvGate");
@@ -1761,6 +2195,12 @@ const cvActionButtons = document.querySelectorAll(
 
 let cvPasswordValue = "";
 let cvIsBusy = false;
+
+/*
+  يحتفظ الموقع برابط التحقق الأول للنسخة العربية
+  لمدة أقل قليلًا من صلاحية الرابط التي يحددها الخادم.
+*/
+
 let cachedArabicView = null;
 
 function cvText(ar, en) {
@@ -1769,13 +2209,15 @@ function cvText(ar, en) {
 
 function setGateStatus(message, type = "") {
   cvGateStatus.textContent = message;
-  cvGateStatus.className = "cv-gate-status" + (type ? " " + type : "");
+  cvGateStatus.className =
+    "cv-gate-status" + (type ? " " + type : "");
   cvGateStatus.dataset.custom = type ? "true" : "";
 }
 
 function setPageStatus(message, type = "") {
   cvPageStatus.textContent = message;
-  cvPageStatus.className = "cv-page-status" + (type ? " " + type : "");
+  cvPageStatus.className =
+    "cv-page-status" + (type ? " " + type : "");
   cvPageStatus.dataset.custom = type ? "true" : "";
 }
 
@@ -1785,7 +2227,10 @@ function openCvGate() {
   document.body.style.overflow = "hidden";
 
   setGateStatus(
-    cvText("أدخل كلمة المرور للمتابعة.", "Enter the password to continue.")
+    cvText(
+      "أدخل كلمة المرور للمتابعة.",
+      "Enter the password to continue."
+    )
   );
 }
 
@@ -1808,19 +2253,21 @@ function openCvPage() {
 
   cvFullscreen.classList.add("show");
   cvFullscreen.setAttribute("aria-hidden", "false");
+
   cvFullscreen.scrollTop = 0;
 
   document.body.style.overflow = "hidden";
 
   setPageStatus(
-    cvText("السيرة الذاتية جاهزة.", "Your resume is ready.")
+    cvText(
+      "السيرة الذاتية جاهزة.",
+      "Your resume is ready."
+    )
   );
 }
 
 function closeCvPage() {
   if (cvIsBusy) return;
-
-  closeCvPdfViewer();
 
   cvFullscreen.classList.remove("show");
   cvFullscreen.setAttribute("aria-hidden", "true");
@@ -1835,26 +2282,6 @@ function closeCvPage() {
 openCvGateButton.addEventListener("click", openCvGate);
 closeCvGateButton.addEventListener("click", closeCvGate);
 closeCvPageButton.addEventListener("click", closeCvPage);
-
-/* فتح وإغلاق عارض PDF داخل الموقع */
-
-function openCvPdfViewer(url, file) {
-  cvPdfTitle.textContent = file === "cv-ar.pdf"
-    ? cvText("السيرة الذاتية باللغة العربية", "Arabic Resume")
-    : cvText("السيرة الذاتية باللغة الإنجليزية", "English Resume");
-
-  cvPdfFrame.src = url;
-  cvPdfViewer.classList.add("show");
-  cvPdfViewer.setAttribute("aria-hidden", "false");
-}
-
-function closeCvPdfViewer() {
-  cvPdfViewer.classList.remove("show");
-  cvPdfViewer.setAttribute("aria-hidden", "true");
-  cvPdfFrame.src = "about:blank";
-}
-
-closeCvPdfButton.addEventListener("click", closeCvPdfViewer);
 
 /* Send password to Supabase */
 
@@ -1880,7 +2307,10 @@ async function requestCvLink(file, mode, password) {
     result = await response.json();
   } catch {
     throw new Error(
-      cvText("تعذر قراءة استجابة الخادم.", "Could not read the server response.")
+      cvText(
+        "تعذر قراءة استجابة الخادم.",
+        "Could not read the server response."
+      )
     );
   }
 
@@ -1923,25 +2353,37 @@ function showCvRequestError(result, location) {
               `كلمة المرور غير صحيحة. متبقّي لك ${remaining} محاولات.`,
               `Incorrect password. ${remaining} attempts remaining.`
             )
-          : cvText("كلمة المرور غير صحيحة.", "Incorrect password.")
+          : cvText(
+              "كلمة المرور غير صحيحة.",
+              "Incorrect password."
+            )
       );
 
-    if (location === "gate") setGateStatus(message, "error");
-    else setPageStatus(message, "error");
+    if (location === "gate") {
+      setGateStatus(message, "error");
+    } else {
+      setPageStatus(message, "error");
+    }
 
     return;
   }
 
   if (status === 429 || data.blocked) {
-    const seconds = Math.max(0, Number(data.secondsRemaining) || 0);
+    const seconds = Math.max(
+      0,
+      Number(data.secondsRemaining) || 0
+    );
 
     const message = cvText(
       `تم حظر المحاولة مؤقتًا. حاول مرة أخرى بعد ${seconds} ثانية.`,
       `Access temporarily blocked. Try again in ${seconds} seconds.`
     );
 
-    if (location === "gate") setGateStatus(message, "warning");
-    else setPageStatus(message, "warning");
+    if (location === "gate") {
+      setGateStatus(message, "warning");
+    } else {
+      setPageStatus(message, "warning");
+    }
 
     return;
   }
@@ -1952,8 +2394,11 @@ function showCvRequestError(result, location) {
       "The server rejected the request. Check the access configuration."
     );
 
-    if (location === "gate") setGateStatus(message, "error");
-    else setPageStatus(message, "error");
+    if (location === "gate") {
+      setGateStatus(message, "error");
+    } else {
+      setPageStatus(message, "error");
+    }
 
     return;
   }
@@ -1964,8 +2409,11 @@ function showCvRequestError(result, location) {
       "A server configuration error occurred. Please try again later."
     );
 
-    if (location === "gate") setGateStatus(message, "error");
-    else setPageStatus(message, "error");
+    if (location === "gate") {
+      setGateStatus(message, "error");
+    } else {
+      setPageStatus(message, "error");
+    }
 
     return;
   }
@@ -1973,10 +2421,16 @@ function showCvRequestError(result, location) {
   const message =
     data.message ||
     data.error ||
-    cvText("تعذر تنفيذ الطلب. حاول مرة أخرى.", "The request could not be completed. Please try again.");
+    cvText(
+      "تعذر تنفيذ الطلب. حاول مرة أخرى.",
+      "The request could not be completed. Please try again."
+    );
 
-  if (location === "gate") setGateStatus(message, "error");
-  else setPageStatus(message, "error");
+  if (location === "gate") {
+    setGateStatus(message, "error");
+  } else {
+    setPageStatus(message, "error");
+  }
 }
 
 /* Verify password when user presses Enter / Go */
@@ -1990,7 +2444,10 @@ cvPasswordForm.addEventListener("submit", async event => {
 
   if (!password.trim()) {
     setGateStatus(
-      cvText("من فضلك اكتب كلمة المرور أولًا.", "Please enter the password first."),
+      cvText(
+        "من فضلك اكتب كلمة المرور أولًا.",
+        "Please enter the password first."
+      ),
       "error"
     );
 
@@ -2002,11 +2459,18 @@ cvPasswordForm.addEventListener("submit", async event => {
   cvPassword.disabled = true;
 
   setGateStatus(
-    cvText("🔐 جارٍ التحقق من كلمة المرور...", "🔐 Verifying the password...")
+    cvText(
+      "🔐 جارٍ التحقق من كلمة المرور...",
+      "🔐 Verifying the password..."
+    )
   );
 
   try {
-    const result = await requestCvLink("cv-ar.pdf", "view", password);
+    const result = await requestCvLink(
+      "cv-ar.pdf",
+      "view",
+      password
+    );
 
     if (!result.success) {
       showCvRequestError(result, "gate");
@@ -2017,11 +2481,17 @@ cvPasswordForm.addEventListener("submit", async event => {
 
     cachedArabicView = {
       url: result.signedUrl,
-      expiresAt: Date.now() + Math.max(0, (result.expiresIn - 5) * 1000)
+      expiresAt: Date.now() + Math.max(
+        0,
+        (result.expiresIn - 5) * 1000
+      )
     };
 
     setGateStatus(
-      "تم التحقق بنجاح.",
+      cvText(
+        "تم التحقق بنجاح.",
+        "Verification successful."
+      ),
       "success"
     );
 
@@ -2064,29 +2534,20 @@ cvActionButtons.forEach(button => {
     const file = button.dataset.file;
     const mode = button.dataset.mode;
 
-    /*
-      نفتح نافذة التحميل فقط عند اختيار Download.
-      أما View فيستخدم عارض PDF داخل الصفحة دون نافذة منبثقة.
-    */
+    const popup = window.open("about:blank", "_blank");
 
-    let downloadWindow = null;
-
-    if (mode === "download") {
-      downloadWindow = window.open("about:blank", "_blank");
-
-      if (!downloadWindow) {
-        setPageStatus(
-          cvText(
-            "اسمح بالنوافذ المنبثقة لهذا الموقع ثم حاول مرة أخرى.",
-            "Allow pop-ups for this website and try again."
-          ),
-          "warning"
-        );
-        return;
-      }
-
-      downloadWindow.opener = null;
+    if (!popup) {
+      setPageStatus(
+        cvText(
+          "اسمح بالنوافذ المنبثقة لهذا الموقع ثم حاول مرة أخرى.",
+          "Allow pop-ups for this website and try again."
+        ),
+        "warning"
+      );
+      return;
     }
+
+    popup.opener = null;
 
     cvIsBusy = true;
     cvActionButtons.forEach(item => item.disabled = true);
@@ -2115,13 +2576,14 @@ cvActionButtons.forEach(button => {
         signedUrl = cachedArabicView.url;
         cachedArabicView = null;
       } else {
-        const result = await requestCvLink(file, mode, cvPasswordValue);
+        const result = await requestCvLink(
+          file,
+          mode,
+          cvPasswordValue
+        );
 
         if (!result.success) {
-          if (downloadWindow && !downloadWindow.closed) {
-            downloadWindow.close();
-          }
-
+          if (!popup.closed) popup.close();
           showCvRequestError(result, "page");
           return;
         }
@@ -2129,32 +2591,29 @@ cvActionButtons.forEach(button => {
         signedUrl = result.signedUrl;
       }
 
-      if (mode === "view") {
-        openCvPdfViewer(signedUrl, file);
-      } else {
-        if (!downloadWindow || downloadWindow.closed) {
-          setPageStatus(
-            cvText(
-              "تم إغلاق نافذة التحميل قبل فتح الملف.",
-              "The download window was closed before the file opened."
-            ),
-            "warning"
-          );
-          return;
-        }
-
-        downloadWindow.location.replace(signedUrl);
+      if (popup.closed) {
+        setPageStatus(
+          cvText(
+            "تم إغلاق نافذة الملف قبل فتحه.",
+            "The file window was closed before it opened."
+          ),
+          "warning"
+        );
+        return;
       }
 
+      popup.location.replace(signedUrl);
+
       setPageStatus(
-        "تم التحقق بنجاح.",
+        cvText(
+          "تم التحقق بنجاح.",
+          "Verification successful."
+        ),
         "success"
       );
 
     } catch (error) {
-      if (downloadWindow && !downloadWindow.closed) {
-        downloadWindow.close();
-      }
+      if (!popup.closed) popup.close();
 
       console.error("CV file request failed:", error);
 
@@ -2187,11 +2646,6 @@ document.addEventListener("keydown", event => {
     return;
   }
 
-  if (cvPdfViewer.classList.contains("show")) {
-    closeCvPdfViewer();
-    return;
-  }
-
   if (cvFullscreen.classList.contains("show")) {
     closeCvPage();
     return;
@@ -2221,10 +2675,6 @@ document.querySelectorAll(".reveal").forEach(element => {
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
-
-/* Initial sizing of the four information values */
-
-fitInfoValues();
 
 </script>
 
