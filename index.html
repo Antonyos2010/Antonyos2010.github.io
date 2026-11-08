@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -19,6 +20,10 @@
 <meta property="og:site_name" content="ANTONYOS BOTROS">
 
 <link rel="canonical" href="https://antonyos2010.github.io/">
+
+<!-- تحميل صور المشاريع المهمة مبكرًا -->
+<link rel="preload" as="image" href="portfolio.jpg">
+<link rel="preload" as="image" href="accountx.png">
 
 <script type="application/ld+json">
 {
@@ -613,12 +618,12 @@ body.english .profile-photo {
   border-color:var(--primary);
 }
 
-/* نفس إطار الصور ونفس النسبة، مع إظهار الصورة كاملة */
+/* صور المشاريع: مساحة أطول مع إظهار الصورة كاملة */
 
 .project-image-button {
   width:100%;
-  aspect-ratio:4 / 3;
-  height:auto;
+  height:clamp(230px,42vw,340px);
+  aspect-ratio:auto;
   border:0;
   border-radius:0 !important;
   display:grid;
@@ -659,6 +664,8 @@ body.english .profile-photo {
   display:block;
   width:100%;
   height:100%;
+  max-width:100%;
+  max-height:100%;
   object-fit:contain;
   object-position:center;
   position:relative;
@@ -794,7 +801,7 @@ body.english .project-body h3 {text-align:left;}
   height:100dvh;
   max-width:none;
   max-height:none;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center;
   border-radius:0;
   box-shadow:none;
@@ -1375,11 +1382,16 @@ footer strong {
     height:62px;
   }
 
-  /* المشروعان يظلان في صف واحد */
+  /* المشروعان يظلان في صف واحد مع مساحة صور أطول */
 
   .projects-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:8px;
+  }
+
+  .project-image-button {
+    height:clamp(190px,48vw,260px);
+    aspect-ratio:auto;
   }
 
   .project-card {min-width:0;}
@@ -1481,6 +1493,10 @@ footer strong {
 
   .projects-grid {gap:6px;}
 
+  .project-image-button {
+    height:190px;
+  }
+
   .project-body {padding:8px;}
 
   .project-body h3 {font-size:11px;}
@@ -1497,17 +1513,20 @@ footer strong {
   }
 }
 
-/* عارض الصور: ملء الشاشة واختيار الصورة حسب اتجاه الجهاز */
+/* عارض الصور: عرض الصورة كاملة دون قص */
 
 .image-viewer {
   padding:0 !important;
   overflow:hidden !important;
+  background:#03050f;
 }
 
 .image-viewer picture {
   position:absolute;
   inset:0;
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   width:100%;
   height:100%;
 }
@@ -1519,11 +1538,12 @@ footer strong {
   width:100vw !important;
   height:100vh !important;
   height:100dvh !important;
-  max-width:none !important;
-  max-height:none !important;
-  object-fit:cover !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
   object-position:center !important;
   border-radius:0 !important;
+  box-shadow:none !important;
 }
 
 .viewer-close {
@@ -1634,7 +1654,7 @@ footer strong {
 
     <div class="about-card reveal">
       <div>
-        <img src="profile.jpg" alt="ANTONYOS BOTROS - انطونيوس بطرس" class="profile-photo">
+        <img src="profile.jpg" alt="ANTONYOS BOTROS - انطونيوس بطرس" class="profile-photo" loading="eager" decoding="async">
 
         <h3 style="margin-bottom:15px" data-ar="أهلًا، أنا انطونيوس بطرس" data-en="Hello, I'm Antonyos Botros">
           أهلًا، أنا انطونيوس بطرس
@@ -1741,7 +1761,7 @@ footer strong {
 
       <div class="skill reveal">
         <div class="symbol">
-          <img src="cpp.png" alt="C++ Logo">
+          <img src="cpp.png" alt="C++ Logo" loading="lazy" decoding="async">
         </div>
         <strong>C++</strong>
         <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
@@ -1749,7 +1769,7 @@ footer strong {
 
       <div class="skill reveal">
         <div class="symbol">
-          <img src="kali.png" alt="Kali Linux Logo">
+          <img src="kali.png" alt="Kali Linux Logo" loading="lazy" decoding="async">
         </div>
         <strong data-ar="الأمن السيبراني" data-en="Cybersecurity">الأمن السيبراني</strong>
         <small data-ar="تعلم واستكشاف" data-en="Learning & Exploring">تعلم واستكشاف</small>
@@ -1775,7 +1795,13 @@ footer strong {
       <article class="project-card reveal">
 
         <button class="project-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
-          <img src="portfolio.jpg" alt="ANTONYOS PORTFOLIO Website">
+          <img
+            src="portfolio.jpg"
+            alt="ANTONYOS PORTFOLIO Website"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          >
         </button>
 
         <div class="project-body">
@@ -1797,7 +1823,14 @@ footer strong {
       <article class="project-card reveal">
 
         <button class="project-image-button" style="--project-image:url('accountx.png')" type="button" onclick="openImageViewer('accountx')" aria-label="عرض صورة AccountX بحجم الشاشة">
-          <img src="accountx.png" alt="AccountX Bot" class="accountx-image">
+          <img
+            src="accountx.png"
+            alt="AccountX Bot"
+            class="accountx-image"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          >
         </button>
 
         <div class="project-body">
@@ -2744,4 +2777,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-  </html>
+</html>
