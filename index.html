@@ -1619,9 +1619,22 @@ footer strong {
   }
 }
 
-/* عرض الصور كاملة في الوضع الأفقي دون قص */
+/* الوضع الأفقي: الصورة كاملة مع خلفية ممتدة من نفس الصورة */
 
 @media (orientation: landscape) {
+  .image-viewer picture::before {
+    content:"";
+    position:absolute;
+    inset:-25px;
+    background-image:var(--viewer-background);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:blur(20px) brightness(.65);
+    transform:scale(1.05);
+    z-index:0;
+  }
+
   .image-viewer img {
     width:100vw !important;
     height:100dvh !important;
@@ -1629,11 +1642,14 @@ footer strong {
     max-height:100% !important;
     object-fit:contain !important;
     object-position:center !important;
+    z-index:1;
   }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
+  *,
+  *::before,
+  *::after {
     scroll-behavior:auto!important;
     transition-duration:.01ms!important;
     animation-duration:.01ms!important;
@@ -1649,9 +1665,11 @@ footer strong {
 
 <header>
   <div class="container header-inner">
+
     <a href="#home" class="logo"><span class="logo-primary">ANTONYOS</span> <span class="logo-black">BOTROS</span><span class="logo-dot">.</span></a>
 
     <div class="header-actions">
+
       <button class="lang-btn" id="languageBtn" type="button">English</button>
 
       <button class="theme-switch" id="themeBtn" type="button" aria-label="تغيير الوضع">
@@ -1661,6 +1679,7 @@ footer strong {
       </button>
 
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة">☰</button>
+
     </div>
   </div>
 </header>
@@ -1762,6 +1781,7 @@ footer strong {
             data-ar="الصف الثاني الثانوي&#10;(نظام البكالوريا المصرية)"
             data-en="Second Year of High School&#10;(Egyptian Baccalaureate System)"
           >الصف الثاني الثانوي
+
 (نظام البكالوريا المصرية)</strong>
         </div>
 
@@ -1772,6 +1792,7 @@ footer strong {
 
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1893,6 +1914,7 @@ footer strong {
 
           <button class="already-inside" type="button" disabled aria-disabled="true" data-ar="انت داخل المشروع بالفعل" data-en="You're already inside this project">انت داخل المشروع بالفعل</button>
         </div>
+
       </article>
 
       <article class="project-card reveal">
@@ -1918,10 +1940,11 @@ footer strong {
             مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية.
           </p>
 
-          <span class="project-tag" data-ar="أمن 100%" data-en="100% Secure">أمن 100%</span>
+          <span class="project-tag" data-ar="مشروع رقمي" data-en="Digital Project">مشروع رقمي</span>
 
           <a class="project-visit" href="https://t.me/accountx2026bot" target="_blank" rel="noopener noreferrer" data-ar="↗ اذهب لرؤية المشروع" data-en="↗ Visit the Project">↗ اذهب لرؤية المشروع</a>
         </div>
+
       </article>
 
     </div>
@@ -1949,8 +1972,8 @@ footer strong {
       </p>
 
       <button class="cv-entry-btn" id="openCvGate" type="button"
-              data-ar="رؤية السيرة الذاتية (CV)"
-              data-en="View Resume (CV)">
+        data-ar="رؤية السيرة الذاتية (CV)"
+        data-en="View Resume (CV)">
         رؤية السيرة الذاتية (CV)
       </button>
     </div>
@@ -2047,6 +2070,7 @@ footer strong {
 
       </div>
     </div>
+
   </div>
 </section>
 
@@ -2260,11 +2284,11 @@ languageBtn.addEventListener("click", () => {
 });
 
 /*
-  التنقل بين أقسام الموقع دون إضافة خطوات إلى سجل المتصفح.
+التنقل بين أقسام الموقع دون إضافة خطوات إلى سجل المتصفح.
 
-  نستخدم replaceState بدل التنقل العادي بالـ hash،
-  حتى لا يضطر المستخدم للضغط على زر الرجوع عدة مرات
-  للمرور على كل قسم زاره داخل الموقع.
+نستخدم replaceState بدل التنقل العادي بالـ hash،
+حتى لا يضطر المستخدم للضغط على زر الرجوع عدة مرات
+للمرور على كل قسم زاره داخل الموقع.
 */
 
 document.addEventListener("click", event => {
@@ -2347,6 +2371,8 @@ document.querySelectorAll(".menu-links a").forEach(link => {
 
 const imageViewer = document.getElementById("imageViewer");
 const viewerImage = document.getElementById("viewerImage");
+const viewerPicture = imageViewer.querySelector("picture");
+
 const viewerPortraitSource = document.getElementById("viewerPortraitSource");
 const viewerLandscapeSource = document.getElementById("viewerLandscapeSource");
 
@@ -2409,6 +2435,27 @@ if (accountxImage) {
 
 let imageViewerHistoryOpen = false;
 
+function updateViewerOrientation() {
+  const projectName = imageViewer.dataset.project;
+  const images = projectViewerImages[projectName];
+
+  if (!images || !imageViewer.classList.contains("show")) return;
+
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+  if (isPortrait) {
+    viewerImage.src = images.portrait;
+    viewerPicture.style.removeProperty("--viewer-background");
+  } else {
+    viewerImage.src = images.landscape;
+
+    viewerPicture.style.setProperty(
+      "--viewer-background",
+      `url("${images.landscape}")`
+    );
+  }
+}
+
 function openImageViewer(projectName) {
   const images = projectViewerImages[projectName];
 
@@ -2419,16 +2466,16 @@ function openImageViewer(projectName) {
     imageViewerHistoryOpen = true;
   }
 
+  imageViewer.dataset.project = projectName;
+
   viewerPortraitSource.srcset = images.portrait;
   viewerLandscapeSource.srcset = images.landscape;
 
-  viewerImage.src =
-    window.matchMedia("(orientation: portrait)").matches
-      ? images.portrait
-      : images.landscape;
+  updateViewerOrientation();
 
   imageViewer.classList.add("show");
   imageViewer.setAttribute("aria-hidden", "false");
+
   document.body.style.overflow = "hidden";
 }
 
@@ -2450,6 +2497,9 @@ function closeImageViewer(event, fromPopState = false) {
     viewerPortraitSource.srcset = "";
     viewerLandscapeSource.srcset = "";
 
+    viewerPicture.style.removeProperty("--viewer-background");
+    delete imageViewer.dataset.project;
+
     document.body.style.overflow = "";
 
     const shouldGoBack = imageViewerHistoryOpen && !fromPopState;
@@ -2460,6 +2510,16 @@ function closeImageViewer(event, fromPopState = false) {
     }
   }
 }
+
+/* تحديث صورة العارض عند تدوير الجهاز */
+
+window.addEventListener("orientationchange", updateViewerOrientation);
+
+window.addEventListener("resize", () => {
+  if (imageViewer.classList.contains("show")) {
+    updateViewerOrientation();
+  }
+});
 
 /* CV access settings */
 
@@ -2485,8 +2545,8 @@ const cvActionButtons = document.querySelectorAll(
 );
 
 /*
-  كلمة المرور محفوظة مؤقتًا في ذاكرة الصفحة فقط.
-  لا يتم حفظها في localStorage أو sessionStorage.
+كلمة المرور محفوظة مؤقتًا في ذاكرة الصفحة فقط.
+لا يتم حفظها في localStorage أو sessionStorage.
 */
 
 let cvPasswordValue = "";
@@ -2496,8 +2556,8 @@ let cvGateHistoryOpen = false;
 let cvPageHistoryOpen = false;
 
 /*
-  يحتفظ الموقع برابط التحقق الأول للنسخة العربية
-  لمدة أقل قليلًا من صلاحية الرابط التي يحددها الخادم.
+يحتفظ الموقع برابط التحقق الأول للنسخة العربية
+لمدة أقل قليلًا من صلاحية الرابط التي يحددها الخادم.
 */
 
 let cachedArabicView = null;
@@ -2528,6 +2588,7 @@ function openCvGate() {
 
   cvGateOverlay.classList.add("show");
   cvGateOverlay.setAttribute("aria-hidden", "false");
+
   document.body.style.overflow = "hidden";
 
   setGateStatus(
@@ -2563,8 +2624,8 @@ function openCvPage() {
   cvGateOverlay.setAttribute("aria-hidden", "true");
 
   /*
-    نستبدل حالة نافذة كلمة المرور بحالة صفحة السيرة الذاتية،
-    حتى يرجع زر الجهاز من صفحة السيرة إلى الموقع مباشرة.
+  نستبدل حالة نافذة كلمة المرور بحالة صفحة السيرة الذاتية،
+  حتى يرجع زر الجهاز من صفحة السيرة إلى الموقع مباشرة.
   */
 
   if (cvGateHistoryOpen) {
@@ -2576,6 +2637,7 @@ function openCvPage() {
 
     cvGateHistoryOpen = false;
     cvPageHistoryOpen = true;
+
   } else {
     pushSiteHistoryState("cvPage");
     cvPageHistoryOpen = true;
@@ -2972,11 +3034,17 @@ cvActionButtons.forEach(button => {
 });
 
 /*
-  التعامل مع زر الرجوع الفعلي في الموبايل.
+التعامل مع زر الرجوع الفعلي في الموبايل.
 
-  إذا كانت نافذة أو القائمة مفتوحة، يتم إغلاقها.
-  إذا لم تكن أي نافذة مفتوحة، لا ننشئ أي حالة جديدة
-  ولا نمنع المتصفح من الرجوع إلى الصفحة السابقة.
+- إذا كان عارض الصور مفتوحًا: يغلقه أولًا.
+- إذا كانت صفحة السيرة الذاتية مفتوحة: يغلقها أولًا.
+- إذا كانت نافذة كلمة المرور مفتوحة: يغلقها أولًا.
+- إذا كانت القائمة الجانبية مفتوحة: يغلقها أولًا.
+- إذا لم توجد أي نافذة مفتوحة: لا نتدخل في الرجوع الطبيعي للمتصفح.
+
+لا نضيف حالات تاريخ وهمية عند التنقل بين أقسام الموقع،
+وبالتالي لا يحتاج المستخدم إلى المرور على الأقسام التي زارها
+قبل الخروج من الموقع.
 */
 
 window.addEventListener("popstate", () => {
@@ -3009,6 +3077,10 @@ window.addEventListener("popstate", () => {
     return;
   }
 
+  /*
+  لا يوجد أي overlay مفتوح:
+  نترك المتصفح يكمل الرجوع الطبيعي إلى الصفحة السابقة.
+  */
 });
 
 /* Close windows with Escape */
