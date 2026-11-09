@@ -551,12 +551,15 @@ body.english .profile-photo {
   line-height:1.6;
 }
 
+/* ضبط المسافة بين سطري المرحلة الدراسية */
+
 .info-item strong.education-level {
   display:block;
   white-space:pre-line;
   overflow-wrap:anywhere;
   font-size:clamp(11px,2vw,15px);
-  line-height:1.6;
+  line-height:1.2;
+  margin:0;
 }
 
 /* Skills */
@@ -1032,6 +1035,13 @@ body.english .project-body h3 {text-align:left;}
   font-size:13px;
   line-height:1.8;
   overflow-wrap:anywhere;
+}
+
+/* رسائل الخطأ والتحذير باللون الأحمر */
+
+.cv-gate-status.error,
+.cv-gate-status.warning {
+  color:#d93650;
 }
 
 /* زر دخول الجديد */
@@ -1599,12 +1609,13 @@ footer strong {
   height:100%;
 }
 
+/* عرض الصورة كاملة دون قص أو تمديد في جميع الاتجاهات */
+
 .image-viewer img {
   position:absolute;
   inset:0;
   display:block;
   width:100vw !important;
-  height:100vh !important;
   height:100dvh !important;
   max-width:100% !important;
   max-height:100% !important;
@@ -1659,19 +1670,6 @@ footer strong {
   max-height:100% !important;
   object-fit:cover !important;
   object-position:center top !important;
-}
-
-/* إزالة الحواف السوداء في العارض الرأسي فقط */
-
-@media (orientation: portrait) {
-  .image-viewer img {
-    width:100vw !important;
-    height:100dvh !important;
-    max-width:100% !important;
-    max-height:100% !important;
-    object-fit:fill !important;
-    object-position:center !important;
-  }
 }
 
 /* الوضع الأفقي: الصورة كاملة مع خلفية ممتدة من نفس الصورة */
@@ -1836,7 +1834,6 @@ footer strong {
             data-ar="الصف الثاني الثانوي&#10;(نظام البكالوريا المصرية)"
             data-en="Second Year of High School&#10;(Egyptian Baccalaureate System)"
           >الصف الثاني الثانوي
-
 (نظام البكالوريا المصرية)</strong>
         </div>
 
@@ -2350,11 +2347,8 @@ languageBtn.addEventListener("click", () => {
 });
 
 /*
-التنقل بين أقسام الموقع دون إضافة خطوات إلى سجل المتصفح.
-
-نستخدم replaceState بدل التنقل العادي بالـ hash،
-حتى لا يضطر المستخدم للضغط على زر الرجوع عدة مرات
-للمرور على كل قسم زاره داخل الموقع.
+التنقل بين أقسام الموقع بالتمرير فقط.
+لا نغيّر عنوان الصفحة ولا نضيف أي خطوات إلى سجل المتصفح.
 */
 
 document.addEventListener("click", event => {
@@ -2372,19 +2366,13 @@ document.addEventListener("click", event => {
 
   event.preventDefault();
 
-  history.replaceState(
-    history.state,
-    "",
-    href
-  );
-
   target.scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
 });
 
-/* Browser back button support */
+/* Browser back button support for overlays only */
 
 function pushSiteHistoryState(layer) {
   history.pushState(
