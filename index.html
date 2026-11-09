@@ -100,7 +100,8 @@ button {font:inherit;cursor:pointer;}
 .cv-modal-close,
 .cv-action-btn,
 .cv-page-close,
-.cv-password-input {
+.cv-password-input,
+.cv-password-submit {
   border-radius:999px !important;
 }
 
@@ -925,6 +926,8 @@ body.english .project-body h3 {text-align:left;}
   text-align:center;
 }
 
+/* زر الإغلاق الأسود */
+
 .cv-modal-close {
   position:absolute;
   top:17px;
@@ -933,8 +936,8 @@ body.english .project-body h3 {text-align:left;}
   height:45px;
   display:grid;
   place-items:center;
-  border:2px solid #7055ed;
-  background:#7055ed;
+  border:2px solid #000000;
+  background:#000000;
   color:#ffffff;
   font-size:25px;
   font-weight:800;
@@ -943,8 +946,9 @@ body.english .project-body h3 {text-align:left;}
 }
 
 .cv-modal-close:hover {
-  background:#ffffff;
-  color:#7055ed;
+  background:#000000;
+  border-color:#000000;
+  color:#ffffff;
   transform:rotate(90deg);
 }
 
@@ -1019,6 +1023,8 @@ body.english .project-body h3 {text-align:left;}
 
 .cv-password-input:disabled {opacity:.65;}
 
+/* رسالة كتابة الباسورد */
+
 .cv-gate-status {
   min-height:45px;
   margin-top:17px;
@@ -1028,9 +1034,50 @@ body.english .project-body h3 {text-align:left;}
   overflow-wrap:anywhere;
 }
 
-.cv-gate-status.error {color:#d93650;}
-.cv-gate-status.warning {color:#bd8017;}
-.cv-gate-status.success {color:#159b65;}
+/* زر دخول الجديد */
+
+.cv-password-submit {
+  display:block;
+  width:100%;
+  min-height:58px;
+  margin:8px auto 0;
+  padding:12px 22px;
+
+  /* لون بنفسجي ثابت في الوضعين النهاري والليلي */
+  background:linear-gradient(110deg,#7055ed,#9277ff);
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff;
+
+  /* إطار أبيض كامل والمسافة الداخلية بنفسجية */
+  border:3px solid #ffffff;
+
+  font-family:inherit;
+  font-size:18px;
+  font-weight:900;
+  text-align:center;
+
+  box-shadow:
+    0 0 0 2px #7055ed,
+    0 7px 22px rgba(112,85,237,.25);
+
+  transition:transform .25s,box-shadow .25s;
+}
+
+.cv-password-submit:hover:not(:disabled) {
+  transform:translateY(-3px);
+  box-shadow:
+    0 0 0 2px #7055ed,
+    0 10px 27px rgba(112,85,237,.32);
+}
+
+.cv-password-submit:active:not(:disabled) {
+  transform:translateY(0);
+}
+
+.cv-password-submit:disabled {
+  opacity:.65;
+  cursor:wait;
+}
 
 /* Full-screen CV page */
 
@@ -1055,6 +1102,8 @@ body.english .project-body h3 {text-align:left;}
   padding-top:35px;
 }
 
+/* زر إغلاق صفحة السيرة الذاتية بالأسود */
+
 .cv-page-close {
   position:fixed;
   top:17px;
@@ -1064,19 +1113,20 @@ body.english .project-body h3 {text-align:left;}
   height:45px;
   display:grid;
   place-items:center;
-  border:2px solid #7055ed;
-  background:#7055ed;
+  border:2px solid #000000;
+  background:#000000;
   color:#ffffff;
   font-size:25px;
   font-weight:800;
   line-height:1;
-  box-shadow:0 5px 18px rgba(112,85,237,.2);
+  box-shadow:0 5px 18px rgba(0,0,0,.2);
   transition:.2s;
 }
 
 .cv-page-close:hover {
-  color:#7055ed;
-  background:#ffffff;
+  color:#ffffff;
+  background:#000000;
+  border-color:#000000;
   transform:rotate(90deg);
 }
 
@@ -1454,6 +1504,11 @@ footer strong {
   .cv-password-area {margin-top:45px;}
   .cv-password-title {font-size:19px;}
   .cv-down-arrow {font-size:58px;}
+
+  .cv-password-submit {
+    min-height:55px;
+    font-size:17px;
+  }
 
   .cv-fullscreen {padding:30px 12px 35px;}
   .cv-page-inner {padding-top:38px;}
@@ -2131,16 +2186,27 @@ footer strong {
           spellcheck="false"
           enterkeyhint="go"
           placeholder="اكتب الباسورد هنا"
-          aria-label="كلمة مرور السيرة الذاتية"
+          aria-label="باسورد السيرة الذاتية"
           required
         >
       </form>
 
       <div class="cv-gate-status" id="cvGateStatus" role="status" aria-live="polite"
-           data-ar="أدخل كلمة المرور للمتابعة."
+           data-ar="اكتب الباسورد للمتابعة."
            data-en="Enter the password to continue.">
-        أدخل كلمة المرور للمتابعة.
+        اكتب الباسورد للمتابعة.
       </div>
+
+      <button
+        class="cv-password-submit"
+        id="cvPasswordSubmit"
+        type="submit"
+        form="cvPasswordForm"
+        data-ar="دخول"
+        data-en="Login"
+      >
+        دخول
+      </button>
     </div>
 
   </div>
@@ -2260,14 +2326,14 @@ languageBtn.addEventListener("click", () => {
   passwordInput.setAttribute(
     "aria-label",
     currentLanguage === "ar"
-      ? "كلمة مرور السيرة الذاتية"
+      ? "باسورد السيرة الذاتية"
       : "CV access password"
   );
 
   if (!cvGateStatus.dataset.custom) {
     setGateStatus(
       currentLanguage === "ar"
-        ? "أدخل كلمة المرور للمتابعة."
+        ? "اكتب الباسورد للمتابعة."
         : "Enter the password to continue.",
       ""
     );
@@ -2540,6 +2606,8 @@ const openCvGateButton = document.getElementById("openCvGate");
 const closeCvGateButton = document.getElementById("closeCvGate");
 const closeCvPageButton = document.getElementById("closeCvPage");
 
+const cvPasswordSubmit = document.getElementById("cvPasswordSubmit");
+
 const cvActionButtons = document.querySelectorAll(
   "#cvFullscreen .cv-action-btn"
 );
@@ -2593,7 +2661,7 @@ function openCvGate() {
 
   setGateStatus(
     cvText(
-      "أدخل كلمة المرور للمتابعة.",
+      "اكتب الباسورد للمتابعة.",
       "Enter the password to continue."
     )
   );
@@ -2751,11 +2819,11 @@ function showCvRequestError(result, location) {
       (
         Number.isFinite(remaining)
           ? cvText(
-              `كلمة المرور غير صحيحة. متبقّي لك ${remaining} محاولات.`,
+              `الباسورد غير صحيح. متبقّي لك ${remaining} محاولات.`,
               `Incorrect password. ${remaining} attempts remaining.`
             )
           : cvText(
-              "كلمة المرور غير صحيحة.",
+              "الباسورد غير صحيح.",
               "Incorrect password."
             )
       );
@@ -2834,7 +2902,7 @@ function showCvRequestError(result, location) {
   }
 }
 
-/* Verify password when user presses Enter / Go */
+/* Verify password when user presses Enter / Go or the Login button */
 
 cvPasswordForm.addEventListener("submit", async event => {
   event.preventDefault();
@@ -2846,7 +2914,7 @@ cvPasswordForm.addEventListener("submit", async event => {
   if (!password.trim()) {
     setGateStatus(
       cvText(
-        "من فضلك اكتب كلمة المرور أولًا.",
+        "من فضلك اكتب الباسورد أولًا.",
         "Please enter the password first."
       ),
       "error"
@@ -2858,10 +2926,11 @@ cvPasswordForm.addEventListener("submit", async event => {
 
   cvIsBusy = true;
   cvPassword.disabled = true;
+  cvPasswordSubmit.disabled = true;
 
   setGateStatus(
     cvText(
-      "🔐 جارٍ التحقق من كلمة المرور...",
+      "🔐 جارٍ التحقق من الباسورد...",
       "🔐 Verifying the password..."
     )
   );
@@ -2912,6 +2981,7 @@ cvPasswordForm.addEventListener("submit", async event => {
   } finally {
     cvIsBusy = false;
     cvPassword.disabled = false;
+    cvPasswordSubmit.disabled = false;
   }
 });
 
@@ -2924,7 +2994,7 @@ cvActionButtons.forEach(button => {
     if (!cvPasswordValue) {
       setPageStatus(
         cvText(
-          "انتهت جلسة الوصول. أغلق الصفحة وأدخل كلمة المرور مرة أخرى.",
+          "انتهت جلسة الوصول. أغلق الصفحة واكتب الباسورد مرة أخرى.",
           "Your access session has ended. Close this page and enter the password again."
         ),
         "warning"
@@ -3038,7 +3108,7 @@ cvActionButtons.forEach(button => {
 
 - إذا كان عارض الصور مفتوحًا: يغلقه أولًا.
 - إذا كانت صفحة السيرة الذاتية مفتوحة: يغلقها أولًا.
-- إذا كانت نافذة كلمة المرور مفتوحة: يغلقها أولًا.
+- إذا كانت نافذة الباسورد مفتوحة: يغلقها أولًا.
 - إذا كانت القائمة الجانبية مفتوحة: يغلقها أولًا.
 - إذا لم توجد أي نافذة مفتوحة: لا نتدخل في الرجوع الطبيعي للمتصفح.
 
@@ -3063,7 +3133,7 @@ window.addEventListener("popstate", () => {
     return;
   }
 
-  /* إغلاق نافذة كلمة مرور السيرة الذاتية */
+  /* إغلاق نافذة الباسورد */
 
   if (cvGateOverlay.classList.contains("show")) {
     closeCvGate(true);
