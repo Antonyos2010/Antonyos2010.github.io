@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f7ff">
 
-<title>ANTONYOS BOTROS | انطونيوس بطرس</title>
-<meta name="description" content="الموقع الشخصي لانطونيوس بطرس Antonyos Botros. مهتم بالبرمجة والتكنولوجيا والأمن السيبراني والمشروعات الرقمية.">
-<meta name="keywords" content="ANTONYOS BOTROS, انطونيوس بطرس, Programming, Cybersecurity, AccountX">
+<title>ANTONYOS BOTROS | انطونيوس بطرس - الموقع الشخصي</title>
+<meta name="description" content="الموقع الشخصي لانطونيوس بطرس Antonyos Botros. مهتم بالتكنولوجيا والبرمجة والمشروعات الرقمية. اكتشف مهاراتي ومشروعاتي وأفكاري الرقمية.">
+<meta name="keywords" content="ANTONYOS BOTROS, انطونيوس بطرس, أنطونيوس بطرس, Antonyos, Technology, Programming, AccountX">
 <meta name="author" content="ANTONYOS BOTROS">
 <meta name="google-site-verification" content="fxfr-B-gnBizaAetBEV72rjixynicxPFNtJfJIZ-g" />
 
 <meta property="og:title" content="ANTONYOS BOTROS | انطونيوس بطرس">
-<meta property="og:description" content="الموقع الشخصي لانطونيوس بطرس. البرمجة والتكنولوجيا والأمن السيبراني.">
+<meta property="og:description" content="الموقع الشخصي لانطونيوس بطرس Antonyos Botros. مرحبًا بك في مساحتي الرقمية.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://antonyos2010.github.io/">
 <meta property="og:locale" content="ar_EG">
@@ -20,7 +20,6 @@
 
 <link rel="canonical" href="https://antonyos2010.github.io/">
 
-<link rel="preload" as="image" href="profile.jpg">
 <link rel="preload" as="image" href="portfolio.jpg">
 <link rel="preload" as="image" href="accountx.png">
 
@@ -29,7 +28,11 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "ANTONYOS BOTROS",
-  "alternateName": ["انطونيوس بطرس", "Antonyos Botros"],
+  "alternateName": [
+    "انطونيوس بطرس",
+    "أنطونيوس بطرس",
+    "Antonyos Botros"
+  ],
   "url": "https://antonyos2010.github.io/"
 }
 </script>
@@ -40,45 +43,29 @@
 
 <style>
 :root {
-  color-scheme:light;
-
-  --bg:#f4f6fc;
+  --bg:#f5f7ff;
   --surface:#ffffff;
-  --surface-2:#edf0fa;
-  --surface-3:#e5e9f7;
-  --text:#171a32;
-  --muted:#707790;
-  --primary:#7257ed;
-  --primary-dark:#5940d0;
+  --surface2:#edf0fb;
+  --text:#17182b;
+  --muted:#69708a;
+  --primary:#7055ed;
   --secondary:#08aeca;
-  --border:rgba(31,39,79,.10);
-  --shadow:0 18px 55px rgba(39,43,91,.09);
-  --shadow-hover:0 25px 65px rgba(65,53,145,.15);
-  --header:rgba(255,255,255,.84);
-  --hero-glow:rgba(114,87,237,.12);
-  --code-bg:#171b35;
-  --code-text:#cbd4ff;
+  --border:rgba(35,38,75,.10);
+  --shadow:0 15px 45px rgba(42,44,90,.08);
+  --nav-bg:rgba(255,255,255,.82);
 }
 
 body.dark {
-  color-scheme:dark;
-
-  --bg:#090c18;
-  --surface:#11162a;
-  --surface-2:#181f38;
-  --surface-3:#202947;
-  --text:#f3f5ff;
-  --muted:#a1aac6;
-  --primary:#9a83ff;
-  --primary-dark:#8168f5;
-  --secondary:#29c9e5;
+  --bg:#090b16;
+  --surface:#121628;
+  --surface2:#191f35;
+  --text:#f4f5ff;
+  --muted:#a1a9c4;
+  --primary:#927cff;
+  --secondary:#25d2ee;
   --border:rgba(255,255,255,.09);
-  --shadow:0 18px 55px rgba(0,0,0,.25);
-  --shadow-hover:0 25px 65px rgba(0,0,0,.38);
-  --header:rgba(12,16,31,.86);
-  --hero-glow:rgba(114,87,237,.17);
-  --code-bg:#080c1b;
-  --code-text:#d7deff;
+  --shadow:0 15px 45px rgba(0,0,0,.25);
+  --nav-bg:rgba(15,18,34,.85);
 }
 
 * {
@@ -88,93 +75,64 @@ body.dark {
   scroll-behavior:smooth;
 }
 
-html {
-  scroll-padding-top:95px;
-}
-
 body {
-  min-height:100vh;
-  overflow-x:hidden;
   background:var(--bg);
   color:var(--text);
   font-family:"Cairo",sans-serif;
   transition:background .3s,color .3s;
+  overflow-x:hidden;
 }
 
-body.english {
-  font-family:"Inter",sans-serif;
+body.english {font-family:"Inter",sans-serif;}
+
+a {text-decoration:none;color:inherit;}
+
+button {font:inherit;cursor:pointer;}
+
+.btn,
+.icon-btn,
+.lang-btn,
+.menu-links a,
+.project-visit,
+.already-inside,
+.contact-link,
+.cv-entry-btn,
+.cv-modal-close,
+.cv-action-btn,
+.cv-page-close,
+.cv-password-input,
+.cv-password-submit {
+  border-radius:999px !important;
 }
 
-body,
-button,
-input {
-  -webkit-tap-highlight-color:transparent;
-}
-
-button,
-input {
-  font:inherit;
-}
-
-button {
-  cursor:pointer;
-}
-
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-img {
-  max-width:100%;
-}
+/* تخطيط موحد على جميع الأجهزة */
 
 .container {
-  width:min(1120px,calc(100% - 40px));
+  width:min(760px,calc(100% - 32px));
   margin-inline:auto;
-}
-
-.gradient-text {
-  background:linear-gradient(110deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
 }
 
 .ambient {
   position:fixed;
-  width:380px;
-  height:380px;
+  width:350px;
+  height:350px;
   border-radius:50%;
-  filter:blur(110px);
-  opacity:.15;
+  filter:blur(100px);
+  opacity:.13;
   pointer-events:none;
   z-index:-1;
 }
 
 .ambient.one {
-  background:#7458ef;
+  background:#7055ed;
   top:80px;
-  right:-220px;
+  right:-180px;
 }
 
 .ambient.two {
-  background:#08b8d6;
-  bottom:5%;
-  left:-220px;
-}
-
-.grid-background {
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  opacity:.35;
-  background-image:
-    linear-gradient(var(--border) 1px,transparent 1px),
-    linear-gradient(90deg,var(--border) 1px,transparent 1px);
-  background-size:42px 42px;
-  mask-image:linear-gradient(to bottom,#000,transparent 90%);
+  background:#08c4df;
+  bottom:50px;
+  left:-180px;
 }
 
 /* Header */
@@ -183,42 +141,54 @@ header {
   position:sticky;
   top:0;
   z-index:100;
-  background:var(--header);
+  background:var(--nav-bg);
+  backdrop-filter:blur(18px);
   border-bottom:1px solid var(--border);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
 }
 
 .header-inner {
-  min-height:78px;
+  height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+  gap:15px;
 }
 
 .logo {
-  direction:ltr;
-  white-space:nowrap;
   font-family:"Inter",sans-serif;
   font-weight:900;
-  font-size:clamp(17px,2.2vw,24px);
-  letter-spacing:-.8px;
+  letter-spacing:1px;
+  font-size:clamp(19px,2.5vw,29px);
+  direction:ltr;
+  white-space:nowrap;
+  transition:.3s;
 }
 
-.logo-main {
-  background:linear-gradient(100deg,#7257ed,#08aeca);
+.logo .logo-primary {
+  background:linear-gradient(100deg,#7055ed,#08aeca,#7055ed);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
+  -webkit-text-fill-color:transparent;
 }
 
-.logo-last {
-  color:var(--text);
+.logo .logo-black {
+  color:#111111;
+  -webkit-text-fill-color:#111111;
 }
 
-.logo-dot {
-  color:var(--secondary);
+body.dark .logo .logo-black {
+  color:#ffffff;
+  -webkit-text-fill-color:#ffffff;
+}
+
+.logo .logo-dot {
+  color:#08aeca;
+  -webkit-text-fill-color:#08aeca;
+}
+
+.logo:hover {
+  filter:drop-shadow(0 0 10px rgba(112,85,237,.45));
 }
 
 .header-actions {
@@ -227,55 +197,54 @@ header {
   gap:10px;
 }
 
-.lang-btn,
 .icon-btn {
-  min-width:43px;
-  height:43px;
+  width:42px;
+  height:42px;
   border:1px solid var(--border);
-  border-radius:14px;
   background:var(--surface);
   color:var(--text);
   display:grid;
   place-items:center;
+  font-size:18px;
   transition:.25s;
 }
 
-.lang-btn {
-  padding:0 13px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.icon-btn {
-  font-size:20px;
-}
-
-.lang-btn:hover,
 .icon-btn:hover {
   border-color:var(--primary);
-  color:var(--primary);
   transform:translateY(-2px);
 }
 
-/* Theme switch */
+.lang-btn {
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  padding:9px 14px;
+  font-weight:700;
+  font-size:12px;
+}
+
+.menu-btn {font-size:22px;}
+
+/* Day and night switch */
 
 .theme-switch {
-  width:75px;
-  height:42px;
-  padding:4px;
+  width:72px;
+  height:38px;
   border:1px solid var(--border);
   border-radius:30px;
-  background:var(--surface-2);
+  background:var(--surface2);
   position:relative;
+  padding:3px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   flex-shrink:0;
+  transition:.3s;
 }
 
-.switch-icon {
-  width:32px;
-  height:32px;
+.theme-switch .switch-icon {
+  width:30px;
+  height:30px;
   display:grid;
   place-items:center;
   z-index:1;
@@ -283,30 +252,30 @@ header {
   pointer-events:none;
 }
 
-.switch-knob {
+.theme-switch .switch-knob {
   position:absolute;
-  top:4px;
-  right:4px;
-  width:32px;
-  height:32px;
+  top:3px;
+  right:3px;
+  width:30px;
+  height:30px;
   border-radius:50%;
-  background:linear-gradient(135deg,#7257ed,#a38cff);
-  box-shadow:0 3px 12px rgba(114,87,237,.35);
+  background:linear-gradient(135deg,#7055ed,#9b7cff);
+  box-shadow:0 3px 10px rgba(112,85,237,.3);
   transition:transform .3s ease;
 }
 
-body.dark .switch-knob {
-  transform:translateX(-33px);
-  background:linear-gradient(135deg,#08aeca,#397cff);
+body.dark .theme-switch .switch-knob {
+  transform:translateX(-34px);
+  background:linear-gradient(135deg,#17b9d4,#397cff);
 }
 
-/* Side navigation */
+/* Menu */
 
 .menu-overlay {
   position:fixed;
   inset:0;
+  background:rgba(0,0,0,.45);
   z-index:200;
-  background:rgba(5,8,20,.55);
   opacity:0;
   visibility:hidden;
   transition:.3s;
@@ -321,60 +290,45 @@ body.dark .switch-knob {
   position:fixed;
   top:0;
   left:0;
-  z-index:201;
-  width:min(340px,88%);
   height:100%;
-  padding:28px 23px;
+  width:min(310px,85%);
   background:var(--surface);
-  border-right:1px solid var(--border);
-  box-shadow:var(--shadow);
+  z-index:201;
+  padding:28px 22px;
   transform:translateX(-105%);
   transition:transform .35s ease;
-  overflow-y:auto;
+  box-shadow:var(--shadow);
 }
 
-.side-menu.show {
-  transform:translateX(0);
-}
+.side-menu.show {transform:translateX(0);}
 
 .menu-top {
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:12px;
-  margin-bottom:32px;
+  align-items:center;
+  margin-bottom:35px;
 }
 
 .menu-top strong {
-  direction:ltr;
   font-family:"Inter",sans-serif;
-  font-size:15px;
-  font-weight:900;
+  letter-spacing:.5px;
+  font-size:17px;
   white-space:nowrap;
+  direction:ltr;
 }
 
-.menu-links {
-  display:grid;
-  gap:9px;
-}
+.menu-links {display:grid;gap:10px;}
 
 .menu-links a {
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:14px 15px;
-  border:1px solid transparent;
-  border-radius:14px;
+  padding:13px 15px;
   color:var(--muted);
-  font-size:14px;
-  font-weight:800;
   transition:.2s;
+  font-weight:700;
 }
 
 .menu-links a:hover {
+  background:var(--surface2);
   color:var(--primary);
-  background:var(--surface-2);
-  border-color:var(--border);
   transform:translateX(-4px);
 }
 
@@ -382,433 +336,275 @@ body.english .menu-links a:hover {
   transform:translateX(4px);
 }
 
-.menu-symbol {
-  width:28px;
-  height:28px;
-  border-radius:9px;
-  background:var(--surface-2);
-  display:grid;
-  place-items:center;
-  font-size:14px;
-}
-
 /* Hero */
 
 .hero {
-  position:relative;
-  min-height:690px;
-  padding:95px 0 90px;
+  min-height:590px;
   display:flex;
   align-items:center;
-  isolation:isolate;
+  padding:75px 0;
 }
 
-.hero-layout {
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
-  align-items:center;
-  gap:65px;
-}
-
-.hero-content {
-  min-width:0;
-}
+.hero-content {max-width:850px;}
 
 .eyebrow {
   display:inline-flex;
   align-items:center;
-  gap:10px;
-  padding:9px 15px;
-  margin-bottom:25px;
-  border:1px solid rgba(114,87,237,.22);
-  border-radius:30px;
+  gap:9px;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  background:var(--surface);
   color:var(--primary);
-  background:var(--hero-glow);
-  font-size:12px;
-  font-weight:900;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:24px;
+}
+
+/* لون خانة الترحيب في الوضع الليلي */
+
+body.dark .eyebrow {
+  background:#7055ed;
+  border-color:#7055ed;
+  color:#ffffff;
 }
 
 .status-dot {
   width:8px;
   height:8px;
   border-radius:50%;
-  background:#21c98b;
-  box-shadow:0 0 12px #21c98b;
+  background:#22c987;
+  box-shadow:0 0 12px #22c987;
 }
 
 .hero h1 {
+  font-family:"Inter",sans-serif;
   direction:ltr;
   text-align:right;
-  font-family:"Inter",sans-serif;
-  font-size:clamp(44px,6.3vw,78px);
+  font-size:clamp(38px,7vw,76px);
+  line-height:1.12;
   font-weight:900;
-  line-height:1.08;
-  letter-spacing:-3px;
-  margin-bottom:24px;
+  letter-spacing:-2px;
+  margin-bottom:22px;
 }
 
-body.english .hero h1 {
-  text-align:left;
+body.english .hero h1 {text-align:left;}
+
+.gradient-text {
+  background:linear-gradient(100deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.hero h1 .second-line {
-  color:var(--text);
-}
-
-.hero-description {
-  max-width:620px;
+.hero p {
   color:var(--muted);
-  font-size:16px;
-  line-height:2.1;
+  font-size:17px;
+  line-height:2;
+  max-width:650px;
   margin-bottom:30px;
 }
 
 .hero-buttons {
   display:flex;
+  gap:12px;
   flex-wrap:wrap;
-  gap:13px;
 }
 
 .btn {
-  min-height:52px;
   display:inline-flex;
-  justify-content:center;
   align-items:center;
-  gap:10px;
-  padding:12px 23px;
-  border:1px solid transparent;
-  border-radius:14px;
-  font-size:13px;
-  font-weight:900;
+  justify-content:center;
+  gap:9px;
+  padding:13px 23px;
+  font-weight:800;
   transition:.25s;
+  border:1px solid transparent;
 }
 
-.btn:hover {
-  transform:translateY(-4px);
-}
+.btn:hover {transform:translateY(-4px);}
 
 .btn-primary {
-  color:#fff;
-  background:linear-gradient(110deg,#7257ed,#08aeca);
-  box-shadow:0 10px 28px rgba(114,87,237,.25);
+  color:white;
+  background:linear-gradient(110deg,#7055ed,#9277ff);
+  box-shadow:0 8px 25px rgba(112,85,237,.23);
 }
 
-.btn-primary:hover {
-  box-shadow:0 15px 35px rgba(114,87,237,.35);
-}
-
-.btn-secondary {
+.btn-outline {
   color:var(--text);
   background:var(--surface);
   border-color:var(--border);
 }
 
-.btn-secondary:hover {
-  color:var(--primary);
-  border-color:var(--primary);
+/* لون زر تواصل معي في الوضع الليلي */
+
+body.dark .hero-buttons .btn-outline {
+  background:#bfefff;
+  border-color:#bfefff;
+  color:#17182b;
 }
 
-/* Hero visual */
+/* Sections */
 
-.hero-visual {
-  position:relative;
-  min-height:410px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+section {padding:75px 0;}
 
-.hero-photo-frame {
-  position:relative;
-  width:min(340px,100%);
-  aspect-ratio:4/5;
-  padding:10px;
-  border-radius:35px;
-  background:linear-gradient(145deg,var(--primary),var(--secondary));
-  box-shadow:0 25px 70px rgba(82,69,173,.22);
-  transform:rotate(2deg);
-}
-
-.hero-photo-frame::before {
-  content:"";
-  position:absolute;
-  inset:18px -17px -17px 18px;
-  border:1px solid var(--primary);
-  border-radius:35px;
-  opacity:.35;
-  z-index:-1;
-}
-
-.hero-photo-frame img {
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  border-radius:27px;
-  background:var(--surface-2);
-}
-
-.hero-floating {
-  position:absolute;
-  padding:12px 16px;
-  border:1px solid var(--border);
-  border-radius:15px;
-  background:var(--surface);
-  box-shadow:var(--shadow);
-  font-size:12px;
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.hero-floating.top {
-  top:40px;
-  right:-15px;
-}
-
-.hero-floating.bottom {
-  bottom:35px;
-  left:-18px;
-}
-
-.floating-dot {
-  display:inline-block;
-  width:8px;
-  height:8px;
-  margin-inline-end:7px;
-  border-radius:50%;
-  background:var(--secondary);
-}
-
-/* Mini code panel */
-
-.code-panel {
-  position:absolute;
-  bottom:-35px;
-  right:0;
-  width:210px;
-  padding:14px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:15px;
-  background:var(--code-bg);
-  color:var(--code-text);
-  box-shadow:0 15px 40px rgba(0,0,0,.22);
-  direction:ltr;
-  text-align:left;
-  font-family:monospace;
-  font-size:10px;
-  line-height:1.9;
-}
-
-.code-panel .code-muted {
-  color:#7d89b7;
-}
-
-.code-panel .code-purple {
-  color:#b69aff;
-}
-
-.code-panel .code-cyan {
-  color:#62d9e9;
-}
-
-/* Section common */
-
-section:not(.hero) {
-  padding:88px 0;
-}
-
-.section-heading {
-  margin-bottom:35px;
-}
+.section-heading {margin-bottom:35px;}
 
 .section-label {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:12px;
   color:var(--primary);
-  font-family:"Inter",sans-serif;
-  font-size:11px;
+  font-size:12px;
   font-weight:900;
   letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:8px;
   direction:ltr;
-}
-
-.section-label::before {
-  content:"";
-  width:28px;
-  height:2px;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
 }
 
 .section-heading h2 {
-  font-size:clamp(29px,4vw,42px);
+  font-size:clamp(27px,4vw,39px);
   font-weight:900;
-  line-height:1.4;
 }
 
 .section-heading p {
-  max-width:650px;
-  margin-top:10px;
   color:var(--muted);
-  font-size:14px;
-  line-height:2;
+  margin-top:9px;
+  line-height:1.9;
 }
 
 /* About */
 
-.about-layout {
+.about-card {
   display:grid;
-  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
-  gap:22px;
-  align-items:stretch;
-}
-
-.about-card,
-.about-side-card {
+  grid-template-columns:minmax(0,1fr);
+  gap:25px;
   min-width:0;
-  padding:30px;
+  background:var(--surface);
   border:1px solid var(--border);
   border-radius:24px;
-  background:var(--surface);
+  padding:clamp(16px,3vw,35px);
   box-shadow:var(--shadow);
-}
-
-.about-card h3 {
-  font-size:22px;
-  font-weight:900;
-  margin-bottom:14px;
 }
 
 .about-card p {
   color:var(--muted);
-  font-size:14px;
-  line-height:2.2;
+  line-height:2.1;
+  font-size:15px;
 }
 
-.about-side-card {
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  background:
-    radial-gradient(circle at 100% 0,rgba(114,87,237,.15),transparent 55%),
-    var(--surface);
+.profile-photo {
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:clamp(360px,70vw,480px);
+  aspect-ratio:auto;
+  object-fit:cover;
+  object-position:center;
+  border-radius:28px;
+  border:6px solid var(--primary);
+  box-shadow:0 12px 40px rgba(112,85,237,.30);
+  margin:0 auto 28px;
 }
 
-.about-side-card .mini-title {
-  color:var(--primary);
-  font-size:12px;
-  font-weight:900;
-  margin-bottom:20px;
+body.english .profile-photo {
+  margin-left:auto;
+  margin-right:auto;
 }
 
-.info-list {
+/* معلوماتي: صفان وعمودان دائمًا */
+
+.info-grid {
   display:grid;
-  gap:13px;
-}
-
-.info-item {
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  padding:13px 15px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:var(--surface-2);
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:auto auto;
+  gap:12px;
+  align-content:start;
   min-width:0;
 }
 
+.info-item {
+  min-width:0;
+  background:var(--surface2);
+  padding:17px 13px;
+  border-radius:15px;
+  overflow:hidden;
+}
+
 .info-item small {
+  display:block;
   color:var(--muted);
-  font-size:11px;
-  font-weight:700;
+  margin-bottom:5px;
+  font-size:13px;
 }
 
 .info-item strong {
-  color:var(--text);
-  font-size:13px;
+  display:block;
+  font-size:15px;
   line-height:1.7;
   overflow-wrap:anywhere;
 }
 
-.education-level {
+.info-item strong:not(.education-level) {
+  white-space:normal;
+  overflow-wrap:anywhere;
+  font-size:clamp(11px,2vw,15px);
+  letter-spacing:-.3px;
+  line-height:1.6;
+}
+
+/* ضبط المسافة بين سطري المرحلة الدراسية */
+
+.info-item strong.education-level {
+  display:block;
   white-space:pre-line;
+  overflow-wrap:anywhere;
+  font-size:clamp(11px,2vw,15px);
+  line-height:1.2;
+  margin:0;
 }
 
 /* Skills */
 
 .skills-grid {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
 }
 
 .skill {
   min-width:0;
-  position:relative;
-  padding:25px 18px;
-  border:1px solid var(--border);
-  border-radius:20px;
   background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:23px 15px;
   text-align:center;
-  overflow:hidden;
-  transition:.3s;
-}
-
-.skill::before {
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:3px;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  transform:scaleX(0);
-  transform-origin:right;
-  transition:.3s;
-}
-
-body.english .skill::before {
-  transform-origin:left;
+  transition:.25s;
 }
 
 .skill:hover {
-  transform:translateY(-7px);
-  border-color:rgba(114,87,237,.4);
-  box-shadow:var(--shadow-hover);
+  transform:translateY(-5px);
+  border-color:var(--primary);
 }
 
-.skill:hover::before {
-  transform:scaleX(1);
-}
-
-.skill-symbol {
-  width:72px;
-  height:72px;
+.skill .symbol {
+  width:76px;
+  height:76px;
+  margin:0 auto 15px;
   display:grid;
   place-items:center;
-  margin:0 auto 17px;
-  border-radius:19px;
-  background:var(--surface-2);
-  color:var(--primary);
-  font-family:"Inter",sans-serif;
-  font-size:24px;
-  font-weight:900;
 }
 
-.skill-symbol img {
+.skill .symbol svg,
+.skill .symbol img {
+  width:68px;
+  height:68px;
   display:block;
-  width:58px;
-  height:58px;
-  object-fit:contain;
 }
+
+.skill .symbol img {object-fit:contain;}
 
 .skill strong {
   display:block;
-  font-family:"Inter",sans-serif;
-  font-size:15px;
-  margin-bottom:6px;
+  font-size:14px;
 }
 
 .skill small {
@@ -821,178 +617,172 @@ body.english .skill::before {
 .projects-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
+  gap:12px;
+  width:100%;
 }
 
 .project-card {
   min-width:0;
-  overflow:hidden;
-  border:1px solid var(--border);
-  border-radius:24px;
   background:var(--surface);
-  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
   transition:.3s;
+  box-shadow:var(--shadow);
 }
 
 .project-card:hover {
-  transform:translateY(-7px);
-  box-shadow:var(--shadow-hover);
-  border-color:rgba(114,87,237,.4);
+  transform:translateY(-4px);
+  border-color:var(--primary);
 }
 
+/* صور المشاريع */
+
 .project-image-button {
-  position:relative;
-  display:block;
   width:100%;
-  height:auto;
-  min-height:0;
-  padding:0;
+  height:clamp(230px,42vw,340px);
+  aspect-ratio:auto;
   border:0;
-  border-radius:0;
-  overflow:hidden;
-  background:var(--surface-2);
+  border-radius:0 !important;
+  display:grid;
+  place-items:center;
+  padding:0;
   cursor:zoom-in;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(112,85,237,.24),transparent 65%),
+    var(--surface2);
+  overflow:hidden;
+  position:relative;
+  isolation:isolate;
+}
+
+.project-image-button::before {
+  content:"";
+  position:absolute;
+  inset:-18px;
+  background-image:var(--project-image);
+  background-size:cover;
+  background-position:center;
+  filter:blur(18px) brightness(.62);
+  transform:scale(1.08);
+  z-index:-1;
 }
 
 .project-image-button::after {
-  content:"↗";
+  content:"";
   position:absolute;
-  left:15px;
-  bottom:15px;
-  width:37px;
-  height:37px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(255,255,255,.35);
-  border-radius:12px;
-  background:rgba(12,15,30,.72);
-  color:#fff;
-  font-size:18px;
-  opacity:0;
-  transform:translateY(7px);
-  transition:.25s;
-}
-
-.project-card:hover .project-image-button::after {
-  opacity:1;
-  transform:translateY(0);
+  width:180px;
+  height:180px;
+  border:1px solid rgba(112,85,237,.18);
+  border-radius:50%;
+  pointer-events:none;
 }
 
 .project-image-button img {
   display:block;
   width:100%;
-  height:auto;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
   object-fit:contain;
   object-position:center;
-  transition:transform .5s;
+  position:relative;
+  z-index:1;
+  transition:transform .3s ease;
 }
 
-.project-image-button:hover img {
-  transform:scale(1.015);
+.project-image-button img.accountx-image {
+  object-fit:contain;
+  object-position:center;
 }
 
-.project-image-button.portfolio-image-button {
-  overflow:hidden;
-}
-
-.project-image-button.portfolio-image-button img {
-  width:100%;
-  height:var(--accountx-image-height,auto);
-  object-fit:cover;
-  object-position:center top;
-}
+.project-image-button:hover img {transform:none;}
 
 .project-body {
-  padding:24px;
-}
-
-.project-title-row {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:12px;
+  padding:clamp(9px,2vw,22px);
 }
 
 .project-body h3 {
-  direction:ltr;
-  text-align:start;
   font-family:"Inter",sans-serif;
-  font-size:19px;
-  font-weight:900;
+  font-size:clamp(12px,2.4vw,19px);
+  margin-bottom:10px;
+  direction:ltr;
+  text-align:right;
   overflow-wrap:anywhere;
 }
 
-.project-number {
-  flex-shrink:0;
-  color:var(--primary);
-  font-family:"Inter",sans-serif;
-  font-size:11px;
-  font-weight:900;
-}
+body.english .project-body h3 {text-align:left;}
 
 .project-body p {
-  min-height:76px;
   color:var(--muted);
-  font-size:13px;
-  line-height:2;
+  font-size:clamp(10px,1.8vw,13px);
+  line-height:1.9;
+  min-height:75px;
 }
 
 .project-tag {
-  display:inline-flex;
-  align-items:center;
-  margin-top:16px;
-  padding:7px 12px;
-  border:1px solid rgba(114,87,237,.2);
-  border-radius:30px;
-  background:rgba(114,87,237,.09);
+  display:inline-block;
+  margin-top:17px;
+  padding:6px 11px;
+  border-radius:20px;
+  background:rgba(112,85,237,.12);
   color:var(--primary);
   font-size:11px;
-  font-weight:900;
-}
-
-.project-visit,
-.already-inside {
-  width:100%;
-  min-height:49px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  margin-top:20px;
-  padding:11px 15px;
-  border-radius:13px;
-  font-size:12px;
-  font-weight:900;
-  text-align:center;
+  font-weight:800;
 }
 
 .project-visit {
-  border:1px solid transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  gap:6px;
+  margin-top:20px;
+  padding:clamp(9px,1.6vw,15px) clamp(6px,1.8vw,20px);
   color:#fff;
-  background:linear-gradient(110deg,#7257ed,#08aeca);
+  background:linear-gradient(110deg,#7055ed,#08aeca);
+  font-weight:900;
+  font-size:clamp(10px,1.7vw,14px);
+  text-align:center;
+  box-shadow:0 8px 22px rgba(112,85,237,.22);
   transition:.25s;
 }
 
 .project-visit:hover {
   transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(114,87,237,.25);
+  box-shadow:0 12px 28px rgba(112,85,237,.32);
 }
 
 .already-inside {
-  border:1px solid var(--border);
-  color:var(--muted);
-  background:var(--surface-2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  gap:6px;
+  margin-top:20px;
+  padding:clamp(9px,1.6vw,15px) clamp(6px,1.8vw,20px);
+  border:2px solid #ffffff;
+  color:var(--text);
+  background:var(--surface2);
+  font-weight:900;
+  font-size:clamp(10px,1.7vw,14px);
+  text-align:center;
+  box-shadow:
+    inset 0 3px 7px rgba(0,0,0,.16),
+    0 2px 4px rgba(0,0,0,.08);
   cursor:default;
+  opacity:1;
+  transform:translateY(2px);
 }
 
 .already-inside:disabled {
+  color:var(--text);
+  -webkit-text-fill-color:var(--text);
   opacity:1;
-  color:var(--muted);
-  -webkit-text-fill-color:var(--muted);
+  cursor:default;
 }
 
-/* Fullscreen image viewer */
+/* Full-screen image viewer */
 
 .image-viewer {
   position:fixed;
@@ -1005,8 +795,8 @@ body.english .skill::before {
   background:#03050f;
   opacity:0;
   visibility:hidden;
-  overflow:hidden;
   transition:opacity .25s ease,visibility .25s ease;
+  overflow:hidden;
 }
 
 .image-viewer.show {
@@ -1015,121 +805,88 @@ body.english .skill::before {
 }
 
 .image-viewer picture {
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:block;
   width:100%;
   height:100%;
+  position:absolute;
+  inset:0;
 }
 
 .image-viewer img {
-  position:absolute;
-  inset:0;
   display:block;
-  width:100vw !important;
-  height:100dvh !important;
-  max-width:100% !important;
-  max-height:100% !important;
-  object-fit:contain !important;
-  object-position:center !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
+  width:100vw;
+  height:100vh;
+  height:100dvh;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+  border-radius:0;
+  box-shadow:none;
 }
 
 .viewer-close {
   position:absolute;
-  top:10px;
-  right:10px;
-  z-index:3;
-  width:45px;
-  height:45px;
+  top:8px;
+  right:8px;
+  width:44px;
+  height:44px;
   display:grid;
   place-items:center;
-  border:2px solid #fff;
+  border:2px solid #ffffff;
   border-radius:50%;
-  background:#fff;
-  color:#000;
+  background:#ffffff;
+  color:#000000;
   font-size:29px;
-  font-weight:800;
+  font-weight:700;
   line-height:1;
+  cursor:pointer;
+  z-index:2;
 }
 
-@media (orientation:landscape) {
-  .image-viewer picture::before {
-    content:"";
-    position:absolute;
-    inset:-25px;
-    background-image:var(--viewer-background);
-    background-size:cover;
-    background-position:center;
-    filter:blur(20px) brightness(.62);
-    transform:scale(1.05);
-  }
-
-  .image-viewer img {
-    z-index:1;
-  }
+.viewer-close:hover {
+  background:#ffffff;
+  color:#000000;
+  transform:scale(1.04);
 }
 
 /* CV section */
 
 .cv-entry-card {
-  position:relative;
-  max-width:800px;
+  max-width:760px;
   margin:auto;
-  padding:38px;
-  overflow:hidden;
-  border:1px solid rgba(114,87,237,.25);
-  border-radius:25px;
-  background:
-    radial-gradient(circle at 100% 0,rgba(114,87,237,.15),transparent 50%),
-    var(--surface);
-  box-shadow:var(--shadow);
+  padding:30px;
   text-align:center;
-}
-
-.cv-entry-card::before {
-  content:"CV";
-  position:absolute;
-  left:20px;
-  bottom:-38px;
-  color:var(--primary);
-  opacity:.055;
-  font-family:"Inter",sans-serif;
-  font-size:140px;
-  font-weight:900;
-  pointer-events:none;
+  background:var(--surface);
+  border:1px solid var(--secondary);
+  border-radius:23px;
+  box-shadow:var(--shadow);
 }
 
 .cv-entry-description {
-  position:relative;
   color:var(--muted);
-  font-size:14px;
   line-height:2;
-  margin-bottom:24px;
+  margin-bottom:25px;
+  text-align:center;
 }
 
 .cv-entry-btn {
-  position:relative;
   width:100%;
-  max-width:440px;
-  min-height:58px;
-  padding:13px 22px;
-  border:1px solid transparent;
-  border-radius:14px;
-  color:#fff;
-  background:linear-gradient(110deg,#7257ed,#08aeca);
-  font-size:15px;
+  min-height:62px;
+  padding:15px 22px;
+  border:2px solid #7055ed;
+  color:#ffffff;
+  background:linear-gradient(110deg,#7055ed,#9277ff);
+  font-size:17px;
   font-weight:900;
-  box-shadow:0 10px 28px rgba(114,87,237,.25);
   transition:.25s;
+  box-shadow:0 7px 22px rgba(112,85,237,.22);
 }
 
 .cv-entry-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(114,87,237,.32);
+  background:linear-gradient(110deg,#6043df,#08aeca);
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(112,85,237,.30);
 }
 
 /* CV password window */
@@ -1142,8 +899,8 @@ body.english .skill::before {
   align-items:center;
   justify-content:center;
   padding:14px;
-  background:rgba(9,11,22,.72);
-  backdrop-filter:blur(7px);
+  background:rgba(9,11,22,.66);
+  backdrop-filter:blur(5px);
   opacity:0;
   visibility:hidden;
   transition:opacity .25s ease,visibility .25s ease;
@@ -1161,16 +918,18 @@ body.english .skill::before {
   max-width:850px;
   max-height:900px;
   overflow-y:auto;
-  background:#fff;
+  background:#ffffff;
   color:#17182b;
-  border:1px solid rgba(114,87,237,.2);
-  border-radius:25px;
+  border:1px solid rgba(112,85,237,.18);
+  border-radius:26px;
   padding:75px clamp(20px,5vw,55px) 35px;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
 }
+
+/* زر الإغلاق الأسود */
 
 .cv-modal-close {
   position:absolute;
@@ -1180,10 +939,9 @@ body.english .skill::before {
   height:45px;
   display:grid;
   place-items:center;
-  border:2px solid #000;
-  border-radius:50%;
-  background:#000;
-  color:#fff;
+  border:2px solid #000000;
+  background:#000000;
+  color:#ffffff;
   font-size:25px;
   font-weight:800;
   line-height:1;
@@ -1191,17 +949,20 @@ body.english .skill::before {
 }
 
 .cv-modal-close:hover {
+  background:#000000;
+  border-color:#000000;
+  color:#ffffff;
   transform:rotate(90deg);
 }
 
 .cv-gate-message {
   width:100%;
   max-width:650px;
-  margin:10px auto 0;
-  color:#25243a;
   font-size:clamp(16px,2.2vw,21px);
-  font-weight:800;
   line-height:2.1;
+  font-weight:800;
+  color:#25243a;
+  margin:10px auto 0;
 }
 
 .cv-password-area {
@@ -1211,19 +972,19 @@ body.english .skill::before {
 }
 
 .cv-password-title {
-  margin-bottom:10px;
   color:#7055ed;
   font-size:21px;
   font-weight:900;
+  margin-bottom:10px;
 }
 
 .cv-down-arrow {
   display:block;
-  margin:0 auto 12px;
   color:#7055ed;
   font-size:65px;
   line-height:1.2;
   font-weight:900;
+  margin:0 auto 12px;
   animation:cvArrowMove 1.3s ease-in-out infinite;
 }
 
@@ -1232,9 +993,7 @@ body.english .skill::before {
   50% {transform:translateY(9px);}
 }
 
-.cv-password-form {
-  width:100%;
-}
+.cv-password-form {width:100%;}
 
 .cv-password-input {
   display:block;
@@ -1242,15 +1001,16 @@ body.english .skill::before {
   height:60px;
   padding:12px 22px;
   border:2px solid #7055ed;
-  border-radius:30px;
   background:#f7f5ff;
   color:#17182b;
+  font-family:inherit;
   font-size:17px;
   font-weight:700;
   outline:none;
   direction:ltr;
   text-align:center;
   transition:.2s;
+  box-shadow:0 5px 18px rgba(112,85,237,.10);
 }
 
 .cv-password-input::placeholder {
@@ -1261,12 +1021,12 @@ body.english .skill::before {
 .cv-password-input:focus {
   border-color:#08aeca;
   box-shadow:0 0 0 4px rgba(112,85,237,.13);
-  background:#fff;
+  background:#ffffff;
 }
 
-.cv-password-input:disabled {
-  opacity:.65;
-}
+.cv-password-input:disabled {opacity:.65;}
+
+/* رسالة كتابة الباسورد */
 
 .cv-gate-status {
   min-height:45px;
@@ -1277,14 +1037,14 @@ body.english .skill::before {
   overflow-wrap:anywhere;
 }
 
+/* رسائل الخطأ والتحذير باللون الأحمر */
+
 .cv-gate-status.error,
 .cv-gate-status.warning {
   color:#d93650;
 }
 
-.cv-gate-status.success {
-  color:#159b65;
-}
+/* زر دخول الجديد */
 
 .cv-password-submit {
   display:block;
@@ -1292,21 +1052,36 @@ body.english .skill::before {
   min-height:58px;
   margin:8px auto 0;
   padding:12px 22px;
-  border:3px solid #fff;
-  border-radius:30px;
+
+  /* لون بنفسجي ثابت في الوضعين النهاري والليلي */
   background:linear-gradient(110deg,#7055ed,#9277ff);
-  color:#fff !important;
-  -webkit-text-fill-color:#fff;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff;
+
+  /* إطار أبيض كامل والمسافة الداخلية بنفسجية */
+  border:3px solid #ffffff;
+
+  font-family:inherit;
   font-size:18px;
   font-weight:900;
   text-align:center;
-  box-shadow:0 0 0 2px #7055ed,0 7px 22px rgba(112,85,237,.25);
+
+  box-shadow:
+    0 0 0 2px #7055ed,
+    0 7px 22px rgba(112,85,237,.25);
+
   transition:transform .25s,box-shadow .25s;
 }
 
 .cv-password-submit:hover:not(:disabled) {
   transform:translateY(-3px);
-  box-shadow:0 0 0 2px #7055ed,0 10px 27px rgba(112,85,237,.32);
+  box-shadow:
+    0 0 0 2px #7055ed,
+    0 10px 27px rgba(112,85,237,.32);
+}
+
+.cv-password-submit:active:not(:disabled) {
+  transform:translateY(0);
 }
 
 .cv-password-submit:disabled {
@@ -1314,7 +1089,7 @@ body.english .skill::before {
   cursor:wait;
 }
 
-/* Fullscreen CV */
+/* Full-screen CV page */
 
 .cv-fullscreen {
   position:fixed;
@@ -1323,21 +1098,21 @@ body.english .skill::before {
   display:none;
   overflow-y:auto;
   overscroll-behavior:contain;
-  background:#fff;
+  background:#ffffff;
   color:#17182b;
   padding:35px 18px 45px;
   direction:rtl;
 }
 
-.cv-fullscreen.show {
-  display:block;
-}
+.cv-fullscreen.show {display:block;}
 
 .cv-page-inner {
   width:min(850px,100%);
   margin:0 auto;
   padding-top:35px;
 }
+
+/* زر إغلاق صفحة السيرة الذاتية بالأسود */
 
 .cv-page-close {
   position:fixed;
@@ -1348,10 +1123,9 @@ body.english .skill::before {
   height:45px;
   display:grid;
   place-items:center;
-  border:2px solid #000;
-  border-radius:50%;
-  background:#000;
-  color:#fff;
+  border:2px solid #000000;
+  background:#000000;
+  color:#ffffff;
   font-size:25px;
   font-weight:800;
   line-height:1;
@@ -1360,35 +1134,36 @@ body.english .skill::before {
 }
 
 .cv-page-close:hover {
+  color:#ffffff;
+  background:#000000;
+  border-color:#000000;
   transform:rotate(90deg);
 }
 
 .cv-language-block {
   width:100%;
   padding:35px 25px;
+  text-align:center;
+  background:#ffffff;
   border:1px solid #e8e4fa;
   border-radius:22px;
-  background:#fff;
   box-shadow:0 8px 30px rgba(30,25,70,.06);
-  text-align:center;
 }
 
-.cv-language-block + .cv-language-block {
-  margin-top:25px;
-}
+.cv-language-block + .cv-language-block {margin-top:25px;}
 
 .cv-language-block h2 {
-  margin-bottom:25px;
   color:#25243a;
   font-size:clamp(18px,3vw,24px);
-  font-weight:900;
   line-height:1.8;
+  font-weight:900;
+  margin-bottom:25px;
 }
 
 .cv-language-block p {
-  margin-top:17px;
   color:#858197;
   font-size:12px;
+  margin-top:17px;
 }
 
 .cv-actions-row {
@@ -1412,10 +1187,10 @@ body.english .skill::before {
   align-items:center;
   gap:8px;
   border:2px solid transparent;
-  border-radius:30px;
+  font-family:inherit;
   font-size:15px;
   font-weight:900;
-  color:#fff;
+  color:#ffffff;
   transition:.2s;
 }
 
@@ -1432,189 +1207,165 @@ body.english .skill::before {
 .cv-view-btn {
   background:#7055ed;
   border-color:#7055ed;
+  color:#ffffff;
 }
 
 .cv-download-btn {
   background:#08aeca;
   border-color:#08aeca;
+  color:#ffffff;
 }
 
-.cv-download-btn:hover:not(:disabled) {
-  background:#078fa8;
-}
+.cv-download-btn:hover:not(:disabled) {background:#078fa8;}
 
 .cv-page-status {
   width:min(600px,100%);
   min-height:45px;
   margin:20px auto 0;
   padding:10px 15px;
-  border-radius:15px;
-  background:#f7f5ff;
   color:#77738c;
+  background:#f7f5ff;
+  border-radius:15px;
   text-align:center;
   font-size:13px;
   line-height:1.8;
   overflow-wrap:anywhere;
 }
 
-.cv-page-status.error {
-  color:#d93650;
-}
-
-.cv-page-status.warning {
-  color:#bd8017;
-}
-
-.cv-page-status.success {
-  color:#159b65;
-}
+.cv-page-status.error {color:#d93650;}
+.cv-page-status.warning {color:#bd8017;}
+.cv-page-status.success {color:#159b65;}
 
 /* Education */
 
 .education-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
   display:flex;
   align-items:center;
-  gap:22px;
-  padding:27px;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:var(--surface);
-  box-shadow:var(--shadow);
+  gap:20px;
 }
 
 .education-icon {
+  width:60px;
+  height:60px;
   flex-shrink:0;
-  width:65px;
-  height:65px;
+  border-radius:17px;
+  background:var(--surface2);
   display:grid;
   place-items:center;
-  border-radius:19px;
-  background:var(--surface-2);
-  font-size:28px;
-}
-
-.education-card h3 {
-  font-size:18px;
-  font-weight:900;
+  font-size:27px;
 }
 
 .education-card p {
-  margin-top:7px;
   color:var(--muted);
   font-size:13px;
-  line-height:2;
+  margin-top:5px;
+  line-height:1.9;
   white-space:pre-line;
 }
 
 /* Contact */
 
 .contact-card {
-  position:relative;
-  padding:42px 30px;
+  background:var(--surface);
   border:1px solid var(--border);
-  border-radius:25px;
-  background:
-    radial-gradient(circle at 0 100%,rgba(8,174,202,.09),transparent 40%),
-    radial-gradient(circle at 100% 0,rgba(114,87,237,.12),transparent 45%),
-    var(--surface);
-  box-shadow:var(--shadow);
+  border-radius:23px;
+  padding:35px;
   text-align:center;
-}
-
-.contact-card h3 {
-  font-size:23px;
-  font-weight:900;
+  box-shadow:var(--shadow);
 }
 
 .contact-card > p {
-  max-width:560px;
-  margin:12px auto 28px;
   color:var(--muted);
-  font-size:13px;
-  line-height:2;
+  margin:10px auto 25px;
+  line-height:1.9;
+  max-width:550px;
 }
 
 .contact-links {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;
-  width:100%;
-  max-width:850px;
+  gap:14px;
+  width:min(100%,440px);
   margin:auto;
 }
 
 .contact-link {
-  min-width:0;
-  min-height:65px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
-  padding:13px 12px;
-  border:1px solid transparent;
-  border-radius:15px;
-  color:#fff;
-  font-weight:900;
+  gap:14px;
+  width:100%;
+  padding:17px 22px;
+  color:white;
   transition:.25s;
+  font-weight:900;
 }
 
-.contact-link:hover {
-  transform:translateY(-5px);
-}
+.contact-link:hover {transform:translateY(-4px);}
 
 .contact-link svg {
-  width:27px;
-  height:27px;
+  width:31px;
+  height:31px;
   flex-shrink:0;
 }
 
-.contact-link span {
-  font-size:12px;
-}
+.contact-link span {font-size:15px;}
 
 .whatsapp-link {
   background:linear-gradient(110deg,#16b968,#0a9e59);
-  box-shadow:0 8px 22px rgba(22,185,104,.18);
+  box-shadow:0 10px 25px rgba(22,185,104,.2);
 }
+
+.whatsapp-link:hover {box-shadow:0 14px 30px rgba(22,185,104,.3);}
 
 .telegram-link {
   background:linear-gradient(110deg,#29a9eb,#168bd0);
-  box-shadow:0 8px 22px rgba(41,169,235,.18);
+  box-shadow:0 10px 25px rgba(41,169,235,.2);
 }
 
+.telegram-link:hover {box-shadow:0 14px 30px rgba(41,169,235,.3);}
+
 .gmail-link {
-  background:#fff;
+  background:#ffffff;
   color:#3c4043;
-  border-color:#dadce0;
-  box-shadow:0 5px 18px rgba(60,64,67,.08);
+  border:1px solid #dadce0;
+  box-shadow:0 5px 18px rgba(60,64,67,.10);
 }
 
 .gmail-link:hover {
   background:#f8faff;
+  box-shadow:0 9px 24px rgba(60,64,67,.16);
+}
+
+.gmail-link svg {
+  width:32px;
+  height:26px;
 }
 
 /* Footer */
 
 footer {
-  padding:28px 0;
   border-top:1px solid var(--border);
-  color:var(--muted);
+  padding:25px 0;
   text-align:center;
+  color:var(--muted);
   font-size:12px;
 }
 
 footer strong {
   color:var(--primary);
   font-family:"Inter",sans-serif;
-  font-weight:900;
 }
 
-/* Reveal animations */
+/* Reveal */
 
 .reveal {
   opacity:0;
-  transform:translateY(24px);
-  transition:opacity .7s ease,transform .7s ease;
+  transform:translateY(22px);
+  transition:opacity .7s,transform .7s;
 }
 
 .reveal.visible {
@@ -1622,313 +1373,133 @@ footer strong {
   transform:translateY(0);
 }
 
-/* Responsive */
+/* تعديلات المقاسات الصغيرة فقط دون تغيير توزيع الأقسام */
 
-@media(max-width:900px) {
-  .hero-layout {
-    grid-template-columns:minmax(0,1fr) minmax(230px,.75fr);
-    gap:35px;
-  }
-
-  .hero-visual {
-    min-height:350px;
-  }
-
-  .hero-photo-frame {
-    width:min(290px,100%);
-  }
-
-  .code-panel {
-    width:185px;
-    right:-5px;
-  }
-
-  .about-layout {
-    grid-template-columns:1fr 1fr;
-  }
-
-  .skills-grid {
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .contact-links {
-    grid-template-columns:1fr;
-    max-width:470px;
-  }
-}
-
-@media(max-width:650px) {
-  .container {
-    width:calc(100% - 30px);
-  }
-
+@media(max-width:560px) {
   .header-inner {
-    min-height:68px;
+    height:67px;
     gap:8px;
   }
 
   .logo {
-    font-size:14px;
-    letter-spacing:-.5px;
+    font-size:15px;
+    letter-spacing:0;
   }
 
-  .header-actions {
-    gap:6px;
+  .header-actions {gap:6px;}
+
+  .icon-btn {
+    width:38px;
+    height:38px;
   }
 
   .lang-btn {
-    min-width:38px;
-    height:39px;
-    padding:0 8px;
-    font-size:10px;
-  }
-
-  .icon-btn {
-    min-width:38px;
-    height:39px;
-    border-radius:12px;
-  }
-
-  .theme-switch {
-    width:65px;
-    height:36px;
-  }
-
-  .switch-icon,
-  .switch-knob {
-    width:26px;
-    height:26px;
-  }
-
-  body.dark .switch-knob {
-    transform:translateX(-29px);
+    padding:8px 9px;
+    font-size:11px;
   }
 
   .hero {
     min-height:auto;
-    padding:70px 0 65px;
+    padding:85px 0 65px;
   }
 
-  .hero-layout {
-    grid-template-columns:1fr;
-    gap:55px;
-  }
+  .hero h1 {font-size:43px;}
+  .hero p {font-size:14px;}
+  section {padding:55px 0;}
 
-  .hero-content {
-    text-align:center;
-  }
+  .about-card,.contact-card {padding:18px;}
 
-  .eyebrow {
-    margin-bottom:21px;
-    font-size:11px;
-  }
+  .info-grid {gap:9px;}
 
-  .hero h1 {
-    font-size:clamp(42px,12vw,61px);
-    text-align:center;
-    letter-spacing:-2px;
-  }
+  .info-item {padding:13px 9px;}
 
-  .hero-description {
-    margin-inline:auto;
-    font-size:14px;
-    line-height:2;
-  }
+  .info-item small {font-size:11px;}
 
-  .hero-buttons {
-    justify-content:center;
-  }
-
-  .btn {
-    min-height:48px;
-    padding:11px 17px;
-    font-size:12px;
-  }
-
-  .hero-visual {
-    min-height:360px;
-  }
-
-  .hero-photo-frame {
-    width:min(270px,75%);
-  }
-
-  .hero-floating.top {
-    top:15px;
-    right:0;
-  }
-
-  .hero-floating.bottom {
-    bottom:5px;
-    left:0;
-  }
-
-  .code-panel {
-    bottom:-30px;
-    right:0;
-    width:175px;
-  }
-
-  section:not(.hero) {
-    padding:62px 0;
-  }
-
-  .section-heading {
-    margin-bottom:25px;
-  }
-
-  .section-heading h2 {
-    font-size:29px;
-  }
-
-  .section-heading p {
-    font-size:12px;
-  }
-
-  .about-layout {
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-
-  .about-card,
-  .about-side-card {
-    padding:22px;
-  }
-
-  .about-card h3 {
-    font-size:19px;
-  }
-
-  .about-card p {
+  .info-item strong {
     font-size:13px;
+    line-height:1.7;
   }
 
-  .skills-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:11px;
+  .education-card {align-items:flex-start;}
+
+  .theme-switch {
+    width:66px;
+    height:36px;
   }
 
-  .skill {
-    padding:20px 10px;
+  .theme-switch .switch-icon {
+    width:28px;
+    height:28px;
   }
 
-  .skill-symbol {
+  .theme-switch .switch-knob {
+    width:28px;
+    height:28px;
+  }
+
+  body.dark .theme-switch .switch-knob {
+    transform:translateX(-28px);
+  }
+
+  .profile-photo {
+    height:clamp(360px,110vw,480px);
+    border-radius:24px;
+  }
+
+  .skill .symbol {
+    width:70px;
+    height:70px;
+  }
+
+  .skill .symbol svg,
+  .skill .symbol img {
     width:62px;
     height:62px;
-    margin-bottom:12px;
-  }
-
-  .skill-symbol img {
-    width:50px;
-    height:50px;
-  }
-
-  .skill strong {
-    font-size:13px;
-  }
-
-  .skill small {
-    font-size:10px;
   }
 
   .projects-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
+    gap:8px;
   }
 
-  .project-card {
-    border-radius:16px;
+  .project-image-button {
+    height:clamp(190px,48vw,260px);
+    aspect-ratio:auto;
   }
+
+  .project-card {min-width:0;}
 
   .project-body {
-    padding:12px;
-  }
-
-  .project-title-row {
-    align-items:flex-start;
-    gap:5px;
+    padding:10px;
   }
 
   .project-body h3 {
-    font-size:clamp(10px,2.8vw,14px);
-  }
-
-  .project-number {
-    font-size:9px;
+    font-size:clamp(11px,3vw,14px);
+    margin-bottom:7px;
   }
 
   .project-body p {
-    min-height:120px;
-    font-size:10px;
-    line-height:1.9;
+    font-size:clamp(9px,2.4vw,11px);
+    min-height:95px;
+    line-height:1.8;
   }
 
   .project-tag {
     margin-top:10px;
-    padding:5px 8px;
+    padding:5px 7px;
     font-size:9px;
   }
 
   .project-visit,
   .already-inside {
-    min-height:43px;
     margin-top:12px;
-    padding:8px 5px;
-    font-size:9px;
+    padding:9px 5px;
+    font-size:clamp(9px,2.4vw,11px);
     line-height:1.6;
+    min-height:42px;
   }
 
-  .cv-entry-card {
-    padding:27px 17px;
-  }
-
-  .cv-entry-description {
-    font-size:12px;
-  }
-
-  .cv-entry-btn {
-    min-height:53px;
-    font-size:13px;
-  }
-
-  .education-card {
-    gap:14px;
-    padding:19px;
-  }
-
-  .education-icon {
-    width:52px;
-    height:52px;
-    font-size:23px;
-  }
-
-  .education-card h3 {
-    font-size:15px;
-  }
-
-  .education-card p {
-    font-size:11px;
-  }
-
-  .contact-card {
-    padding:30px 17px;
-  }
-
-  .contact-card h3 {
-    font-size:19px;
-  }
-
-  .contact-card > p {
-    font-size:12px;
-  }
-
-  .contact-link {
-    min-height:57px;
-  }
-
-  .contact-link span {
-    font-size:12px;
-  }
+  .cv-entry-card {padding:22px 16px;}
 
   .cv-gate-window {
     padding:75px 18px 25px;
@@ -1940,48 +1511,31 @@ footer strong {
     line-height:2;
   }
 
-  .cv-password-area {
-    margin-top:45px;
-  }
-
-  .cv-password-title {
-    font-size:19px;
-  }
-
-  .cv-down-arrow {
-    font-size:58px;
-  }
+  .cv-password-area {margin-top:45px;}
+  .cv-password-title {font-size:19px;}
+  .cv-down-arrow {font-size:58px;}
 
   .cv-password-submit {
     min-height:55px;
     font-size:17px;
   }
 
-  .cv-fullscreen {
-    padding:30px 12px 35px;
-  }
+  .cv-fullscreen {padding:30px 12px 35px;}
+  .cv-page-inner {padding-top:38px;}
 
-  .cv-page-inner {
-    padding-top:38px;
-  }
-
-  .cv-language-block {
-    padding:28px 15px;
-  }
+  .cv-language-block {padding:28px 15px;}
 
   .cv-language-block h2 {
     font-size:18px;
     margin-bottom:20px;
   }
 
-  .cv-actions-row {
-    gap:9px;
-  }
+  .cv-actions-row {gap:9px;}
 
   .cv-action-btn {
     min-height:49px;
     padding:10px 8px;
-    font-size:13px;
+    font-size:14px;
   }
 
   .cv-page-close {
@@ -1990,51 +1544,158 @@ footer strong {
     width:42px;
     height:42px;
   }
+
+  .contact-card {padding:23px 15px;}
+  .contact-link {padding:15px 12px;}
 }
 
-@media(max-width:370px) {
-  .container {
-    width:calc(100% - 22px);
-  }
+/* شاشات الموبايل الصغيرة جدًا */
 
-  .logo {
-    font-size:12px;
-  }
+@media(max-width:360px) {
+  .container {width:calc(100% - 24px);}
 
-  .header-actions {
-    gap:4px;
-  }
+  .logo {font-size:13px;}
+
+  .header-actions {gap:4px;}
 
   .lang-btn {
-    min-width:34px;
-    padding:0 5px;
-    font-size:9px;
+    padding:7px 6px;
+    font-size:10px;
   }
 
-  .theme-switch {
-    width:59px;
+  .info-item {padding:11px 7px;}
+
+  .info-item strong {font-size:11px;}
+
+  .profile-photo {height:360px;}
+
+  .projects-grid {gap:6px;}
+
+  .project-image-button {
+    height:190px;
   }
 
-  body.dark .switch-knob {
-    transform:translateX(-23px);
-  }
+  .project-body {padding:8px;}
 
-  .projects-grid {
-    gap:7px;
-  }
-
-  .project-body {
-    padding:9px;
-  }
+  .project-body h3 {font-size:11px;}
 
   .project-body p {
-    min-height:135px;
     font-size:9px;
+    min-height:105px;
   }
 
   .project-visit,
   .already-inside {
-    font-size:8px;
+    font-size:9px;
+    padding:8px 4px;
+  }
+}
+
+/* عارض الصور: القواعد الأصلية */
+
+.image-viewer {
+  padding:0 !important;
+  overflow:hidden !important;
+  background:#03050f;
+}
+
+.image-viewer picture {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+}
+
+/* عرض الصورة كاملة دون قص أو تمديد في جميع الاتجاهات */
+
+.image-viewer img {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100vw !important;
+  height:100dvh !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+
+.viewer-close {
+  top:8px !important;
+  right:8px !important;
+  width:44px;
+  height:44px;
+  background:#ffffff !important;
+  color:#000000 !important;
+  border:2px solid #ffffff !important;
+  z-index:3;
+}
+
+/* إظهار صور المشاريع كاملة في الصفحة الرئيسية */
+
+.project-image-button {
+  height:auto !important;
+  min-height:0 !important;
+  display:block !important;
+  overflow:hidden;
+}
+
+.project-image-button img {
+  display:block;
+  width:100% !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+
+/* توحيد ارتفاع صورة الموقع مع صورة AccountX في الصفحة الرئيسية فقط */
+
+.project-image-button.portfolio-image-button {
+  height:var(--accountx-image-height, auto) !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+.project-image-button.portfolio-image-button img {
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+}
+
+/* الوضع الأفقي: الصورة كاملة مع خلفية ممتدة من نفس الصورة */
+
+@media (orientation: landscape) {
+  .image-viewer picture::before {
+    content:"";
+    position:absolute;
+    inset:-25px;
+    background-image:var(--viewer-background);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:blur(20px) brightness(.65);
+    transform:scale(1.05);
+    z-index:0;
+  }
+
+  .image-viewer img {
+    width:100vw !important;
+    height:100dvh !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    object-position:center !important;
+    z-index:1;
   }
 }
 
@@ -2045,7 +1706,6 @@ footer strong {
     scroll-behavior:auto!important;
     transition-duration:.01ms!important;
     animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
   }
 }
 </style>
@@ -2059,10 +1719,7 @@ footer strong {
 <header>
   <div class="container header-inner">
 
-    <a href="#home" class="logo" aria-label="ANTONYOS BOTROS">
-      <span class="logo-main">ANTONYOS</span>
-      <span class="logo-last"> BOTROS</span><span class="logo-dot">.</span>
-    </a>
+    <a href="#home" class="logo"><span class="logo-primary">ANTONYOS</span> <span class="logo-black">BOTROS</span><span class="logo-dot">.</span></a>
 
     <div class="header-actions">
 
@@ -2074,7 +1731,7 @@ footer strong {
         <span class="switch-knob"></span>
       </button>
 
-      <button class="icon-btn" id="menuBtn" type="button" aria-label="فتح القائمة">☰</button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة">☰</button>
 
     </div>
   </div>
@@ -2085,29 +1742,24 @@ footer strong {
 <nav class="side-menu" id="sideMenu">
   <div class="menu-top">
     <strong>ANTONYOS BOTROS<span style="color:var(--primary)">.</span></strong>
-    <button class="icon-btn" id="closeMenu" type="button" aria-label="إغلاق القائمة">×</button>
+    <button class="icon-btn" id="closeMenu" type="button">✕</button>
   </div>
 
   <div class="menu-links">
-    <a href="#home"><span class="menu-symbol">⌂</span><span data-ar="الرئيسية" data-en="Home">الرئيسية</span></a>
-    <a href="#about"><span class="menu-symbol">◉</span><span data-ar="من أنا" data-en="About Me">من أنا</span></a>
-    <a href="#skills"><span class="menu-symbol">⌘</span><span data-ar="مهاراتي" data-en="Skills">مهاراتي</span></a>
-    <a href="#projects"><span class="menu-symbol">▣</span><span data-ar="مشروعاتي" data-en="Projects">مشروعاتي</span></a>
-    <a href="#cv"><span class="menu-symbol">▤</span><span data-ar="السيرة الذاتية (CV)" data-en="Resume (CV)">السيرة الذاتية (CV)</span></a>
-    <a href="#education"><span class="menu-symbol">♧</span><span data-ar="التعليم" data-en="Education">التعليم</span></a>
-    <a href="#contact"><span class="menu-symbol">✉</span><span data-ar="تواصل معي" data-en="Contact Me">تواصل معي</span></a>
+    <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="#about" data-ar="من أنا" data-en="About Me">من أنا</a>
+    <a href="#skills" data-ar="مهاراتي" data-en="Skills">مهاراتي</a>
+    <a href="#projects" data-ar="مشروعاتي" data-en="Projects">مشروعاتي</a>
+    <a href="#cv" data-ar="السيرة الذاتية (CV)" data-en="Resume (CV)">السيرة الذاتية (CV)</a>
+    <a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
+    <a href="#contact" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</a>
   </div>
 </nav>
 
 <main>
 
-<!-- Hero -->
-
 <section class="hero" id="home">
-  <div class="grid-background"></div>
-
-  <div class="container hero-layout">
-
+  <div class="container">
     <div class="hero-content reveal">
 
       <div class="eyebrow">
@@ -2116,179 +1768,156 @@ footer strong {
       </div>
 
       <h1>
-        <span class="gradient-text">ANTONYOS</span>
-        <br>
-        <span class="second-line">BOTROS<span class="gradient-text">.</span></span>
+        <span class="gradient-text">ANTONYOS</span><br>
+        BOTROS<span class="gradient-text">.</span>
       </h1>
 
-      <p class="hero-description"
-        data-ar="أنا انطونيوس بطرس، مهتم بعالم البرمجة والتكنولوجيا والأمن السيبراني. أتعلم باستمرار وأعمل على بناء مشروعات رقمية تجمع بين التفكير الإبداعي والحلول التقنية."
-        data-en="I'm Antonyos Botros, interested in programming, technology, and cybersecurity. I'm constantly learning and building digital projects that combine creative thinking with technical solutions.">
-        أنا انطونيوس بطرس، مهتم بعالم البرمجة والتكنولوجيا والأمن السيبراني. أتعلم باستمرار وأعمل على بناء مشروعات رقمية تجمع بين التفكير الإبداعي والحلول التقنية.
+      <p
+        data-ar="أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية."
+        data-en="I'm Antonyos Botros, interested in technology, programming, and digital ideas. I'm learning and building digital projects that bring creativity and technology together."
+      >
+        أنا انطونيوس بطرس، مهتم بالتكنولوجيا والبرمجة والأفكار الرقمية. أتعلم وأعمل على تطوير مشروعات رقمية تجمع بين الإبداع والتقنية.
       </p>
 
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">
-          <span data-ar="اكتشف مشروعاتي" data-en="Explore My Projects">اكتشف مشروعاتي</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-
-        <a href="#contact" class="btn btn-secondary">
-          <span data-ar="تواصل معي" data-en="Contact Me">تواصل معي</span>
-          <span aria-hidden="true">✉</span>
-        </a>
+        <a href="#projects" class="btn btn-primary" data-ar="اكتشف مشروعاتي ←" data-en="Explore My Projects →">اكتشف مشروعاتي ←</a>
+        <a href="#contact" class="btn btn-outline" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</a>
       </div>
 
     </div>
-
-    <div class="hero-visual reveal">
-
-      <div class="hero-photo-frame">
-        <img src="profile.jpg" alt="ANTONYOS BOTROS - انطونيوس بطرس" fetchpriority="high">
-      </div>
-
-      <div class="hero-floating top">
-        <span class="floating-dot"></span>
-        <span data-ar="رحلة مستمرة من التعلم" data-en="Always Learning">رحلة مستمرة من التعلم</span>
-      </div>
-
-      <div class="hero-floating bottom">
-        <span>⌘</span>
-        <span data-ar="البرمجة والتكنولوجيا" data-en="Code & Technology">البرمجة والتكنولوجيا</span>
-      </div>
-
-      <div class="code-panel" aria-hidden="true">
-        <div class="code-muted">// My digital journey</div>
-        <div><span class="code-purple">const</span> name = <span class="code-cyan">"Antonyos"</span>;</div>
-        <div><span class="code-purple">const</span> focus = [</div>
-        <div>&nbsp;&nbsp;<span class="code-cyan">"Programming"</span>,</div>
-        <div>&nbsp;&nbsp;<span class="code-cyan">"Cybersecurity"</span></div>
-        <div>];</div>
-        <div class="code-muted">// Keep building...</div>
-      </div>
-
-    </div>
-
   </div>
 </section>
-
-<!-- About -->
 
 <section id="about">
   <div class="container">
 
     <div class="section-heading reveal">
       <div class="section-label">ABOUT ME</div>
-      <h2 data-ar="خلف الشاشة، من أنا؟" data-en="Behind The Screen">خلف الشاشة، من أنا؟</h2>
-      <p data-ar="تعرف على اهتماماتي ورحلتي في استكشاف عالم التكنولوجيا." data-en="Discover my interests and my journey into the world of technology.">
-        تعرف على اهتماماتي ورحلتي في استكشاف عالم التكنولوجيا.
+      <h2 data-ar="من أنا؟" data-en="Who Am I?">من أنا؟</h2>
+      <p data-ar="تعرف أكثر على اهتماماتي ورحلتي في عالم التكنولوجيا." data-en="Learn more about my interests and my journey in technology.">
+        تعرف أكثر على اهتماماتي ورحلتي في عالم التكنولوجيا.
       </p>
     </div>
 
-    <div class="about-layout">
+    <div class="about-card reveal">
+      <div>
+        <img src="profile.jpg" alt="ANTONYOS BOTROS - انطونيوس بطرس" class="profile-photo" loading="eager" decoding="async">
 
-      <div class="about-card reveal">
-        <h3 data-ar="أهلًا، أنا انطونيوس بطرس 👋" data-en="Hello, I'm Antonyos Botros 👋">
-          أهلًا، أنا انطونيوس بطرس 👋
+        <h3 style="margin-bottom:15px" data-ar="أهلًا، أنا انطونيوس بطرس" data-en="Hello, I'm Antonyos Botros">
+          أهلًا، أنا انطونيوس بطرس
         </h3>
 
         <p
-          data-ar="أهتم باستكشاف عالم البرمجة والتكنولوجيا، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أركز على فهم طريقة عمل التقنيات المختلفة، وبناء حلول رقمية مفيدة، وتوسيع معرفتي في مجال الأمن السيبراني. أؤمن أن التطور الحقيقي يأتي من الاستمرار في التعلم وتحويل الأفكار إلى مشروعات."
-          data-en="I'm interested in exploring programming and technology. I work on improving my skills through learning, experimentation, and practical projects. I focus on understanding how different technologies work, building useful digital solutions, and expanding my knowledge of cybersecurity. I believe real progress comes from continuous learning and turning ideas into projects.">
-          أهتم باستكشاف عالم البرمجة والتكنولوجيا، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أركز على فهم طريقة عمل التقنيات المختلفة، وبناء حلول رقمية مفيدة، وتوسيع معرفتي في مجال الأمن السيبراني. أؤمن أن التطور الحقيقي يأتي من الاستمرار في التعلم وتحويل الأفكار إلى مشروعات.
+          data-ar="أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل."
+          data-en="I'm interested in exploring technology and programming. I work on improving my skills through learning, experimentation, and practical projects. I believe every new project is an opportunity to gain experience and develop better ideas."
+        >
+          أهتم باستكشاف عالم التكنولوجيا والبرمجة، وأسعى إلى تطوير مهاراتي من خلال التعلم والتجربة وتنفيذ مشروعات عملية. أؤمن أن كل مشروع جديد هو فرصة لاكتساب خبرة وأفكار أفضل.
         </p>
       </div>
 
-      <div class="about-side-card reveal">
-        <div class="mini-title" data-ar="معلومات شخصية" data-en="PERSONAL PROFILE">معلومات شخصية</div>
+      <div class="info-grid">
 
-        <div class="info-list">
-
-          <div class="info-item">
-            <small data-ar="الاسم" data-en="Name">الاسم</small>
-            <strong>ANTONYOS BOTROS</strong>
-          </div>
-
-          <div class="info-item">
-            <small data-ar="المجال" data-en="Field">المجال</small>
-            <strong data-ar="البرمجة والأمن السيبراني" data-en="Programming & Cybersecurity">البرمجة والأمن السيبراني</strong>
-          </div>
-
-          <div class="info-item">
-            <small data-ar="المرحلة الدراسية" data-en="Education">المرحلة الدراسية</small>
-            <strong class="education-level"
-              data-ar="الصف الثاني الثانوي&#10;(نظام البكالوريا المصرية)"
-              data-en="Second Year of High School&#10;(Egyptian Baccalaureate System)">الصف الثاني الثانوي
-(نظام البكالوريا المصرية)</strong>
-          </div>
-
-          <div class="info-item">
-            <small data-ar="الاهتمامات" data-en="Interests">الاهتمامات</small>
-            <strong data-ar="التعلم والمشروعات الرقمية" data-en="Learning & Digital Projects">التعلم والمشروعات الرقمية</strong>
-          </div>
-
+        <div class="info-item">
+          <small data-ar="الاسم" data-en="Name">الاسم</small>
+          <strong>ANTONYOS BOTROS</strong>
         </div>
-      </div>
 
+        <div class="info-item">
+          <small data-ar="المجال" data-en="Field">المجال</small>
+          <strong data-ar="البرمجة والأمن السيبراني" data-en="Programming & Cybersecurity">البرمجة والأمن السيبراني</strong>
+        </div>
+
+        <div class="info-item">
+          <small data-ar="المرحلة الدراسية" data-en="Education">المرحلة الدراسية</small>
+          <strong
+            class="education-level"
+            data-ar="الصف الثاني الثانوي&#10;(نظام البكالوريا المصرية)"
+            data-en="Second Year of High School&#10;(Egyptian Baccalaureate System)"
+          >الصف الثاني الثانوي
+(نظام البكالوريا المصرية)</strong>
+        </div>
+
+        <div class="info-item">
+          <small data-ar="الاهتمامات" data-en="Interests">الاهتمامات</small>
+          <strong data-ar="التعلم والمشروعات الرقمية" data-en="Learning & Digital Projects">التعلم والمشروعات الرقمية</strong>
+        </div>
+
+      </div>
     </div>
+
   </div>
 </section>
-
-<!-- Skills -->
 
 <section id="skills">
   <div class="container">
 
     <div class="section-heading reveal">
       <div class="section-label">MY SKILLS</div>
-      <h2 data-ar="التقنيات التي أتعلمها" data-en="Technologies I'm Learning">التقنيات التي أتعلمها</h2>
-      <p data-ar="مجالات تقنية أعمل على تطوير معرفتي ومهاراتي فيها باستمرار." data-en="Technical areas in which I'm continuously developing my knowledge and skills.">
-        مجالات تقنية أعمل على تطوير معرفتي ومهاراتي فيها باستمرار.
+      <h2 data-ar="ما أتعلمه" data-en="What I'm Learning">ما أتعلمه</h2>
+      <p data-ar="مجالات أعمل على تطوير معرفتي ومهاراتي فيها." data-en="Areas in which I'm developing my knowledge and skills.">
+        مجالات أعمل على تطوير معرفتي ومهاراتي فيها.
       </p>
     </div>
 
     <div class="skills-grid">
 
       <div class="skill reveal">
-        <div class="skill-symbol" style="color:#e44d26">5</div>
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="HTML5" role="img">
+            <path fill="#E44D26" d="M9 4h46l-4.2 47L32 60 13.2 51 9 4z"/>
+            <path fill="#F16529" d="M32 8h18.2l-3.5 40L32 54V8z"/>
+            <path fill="#fff" d="M19 16h27l-.7 6H25l.5 6h20l-2 17-11.5 4-11.5-4-.8-9h6.2l.4 4.5 5.7 1.8 5.7-1.8.7-7H20.5L19 16z"/>
+          </svg>
+        </div>
         <strong>HTML</strong>
-        <small data-ar="تطوير الويب" data-en="Web Development">تطوير الويب</small>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
       <div class="skill reveal">
-        <div class="skill-symbol" style="color:#1572b6">3</div>
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="CSS3" role="img">
+            <path fill="#1572B6" d="M9 4h46l-4.2 47L32 60 13.2 51 9 4z"/>
+            <path fill="#33A9DC" d="M32 8h18.2l-3.5 40L32 54V8z"/>
+            <path fill="#fff" d="M19 16h27l-.6 6H25l.4 6h19.5l-1.7 17L32 49l-11.2-4-.7-8h6.2l.4 4 5.3 1.8 5.4-1.8.6-7H20.3L19 16z"/>
+          </svg>
+        </div>
         <strong>CSS</strong>
-        <small data-ar="تصميم الواجهات" data-en="Interface Styling">تصميم الواجهات</small>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
       <div class="skill reveal">
-        <div class="skill-symbol" style="background:#f7df1e;color:#222">JS</div>
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="JavaScript" role="img">
+            <rect x="5" y="5" width="54" height="54" rx="5" fill="#F7DF1E"/>
+            <path fill="#222" d="M28 45c.8 1.4 1.8 2.4 3.8 2.4 1.7 0 2.7-.8 2.7-2 0-1.4-1.1-1.9-3-2.8l-1-.4c-2.9-1.2-4.8-2.7-4.8-5.9 0-2.9 2.2-5.1 5.7-5.1 2.5 0 4.3.9 5.6 3.2l-3.1 2c-.7-1.2-1.4-1.7-2.5-1.7s-1.8.7-1.8 1.6c0 1.1.7 1.6 2.4 2.3l1 .4c3.4 1.5 5.3 2.9 5.3 6.2 0 3.6-2.8 5.6-6.6 5.6-3.7 0-6-1.8-7.1-4.1L28 45zm-13 .3c.6 1 1.1 1.8 2.4 1.8 1.2 0 1.9-.5 1.9-2.3V32h4.2v17.9c0 4.1-2.4 6-5.9 6-3.2 0-5.1-1.7-6.1-3.7l3.5-1.9z"/>
+          </svg>
+        </div>
         <strong>JavaScript</strong>
-        <small data-ar="برمجة الويب" data-en="Web Programming">برمجة الويب</small>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
       <div class="skill reveal">
-        <div class="skill-symbol">
-          <svg viewBox="0 0 64 64" width="58" height="58" role="img" aria-label="Python">
+        <div class="symbol">
+          <svg viewBox="0 0 64 64" aria-label="Python" role="img">
             <path fill="#3776AB" d="M31 5c-13 0-12 5.7-12 5.7V20h13v3H14S5 22 5 35s8 12 8 12h5v-7s-.3-8 8-8h14s8 .1 8-8V14s1.2-9-17-9zm-7 6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/>
             <path fill="#FFD43B" d="M33 59c13 0 12-5.7 12-5.7V44H32v-3h18s9 1 9-12-8-12-8-12h-5v7s.3 8-8 8H24s-8-.1-8 8v10s-1.2 9 17 9zm7-6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
           </svg>
         </div>
         <strong>Python</strong>
-        <small data-ar="البرمجة والتطوير" data-en="Programming">البرمجة والتطوير</small>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
       <div class="skill reveal">
-        <div class="skill-symbol">
-          <img src="cpp.png" alt="C++" loading="lazy" decoding="async">
+        <div class="symbol">
+          <img src="cpp.png" alt="C++ Logo" loading="lazy" decoding="async">
         </div>
         <strong>C++</strong>
-        <small data-ar="أساسيات البرمجة" data-en="Programming Fundamentals">أساسيات البرمجة</small>
+        <small data-ar="تعلم وتطوير" data-en="Learning & Developing">تعلم وتطوير</small>
       </div>
 
       <div class="skill reveal">
-        <div class="skill-symbol">
-          <img src="kali.png" alt="Kali Linux" loading="lazy" decoding="async">
+        <div class="symbol">
+          <img src="kali.png" alt="Kali Linux Logo" loading="lazy" decoding="async">
         </div>
         <strong data-ar="الأمن السيبراني" data-en="Cybersecurity">الأمن السيبراني</strong>
         <small data-ar="تعلم واستكشاف" data-en="Learning & Exploring">تعلم واستكشاف</small>
@@ -2298,16 +1927,14 @@ footer strong {
   </div>
 </section>
 
-<!-- Projects -->
-
 <section id="projects">
   <div class="container">
 
     <div class="section-heading reveal">
-      <div class="section-label">SELECTED WORK</div>
+      <div class="section-label">MY PROJECTS</div>
       <h2 data-ar="مشروعاتي" data-en="My Projects">مشروعاتي</h2>
-      <p data-ar="أفكار ومشروعات رقمية تمثل جزءًا من رحلتي في التعلم والتطوير." data-en="Digital ideas and projects that represent part of my learning and development journey.">
-        أفكار ومشروعات رقمية تمثل جزءًا من رحلتي في التعلم والتطوير.
+      <p data-ar="بعض الأفكار والمشروعات الرقمية التي أعمل عليها." data-en="Some of the digital ideas and projects I'm working on.">
+        بعض الأفكار والمشروعات الرقمية التي أعمل عليها.
       </p>
     </div>
 
@@ -2315,12 +1942,7 @@ footer strong {
 
       <article class="project-card reveal">
 
-        <button class="project-image-button portfolio-image-button"
-          style="--project-image:url('portfolio.jpg')"
-          type="button"
-          onclick="openImageViewer('portfolio')"
-          aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
-
+        <button class="project-image-button portfolio-image-button" style="--project-image:url('portfolio.jpg')" type="button" onclick="openImageViewer('portfolio')" aria-label="عرض صورة موقعي الشخصي بحجم الشاشة">
           <img
             src="portfolio.jpg"
             alt="ANTONYOS PORTFOLIO Website"
@@ -2331,37 +1953,25 @@ footer strong {
         </button>
 
         <div class="project-body">
-
-          <div class="project-title-row">
-            <h3>ANTONYOS PORTFOLIO</h3>
-            <span class="project-number">01 / 02</span>
-          </div>
+          <h3>ANTONYOS PORTFOLIO</h3>
 
           <p
             data-ar="موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها."
-            data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing.">
+            data-en="My personal website where I share information about myself, my interests, skills, and the projects I'm developing."
+          >
             موقعي الشخصي الذي أشارك من خلاله نبذة عني واهتماماتي ومهاراتي والمشروعات التي أعمل على تطويرها.
           </p>
 
           <span class="project-tag" data-ar="موقعي الشخصي" data-en="Personal Website">موقعي الشخصي</span>
 
-          <button class="already-inside" type="button" disabled aria-disabled="true"
-            data-ar="انت داخل المشروع بالفعل"
-            data-en="You're already inside this project">
-            انت داخل المشروع بالفعل
-          </button>
-
+          <button class="already-inside" type="button" disabled aria-disabled="true" data-ar="انت داخل المشروع بالفعل" data-en="You're already inside this project">انت داخل المشروع بالفعل</button>
         </div>
+
       </article>
 
       <article class="project-card reveal">
 
-        <button class="project-image-button"
-          style="--project-image:url('accountx.png')"
-          type="button"
-          onclick="openImageViewer('accountx')"
-          aria-label="عرض صورة AccountX بحجم الشاشة">
-
+        <button class="project-image-button" style="--project-image:url('accountx.png')" type="button" onclick="openImageViewer('accountx')" aria-label="عرض صورة AccountX بحجم الشاشة">
           <img
             src="accountx.png"
             alt="AccountX Bot"
@@ -2373,53 +1983,43 @@ footer strong {
         </button>
 
         <div class="project-body">
-
-          <div class="project-title-row">
-            <h3>AccountX</h3>
-            <span class="project-number">02 / 02</span>
-          </div>
+          <h3>AccountX</h3>
 
           <p
-            data-ar="مشروع بوت Telegram تم تطويره باستخدام Python، ويعكس اهتمامي ببناء الأدوات البرمجية والتطبيقات الرقمية."
-            data-en="A Telegram bot project developed using Python, reflecting my interest in building software tools and digital applications.">
-            مشروع بوت Telegram تم تطويره باستخدام Python، ويعكس اهتمامي ببناء الأدوات البرمجية والتطبيقات الرقمية.
+            data-ar="مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية."
+            data-en="A bot project named AccountX. I'm developing its concept and exploring its features as part of my interest in digital and software tools."
+          >
+            مشروع بوت باسم AccountX، أعمل على تطوير فكرته وتجربة وظائفه ضمن اهتمامي بالأدوات الرقمية والبرمجية.
           </p>
 
-          <span class="project-tag" data-ar="مشروع برمجي" data-en="Software Project">مشروع برمجي</span>
+          <span class="project-tag" data-ar="مشروع رقمي" data-en="Digital Project">مشروع رقمي</span>
 
-          <a class="project-visit"
-            href="https://t.me/accountx2026bot"
-            target="_blank"
-            rel="noopener noreferrer">
-            <span data-ar="اذهب لرؤية المشروع" data-en="Visit the Project">اذهب لرؤية المشروع</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-
+          <a class="project-visit" href="https://t.me/accountx2026bot" target="_blank" rel="noopener noreferrer" data-ar="↗ اذهب لرؤية المشروع" data-en="↗ Visit the Project">↗ اذهب لرؤية المشروع</a>
         </div>
+
       </article>
 
     </div>
   </div>
 </section>
 
-<!-- CV -->
+<!-- CV Section -->
 
 <section id="cv">
   <div class="container">
 
     <div class="section-heading reveal">
       <div class="section-label">MY RESUME</div>
-      <h2 data-ar="السيرة الذاتية" data-en="My Resume">السيرة الذاتية</h2>
-      <p data-ar="تعرف على خلفيتي التعليمية ومهاراتي من خلال السيرة الذاتية باللغتين العربية والإنجليزية." data-en="Explore my educational background and skills through my resume in Arabic and English.">
-        تعرف على خلفيتي التعليمية ومهاراتي من خلال السيرة الذاتية باللغتين العربية والإنجليزية.
+      <h2 data-ar="السيرة الذاتية (CV)" data-en="Resume (CV)">السيرة الذاتية (CV)</h2>
+      <p data-ar="يمكنك الاطلاع على سيرتي الذاتية (CV) باللغتين العربية والإنجليزية." data-en="You can view my resume (CV) in both Arabic and English.">
+        يمكنك الاطلاع على سيرتي الذاتية (CV) باللغتين العربية والإنجليزية.
       </p>
     </div>
 
     <div class="cv-entry-card reveal">
-
       <p class="cv-entry-description"
-        data-ar="للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي."
-        data-en="To access my resume, press the button below.">
+         data-ar="للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي."
+         data-en="To access my resume, press the button below.">
         للوصول إلى نسختي من السيرة الذاتية، اضغط على الزر التالي.
       </p>
 
@@ -2428,12 +2028,10 @@ footer strong {
         data-en="View Resume (CV)">
         رؤية السيرة الذاتية (CV)
       </button>
-
     </div>
+
   </div>
 </section>
-
-<!-- Education -->
 
 <section id="education">
   <div class="container">
@@ -2441,9 +2039,6 @@ footer strong {
     <div class="section-heading reveal">
       <div class="section-label">EDUCATION</div>
       <h2 data-ar="التعليم" data-en="Education">التعليم</h2>
-      <p data-ar="أواصل رحلتي التعليمية بالتوازي مع تطوير مهاراتي التقنية." data-en="Continuing my education alongside developing my technical skills.">
-        أواصل رحلتي التعليمية بالتوازي مع تطوير مهاراتي التقنية.
-      </p>
     </div>
 
     <div class="education-card reveal">
@@ -2453,7 +2048,8 @@ footer strong {
         <h3 data-ar="المرحلة الثانوية" data-en="High School">المرحلة الثانوية</h3>
         <p
           data-ar="الصف الثاني الثانوي (نظام البكالوريا المصرية)&#10;أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني."
-          data-en="Second year of high school (Egyptian Baccalaureate System)&#10;Continuing my studies alongside learning programming and cybersecurity.">
+          data-en="Second year of high school (Egyptian Baccalaureate System)&#10;Continuing my studies alongside learning programming and cybersecurity."
+        >
           الصف الثاني الثانوي (نظام البكالوريا المصرية)
           أواصل دراستي بالتوازي مع تعلم البرمجة والأمن السيبراني.
         </p>
@@ -2463,60 +2059,56 @@ footer strong {
   </div>
 </section>
 
-<!-- Contact -->
-
 <section id="contact">
   <div class="container">
 
     <div class="section-heading reveal">
       <div class="section-label">GET IN TOUCH</div>
-      <h2 data-ar="لنتواصل معًا" data-en="Let's Connect">لنتواصل معًا</h2>
-      <p data-ar="يمكنك التواصل معي من خلال وسائل الاتصال التالية." data-en="You can reach me through the following contact methods.">
-        يمكنك التواصل معي من خلال وسائل الاتصال التالية.
-      </p>
+      <h2 data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
     </div>
 
     <div class="contact-card reveal">
-
       <h3 data-ar="هل ترغب في التواصل معي؟" data-en="Would you like to contact me?">
         هل ترغب في التواصل معي؟
       </h3>
 
       <p
         data-ar="يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك."
-        data-en="I'd be glad to receive your messages and questions. Choose your preferred way to contact me.">
+        data-en="I'd be glad to receive your messages and questions. Choose your preferred way to contact me."
+      >
         يسعدني استقبال رسائلك واستفساراتك. اختر وسيلة التواصل المناسبة لك.
       </p>
 
       <div class="contact-links">
 
-        <a class="contact-link whatsapp-link"
+        <a
+          class="contact-link whatsapp-link"
           href="https://wa.me/201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
           target="_blank"
-          rel="noopener noreferrer">
-
+          rel="noopener noreferrer"
+        >
           <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
             <path d="M16 .8A15.1 15.1 0 0 0 3.1 23.7L1 31l7.5-2A15.1 15.1 0 1 0 16 .8zm0 27.5a12.3 12.3 0 0 1-6.3-1.7l-.5-.3-4.5 1.2 1.2-4.4-.3-.5A12.3 12.3 0 1 1 16 28.3zm6.8-9.2c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.3-2.9-.3-.7-.7-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.7 5.9.9.4 1.7.6 2.2.7.9.3 1.8.2 2.4.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
           </svg>
-
           <span data-ar="تواصل معي عبر واتساب" data-en="Contact Me via WhatsApp">تواصل معي عبر واتساب</span>
         </a>
 
-        <a class="contact-link telegram-link"
+        <a
+          class="contact-link telegram-link"
           href="https://t.me/+201222234193?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20Antonyos%20Botros%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83."
           target="_blank"
-          rel="noopener noreferrer">
-
+          rel="noopener noreferrer"
+        >
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.8 3.2c.3-1.1-.8-2-1.8-1.6L2.4 8.4c-1.2.5-1.2 2.2.1 2.6l4.5 1.4 1.7 5.3c.4 1.2 1.9 1.5 2.7.5l2.5-3.1 4.6 3.4c1 .7 2.4.2 2.6-1l.7-14.3zM8.1 12l9.9-6.2-7.8 7.4-.3 3.2L8.1 12z"/>
           </svg>
-
           <span data-ar="تواصل معي عبر تليجرام" data-en="Contact Me via Telegram">تواصل معي عبر تليجرام</span>
         </a>
 
-        <a class="contact-link gmail-link"
-          href="mailto:antonyosbotros030@gmail.com?subject=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D9%86%20%D8%AE%D9%84%D8%A7%D9%84%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A">
-
+        <a
+          class="contact-link gmail-link"
+          href="mailto:antonyosbotros030@gmail.com?subject=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D9%86%20%D8%AE%D9%84%D8%A7%D9%84%20%D9%85%D9%88%D9%82%D8%B9%D9%83%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A"
+        >
           <svg viewBox="0 0 48 36" aria-label="Gmail" role="img">
             <path fill="#4285F4" d="M4 5.5C4 3.6 5.6 2 7.5 2H11v30H7.5C5.6 32 4 30.4 4 28.5v-23z"/>
             <path fill="#34A853" d="M37 2h3.5C42.4 2 44 3.6 44 5.5v23c0 1.9-1.6 3.5-3.5 3.5H37V2z"/>
@@ -2525,7 +2117,6 @@ footer strong {
             <path fill="#FBBC04" d="M44 6.2l-7 5.5V32h3.5c1.9 0 3.5-1.6 3.5-3.5V6.2z"/>
             <path fill="#EA4335" d="M11 2.5L24 12.6 37 2.5V11L24 21.2 11 11V2.5z"/>
           </svg>
-
           <span data-ar="تواصل معي عبر البريد الإلكتروني" data-en="Contact Me via Email">تواصل معي عبر البريد الإلكتروني</span>
         </a>
 
@@ -2541,8 +2132,7 @@ footer strong {
   <div class="container">
     <p>
       © <span id="year"></span>
-      <strong>ANTONYOS BOTROS</strong>
-      —
+      <strong>ANTONYOS BOTROS</strong> —
       <span data-ar="جميع الحقوق محفوظة" data-en="All Rights Reserved">جميع الحقوق محفوظة</span>
     </p>
   </div>
@@ -2700,7 +2290,7 @@ themeBtn.addEventListener("click", () => {
   const isDark = document.body.classList.contains("dark");
 
   document.querySelector('meta[name="theme-color"]').content =
-    isDark ? "#090c18" : "#f4f6fc";
+    isDark ? "#090b16" : "#f5f7ff";
 });
 
 /* Language switch */
@@ -3517,26 +3107,38 @@ cvActionButtons.forEach(button => {
 
 window.addEventListener("popstate", () => {
 
+  /* إغلاق عارض الصور أولًا */
+
   if (imageViewer.classList.contains("show")) {
     closeImageViewer(null, true);
     return;
   }
+
+  /* إغلاق صفحة السيرة الذاتية */
 
   if (cvFullscreen.classList.contains("show")) {
     closeCvPage(true);
     return;
   }
 
+  /* إغلاق نافذة الباسورد */
+
   if (cvGateOverlay.classList.contains("show")) {
     closeCvGate(true);
     return;
   }
+
+  /* إغلاق القائمة الجانبية */
 
   if (sideMenu.classList.contains("show")) {
     hideMenu(true);
     return;
   }
 
+  /*
+  لا يوجد أي overlay مفتوح:
+  نترك المتصفح يكمل الرجوع الطبيعي إلى الصفحة السابقة.
+  */
 });
 
 /* Close windows with Escape */
