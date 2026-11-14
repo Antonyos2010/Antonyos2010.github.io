@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "io.github.antonyos2010.twa",
-        "sha256_cert_fingerprints": ["40:02:CE:A4:3D:81:9B:49:7C:70:61:D6:81:31:15:65:84:D5:32:D0:E5:BE:8D:ED:57:19:90:0F:8D:22:C9:54"]
+        "sha256_cert_fingerprints": ["25:AA:C2:D7:8A:CE:15:72:89:6D:88:16:43:94:4A:15:5E:C9:FA:9A:FD:BC:A8:28:ED:E8:F9:B4:BF:AD:B2:E2"]
       }
     }]
